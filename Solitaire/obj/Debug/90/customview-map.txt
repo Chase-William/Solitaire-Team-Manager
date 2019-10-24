@@ -1,0 +1,63 @@
+adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
+adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+android.support.v7.widget.CardView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout\cardviewholder.xml
+android.support.v7.widget.Toolbar;obj\Debug\90\res\layout\toolbar.xml
+background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
+background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+Button;obj\Debug\90\res\layout\create_deck_dialog.xml
+cache-path;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+color;obj\Debug\90\res\values\colors.xml
+color;obj\Debug\90\res\values\ic_launcher_background.xml
+corners;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\drawable\roundedcorner.xml
+external-cache-path;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
+foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
+FrameLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout\cardviewholder.xml
+HorizontalScrollView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout\defaultcardview.xml
+HorizontalScrollView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout-ldrtl\defaultcardview.xml
+include;obj\Debug\90\res\layout\activity_main.xml
+include;obj\Debug\90\res\layout\use_board_activity.xml
+item;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\drawable\ripple.xml
+item;obj\Debug\90\res\menu\main_menu.xml
+item;obj\Debug\90\res\menu\use_board_menu.xml
+item;obj\Debug\90\res\values\styles.xml
+layer-list;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\drawable\ripple.xml
+LinearLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout\defaultcardview.xml
+LinearLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout-ldrtl\defaultcardview.xml
+LinearLayout;obj\Debug\90\res\layout\activity_main.xml
+LinearLayout;obj\Debug\90\res\layout\create_deck_dialog.xml
+LinearLayout;obj\Debug\90\res\layout\use_board_activity.xml
+ListView;obj\Debug\90\res\layout\activity_main.xml
+menu;obj\Debug\90\res\menu\main_menu.xml
+menu;obj\Debug\90\res\menu\use_board_menu.xml
+objectAnimator;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\anim\path_morph_hide.xml
+objectAnimator;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\anim\path_morph_show.xml
+paths;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+RelativeLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout\defaultcardview.xml
+RelativeLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout-ldrtl\defaultcardview.xml
+RelativeLayout;obj\Debug\90\res\layout\board_row.xml
+RelativeLayout;obj\Debug\90\res\layout\create_deck_dialog.xml
+resources;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\values\strings.xml
+resources;obj\Debug\90\res\values\colors.xml
+resources;obj\Debug\90\res\values\ic_launcher_background.xml
+resources;obj\Debug\90\res\values\strings.xml
+resources;obj\Debug\90\res\values\styles.xml
+ripple;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\drawable\ripple.xml
+set;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\anim\path_morph_hide.xml
+set;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\anim\path_morph_show.xml
+shape;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\drawable\ripple.xml
+shape;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\drawable\roundedcorner.xml
+solid;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\drawable\roundedcorner.xml
+string;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\values\strings.xml
+string;obj\Debug\90\res\values\strings.xml
+style;obj\Debug\90\res\values\styles.xml
+Syncfusion.SfKanban.Android.IndicatorView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout\defaultcardview.xml
+Syncfusion.SfKanban.Android.IndicatorView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout-ldrtl\defaultcardview.xml
+Syncfusion.SfKanban.Android.KanbanCircleImage;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout\defaultcardview.xml
+Syncfusion.SfKanban.Android.KanbanCircleImage;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout-ldrtl\defaultcardview.xml
+Syncfusion.SfKanban.Android.SfKanban;obj\Debug\90\res\layout\use_board_activity.xml
+TextView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout\defaultcardview.xml
+TextView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout-ldrtl\defaultcardview.xml
+TextView;obj\Debug\90\res\layout\board_row.xml
+TextView;obj\Debug\90\res\layout\create_deck_dialog.xml
