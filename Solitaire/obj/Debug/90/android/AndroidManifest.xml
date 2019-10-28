@@ -5,7 +5,9 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:name="android.app.Application" android:debuggable="true">
-    <activity android:label="@string/app_name" android:theme="@style/AppTheme" android:name="md5991b3296029042025ad7970fd527090b.MainActivity">
+    <activity android:label="DetailsCard" android:name="md5991b3296029042025ad7970fd527090b.DetailsCard" />
+    <activity android:label="EditCard" android:name="md5991b3296029042025ad7970fd527090b.EditCard" />
+    <activity android:label="@string/app_name" android:theme="@style/AppTheme" android:name="md5991b3296029042025ad7970fd527090b.ListBoardsMainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

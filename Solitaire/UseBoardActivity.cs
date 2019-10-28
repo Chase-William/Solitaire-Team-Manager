@@ -20,8 +20,8 @@ namespace Solitaire
     [Activity(Label = "UseBoardActivity")]
     public class UseBoardActivity : AppCompatActivity
     {
-        Board thisBoard;
-        SfKanban thisKanban;
+        public Board thisBoard;
+        private static List<object> AllSupportedCategories = new List<object>();
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -32,23 +32,22 @@ namespace Solitaire
 
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Your Board";
-            SetSupportActionBar(toolbar);
-
-            thisKanban = FindViewById<SfKanban>(Resource.Id.kanban);
+            SetSupportActionBar(toolbar);                        
+            
             
 
             // Getting the extra "id" we passed which will enable use to reference our Board
             long id = this.Intent.GetLongExtra("Id", -1);
-            
-            // -1 will signify that this is a new board and that we need to generate it's default setup
-            if (id == -1)
-                InitDefaultBoard();
-            // Otherwise load a pre-existing board
-            else                            
-                LoadBoard(id);
+            bool needsInit = this.Intent.GetBooleanExtra("NeedInit", true);
 
-            
+            // If the board needs initalization run:
+            if (needsInit)
+                InitDefaultBoard();
+            // Otherwise load a pre-existing board:
+            else                            
+                LoadBoard(id);           
         }
+
 
         ///
         /// 
@@ -72,16 +71,15 @@ namespace Solitaire
             switch (item.TitleFormatted.ToString())
             {
                 // If Add Column is clicked we need to create a new default column
-                case "Add Column":
+                case "Add Deck":
 
-                    CreateDeckDialog d = new CreateDeckDialog(this);
-                    d.Show();
+                    new CreateDeckDialog(this);
+                    
+                    break;
+                case "Add Card":
 
-                    //var instructorDialog = new Android.Support.V7.App.AlertDialog.Builder(this);
-                    //instructorDialog.SetMessage($"{InstructorData.instructors[e.Position].InstructorName}\n{InstructorData.instructors[e.Position].Proficiency}");
-                    //instructorDialog.SetNeutralButton("Ok", delegate { });
-                    //instructorDialog.Show();
-                    AddColumn();
+                    new CreateCardDialog(this);
+
                     break;
                 default:
                     break;
@@ -91,25 +89,74 @@ namespace Solitaire
 
         /// 
         /// 
-        ///     Will add a column with default values to the Sfkanban
+        ///     Will add a card to a specified column within the current working board
         /// 
-        ///
-        private void AddColumn()
+        /// 
+        public void AddCard(string _nameCard, string _descriptionCard, string _category)
         {
-            thisKanban.ColumnMappingPath = "Category";
+            // Needed to create a new collection because just appeneding to the original collection as not working
+            ObservableCollection<KanbanModel> tempList = new ObservableCollection<KanbanModel>();            
 
-            KanbanColumn todoColumn = new KanbanColumn(this)
+            foreach (var card in thisBoard.Kanban.ItemsSource)
             {
-                Title = "Default Title",
+                tempList.Add((KanbanModel)card);
+            }
+
+            tempList.Add(new KanbanModel()
+            {
+                ID = 1,
+                Title = _nameCard,
+                // Category is where this card is going to determine which deck this card will be inside of on the GUI
+                Category = _category
+            });
+
+            thisBoard.Kanban.ItemsSource = tempList;            
+        }
+
+        /// 
+        /// 
+        ///     Will add a column with default values to the current working board
+        ///  
+        ///
+        public void AddDeck(string _nameColumn, string _descriptionColumn)
+        {
+            AllSupportedCategories.Add(_nameColumn);
+
+            KanbanColumn newDeck = new KanbanColumn(this)
+            {
+                Title = _nameColumn,
                 MinimumLimit = 0,
                 MaximumLimit = 10,
-                Categories = new List<object>() { "Default Categories" }
+                // Categories is a list of all the "categories" this deck supports
+                Categories = new List<object>() {  _nameColumn }
             };
-            todoColumn.ErrorBarSettings.Color = Color.Green;
-            todoColumn.ErrorBarSettings.MinValidationColor = Color.Orange;
-            todoColumn.ErrorBarSettings.MaxValidationColor = Color.Red;
-            todoColumn.ErrorBarSettings.Height = 4;
-            thisKanban.Columns.Add(todoColumn);
+
+
+
+            // TODO: Need to add a description area or something
+
+
+
+
+            // Some pretty stuff
+            newDeck.ContentDescription = _descriptionColumn;
+            newDeck.ErrorBarSettings.Color = Color.Green;
+            newDeck.ErrorBarSettings.MinValidationColor = Color.Orange;
+            newDeck.ErrorBarSettings.MaxValidationColor = Color.Red;
+            newDeck.ErrorBarSettings.Height = 4;
+
+
+            // We need to add this kanbanWorkflow because it will be used when moving and deciding where cards shall be placed 
+            thisBoard.Kanban.Workflows.Add(new KanbanWorkflow()
+            {
+                Category = _nameColumn,
+                AllowedTransitions = AllSupportedCategories
+            });
+            
+           
+
+
+            thisBoard.Kanban.Columns.Add(newDeck);
         }
 
         /// 
@@ -119,25 +166,24 @@ namespace Solitaire
         ///
         private void InitDefaultBoard()
         {
+            // First we need to create a default board
             thisBoard = new Board("Default Name", "Default Description");
-            
-            thisKanban.ColumnMappingPath = "Category";
+            // Then we can assign the kanban instance to ti
+            thisBoard.Kanban = FindViewById<SfKanban>(Resource.Id.kanban);
 
-            KanbanColumn todoColumn = new KanbanColumn(this)
+            //thisBoard.Kanban.ColumnMappingPath = "Category";
+
+            // When a card is clicked it will launch a dialog asking for user input on what should be done next
+            thisBoard.Kanban.ItemTapped += (e, a) =>
             {
-                Title = "Default Title",
-                MinimumLimit = 0,
-                MaximumLimit = 10,
-                Categories = new List<object>() { "Default Categories"}
+                new ClickedCardOptionsDialog(this);              
             };
-            todoColumn.ErrorBarSettings.Color = Color.Green;
-            todoColumn.ErrorBarSettings.MinValidationColor = Color.Orange;
-            todoColumn.ErrorBarSettings.MaxValidationColor = Color.Red;
-            todoColumn.ErrorBarSettings.Height = 4;
-            thisKanban.Columns.Add(todoColumn);
 
-            // Assigning this kanban to the board it belongs to
-            thisBoard.SfBoard = thisKanban;           
+            thisBoard.Kanban.ColumnMappingPath = "Category";
+            // Initalizing our Workflows collection
+            thisBoard.Kanban.Workflows = new List<KanbanWorkflow>();
+            // Initalizing our ItemSource collection 
+            thisBoard.Kanban.ItemsSource = new ObservableCollection<KanbanModel>();                    
         }
 
         /// 
@@ -147,8 +193,13 @@ namespace Solitaire
         ///
         private void LoadBoard(long _id)
         {
+            SfKanban workingKanban = FindViewById<SfKanban>(Resource.Id.kanban);
 
-            thisKanban.ColumnMappingPath = "Category";
+            workingKanban = thisBoard.Kanban;
+
+            // Need to test this and stuff laters
+
+            thisBoard.Kanban.ColumnMappingPath = "Category";
 
             KanbanColumn todoColumn = new KanbanColumn(this);
             todoColumn.Title = "To Do";
@@ -159,24 +210,24 @@ namespace Solitaire
             todoColumn.ErrorBarSettings.MaxValidationColor = Color.Red;
             todoColumn.ErrorBarSettings.Height = 4;
             todoColumn.Categories = new List<object>() { "Open" };
-            thisKanban.Columns.Add(todoColumn);
+            thisBoard.Kanban.Columns.Add(todoColumn);
 
             KanbanColumn progressColumn = new KanbanColumn(this);
             progressColumn.Title = "In Progress";
             progressColumn.Categories = new List<object>() { "In Progress" };
-            thisKanban.Columns.Add(progressColumn);
+            thisBoard.Kanban.Columns.Add(progressColumn);
 
             KanbanColumn codeColumn = new KanbanColumn(this);
             codeColumn.Title = "Code Review";
             codeColumn.Categories = new List<object>() { "Code Review" };
-            thisKanban.Columns.Add(codeColumn);
+            thisBoard.Kanban.Columns.Add(codeColumn);
 
             KanbanColumn doneColumn = new KanbanColumn(this);
             doneColumn.Title = "Done";
             doneColumn.Categories = new List<object>() { "Done" };
-            thisKanban.Columns.Add(doneColumn);
+            thisBoard.Kanban.Columns.Add(doneColumn);
 
-            thisKanban.ItemsSource = ItemsSourceCards();
+            thisBoard.Kanban.ItemsSource = ItemsSourceCards();
 
             List<KanbanWorkflow> workflows = new List<KanbanWorkflow>();
 
@@ -190,7 +241,7 @@ namespace Solitaire
 
             workflows.Add(openWorkflow);
             workflows.Add(progressWorkflow);
-            thisKanban.Workflows = workflows;
+            thisBoard.Kanban.Workflows = workflows;
 
             
 
@@ -265,6 +316,6 @@ namespace Solitaire
 
                 return cards;
             }        
-        }        
+        }
     }
 }

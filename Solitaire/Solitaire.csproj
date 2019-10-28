@@ -61,11 +61,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardAdapter.cs" />
+    <Compile Include="ClickedCardOptionsDialog.cs" />
+    <Compile Include="CreateBoardDialog.cs" />
+    <Compile Include="CreateCardDialog.cs" />
     <Compile Include="CreateDeckDialog.cs" />
+    <Compile Include="DetailsCard.cs" />
+    <Compile Include="EditCard.cs" />
     <Compile Include="Lang\Board.cs" />
     <Compile Include="Lang\IdManager.cs" />
     <Compile Include="Lang\SolitaireType.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="ListBoardsMainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestData.cs" />
@@ -144,6 +149,26 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\create_deck_dialog.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\create_card_dialog.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\category_spinner_row.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\clicked_card_options_dialog.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\create_board_dialog.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

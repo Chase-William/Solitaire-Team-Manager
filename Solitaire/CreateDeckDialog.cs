@@ -15,7 +15,9 @@ namespace Solitaire
 {
     public class CreateDeckDialog : Dialog
     {
-        public CreateDeckDialog(Context _context) : base(_context) { }
+        UseBoardActivity callerInstance;
+
+        public CreateDeckDialog(Context _context) : base(_context) { callerInstance = (UseBoardActivity)_context; this.Show(); }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -23,11 +25,31 @@ namespace Solitaire
             RequestWindowFeature((int)WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.create_deck_dialog);
 
-            Button cancel = (Button)FindViewById(Resource.Id.button_cancel);
-            cancel.Click += (e, a) =>
+            var createDeckBtn = FindViewById<Button>(Resource.Id.createDeckBtn);
+            var cancelDeckBtn = FindViewById<Button>(Resource.Id.cancelDeckBtn);
+
+            // Dismisses dialog and creates a new deck
+            createDeckBtn.Click += (e, a) =>
+            {
+                string name = FindViewById<EditText>(Resource.Id.nameEditTextDialog).Text.Trim();
+
+                // Checks to make sure this name doesnt not already exist within the respective board, because we will be using the board's title as the category name
+                if (name != "" && callerInstance.thisBoard.Kanban.Columns.All(deck => deck.Title != name))
+                    callerInstance.AddDeck(name, FindViewById<EditText>(Resource.Id.descriptionTextDialog).Text.Trim());
+                else
+                {
+                    Toast.MakeText(callerInstance, "This Name is already used.", ToastLength.Long);
+                    return;
+                }
+
+                Dismiss();
+            };
+
+            // Dismisses the dialog without creating a new deck
+            cancelDeckBtn.Click += (e, a) =>
             {
                 Dismiss();
             };
-        }
+        }     
     }
 }

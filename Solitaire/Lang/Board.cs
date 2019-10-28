@@ -16,8 +16,8 @@ namespace Solitaire.Lang
     public class Board : SolitaireType
     {
         public Board(string _name, string _description) : base (_name, _description) { }        
-        private SfKanban sfBoard;
+        private SfKanban kanban;
 
-        public SfKanban SfBoard { get { return sfBoard; } set { sfBoard = value; } }
+        public SfKanban Kanban { get { return kanban; } set { kanban = value; } }
     }    
 }

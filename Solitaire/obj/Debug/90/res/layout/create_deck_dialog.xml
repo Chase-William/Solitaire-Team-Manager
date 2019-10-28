@@ -1,1 +1,51 @@
-<LinearLayout android:orientation="vertical" android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingTop="16dp" android:paddingLeft="16dp" android:paddingRight="16dp" xmlns:android="http://schemas.android.com/apk/res/android"><TextView android:id="@+id/textview_title" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="20sp" android:text="Red Alert" /><LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:orientation="horizontal" android:layout_marginTop="16dp"><TextView android:id="@+id/textview_message" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_marginTop="5dp" android:textSize="16sp" android:text="Wow, I'm a Custom Alert Dialog!" android:layout_marginLeft="10dp" /></LinearLayout><RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content"><Button android:id="@+id/button_cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_alignParentRight="true" android:text="Ok..." android:background="@android:color/transparent" /></RelativeLayout></LinearLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+  
+  <TextView
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:textSize="20dp"
+      android:text="Add New Deck" />
+  
+  <LinearLayout
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:orientation="vertical"
+      android:layout_marginTop="16dp">
+    
+    <EditText
+        android:id="@+id/nameEditTextDialog"
+        style="@style/CustomDialogEditText"
+        android:hint="Deck Name" />
+
+    <EditText
+        android:id="@+id/descriptionTextDialog"
+        style="@style/CustomDialogEditText"
+        android:hint="Deck Description" />
+    
+  </LinearLayout>
+  
+  <RelativeLayout
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content">
+    
+    <Button
+      android:id="@+id/createDeckBtn"
+      style="@style/CustomDialogButton"
+      android:layout_alignParentRight="true"
+      android:text="Add" />
+        
+    <Button
+      android:id="@+id/cancelDeckBtn"
+      style="@style/CustomDialogButton"           
+      android:layout_alignParentLeft="true"
+      android:text="Cancel" />   
+    </RelativeLayout>
+  
+</LinearLayout>
