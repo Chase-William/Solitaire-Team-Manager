@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">  
-  <item
-       android:id="@+id/newColumn"
-       app:showAsAction="always"
-       android:title="Add Deck" />
-  <item
-       android:id="@+id/newCard"
-       app:showAsAction="always"
-       android:title="Add Card" />
-</menu>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><item android:id="@+id/newColumn" app:showAsAction="always" android:title="Add Deck" /><item android:id="@+id/newCard" app:showAsAction="always" android:title="Add Card" /></menu>

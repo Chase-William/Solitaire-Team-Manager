@@ -35,11 +35,11 @@ namespace Solitaire
                 long id;
 
                 // Checks to make sure this name doesnt not already exist within the respective board, because we will be using the board's title as the category name
-                if (name != "" && callerInstance.boards.All(boardName => boardName.Name != name))
+                if (name != "" && TestData.boards.All(boardName => boardName.Name != name))
                 {
                     var newBoard = new Board(name, FindViewById<EditText>(Resource.Id.descriptionTextDialog).Text.Trim());
                     id = newBoard.Id;
-                    callerInstance.boards.Add(newBoard);
+                    TestData.boards.Add(newBoard);
                 }                    
                 else
                 {

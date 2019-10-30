@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Android.Views;
 using Android.Content;
 using Syncfusion.SfKanban.Android;
+using System.Net.Sockets;
 
 namespace Solitaire
 {
@@ -15,9 +16,8 @@ namespace Solitaire
     public class ListBoardsMainActivity : AppCompatActivity
     {
         ListView boardListView;
-        public List<Board> boards = new List<Board>();
         protected override void OnCreate(Bundle savedInstanceState)
-        {
+        {            
             // Register Syncfusion license
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTYwMzA1QDMxMzcyZTMzMmUzME9GL1JjUEZoc09tTDJrdEtEdXgvUkZRQXQrMzBESzVCY2djRmExc0lFOTg9");
 
@@ -25,7 +25,6 @@ namespace Solitaire
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            boards = TestData.boards;
 
             // Setting our toolbar to our custom created one we included into main_activity.xml
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
@@ -35,8 +34,14 @@ namespace Solitaire
             boardListView = FindViewById<ListView>(Resource.Id.boardListView);
 
             //boardListView.ItemClick += ProjectListViewItemClicked;
-            boardListView.Adapter = new BoardAdapter(boards);
+            boardListView.Adapter = new BoardAdapter(TestData.boards);
             boardListView.ItemClick += BoardListViewItemClicked;
+
+            // Checking if connection to server is available,  providing feedback to user about connection status
+            if (ClientManager.TryServerConnection())
+                Toast.MakeText(this, "Connection Established", ToastLength.Long).Show();
+            else
+                Toast.MakeText(this, "Connection Failure", ToastLength.Long).Show();
         }
 
         ///
@@ -48,6 +53,7 @@ namespace Solitaire
         {
             Intent useSelectedBoard = new Intent(this, typeof(UseBoardActivity));
             useSelectedBoard.PutExtra("Id", e.Id);
+            useSelectedBoard.PutExtra("NeedInit", false);
             StartActivity(useSelectedBoard);
         }
 
@@ -75,6 +81,9 @@ namespace Solitaire
                 case "New Board":
                     new CreateBoardDialog(this);                    
                     break;
+                case "Test Server":
+                    ClientManager.SendMessage();
+                    break;
                 default:
                     break;
             }
@@ -87,7 +96,7 @@ namespace Solitaire
         protected override void OnResume()
         {
             base.OnResume();
-            boardListView.Adapter = new BoardAdapter(boards);
+            boardListView.Adapter = new BoardAdapter(TestData.boards);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

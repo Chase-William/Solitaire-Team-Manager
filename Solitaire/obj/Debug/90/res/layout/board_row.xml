@@ -1,13 +1,2 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="60dp">
 
-    <TextView
-        android:id="@+id/boardName"
-        android:text="-- Board Name -- "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-</RelativeLayout>
+  <RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="60dp" xmlns:android="http://schemas.android.com/apk/res/android"><TextView android:id="@+id/boardName" android:text="-- Board Name -- " android:layout_width="wrap_content" android:layout_height="wrap_content" /><LinearLayout android:layout_below="@id/boardName" android:layout_width="match_parent" android:layout_height="wrap_content"><TextView android:id="@+id/totalDecksLabel" android:text="Decks:" android:layout_below="@id/boardName" android:layout_width="wrap_content" android:layout_height="wrap_content" /><TextView android:id="@+id/totalDecks" android:text="-- Total Decks --" android:layout_toRightOf="@id/totalDecksLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" /><TextView android:id="@+id/divider" android:text="|" android:layout_toRightOf="@id/totalDecks" android:layout_width="wrap_content" android:layout_height="wrap_content" /><TextView android:id="@+id/totalCardsLabel" android:text="Cards:" android:layout_width="wrap_content" android:layout_height="wrap_content" /><TextView android:id="@+id/totalCards" android:text="-- Total Cards --" android:layout_toRightOf="@id/totalCardsLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" /></LinearLayout></RelativeLayout>

@@ -21,7 +21,11 @@ namespace Solitaire
     public class UseBoardActivity : AppCompatActivity
     {
         public Board thisBoard;
-        private static List<object> AllSupportedCategories = new List<object>();
+        public SfKanban thisKanban;
+        private List<object> allSupportedCategories = new List<object>();
+
+
+        // TODO: After saving a deck, when reopenned the content dont automatically appear when created, Check for list type when assigned in? ObservableCollection might doing more than we think for us
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -32,8 +36,8 @@ namespace Solitaire
 
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Your Board";
-            SetSupportActionBar(toolbar);                        
-            
+            SetSupportActionBar(toolbar);
+
             
 
             // Getting the extra "id" we passed which will enable use to reference our Board
@@ -42,10 +46,10 @@ namespace Solitaire
 
             // If the board needs initalization run:
             if (needsInit)
-                InitDefaultBoard();
+                InitDefaultBoard(id);
             // Otherwise load a pre-existing board:
             else                            
-                LoadBoard(id);           
+                LoadBoardIntoKanban(id);           
         }
 
 
@@ -92,7 +96,7 @@ namespace Solitaire
         ///     Will add a card to a specified column within the current working board
         /// 
         /// 
-        public void AddCard(string _nameCard, string _descriptionCard, string _category)
+        public void AddCard(string _nameCard, string _descriptionCard, string _parentDeck)
         {
             // Needed to create a new collection because just appeneding to the original collection as not working
             ObservableCollection<KanbanModel> tempList = new ObservableCollection<KanbanModel>();            
@@ -107,7 +111,7 @@ namespace Solitaire
                 ID = 1,
                 Title = _nameCard,
                 // Category is where this card is going to determine which deck this card will be inside of on the GUI
-                Category = _category
+                Category = _parentDeck
             });
 
             thisBoard.Kanban.ItemsSource = tempList;            
@@ -115,12 +119,12 @@ namespace Solitaire
 
         /// 
         /// 
-        ///     Will add a column with default values to the current working board
+        ///     Will add a column with the user's provided values
         ///  
         ///
         public void AddDeck(string _nameColumn, string _descriptionColumn)
         {
-            AllSupportedCategories.Add(_nameColumn);
+            allSupportedCategories.Add(_nameColumn);
 
             KanbanColumn newDeck = new KanbanColumn(this)
             {
@@ -137,7 +141,6 @@ namespace Solitaire
 
 
 
-
             // Some pretty stuff
             newDeck.ContentDescription = _descriptionColumn;
             newDeck.ErrorBarSettings.Color = Color.Green;
@@ -145,17 +148,12 @@ namespace Solitaire
             newDeck.ErrorBarSettings.MaxValidationColor = Color.Red;
             newDeck.ErrorBarSettings.Height = 4;
 
-
             // We need to add this kanbanWorkflow because it will be used when moving and deciding where cards shall be placed 
             thisBoard.Kanban.Workflows.Add(new KanbanWorkflow()
             {
                 Category = _nameColumn,
-                AllowedTransitions = AllSupportedCategories
-            });
-            
-           
-
-
+                AllowedTransitions = allSupportedCategories
+            });                       
             thisBoard.Kanban.Columns.Add(newDeck);
         }
 
@@ -164,10 +162,11 @@ namespace Solitaire
         ///     Creates default board & applies it to the UI
         ///
         ///
-        private void InitDefaultBoard()
+        private void InitDefaultBoard(long _id)
         {
-            // First we need to create a default board
-            thisBoard = new Board("Default Name", "Default Description");
+            // Assign the board that
+            thisBoard = TestData.boards.Single(board => board.Id == _id);
+
             // Then we can assign the kanban instance to ti
             thisBoard.Kanban = FindViewById<SfKanban>(Resource.Id.kanban);
 
@@ -179,7 +178,6 @@ namespace Solitaire
                 new ClickedCardOptionsDialog(this);              
             };
 
-            thisBoard.Kanban.ColumnMappingPath = "Category";
             // Initalizing our Workflows collection
             thisBoard.Kanban.Workflows = new List<KanbanWorkflow>();
             // Initalizing our ItemSource collection 
@@ -191,131 +189,227 @@ namespace Solitaire
         ///     Loads an pre-existing board & applies it to the UI
         /// 
         ///
-        private void LoadBoard(long _id)
+        private void LoadBoardIntoKanban(long _id)
         {
-            SfKanban workingKanban = FindViewById<SfKanban>(Resource.Id.kanban);
+            thisBoard = TestData.boards.Single(board => board.Id == _id);
 
-            workingKanban = thisBoard.Kanban;
+            // Then we can assign the kanban instance to ti
+            thisKanban = FindViewById<SfKanban>(Resource.Id.kanban);
 
-            // Need to test this and stuff laters
 
-            thisBoard.Kanban.ColumnMappingPath = "Category";
+            /*
+             
+                First we init the Decks and their workflows
 
-            KanbanColumn todoColumn = new KanbanColumn(this);
-            todoColumn.Title = "To Do";
-            todoColumn.MinimumLimit = 5;
-            todoColumn.MaximumLimit = 10;
-            todoColumn.ErrorBarSettings.Color = Color.Green;
-            todoColumn.ErrorBarSettings.MinValidationColor = Color.Orange;
-            todoColumn.ErrorBarSettings.MaxValidationColor = Color.Red;
-            todoColumn.ErrorBarSettings.Height = 4;
-            todoColumn.Categories = new List<object>() { "Open" };
-            thisBoard.Kanban.Columns.Add(todoColumn);
+                Then we init the cards
+                
+            */
 
-            KanbanColumn progressColumn = new KanbanColumn(this);
-            progressColumn.Title = "In Progress";
-            progressColumn.Categories = new List<object>() { "In Progress" };
-            thisBoard.Kanban.Columns.Add(progressColumn);
-
-            KanbanColumn codeColumn = new KanbanColumn(this);
-            codeColumn.Title = "Code Review";
-            codeColumn.Categories = new List<object>() { "Code Review" };
-            thisBoard.Kanban.Columns.Add(codeColumn);
-
-            KanbanColumn doneColumn = new KanbanColumn(this);
-            doneColumn.Title = "Done";
-            doneColumn.Categories = new List<object>() { "Done" };
-            thisBoard.Kanban.Columns.Add(doneColumn);
-
-            thisBoard.Kanban.ItemsSource = ItemsSourceCards();
-
-            List<KanbanWorkflow> workflows = new List<KanbanWorkflow>();
-
-            KanbanWorkflow openWorkflow = new KanbanWorkflow();
-            openWorkflow.Category = "Open";
-            openWorkflow.AllowedTransitions = new List<object> { "In Progress" };
-
-            KanbanWorkflow progressWorkflow = new KanbanWorkflow();
-            progressWorkflow.Category = "In Progress";
-            progressWorkflow.AllowedTransitions = new List<object> { "Open", "Code Review", "Closed-No Code Changes" };
-
-            workflows.Add(openWorkflow);
-            workflows.Add(progressWorkflow);
-            thisBoard.Kanban.Workflows = workflows;
-
-            
-
-            ObservableCollection<KanbanModel> ItemsSourceCards()
+            // Initializing all KanbanColumns with data from the list of decks in board
+            foreach (Deck deck in thisBoard.Decks)
             {
-                ObservableCollection<KanbanModel> cards = new ObservableCollection<KanbanModel>();
+                var newDeck = new KanbanColumn(this)
+                {
+                    Title = deck.Name,
+                    ContentDescription = deck.Description,
+                    MinimumLimit = 0,
+                    MaximumLimit = 5,
+                    Categories = new List<object>() { deck.Name }
+                };
+                newDeck.ErrorBarSettings.Color = Color.Green;
+                newDeck.ErrorBarSettings.MinValidationColor = Color.Orange;
+                newDeck.ErrorBarSettings.MaxValidationColor = Color.Red;
+                newDeck.ErrorBarSettings.Height = 4;
+                thisKanban.Columns.Add(newDeck);
 
-                cards.Add(
-                    new KanbanModel()
-                    {
-                        ID = 1,
-                        Title = "iOS - 1002",
-                        ImageURL = "Image1.png",
-                        Category = "Open",
-                        Description = "Analyze customer requirements",
-                        ColorKey = "Red",
-                        Tags = new string[] { "Incident", "Customer" }
-                    }
-                );
 
-                cards.Add(
-                    new KanbanModel()
-                    {
-                        ID = 6,
-                        Title = "Xamarin - 4576",
-                        ImageURL = "Image2.png",
-                        Category = "Open",
-                        Description = "Show the retrieved data from the server in grid control",
-                        ColorKey = "Green",
-                        Tags = new string[] { "SfDataGrid", "Customer" }
-                    }
-                );
+                // Initializing the kanban's workflow for each column
+                thisBoard.Kanban.Workflows.Add(new KanbanWorkflow()
+                {
+                    Category = deck.Name,
+                    AllowedTransitions = allSupportedCategories
+                });
+            }
 
-                cards.Add(
-                    new KanbanModel()
-                    {
-                        ID = 13,
-                        Title = "UWP - 13",
-                        ImageURL = "Image4.png",
-                        Category = "In Progress",
-                        Description = "Add responsive support to application",
-                        ColorKey = "Brown",
-                        Tags = new string[] { "Story", "Kanban" }
-                    }
-                );
+            // Initializing all the KanbanModels with data from the list of cards
+            ObservableCollection<KanbanModel> tempList = new ObservableCollection<KanbanModel>();
+            foreach (Card card in thisBoard.Cards)
+            {
+                tempList.Add(new KanbanModel()
+                {
+                    ID = card.Id,
+                    Title = card.Name,
+                    Category = card.ParentDeck
+                });
+            }
+            thisKanban.ItemsSource = tempList;
 
-                cards.Add(
-                    new KanbanModel()
-                    {
-                        ID = 2543,
-                        Title = "Xamarin_iOS - 2543",
-                        Category = "Code Review",
-                        ImageURL = "Image12.png",
-                        Description = "Provide swimlane support kanban",
-                        ColorKey = "Brown",
-                        Tags = new string[] { "Feature", "SfKanban" }
-                    }
-                );
 
-                cards.Add(
-                    new KanbanModel()
-                    {
-                        ID = 1975,
-                        Title = "iOS - 1975",
-                        Category = "Done",
-                        ImageURL = "Image11.png",
-                        Description = "Fix the issues reported by the customer",
-                        ColorKey = "Purple",
-                        Tags = new string[] { "Bug" }
-                    }
-                );
 
-                return cards;
-            }        
+            //// TODO: Need to add a description area or something
+
+
+
+        }
+
+        /// 
+        /// 
+        ///     Takes our kanban values and loads them into the working board for saving
+        /// 
+        /// 
+        public void LoadKanbanIntoBoard(SfKanban _kanban)
+        {
+
+            // Packing our KanbanColumn info into a list to be added onto the board's deck list
+            List<Deck> decks = new List<Deck>();
+            foreach (KanbanColumn deck in _kanban.Columns)
+            {
+                decks.Add(new Deck(deck.Title, deck.ContentDescription));
+            }
+            thisBoard.Decks = decks;
+
+            // Packing our KanbanModel into the a list to be added to the board's cards list
+            List<Card> cards = new List<Card>();
+            foreach (KanbanModel card in _kanban.ItemsSource)
+            {
+                cards.Add(new Card(card.Title, card.Description, card.Category.ToString()));
+            }
+            thisBoard.Cards = cards;
+        }
+
+        /// 
+        /// 
+        ///     Overriding the back button so we automatically save before we exit
+        /// 
+        /// 
+        public override void OnBackPressed()
+        {
+            LoadKanbanIntoBoard(thisBoard.Kanban);
+            base.OnBackPressed();
         }
     }
 }
+
+
+// SfKanban workingKanban = FindViewById<SfKanban>(Resource.Id.kanban);
+
+//workingKanban = thisBoard.Kanban;
+
+//            // Need to test this and stuff laters
+
+//            thisBoard.Kanban.ColumnMappingPath = "Category";
+
+//            KanbanColumn todoColumn = new KanbanColumn(this);
+//todoColumn.Title = "To Do";
+//            todoColumn.MinimumLimit = 5;
+//            todoColumn.MaximumLimit = 10;
+//            todoColumn.ErrorBarSettings.Color = Color.Green;
+//            todoColumn.ErrorBarSettings.MinValidationColor = Color.Orange;
+//            todoColumn.ErrorBarSettings.MaxValidationColor = Color.Red;
+//            todoColumn.ErrorBarSettings.Height = 4;
+//            todoColumn.Categories = new List<object>() { "Open" };
+//            thisBoard.Kanban.Columns.Add(todoColumn);
+
+//            KanbanColumn progressColumn = new KanbanColumn(this);
+//progressColumn.Title = "In Progress";
+//            progressColumn.Categories = new List<object>() { "In Progress" };
+//            thisBoard.Kanban.Columns.Add(progressColumn);
+
+//            KanbanColumn codeColumn = new KanbanColumn(this);
+//codeColumn.Title = "Code Review";
+//            codeColumn.Categories = new List<object>() { "Code Review" };
+//            thisBoard.Kanban.Columns.Add(codeColumn);
+
+//            KanbanColumn doneColumn = new KanbanColumn(this);
+//doneColumn.Title = "Done";
+//            doneColumn.Categories = new List<object>() { "Done" };
+//            thisBoard.Kanban.Columns.Add(doneColumn);
+
+//            thisBoard.Kanban.ItemsSource = ItemsSourceCards();
+
+//List<KanbanWorkflow> workflows = new List<KanbanWorkflow>();
+
+//KanbanWorkflow openWorkflow = new KanbanWorkflow();
+//openWorkflow.Category = "Open";
+//            openWorkflow.AllowedTransitions = new List<object> { "In Progress" };
+
+//            KanbanWorkflow progressWorkflow = new KanbanWorkflow();
+//progressWorkflow.Category = "In Progress";
+//            progressWorkflow.AllowedTransitions = new List<object> { "Open", "Code Review", "Closed-No Code Changes" };
+
+//            workflows.Add(openWorkflow);
+//            workflows.Add(progressWorkflow);
+//            thisBoard.Kanban.Workflows = workflows;
+
+            
+
+//            ObservableCollection<KanbanModel> ItemsSourceCards()
+//{
+//    ObservableCollection<KanbanModel> cards = new ObservableCollection<KanbanModel>();
+
+//    cards.Add(
+//        new KanbanModel()
+//        {
+//            ID = 1,
+//            Title = "iOS - 1002",
+//            ImageURL = "Image1.png",
+//            Category = "Open",
+//            Description = "Analyze customer requirements",
+//            ColorKey = "Red",
+//            Tags = new string[] { "Incident", "Customer" }
+//        }
+//    );
+
+//    cards.Add(
+//        new KanbanModel()
+//        {
+//            ID = 6,
+//            Title = "Xamarin - 4576",
+//            ImageURL = "Image2.png",
+//            Category = "Open",
+//            Description = "Show the retrieved data from the server in grid control",
+//            ColorKey = "Green",
+//            Tags = new string[] { "SfDataGrid", "Customer" }
+//        }
+//    );
+
+//    cards.Add(
+//        new KanbanModel()
+//        {
+//            ID = 13,
+//            Title = "UWP - 13",
+//            ImageURL = "Image4.png",
+//            Category = "In Progress",
+//            Description = "Add responsive support to application",
+//            ColorKey = "Brown",
+//            Tags = new string[] { "Story", "Kanban" }
+//        }
+//    );
+
+//    cards.Add(
+//        new KanbanModel()
+//        {
+//            ID = 2543,
+//            Title = "Xamarin_iOS - 2543",
+//            Category = "Code Review",
+//            ImageURL = "Image12.png",
+//            Description = "Provide swimlane support kanban",
+//            ColorKey = "Brown",
+//            Tags = new string[] { "Feature", "SfKanban" }
+//        }
+//    );
+
+//    cards.Add(
+//        new KanbanModel()
+//        {
+//            ID = 1975,
+//            Title = "iOS - 1975",
+//            Category = "Done",
+//            ImageURL = "Image11.png",
+//            Description = "Fix the issues reported by the customer",
+//            ColorKey = "Purple",
+//            Tags = new string[] { "Bug" }
+//        }
+//    );
+
+//    return cards;

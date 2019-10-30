@@ -62,12 +62,15 @@
   <ItemGroup>
     <Compile Include="BoardAdapter.cs" />
     <Compile Include="ClickedCardOptionsDialog.cs" />
+    <Compile Include="Client\ClientManager.cs" />
     <Compile Include="CreateBoardDialog.cs" />
     <Compile Include="CreateCardDialog.cs" />
     <Compile Include="CreateDeckDialog.cs" />
     <Compile Include="DetailsCard.cs" />
     <Compile Include="EditCard.cs" />
     <Compile Include="Lang\Board.cs" />
+    <Compile Include="Lang\Card.cs" />
+    <Compile Include="Lang\Deck.cs" />
     <Compile Include="Lang\IdManager.cs" />
     <Compile Include="Lang\SolitaireType.cs" />
     <Compile Include="ListBoardsMainActivity.cs" />

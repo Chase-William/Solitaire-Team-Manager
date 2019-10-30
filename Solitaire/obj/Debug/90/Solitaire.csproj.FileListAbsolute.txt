@@ -297,7 +297,6 @@ C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\BoardViewHolder.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateCardDialog.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateDeckDialog.java
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\MainActivity.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\UseBoardActivity.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5ce013bcf3062ee1948fb83ecb8b7d3fa\AutoScrollColumnByRunnable.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5ce013bcf3062ee1948fb83ecb8b7d3fa\AutoScrollPositionByRunnable.java
@@ -338,7 +337,8 @@ C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\clicked_
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ClickedCardOptionsDialog.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\DetailsCard.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\EditCard.java
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\create_board_dialog.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateBoardDialog.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsMainActivity.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache

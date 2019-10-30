@@ -19,5 +19,21 @@ namespace Solitaire.Lang
         private SfKanban kanban;
 
         public SfKanban Kanban { get { return kanban; } set { kanban = value; } }
+
+
+        private List<Deck> decks = new List<Deck>();
+        private List<Card> cards = new List<Card>();
+
+        public List<Card> Cards
+        {
+            get { return cards; }
+            set { cards = value; }
+        }
+        public List<Deck> Decks
+        {
+            get { return decks; }
+            set { decks = value; }
+        }
+
     }    
 }
