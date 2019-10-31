@@ -16,10 +16,6 @@ namespace Solitaire.Lang
     public class Board : SolitaireType
     {
         public Board(string _name, string _description) : base (_name, _description) { }        
-        private SfKanban kanban;
-
-        public SfKanban Kanban { get { return kanban; } set { kanban = value; } }
-
 
         private List<Deck> decks = new List<Deck>();
         private List<Card> cards = new List<Card>();
@@ -34,6 +30,5 @@ namespace Solitaire.Lang
             get { return decks; }
             set { decks = value; }
         }
-
     }    
 }

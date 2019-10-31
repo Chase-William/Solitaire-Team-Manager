@@ -15,7 +15,7 @@ namespace Solitaire
 {
     public class CreateBoardDialog : Dialog
     {
-        public CreateBoardDialog(Context _context) : base(_context) { callerInstance = (ListBoardsMainActivity)_context; this.Show(); }
+        public CreateBoardDialog(ListBoardsMainActivity _context) : base(_context) { callerInstance = _context; this.Show(); }
 
         ListBoardsMainActivity callerInstance;
 

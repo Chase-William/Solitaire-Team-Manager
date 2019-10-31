@@ -1,8 +1,8 @@
 package md5991b3296029042025ad7970fd527090b;
 
 
-public class DetailsCard
-	extends android.app.Activity
+public class DetailsCardActivity
+	extends android.support.v7.app.AppCompatActivity
 	implements
 		mono.android.IGCUserPeer
 {
@@ -12,15 +12,15 @@ public class DetailsCard
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
 			"";
-		mono.android.Runtime.register ("Solitaire.DetailsCard, Solitaire", DetailsCard.class, __md_methods);
+		mono.android.Runtime.register ("Solitaire.DetailsCardActivity, Solitaire", DetailsCardActivity.class, __md_methods);
 	}
 
 
-	public DetailsCard ()
+	public DetailsCardActivity ()
 	{
 		super ();
-		if (getClass () == DetailsCard.class)
-			mono.android.TypeManager.Activate ("Solitaire.DetailsCard, Solitaire", "", this, new java.lang.Object[] {  });
+		if (getClass () == DetailsCardActivity.class)
+			mono.android.TypeManager.Activate ("Solitaire.DetailsCardActivity, Solitaire", "", this, new java.lang.Object[] {  });
 	}
 
 

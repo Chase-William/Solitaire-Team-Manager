@@ -335,10 +335,13 @@ C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_GeneratePack
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\clicked_card_options_dialog.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ClickedCardOptionsDialog.java
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\DetailsCard.java
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\EditCard.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\create_board_dialog.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateBoardDialog.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsMainActivity.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\details_card_activity.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\edit_card_menu.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\edit_card_activity.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\DetailsCardActivity.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\EditCardActivity.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache

@@ -50,10 +50,9 @@ namespace Solitaire
         /// 
         /// 
         private void BoardListViewItemClicked(object sender, AdapterView.ItemClickEventArgs e)
-        {
+        {            
             Intent useSelectedBoard = new Intent(this, typeof(UseBoardActivity));
-            useSelectedBoard.PutExtra("Id", e.Id);
-            useSelectedBoard.PutExtra("NeedInit", false);
+            useSelectedBoard.PutExtra("Id", e.Id);            
             StartActivity(useSelectedBoard);
         }
 

@@ -16,7 +16,7 @@ namespace Solitaire.Lang
     {
         public SolitaireType(string _name, string _description)
         {
-            id = IdManager.GetId();
+            id = IdManager.GenerateId();
             Name = _name;
             Description = _description;
         }

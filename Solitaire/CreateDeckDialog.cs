@@ -17,7 +17,7 @@ namespace Solitaire
     {
         UseBoardActivity callerInstance;
 
-        public CreateDeckDialog(Context _context) : base(_context) { callerInstance = (UseBoardActivity)_context; this.Show(); }
+        public CreateDeckDialog(UseBoardActivity _context) : base(_context) { callerInstance = _context; this.Show(); }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,7 +34,7 @@ namespace Solitaire
                 string name = FindViewById<EditText>(Resource.Id.nameEditTextDialog).Text.Trim();
 
                 // Checks to make sure this name doesnt not already exist within the respective board, because we will be using the board's title as the category name
-                if (name != "" && callerInstance.thisBoard.Kanban.Columns.All(deck => deck.Title != name))
+                if (name != "" && callerInstance.thisKanban.Columns.All(deck => deck.Title != name))
                     callerInstance.AddDeck(name, FindViewById<EditText>(Resource.Id.descriptionTextDialog).Text.Trim());
                 else
                 {

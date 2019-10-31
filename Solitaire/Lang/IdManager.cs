@@ -14,8 +14,8 @@ namespace Solitaire.Lang
 {
     public static class IdManager
     {
-        public static int Id = 0;
+        private static int Id = 0;
 
-        public static int GetId() => Id++;
+        public static int GenerateId() => Id++;
     }
 }

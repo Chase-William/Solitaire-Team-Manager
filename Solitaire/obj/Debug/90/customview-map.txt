@@ -15,6 +15,7 @@ corners;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res
 EditText;obj\Debug\90\res\layout\create_board_dialog.xml
 EditText;obj\Debug\90\res\layout\create_card_dialog.xml
 EditText;obj\Debug\90\res\layout\create_deck_dialog.xml
+EditText;obj\Debug\90\res\layout\edit_card_activity.xml
 external-cache-path;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
@@ -22,9 +23,13 @@ foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 FrameLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout\cardviewholder.xml
 HorizontalScrollView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout\defaultcardview.xml
 HorizontalScrollView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\layout-ldrtl\defaultcardview.xml
+ImageView;obj\Debug\90\res\layout\details_card_activity.xml
+ImageView;obj\Debug\90\res\layout\edit_card_activity.xml
 include;obj\Debug\90\res\layout\activity_main.xml
+include;obj\Debug\90\res\layout\edit_card_activity.xml
 include;obj\Debug\90\res\layout\use_board_activity.xml
 item;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\drawable\ripple.xml
+item;obj\Debug\90\res\menu\edit_card_menu.xml
 item;obj\Debug\90\res\menu\main_menu.xml
 item;obj\Debug\90\res\menu\use_board_menu.xml
 item;obj\Debug\90\res\values\styles.xml
@@ -38,9 +43,11 @@ LinearLayout;obj\Debug\90\res\layout\clicked_card_options_dialog.xml
 LinearLayout;obj\Debug\90\res\layout\create_board_dialog.xml
 LinearLayout;obj\Debug\90\res\layout\create_card_dialog.xml
 LinearLayout;obj\Debug\90\res\layout\create_deck_dialog.xml
+LinearLayout;obj\Debug\90\res\layout\details_card_activity.xml
+LinearLayout;obj\Debug\90\res\layout\edit_card_activity.xml
 LinearLayout;obj\Debug\90\res\layout\use_board_activity.xml
 ListView;obj\Debug\90\res\layout\activity_main.xml
-md5ce013bcf3062ee1948fb83ecb8b7d3fa.SfKanban;obj\Debug\90\res\layout\use_board_activity.xml
+menu;obj\Debug\90\res\menu\edit_card_menu.xml
 menu;obj\Debug\90\res\menu\main_menu.xml
 menu;obj\Debug\90\res\menu\use_board_menu.xml
 objectAnimator;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\anim\path_morph_hide.xml
@@ -79,3 +86,4 @@ TextView;obj\Debug\90\res\layout\category_spinner_row.xml
 TextView;obj\Debug\90\res\layout\create_board_dialog.xml
 TextView;obj\Debug\90\res\layout\create_card_dialog.xml
 TextView;obj\Debug\90\res\layout\create_deck_dialog.xml
+TextView;obj\Debug\90\res\layout\details_card_activity.xml

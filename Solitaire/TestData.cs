@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Solitaire.Lang;
+using Syncfusion.SfKanban.Android;
 
 namespace Solitaire
 {

@@ -14,18 +14,22 @@ using Android.Widget;
 using Syncfusion.SfKanban.Android;
 using Solitaire.Lang;
 using Android.Support.V7.App;
+using Android.Views.Animations;
+using Android.Animation;
 
 namespace Solitaire
 {
     [Activity(Label = "UseBoardActivity")]
-    public class UseBoardActivity : AppCompatActivity
+    public unsafe class UseBoardActivity : AppCompatActivity
     {
+        // The board acts as a *pointer to the working board, therefore all changes will occur to the original - NOT A COPY
         public Board thisBoard;
+        // The SfKanban is merly used as a way for the user to interact with their board and change its data
         public SfKanban thisKanban;
+        // Contains a list off all the categories so we can keep track of all the categories each board needs to support
         private List<object> allSupportedCategories = new List<object>();
-
-
-        // TODO: After saving a deck, when reopenned the content dont automatically appear when created, Check for list type when assigned in? ObservableCollection might doing more than we think for us
+        // When we click on a card, we will save which card was clicked
+        private long cachedId;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -34,24 +38,35 @@ namespace Solitaire
             // Applying this SfKanban as the content view for the app
             SetContentView(Resource.Layout.use_board_activity);
 
+            // Setting our custom toolbar
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Your Board";
             SetSupportActionBar(toolbar);
-
-            
-
+           
             // Getting the extra "id" we passed which will enable use to reference our Board
             long id = this.Intent.GetLongExtra("Id", -1);
-            bool needsInit = this.Intent.GetBooleanExtra("NeedInit", true);
-
+            
             // If the board needs initalization run:
-            if (needsInit)
+            // We dont need to get the data, if that
+            if (this.Intent.HasExtra("NeedInit"))
                 InitDefaultBoard(id);
             // Otherwise load a pre-existing board:
             else                            
-                LoadBoardIntoKanban(id);           
+                LoadBoardIntoKanban(id);
         }
 
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            if (requestCode == 1 && resultCode == Result.Ok)
+            {
+                // Querying the correct kanban instance by ID
+                KanbanModel kanbanptr = thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanban => kanban.ID == cachedId);
+
+                // Assiging the new values
+                kanbanptr.Title = data.GetStringExtra("Name");
+                kanbanptr.Description = data.GetStringExtra("Description");
+            }
+        }
 
         ///
         /// 
@@ -98,23 +113,24 @@ namespace Solitaire
         /// 
         public void AddCard(string _nameCard, string _descriptionCard, string _parentDeck)
         {
-            // Needed to create a new collection because just appeneding to the original collection as not working
-            ObservableCollection<KanbanModel> tempList = new ObservableCollection<KanbanModel>();            
-
-            foreach (var card in thisBoard.Kanban.ItemsSource)
+            // Needed to create a new collection because just appeneding to the original collection does not work
+            // Actually upsets me because I was comparing a string to a string with EXACTLY the same data and it wouldn't add it
+            // But if I hard coded the category into program as a literal it would work...
+            // Even tryied to making a public string variable that I only used when interacting with the category's incase it was 
+            // something todo with the actual pointer or WHATEVER!
+            var cardList = new ObservableCollection<KanbanModel>();            
+            foreach (var card in thisKanban.ItemsSource) { cardList.Add((KanbanModel)card); }
+            cardList.Add(new KanbanModel()
             {
-                tempList.Add((KanbanModel)card);
-            }
-
-            tempList.Add(new KanbanModel()
-            {
-                ID = 1,
+                // Gives all objects it is called on a unique ID
+                ID = IdManager.GenerateId(),
                 Title = _nameCard,
-                // Category is where this card is going to determine which deck this card will be inside of on the GUI
-                Category = _parentDeck
+                // Category determines which workflow inside of a deck this will be placed to start
+                Category = _parentDeck,
+                // DOCUMENTATION DOESNT STATE WHERE THE DIR STARTS - maybe i need to find where the default image is in the module and dir from there
+                ImageURL = "Assets/card_task.png"
             });
-
-            thisBoard.Kanban.ItemsSource = tempList;            
+            thisKanban.ItemsSource = cardList;            
         }
 
         /// 
@@ -135,12 +151,6 @@ namespace Solitaire
                 Categories = new List<object>() {  _nameColumn }
             };
 
-
-
-            // TODO: Need to add a description area or something
-
-
-
             // Some pretty stuff
             newDeck.ContentDescription = _descriptionColumn;
             newDeck.ErrorBarSettings.Color = Color.Green;
@@ -149,12 +159,12 @@ namespace Solitaire
             newDeck.ErrorBarSettings.Height = 4;
 
             // We need to add this kanbanWorkflow because it will be used when moving and deciding where cards shall be placed 
-            thisBoard.Kanban.Workflows.Add(new KanbanWorkflow()
+            thisKanban.Workflows.Add(new KanbanWorkflow()
             {
                 Category = _nameColumn,
                 AllowedTransitions = allSupportedCategories
             });                       
-            thisBoard.Kanban.Columns.Add(newDeck);
+            thisKanban.Columns.Add(newDeck);
         }
 
         /// 
@@ -164,33 +174,39 @@ namespace Solitaire
         ///
         private void InitDefaultBoard(long _id)
         {
-            // Assign the board that
+            // Assigning the board to our (Boardptr*) basically which will be the board we will be modifing 
             thisBoard = TestData.boards.Single(board => board.Id == _id);
 
-            // Then we can assign the kanban instance to ti
-            thisBoard.Kanban = FindViewById<SfKanban>(Resource.Id.kanban);
+            // We then get the SfKanban which will be how the user interacts with the board's data
+            thisKanban = FindViewById<SfKanban>(Resource.Id.kanban);
 
             //thisBoard.Kanban.ColumnMappingPath = "Category";
 
-            // When a card is clicked it will launch a dialog asking for user input on what should be done next
-            thisBoard.Kanban.ItemTapped += (e, a) =>
+            // When card is clicked it will prompt within a dialog "Details" OR "Edit"
+            thisKanban.ItemTapped += (e, a) =>
             {
-                new ClickedCardOptionsDialog(this);              
+                // Casting once instead of 3 timers for performance, and basically making a pointer to it
+                KanbanModel kanbanModelptr = (KanbanModel)a.Data;
+                // caching the id for a lookup that can occur later depending on if the user clicks "edit" or "details" in our dialog we are instanciating
+                cachedId = (long)kanbanModelptr.ID;
+                // data is the kanban but as a object so we cast it so we can provide the information needed
+                new ClickedCardOptionsDialog(this, kanbanModelptr.Title, kanbanModelptr.Description);
             };
 
             // Initalizing our Workflows collection
-            thisBoard.Kanban.Workflows = new List<KanbanWorkflow>();
+            thisKanban.Workflows = new List<KanbanWorkflow>();
             // Initalizing our ItemSource collection 
-            thisBoard.Kanban.ItemsSource = new ObservableCollection<KanbanModel>();                    
+            thisKanban.ItemsSource = new ObservableCollection<KanbanModel>();                    
         }
 
         /// 
         /// 
-        ///     Loads an pre-existing board & applies it to the UI
+        ///     Loads an pre-existing board & applies it to the UI <>
         /// 
         ///
         private void LoadBoardIntoKanban(long _id)
         {
+            // Assign the board instance we desire to our *pointer
             thisBoard = TestData.boards.Single(board => board.Id == _id);
 
             // Then we can assign the kanban instance to ti
@@ -220,36 +236,74 @@ namespace Solitaire
                 newDeck.ErrorBarSettings.MinValidationColor = Color.Orange;
                 newDeck.ErrorBarSettings.MaxValidationColor = Color.Red;
                 newDeck.ErrorBarSettings.Height = 4;
-                thisKanban.Columns.Add(newDeck);
-
+                
+                thisKanban.Columns.Add(newDeck);               
 
                 // Initializing the kanban's workflow for each column
-                thisBoard.Kanban.Workflows.Add(new KanbanWorkflow()
+                thisKanban.Workflows.Add(new KanbanWorkflow()
                 {
                     Category = deck.Name,
-                    AllowedTransitions = allSupportedCategories
+                    AllowedTransitions = allSupportedCategories                    
                 });
             }
 
             // Initializing all the KanbanModels with data from the list of cards
-            ObservableCollection<KanbanModel> tempList = new ObservableCollection<KanbanModel>();
+            var cardList = new ObservableCollection<KanbanModel>();
             foreach (Card card in thisBoard.Cards)
             {
-                tempList.Add(new KanbanModel()
+                cardList.Add(new KanbanModel()
                 {
                     ID = card.Id,
                     Title = card.Name,
-                    Category = card.ParentDeck
+                    Category = card.ParentDeck                   
                 });
             }
-            thisKanban.ItemsSource = tempList;
+            thisKanban.ItemsSource = cardList;
 
 
 
-            //// TODO: Need to add a description area or something
 
 
 
+
+
+            // trying to animation
+
+            thisKanban.DragOver += (e, a) =>
+            {
+                // Check this out in documentation
+                ObjectAnimator.
+                    //thisKanban.ItemsSource.Cast<KanbanModel>().ElementAt(a.TargetIndex).ColorKey = Color.BlueViolet;
+                //a.Cancel = false;
+                
+            };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // When card is clicked it will prompt within a dialog "Details" OR "Edit"
+            thisKanban.ItemTapped += (e, a) =>
+            {
+                // Casting once instead of 3 timers for performance, and basically making a pointer to it
+                KanbanModel kanbanModelptr = (KanbanModel)a.Data;
+                // caching the id for a lookup that can occur later depending on if the user clicks "edit" or "details" in our dialog we are instanciating
+                cachedId = (long)kanbanModelptr.ID;
+                // data is the kanban but as a object so we cast it so we can provide the information needed
+                new ClickedCardOptionsDialog(this, kanbanModelptr.Title, kanbanModelptr.Description);
+            };
         }
 
         /// 
@@ -257,12 +311,12 @@ namespace Solitaire
         ///     Takes our kanban values and loads them into the working board for saving
         /// 
         /// 
-        public void LoadKanbanIntoBoard(SfKanban _kanban)
+        public void LoadKanbanIntoBoard()
         {
 
             // Packing our KanbanColumn info into a list to be added onto the board's deck list
             List<Deck> decks = new List<Deck>();
-            foreach (KanbanColumn deck in _kanban.Columns)
+            foreach (KanbanColumn deck in thisKanban.Columns)
             {
                 decks.Add(new Deck(deck.Title, deck.ContentDescription));
             }
@@ -270,13 +324,14 @@ namespace Solitaire
 
             // Packing our KanbanModel into the a list to be added to the board's cards list
             List<Card> cards = new List<Card>();
-            foreach (KanbanModel card in _kanban.ItemsSource)
+            foreach (KanbanModel card in thisKanban.ItemsSource)
             {
                 cards.Add(new Card(card.Title, card.Description, card.Category.ToString()));
             }
-            thisBoard.Cards = cards;
+            thisBoard.Cards = cards;            
         }
 
+        // Overrinding the back button to save
         /// 
         /// 
         ///     Overriding the back button so we automatically save before we exit
@@ -284,7 +339,7 @@ namespace Solitaire
         /// 
         public override void OnBackPressed()
         {
-            LoadKanbanIntoBoard(thisBoard.Kanban);
+            LoadKanbanIntoBoard();
             base.OnBackPressed();
         }
     }
