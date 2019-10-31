@@ -83,6 +83,9 @@ namespace Solitaire
                 case "Test Server":
                     ClientManager.SendMessage();
                     break;
+                case "AdapterTest":
+                    StartActivity(new Intent(this, typeof(TestActivity)));
+                    break;
                 default:
                     break;
             }

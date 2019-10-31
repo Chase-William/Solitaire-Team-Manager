@@ -48,7 +48,7 @@ namespace Solitaire
 
                 // Getting the titles of the kanbanModels within the IEnumerable list, kanbanmodels are the cards basically
                 List<string> names = new List<string>();
-                foreach (KanbanModel item in callerInstance.thisKanban.ItemsSource) { names.Add(item.Title); }
+                //foreach (CustomKanbanAdapter item in callerInstance.thisKanban.ItemsSource) { names.Add(item.Title); }
 
 
                 // Checks to make sure that the name doesn't already exist and isn't a space filled string

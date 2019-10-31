@@ -6,6 +6,11 @@
        app:showAsAction="always"
        android:title="New Board" />
   <item
+       android:id="@+id/test1"
+       app:showAsAction="never"
+       android:title="AdapterTest" />
+  
+  <item
        android:id="@+id/test"
        app:showAsAction="never"
        android:title="Ping Server" />

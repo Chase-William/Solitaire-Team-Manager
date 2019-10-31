@@ -13,6 +13,7 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:label="TestActivity" android:name="md5991b3296029042025ad7970fd527090b.TestActivity" />
     <activity android:label="UseBoardActivity" android:name="md5991b3296029042025ad7970fd527090b.UseBoardActivity" />
     <service android:name="md5dcb6eccdc824e0677ffae8ccdde42930.KeepAliveService" />
     <receiver android:enabled="true" android:exported="false" android:label="Essentials Battery Broadcast Receiver" android:name="md5d630c3d3bfb5f5558520331566132d97.BatteryBroadcastReceiver" />

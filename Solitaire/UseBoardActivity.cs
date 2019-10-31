@@ -111,27 +111,27 @@ namespace Solitaire
         ///     Will add a card to a specified column within the current working board
         /// 
         /// 
-        public void AddCard(string _nameCard, string _descriptionCard, string _parentDeck)
-        {
-            // Needed to create a new collection because just appeneding to the original collection does not work
-            // Actually upsets me because I was comparing a string to a string with EXACTLY the same data and it wouldn't add it
-            // But if I hard coded the category into program as a literal it would work...
-            // Even tryied to making a public string variable that I only used when interacting with the category's incase it was 
-            // something todo with the actual pointer or WHATEVER!
-            var cardList = new ObservableCollection<KanbanModel>();            
-            foreach (var card in thisKanban.ItemsSource) { cardList.Add((KanbanModel)card); }
-            cardList.Add(new KanbanModel()
-            {
-                // Gives all objects it is called on a unique ID
-                ID = IdManager.GenerateId(),
-                Title = _nameCard,
-                // Category determines which workflow inside of a deck this will be placed to start
-                Category = _parentDeck,
-                // DOCUMENTATION DOESNT STATE WHERE THE DIR STARTS - maybe i need to find where the default image is in the module and dir from there
-                //ImageURL = "Assets/card_task.png"
-            });
-            thisKanban.ItemsSource = cardList;            
-        }
+        //public void AddCard(string _nameCard, string _descriptionCard, string _parentDeck)
+        //{
+        //    // Needed to create a new collection because just appeneding to the original collection does not work
+        //    // Actually upsets me because I was comparing a string to a string with EXACTLY the same data and it wouldn't add it
+        //    // But if I hard coded the category into program as a literal it would work...
+        //    // Even tryied to making a public string variable that I only used when interacting with the category's incase it was 
+        //    // something todo with the actual pointer or WHATEVER!
+        //    var cardList = new ObservableCollection<KanbanModel>();            
+        //    foreach (var card in thisKanban.ItemsSource) { cardList.Add((KanbanModel)card); }
+        //    cardList.Add(new KanbanModel()
+        //    {
+        //        // Gives all objects it is called on a unique ID
+        //        ID = IdManager.GenerateId(),
+        //        Title = _nameCard,
+        //        // Category determines which workflow inside of a deck this will be placed to start
+        //        Category = _parentDeck,
+        //        // DOCUMENTATION DOESNT STATE WHERE THE DIR STARTS - maybe i need to find where the default image is in the module and dir from there
+        //        //ImageURL = "Assets/card_task.png"
+        //    });
+        //    thisKanban.ItemsSource = cardList;            
+        //}
 
         /// 
         /// 
@@ -167,14 +167,35 @@ namespace Solitaire
             thisKanban.Columns.Add(newDeck);
         }
 
-        /// 
-        /// 
-        ///     Creates default board & applies it to the UI
-        ///
-        ///
+
+        // Test Version
+        public void AddCard(string _nameCard, string _descriptionCard, string _parentDeck)
+        {
+            // Needed to create a new collection because just appeneding to the original collection does not work
+            // Actually upsets me because I was comparing a string to a string with EXACTLY the same data and it wouldn't add it
+            // But if I hard coded the category into program as a literal it would work...
+            // Even tryied to making a public string variable that I only used when interacting with the category's incase it was 
+            // something todo with the actual pointer or WHATEVER!
+            var cardList = new ObservableCollection<KanbanModel>();
+            foreach (var card in thisKanban.ItemsSource) { cardList.Add((KanbanModel)card); }
+            cardList.Add(new KanbanModel()
+            {
+                // Gives all objects it is called on a unique ID
+                ID = IdManager.GenerateId(),
+                Title = _nameCard,
+                // Category determines which workflow inside of a deck this will be placed to start
+                Category = _parentDeck,
+                // DOCUMENTATION DOESNT STATE WHERE THE DIR STARTS - maybe i need to find where the default image is in the module and dir from there
+                //ImageURL = "Assets/card_task.png"
+            });
+            thisKanban.ItemsSource = cardList;
+        }
+
+
+        // Test Version
         private void InitDefaultBoard(long _id)
         {
-            // Assigning the board to our (Boardptr*) basically which will be the board we will be modifing 
+            // Assigning the board to our (Boardptr) basically which will be the board we will be modifing 
             thisBoard = TestData.boards.Single(board => board.Id == _id);
 
             // We then get the SfKanban which will be how the user interacts with the board's data
@@ -186,7 +207,7 @@ namespace Solitaire
             thisKanban.ItemTapped += (e, a) =>
             {
                 // Casting once instead of 3 timers for performance, and basically making a pointer to it
-                KanbanModel kanbanModelptr = (KanbanModel)a.Data;
+                var kanbanModelptr = (KanbanModel)a.Data;
                 // caching the id for a lookup that can occur later depending on if the user clicks "edit" or "details" in our dialog we are instanciating
                 cachedId = (long)kanbanModelptr.ID;
                 // data is the kanban but as a object so we cast it so we can provide the information needed
@@ -196,8 +217,63 @@ namespace Solitaire
             // Initalizing our Workflows collection
             thisKanban.Workflows = new List<KanbanWorkflow>();
             // Initalizing our ItemSource collection 
-            thisKanban.ItemsSource = new ObservableCollection<KanbanModel>();                    
+            thisKanban.ItemsSource = new ObservableCollection<KanbanModel>();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// 
+        /// 
+        ///     Creates default board & applies it to the UI
+        ///
+        ///
+        //private void InitDefaultBoard(long _id)
+        //{
+        //    // Assigning the board to our (Boardptr*) basically which will be the board we will be modifing 
+        //    thisBoard = TestData.boards.Single(board => board.Id == _id);
+
+        //    // We then get the SfKanban which will be how the user interacts with the board's data
+        //    thisKanban = FindViewById<SfKanban>(Resource.Id.kanban);
+
+        //    //thisBoard.Kanban.ColumnMappingPath = "Category";
+
+        //    // When card is clicked it will prompt within a dialog "Details" OR "Edit"
+        //    thisKanban.ItemTapped += (e, a) =>
+        //    {
+        //        // Casting once instead of 3 timers for performance, and basically making a pointer to it
+        //        KanbanModel kanbanModelptr = (KanbanModel)a.Data;
+        //        // caching the id for a lookup that can occur later depending on if the user clicks "edit" or "details" in our dialog we are instanciating
+        //        cachedId = (long)kanbanModelptr.ID;
+        //        // data is the kanban but as a object so we cast it so we can provide the information needed
+        //        new ClickedCardOptionsDialog(this, kanbanModelptr.Title, kanbanModelptr.Description);
+        //    };
+
+        //    // Initalizing our Workflows collection
+        //    thisKanban.Workflows = new List<KanbanWorkflow>();
+        //    // Initalizing our ItemSource collection 
+        //    thisKanban.ItemsSource = new ObservableCollection<KanbanModel>();                    
+        //}
 
         /// 
         /// 
