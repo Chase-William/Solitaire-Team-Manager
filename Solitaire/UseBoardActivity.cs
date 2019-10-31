@@ -128,7 +128,7 @@ namespace Solitaire
                 // Category determines which workflow inside of a deck this will be placed to start
                 Category = _parentDeck,
                 // DOCUMENTATION DOESNT STATE WHERE THE DIR STARTS - maybe i need to find where the default image is in the module and dir from there
-                ImageURL = "Assets/card_task.png"
+                //ImageURL = "Assets/card_task.png"
             });
             thisKanban.ItemsSource = cardList;            
         }
@@ -237,7 +237,8 @@ namespace Solitaire
                 newDeck.ErrorBarSettings.MaxValidationColor = Color.Red;
                 newDeck.ErrorBarSettings.Height = 4;
                 
-                thisKanban.Columns.Add(newDeck);               
+                thisKanban.Columns.Add(newDeck);
+                allSupportedCategories.Add(newDeck.Title);
 
                 // Initializing the kanban's workflow for each column
                 thisKanban.Workflows.Add(new KanbanWorkflow()
@@ -260,37 +261,16 @@ namespace Solitaire
             }
             thisKanban.ItemsSource = cardList;
 
-
-
-
-
-
-
-
             // trying to animation
 
-            thisKanban.DragOver += (e, a) =>
-            {
-                // Check this out in documentation
-                ObjectAnimator.
-                    //thisKanban.ItemsSource.Cast<KanbanModel>().ElementAt(a.TargetIndex).ColorKey = Color.BlueViolet;
-                //a.Cancel = false;
+            //thisKanban.DragOver += (e, a) =>
+            //{
+            //    // Check this out in documentation
+            //    ObjectAnimator.
+            //        //thisKanban.ItemsSource.Cast<KanbanModel>().ElementAt(a.TargetIndex).ColorKey = Color.BlueViolet;
+            //    //a.Cancel = false;
                 
-            };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            //};
 
 
 
@@ -331,7 +311,6 @@ namespace Solitaire
             thisBoard.Cards = cards;            
         }
 
-        // Overrinding the back button to save
         /// 
         /// 
         ///     Overriding the back button so we automatically save before we exit
