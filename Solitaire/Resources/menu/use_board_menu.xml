@@ -9,4 +9,8 @@
        android:id="@+id/newCard"
        app:showAsAction="always"
        android:title="Add Card" />
+  <item
+       android:id="@+id/addContact"
+       app:showAsAction="never"
+       android:title="Add Contact" />    
 </menu>

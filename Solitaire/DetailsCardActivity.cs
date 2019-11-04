@@ -14,15 +14,20 @@ using Syncfusion.SfKanban.Android;
 
 namespace Solitaire
 {
-    [Activity(Label = "DetailsCard")]
+    [Activity(Label = "DetailsCardActivity")]
     public class DetailsCardActivity : AppCompatActivity
     {
-        KanbanModel card;
+        private const int EDIT_ACTIVITY_CODE = 1;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.details_card_activity);
+
+            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Card Details";
+            SetSupportActionBar(toolbar);
 
             //card =  this.Intent.GetLongExtra("ID", -1);
 
@@ -31,39 +36,42 @@ namespace Solitaire
             //toolbar.Title = "";
             //SetSupportActionBar(toolbar);
 
-
-
             FindViewById<TextView>(Resource.Id.cardNameTextView).Text = "asdas";
             FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = "asd";
         }
 
-        ///
-        /// 
-        ///     Initalizes & Applies our custom toolbar
-        /// 
-        ///
-        //public override bool OnCreateOptionsMenu(IMenu menu)
-        //{
-        //    MenuInflater.Inflate(Resource.Menu.main_menu, menu);
-        //    return base.OnCreateOptionsMenu(menu);
-        //}
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.details_card_menu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
 
-        /////
-        ///// 
-        /////     Determines which toolbar button was pressed
-        ///// 
-        /////
-        //public override bool OnOptionsItemSelected(IMenuItem item)
-        //{
-        //    switch (item.TitleFormatted.ToString())
-        //    {
-        //        case " ":
-        //            // do something
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //    return base.OnOptionsItemSelected(item);
-        //}
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            // Comparing the title of the toolbar btns to a string to determine which was clicked
+            switch (item.TitleFormatted.ToString())
+            {
+                case "Edit":
+                    Intent editCardActivity = new Intent(this, typeof(EditCardActivity));
+                    StartActivityForResult(editCardActivity, EDIT_ACTIVITY_CODE);
+                    break;
+                default:
+                    break;
+            }
+            return base.OnOptionsItemSelected(item);
+        }
+
+        /// 
+        /// 
+        ///     Will handle the edit activity being finished
+        /// 
+        /// 
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            if (resultCode == Result.Ok && requestCode == EDIT_ACTIVITY_CODE)
+            {
+
+            }            
+        }
     }
 }

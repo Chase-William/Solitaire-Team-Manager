@@ -3,6 +3,8 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "Solitaire.dll" comes first in this list. */
 		"Solitaire.dll",
+		"Newtonsoft.Json.dll",
+		"Refractored.Controls.CircleImageView.dll",
 		"Syncfusion.Licensing.dll",
 		"Syncfusion.SfKanban.Android.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
@@ -43,6 +45,12 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Android.Support.VersionedParcelable.dll",
 		"Xamarin.Android.Support.ViewPager.dll",
 		"Xamarin.Essentials.dll",
+		"Xamarin.GooglePlayServices.Auth.Api.Phone.dll",
+		"Xamarin.GooglePlayServices.Auth.Base.dll",
+		"Xamarin.GooglePlayServices.Auth.dll",
+		"Xamarin.GooglePlayServices.Base.dll",
+		"Xamarin.GooglePlayServices.Basement.dll",
+		"Xamarin.GooglePlayServices.Tasks.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

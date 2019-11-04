@@ -16,11 +16,12 @@ using Solitaire.Lang;
 using Android.Support.V7.App;
 using Android.Views.Animations;
 using Android.Animation;
+using System.Threading.Tasks;
 
 namespace Solitaire
 {
     [Activity(Label = "UseBoardActivity")]
-    public unsafe class UseBoardActivity : AppCompatActivity
+    public class UseBoardActivity : AppCompatActivity
     {
         // The board acts as a *pointer to the working board, therefore all changes will occur to the original - NOT A COPY
         public Board thisBoard;
@@ -54,7 +55,7 @@ namespace Solitaire
             else                            
                 LoadBoardIntoKanban(id);
         }
-
+        
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             if (requestCode == 1 && resultCode == Result.Ok)
@@ -91,20 +92,20 @@ namespace Solitaire
             {
                 // If Add Column is clicked we need to create a new default column
                 case "Add Deck":
-
                     new CreateDeckDialog(this);
-                    
                     break;
                 case "Add Card":
-
                     new CreateCardDialog(this);
-
+                    break;
+                case "Add Contact":
+                    new ContributorOptionsDialog(this);
                     break;
                 default:
                     break;
             }
             return base.OnOptionsItemSelected(item);
         }
+
 
         /// 
         /// 
@@ -125,6 +126,7 @@ namespace Solitaire
                 // Gives all objects it is called on a unique ID
                 ID = IdManager.GenerateId(),
                 Title = _nameCard,
+                Description = _descriptionCard,
                 // Category determines which workflow inside of a deck this will be placed to start
                 Category = _parentDeck,
                 // DOCUMENTATION DOESNT STATE WHERE THE DIR STARTS - maybe i need to find where the default image is in the module and dir from there
@@ -175,29 +177,17 @@ namespace Solitaire
         private void InitDefaultBoard(long _id)
         {
             // Assigning the board to our (Boardptr*) basically which will be the board we will be modifing 
-            thisBoard = TestData.boards.Single(board => board.Id == _id);
+            thisBoard = AssetManager.boards.Single(board => board.Id == _id);
 
             // We then get the SfKanban which will be how the user interacts with the board's data
             thisKanban = FindViewById<SfKanban>(Resource.Id.kanban);
-
-            //thisBoard.Kanban.ColumnMappingPath = "Category";
-
-            // When card is clicked it will prompt within a dialog "Details" OR "Edit"
-            thisKanban.ItemTapped += (e, a) =>
-            {
-                // Casting once instead of 3 timers for performance, and basically making a pointer to it
-                KanbanModel kanbanModelptr = (KanbanModel)a.Data;
-                // caching the id for a lookup that can occur later depending on if the user clicks "edit" or "details" in our dialog we are instanciating
-                cachedId = (long)kanbanModelptr.ID;
-                // data is the kanban but as a object so we cast it so we can provide the information needed
-                new ClickedCardOptionsDialog(this, kanbanModelptr.Title, kanbanModelptr.Description);
-            };
+            thisKanban.ItemTapped += KanbanModelClicked;
 
             // Initalizing our Workflows collection
             thisKanban.Workflows = new List<KanbanWorkflow>();
             // Initalizing our ItemSource collection 
             thisKanban.ItemsSource = new ObservableCollection<KanbanModel>();                    
-        }
+        }        
 
         /// 
         /// 
@@ -207,7 +197,7 @@ namespace Solitaire
         private void LoadBoardIntoKanban(long _id)
         {
             // Assign the board instance we desire to our *pointer
-            thisBoard = TestData.boards.Single(board => board.Id == _id);
+            thisBoard = AssetManager.boards.Single(board => board.Id == _id);
 
             // Then we can assign the kanban instance to ti
             thisKanban = FindViewById<SfKanban>(Resource.Id.kanban);
@@ -259,31 +249,8 @@ namespace Solitaire
                     Category = card.ParentDeck                   
                 });
             }
-            thisKanban.ItemsSource = cardList;
-
-            // trying to animation
-
-            //thisKanban.DragOver += (e, a) =>
-            //{
-            //    // Check this out in documentation
-            //    ObjectAnimator.
-            //        //thisKanban.ItemsSource.Cast<KanbanModel>().ElementAt(a.TargetIndex).ColorKey = Color.BlueViolet;
-            //    //a.Cancel = false;
-                
-            //};
-
-
-
-            // When card is clicked it will prompt within a dialog "Details" OR "Edit"
-            thisKanban.ItemTapped += (e, a) =>
-            {
-                // Casting once instead of 3 timers for performance, and basically making a pointer to it
-                KanbanModel kanbanModelptr = (KanbanModel)a.Data;
-                // caching the id for a lookup that can occur later depending on if the user clicks "edit" or "details" in our dialog we are instanciating
-                cachedId = (long)kanbanModelptr.ID;
-                // data is the kanban but as a object so we cast it so we can provide the information needed
-                new ClickedCardOptionsDialog(this, kanbanModelptr.Title, kanbanModelptr.Description);
-            };
+            thisKanban.ItemsSource = cardList;            
+            thisKanban.ItemTapped += KanbanModelClicked;
         }
 
         /// 
@@ -291,7 +258,7 @@ namespace Solitaire
         ///     Takes our kanban values and loads them into the working board for saving
         /// 
         /// 
-        public void LoadKanbanIntoBoard()
+        public Task LoadKanbanIntoBoard()
         {
 
             // Packing our KanbanColumn info into a list to be added onto the board's deck list
@@ -308,7 +275,26 @@ namespace Solitaire
             {
                 cards.Add(new Card(card.Title, card.Description, card.Category.ToString()));
             }
-            thisBoard.Cards = cards;            
+            thisBoard.Cards = cards;
+
+            return Task.CompletedTask;
+        }
+
+        ///
+        /// 
+        ///     Handles a click event on one of our kanbanmodels inside our Sfkanban
+        /// 
+        /// 
+        private void KanbanModelClicked(object sender, KanbanTappedEventArgs e)
+        {
+            // Casting once instead of 3 timers for performance, and basically making a pointer to it
+            KanbanModel kanbanModelptr = (KanbanModel)e.Data;
+            // caching the id for a lookup that can occur later depending on if the user clicks "edit" or "details" in our dialog we are instanciating
+            cachedId = (long)kanbanModelptr.ID;
+                       
+            Intent showDetailsActivity = new Intent(this, typeof(DetailsCardActivity));
+            StartActivity(showDetailsActivity);
+            //new ClickedCardOptionsDialog(this, kanbanModelptr.Title, kanbanModelptr.Description);
         }
 
         /// 
@@ -316,134 +302,12 @@ namespace Solitaire
         ///     Overriding the back button so we automatically save before we exit
         /// 
         /// 
-        public override void OnBackPressed()
+        public override async void OnBackPressed()
         {
-            LoadKanbanIntoBoard();
+            // Loading our kanban data back into the board
+            await LoadKanbanIntoBoard();
+            // AssetManager.WriteToBoardsOnFile();
             base.OnBackPressed();
-        }
+        }        
     }
 }
-
-
-// SfKanban workingKanban = FindViewById<SfKanban>(Resource.Id.kanban);
-
-//workingKanban = thisBoard.Kanban;
-
-//            // Need to test this and stuff laters
-
-//            thisBoard.Kanban.ColumnMappingPath = "Category";
-
-//            KanbanColumn todoColumn = new KanbanColumn(this);
-//todoColumn.Title = "To Do";
-//            todoColumn.MinimumLimit = 5;
-//            todoColumn.MaximumLimit = 10;
-//            todoColumn.ErrorBarSettings.Color = Color.Green;
-//            todoColumn.ErrorBarSettings.MinValidationColor = Color.Orange;
-//            todoColumn.ErrorBarSettings.MaxValidationColor = Color.Red;
-//            todoColumn.ErrorBarSettings.Height = 4;
-//            todoColumn.Categories = new List<object>() { "Open" };
-//            thisBoard.Kanban.Columns.Add(todoColumn);
-
-//            KanbanColumn progressColumn = new KanbanColumn(this);
-//progressColumn.Title = "In Progress";
-//            progressColumn.Categories = new List<object>() { "In Progress" };
-//            thisBoard.Kanban.Columns.Add(progressColumn);
-
-//            KanbanColumn codeColumn = new KanbanColumn(this);
-//codeColumn.Title = "Code Review";
-//            codeColumn.Categories = new List<object>() { "Code Review" };
-//            thisBoard.Kanban.Columns.Add(codeColumn);
-
-//            KanbanColumn doneColumn = new KanbanColumn(this);
-//doneColumn.Title = "Done";
-//            doneColumn.Categories = new List<object>() { "Done" };
-//            thisBoard.Kanban.Columns.Add(doneColumn);
-
-//            thisBoard.Kanban.ItemsSource = ItemsSourceCards();
-
-//List<KanbanWorkflow> workflows = new List<KanbanWorkflow>();
-
-//KanbanWorkflow openWorkflow = new KanbanWorkflow();
-//openWorkflow.Category = "Open";
-//            openWorkflow.AllowedTransitions = new List<object> { "In Progress" };
-
-//            KanbanWorkflow progressWorkflow = new KanbanWorkflow();
-//progressWorkflow.Category = "In Progress";
-//            progressWorkflow.AllowedTransitions = new List<object> { "Open", "Code Review", "Closed-No Code Changes" };
-
-//            workflows.Add(openWorkflow);
-//            workflows.Add(progressWorkflow);
-//            thisBoard.Kanban.Workflows = workflows;
-
-            
-
-//            ObservableCollection<KanbanModel> ItemsSourceCards()
-//{
-//    ObservableCollection<KanbanModel> cards = new ObservableCollection<KanbanModel>();
-
-//    cards.Add(
-//        new KanbanModel()
-//        {
-//            ID = 1,
-//            Title = "iOS - 1002",
-//            ImageURL = "Image1.png",
-//            Category = "Open",
-//            Description = "Analyze customer requirements",
-//            ColorKey = "Red",
-//            Tags = new string[] { "Incident", "Customer" }
-//        }
-//    );
-
-//    cards.Add(
-//        new KanbanModel()
-//        {
-//            ID = 6,
-//            Title = "Xamarin - 4576",
-//            ImageURL = "Image2.png",
-//            Category = "Open",
-//            Description = "Show the retrieved data from the server in grid control",
-//            ColorKey = "Green",
-//            Tags = new string[] { "SfDataGrid", "Customer" }
-//        }
-//    );
-
-//    cards.Add(
-//        new KanbanModel()
-//        {
-//            ID = 13,
-//            Title = "UWP - 13",
-//            ImageURL = "Image4.png",
-//            Category = "In Progress",
-//            Description = "Add responsive support to application",
-//            ColorKey = "Brown",
-//            Tags = new string[] { "Story", "Kanban" }
-//        }
-//    );
-
-//    cards.Add(
-//        new KanbanModel()
-//        {
-//            ID = 2543,
-//            Title = "Xamarin_iOS - 2543",
-//            Category = "Code Review",
-//            ImageURL = "Image12.png",
-//            Description = "Provide swimlane support kanban",
-//            ColorKey = "Brown",
-//            Tags = new string[] { "Feature", "SfKanban" }
-//        }
-//    );
-
-//    cards.Add(
-//        new KanbanModel()
-//        {
-//            ID = 1975,
-//            Title = "iOS - 1975",
-//            Category = "Done",
-//            ImageURL = "Image11.png",
-//            Description = "Fix the issues reported by the customer",
-//            ColorKey = "Purple",
-//            Tags = new string[] { "Bug" }
-//        }
-//    );
-
-//    return cards;

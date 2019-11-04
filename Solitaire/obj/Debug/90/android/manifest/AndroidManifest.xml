@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.solitaire">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.solitaire" android:installLocation="preferExternal">
   <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="28" />
   <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:name="android.app.Application" android:debuggable="true">
-    <activity android:label="DetailsCard" android:name="md5991b3296029042025ad7970fd527090b.DetailsCardActivity" />
+    <activity android:label="CreateContactActivity" android:name="md5991b3296029042025ad7970fd527090b.CreateContributorActivity" />
+    <activity android:label="DetailsCardActivity" android:name="md5991b3296029042025ad7970fd527090b.DetailsCardActivity" />
     <activity android:label="EditCard" android:name="md5991b3296029042025ad7970fd527090b.EditCardActivity" />
-    <activity android:label="@string/app_name" android:theme="@style/AppTheme" android:name="md5991b3296029042025ad7970fd527090b.ListBoardsMainActivity">
+    <activity android:noHistory="true" android:theme="@style/ThemeOverlay.MyNoTitleActivity" android:name="com.xamarin.signinquickstart.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:label="MainActivity" android:name="md5991b3296029042025ad7970fd527090b.MainActivity" />
     <activity android:label="UseBoardActivity" android:name="md5991b3296029042025ad7970fd527090b.UseBoardActivity" />
     <service android:name="md5dcb6eccdc824e0677ffae8ccdde42930.KeepAliveService" />
     <receiver android:enabled="true" android:exported="false" android:label="Essentials Battery Broadcast Receiver" android:name="md5d630c3d3bfb5f5558520331566132d97.BatteryBroadcastReceiver" />
@@ -29,5 +32,13 @@
         <category android:name="mono.android.intent.category.SEPPUKU.com.companyname.solitaire" />
       </intent-filter>
     </receiver>
+    <activity android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:excludeFromRecents="true" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <!--
+            Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+    <service android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:exported="true" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
   </application>
 </manifest>

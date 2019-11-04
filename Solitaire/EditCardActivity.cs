@@ -18,7 +18,7 @@ namespace Solitaire
     public class EditCardActivity : AppCompatActivity
     {
         EditText cardNameEditText;
-        string cardDescriptionEditText; 
+        EditText cardDescriptionEditText; 
         
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -35,17 +35,17 @@ namespace Solitaire
             // Need to figure out how to convert this IEnumerable... even IQueryable didn't work...
             
             cardNameEditText = FindViewById<EditText>(Resource.Id.cardNameEditText);
-            cardDescriptionEditText = FindViewById<EditText>(Resource.Id.cardDescriptionEditText).Text;
+            cardDescriptionEditText = FindViewById<EditText>(Resource.Id.cardDescriptionEditText);
 
             cardNameEditText.Text = this.Intent.GetStringExtra("Name");
-            cardDescriptionEditText = this.Intent.GetStringExtra("Description");
+            cardDescriptionEditText.Text = this.Intent.GetStringExtra("Description");
         }
 
         private void SaveAndFinishedEditing()
         {
             Intent returnData = new Intent();
             returnData.PutExtra("Name", cardNameEditText.Text);
-            returnData.PutExtra("Description", cardDescriptionEditText);
+            returnData.PutExtra("Description", cardDescriptionEditText.Text);
             SetResult(Result.Ok, returnData);
             Finish();
         }

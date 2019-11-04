@@ -15,9 +15,9 @@ namespace Solitaire
 {
     public class CreateBoardDialog : Dialog
     {
-        public CreateBoardDialog(ListBoardsMainActivity _context) : base(_context) { callerInstance = _context; this.Show(); }
+        public CreateBoardDialog(MainActivity _context) : base(_context) { callerInstance = _context; this.Show(); }
 
-        ListBoardsMainActivity callerInstance;
+        MainActivity callerInstance;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,18 +35,28 @@ namespace Solitaire
                 long id;
 
                 // Checks to make sure this name doesnt not already exist within the respective board, because we will be using the board's title as the category name
-                if (name != "" && TestData.boards.All(boardName => boardName.Name != name))
+                if (name == "" || name == null) return;
+
+                // If the board doesn't contain any boards then we can skip testing used names
+                if (AssetManager.boards.Count > 0)
                 {
-                    var newBoard = new Board(name, FindViewById<EditText>(Resource.Id.descriptionTextDialog).Text.Trim());
-                    id = newBoard.Id;
-                    TestData.boards.Add(newBoard);
-                }                    
-                else
-                {
-                    Toast.MakeText(callerInstance, "This Name is already used.", ToastLength.Long);
-                    return;
+                    // Checks to make sure the board's name isn't already used
+                    if (AssetManager.boards.All(boardName => boardName.Name == name))
+                    {
+                        return;
+                    }
+                    // If it is then we tell the user
+                    else
+                    {
+                        Toast.MakeText(callerInstance, "This Name is already used.", ToastLength.Short);
+                        return;
+                    }
                 }
-                
+
+                var newBoard = new Board(name, FindViewById<EditText>(Resource.Id.descriptionTextDialog).Text.Trim());
+                id = newBoard.Id;
+                AssetManager.boards.Add(newBoard);
+
                 Intent useCreateBoard = new Intent(callerInstance, typeof(UseBoardActivity));
                 useCreateBoard.PutExtra("Id", id);
                 useCreateBoard.PutExtra("NeedInit", true);

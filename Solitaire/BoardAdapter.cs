@@ -7,7 +7,7 @@ namespace Solitaire
 {
     public class BoardAdapter : BaseAdapter<Board>
     {
-        List<Board> boards = new List<Board>();
+        List<Board> boards;
 
         public BoardAdapter(List<Board> _boards)
         {
@@ -15,7 +15,6 @@ namespace Solitaire
         }
 
         public override Board this[int position] { get { return boards[position]; } }
-
         public override int Count { get { return boards.Count; } }
         public override long GetItemId(int position) { return boards[position].Id; }
 
