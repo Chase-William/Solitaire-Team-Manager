@@ -15,11 +15,13 @@ namespace Solitaire.CustomGestures
 {
     public class DoubleClickGesture 
     {
-        private const double WAIT_FOR_DOUBLE_CLICK_THRESHOLD = 190;
+        private const double WAIT_FOR_DOUBLE_CLICK_THRESHOLD = 150;
         public Timer timer = new Timer(WAIT_FOR_DOUBLE_CLICK_THRESHOLD);
         public UseBoardActivity callerInstance;
-        public DoubleClickGesture(UseBoardActivity _context) 
-        { 
+        static DoubleClickGesture() { }
+
+        public void InitDoubleClickGesture(UseBoardActivity _context)
+        {
             callerInstance = _context;
 
             // This will fire if the user hasn't signaled a double click in a specific amount of time
@@ -36,11 +38,8 @@ namespace Solitaire.CustomGestures
                 // For this intent we only pass the kanbanModel Id because we dont want to edit the board, only the Sfkanban
                 Intent showDetailsActivity = new Intent(callerInstance, typeof(DetailsCardActivity));
                 showDetailsActivity.PutExtra("kanbanModelId", callerInstance.clickedKanbanModelId);
-                callerInstance.StartActivityForResult(showDetailsActivity, callerInstance.DETAILS_ACTIVITY_CODE);                               
+                callerInstance.StartActivityForResult(showDetailsActivity, callerInstance.DETAILS_ACTIVITY_CODE);
             };
-            timer.Start();
-        }
-
-        
+        }     
     }
 }

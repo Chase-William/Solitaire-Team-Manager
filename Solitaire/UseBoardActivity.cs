@@ -38,8 +38,7 @@ namespace Solitaire
         public readonly int DETAILS_ACTIVITY_CODE = 2;
         // Identifies whether the current click is the first click or the second click in a chain of clicks
         public bool clickIdentifier = true;
-        // Pointer to our custom double click gesture
-        DoubleClickGesture doubleClickGesture;
+        DoubleClickGesture thisDoubleClickGestureListener;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -62,8 +61,7 @@ namespace Solitaire
                 InitDefaultBoard(boardId);
             // Otherwise load a pre-existing board:
             else                            
-                LoadBoardIntoKanban(boardId);
-          
+                LoadBoardIntoKanban(boardId);            
         }
         ///
         /// 
@@ -182,7 +180,11 @@ namespace Solitaire
             // Initalizing our Workflows collection
             thisKanban.Workflows = new List<KanbanWorkflow>();
             // Initalizing our ItemSource collection 
-            thisKanban.ItemsSource = new ObservableCollection<KanbanModel>();                    
+            thisKanban.ItemsSource = new ObservableCollection<KanbanModel>();
+
+            // We need to initialize our Custom double click gesture before we can use it
+            thisDoubleClickGestureListener = new DoubleClickGesture();
+            thisDoubleClickGestureListener.InitDoubleClickGesture(this);
         }        
 
         /// 
@@ -198,6 +200,9 @@ namespace Solitaire
             // Then we can assign the kanban instance to ti
             thisKanban = FindViewById<SfKanban>(Resource.Id.kanban);
 
+            // We need to initialize our Custom double click gesture before we can use it
+            thisDoubleClickGestureListener = new DoubleClickGesture();
+            thisDoubleClickGestureListener.InitDoubleClickGesture(this);
 
             /*
              
@@ -290,22 +295,22 @@ namespace Solitaire
             {
                 clickIdentifier = false;
                 clickedKanbanModelId = tempClickedKanbanId;
-                doubleClickGesture = new DoubleClickGesture(this);                            
-            }   
+                thisDoubleClickGestureListener.timer.Start();
+            }
             // If the current click is the second click on the item:
-            else if (!clickIdentifier && clickedKanbanModelId == tempClickedKanbanId)
-            {
-                doubleClickGesture.timer.Stop();
-                Toast.MakeText(this, "Fire Double Click Event", ToastLength.Short).Show();
-                clickIdentifier = true;
-            }
-            // A new kanbanModel was clicked therefore we are starting a new DoubleClickGesture for that object
-            else if (clickIdentifier && tempClickedKanbanId != clickedKanbanModelId)
-            {
-                clickIdentifier = false;
-                clickedKanbanModelId = tempClickedKanbanId;
-                doubleClickGesture = new DoubleClickGesture(this);
-            }
+            //else if (!clickIdentifier && clickedKanbanModelId == tempClickedKanbanId)
+            //{
+            //    DoubleClickGesture.timer.Stop();
+            //    Toast.MakeText(this, "Fire Double Click Event", ToastLength.Short).Show();
+            //    clickIdentifier = true;
+            //}
+            //// A new kanbanModel was clicked therefore we are starting a new DoubleClickGesture for that object
+            //else if (clickIdentifier && tempClickedKanbanId != clickedKanbanModelId)
+            //{
+            //    clickIdentifier = false;
+            //    clickedKanbanModelId = tempClickedKanbanId;
+            //    DoubleClickGesture.timer.Start();
+            //}
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -321,9 +326,7 @@ namespace Solitaire
                 {
                     cardList.Add(card);
                 }
-                thisKanban.ItemsSource = cardList;                
-
-                Console.WriteLine();
+                thisKanban.ItemsSource = cardList; 
             }
         }
 
