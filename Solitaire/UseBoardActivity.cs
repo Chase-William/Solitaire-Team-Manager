@@ -17,6 +17,8 @@ using Android.Support.V7.App;
 using Android.Views.Animations;
 using Android.Animation;
 using System.Threading.Tasks;
+using System.Timers;
+using Solitaire.CustomGestures;
 
 namespace Solitaire
 {
@@ -30,9 +32,14 @@ namespace Solitaire
         // Contains a list off all the categories so we can keep track of all the categories each board needs to support
         private List<object> allSupportedCategories = new List<object>();
         // When we click on a card, we will save which card was clicked
-        //private long boardId, cardId;
-        private long kanbanModelId;
-        private const int DETAILS_ACTIVITY_CODE = 2;
+        public long clickedKanbanModelId;
+        // The for our details activity, readonly because accessing this variable through a pointer to 
+        // it within DoubleClickGesture will cause an error
+        public readonly int DETAILS_ACTIVITY_CODE = 2;
+        // Identifies whether the current click is the first click or the second click in a chain of clicks
+        public bool clickIdentifier = true;
+        // Pointer to our custom double click gesture
+        DoubleClickGesture doubleClickGesture;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -56,8 +63,8 @@ namespace Solitaire
             // Otherwise load a pre-existing board:
             else                            
                 LoadBoardIntoKanban(boardId);
-        }        
-
+          
+        }
         ///
         /// 
         ///     Initalizes & Applies our custom toolbar
@@ -240,7 +247,7 @@ namespace Solitaire
                 });
             }
             thisKanban.ItemsSource = cardList;            
-            thisKanban.ItemTapped += KanbanModelClicked;
+            thisKanban.ItemTapped += KanbanModelClicked;            
         }
 
         /// 
@@ -250,7 +257,6 @@ namespace Solitaire
         /// 
         public Task LoadKanbanIntoBoard()
         {
-
             // Packing our KanbanColumn info into a list to be added onto the board's deck list
             List<Deck> decks = new List<Deck>();
             foreach (KanbanColumn deck in thisKanban.Columns)
@@ -274,39 +280,40 @@ namespace Solitaire
         /// 
         ///     Handles a click event on one of our kanbanmodels inside our Sfkanban
         /// 
-        /// 
+        ///         
         private void KanbanModelClicked(object sender, KanbanTappedEventArgs e)
         {
-            // Casting once instead of 3 timers for performance, and basically making a pointer to it
-            KanbanModel kanbanModelptr = (KanbanModel)e.Data;
-            // caching the id for a lookup that can occur later depending on if the user clicks "edit" or "details" in our dialog we are instanciating
-            kanbanModelId = (long)kanbanModelptr.ID;
-                       
-            // For this intent we only pass the kanbanModel Id because we dont want to edit the board, only the Sfkanban
-            Intent showDetailsActivity = new Intent(this, typeof(DetailsCardActivity));
-            showDetailsActivity.PutExtra("kanbanModelId", kanbanModelId);
-            StartActivityForResult(showDetailsActivity , 2);
+            long tempClickedKanbanId = (long)((KanbanModel)e.Data).ID;
+
+            // If the current click is the first click on the item:
+            if (clickIdentifier)
+            {
+                clickIdentifier = false;
+                clickedKanbanModelId = tempClickedKanbanId;
+                doubleClickGesture = new DoubleClickGesture(this);                            
+            }   
+            // If the current click is the second click on the item:
+            else if (!clickIdentifier && clickedKanbanModelId == tempClickedKanbanId)
+            {
+                doubleClickGesture.timer.Stop();
+                Toast.MakeText(this, "Fire Double Click Event", ToastLength.Short).Show();
+                clickIdentifier = true;
+            }
+            // A new kanbanModel was clicked therefore we are starting a new DoubleClickGesture for that object
+            else if (clickIdentifier && tempClickedKanbanId != clickedKanbanModelId)
+            {
+                clickIdentifier = false;
+                clickedKanbanModelId = tempClickedKanbanId;
+                doubleClickGesture = new DoubleClickGesture(this);
+            }
         }
-
-
-
-
-
-
-
-
-
-
-        // TODO: Needs a OnResume to refresh after editting a card/kanbanModel
-
-
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             // If the resultCode is equal to Result.Ok then we will manually tell the UI to refresh
             if (requestCode == DETAILS_ACTIVITY_CODE && resultCode == Result.Ok)
             {
-                KanbanModel thisKanbanModel = thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == kanbanModelId);
+                KanbanModel thisKanbanModel = thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == clickedKanbanModelId);
 
                 // We need to assign a new ObservableCollection because we needed the UI to update
                 var cardList = new ObservableCollection<KanbanModel>();
@@ -319,17 +326,6 @@ namespace Solitaire
                 Console.WriteLine();
             }
         }
-
-
-
-        protected override void OnResume()
-        {
-            base.OnResume();
-            //thisKanban.Adapter = new KanbanAdapter(thisKanban);
-        }
-
-
-
 
         /// 
         /// 
