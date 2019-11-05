@@ -25,6 +25,7 @@ namespace Solitaire
         {
             var view = inflater.Inflate(Resource.Layout.list_boards_fragment, container, false);
 
+            // When the Add New Boards button is pressed it will trigger the parent Activity to create it
             view.FindViewById<Button>(Resource.Id.addNewBoardBtn).Click += delegate 
             {
                 parentActivityPtr.GenericActionRequest(new System.Action(() =>
@@ -40,7 +41,7 @@ namespace Solitaire
                 parentActivityPtr.GenericActionRequest(new System.Action(() =>
                 {
                     Intent useSelectedBoard = new Intent(parentActivityPtr, typeof(UseBoardActivity));
-                    useSelectedBoard.PutExtra("Id", a.Id);
+                    useSelectedBoard.PutExtra("BoardId", a.Id);
                     parentActivityPtr.StartActivity(useSelectedBoard);
                 }));
             };            

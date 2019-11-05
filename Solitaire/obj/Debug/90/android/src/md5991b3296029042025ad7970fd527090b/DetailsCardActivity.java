@@ -14,6 +14,7 @@ public class DetailsCardActivity
 			"n_onCreateOptionsMenu:(Landroid/view/Menu;)Z:GetOnCreateOptionsMenu_Landroid_view_Menu_Handler\n" +
 			"n_onOptionsItemSelected:(Landroid/view/MenuItem;)Z:GetOnOptionsItemSelected_Landroid_view_MenuItem_Handler\n" +
 			"n_onActivityResult:(IILandroid/content/Intent;)V:GetOnActivityResult_IILandroid_content_Intent_Handler\n" +
+			"n_onResume:()V:GetOnResumeHandler\n" +
 			"";
 		mono.android.Runtime.register ("Solitaire.DetailsCardActivity, Solitaire", DetailsCardActivity.class, __md_methods);
 	}
@@ -57,6 +58,14 @@ public class DetailsCardActivity
 	}
 
 	private native void n_onActivityResult (int p0, int p1, android.content.Intent p2);
+
+
+	public void onResume ()
+	{
+		n_onResume ();
+	}
+
+	private native void n_onResume ();
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

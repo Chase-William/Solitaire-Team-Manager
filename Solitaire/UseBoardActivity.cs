@@ -26,11 +26,13 @@ namespace Solitaire
         // The board acts as a *pointer to the working board, therefore all changes will occur to the original - NOT A COPY
         public Board thisBoard;
         // The SfKanban is merly used as a way for the user to interact with their board and change its data
-        public SfKanban thisKanban;
+        public static SfKanban thisKanban;
         // Contains a list off all the categories so we can keep track of all the categories each board needs to support
         private List<object> allSupportedCategories = new List<object>();
         // When we click on a card, we will save which card was clicked
-        private long cachedId;
+        //private long boardId, cardId;
+        private long kanbanModelId;
+        private const int DETAILS_ACTIVITY_CODE = 2;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -45,29 +47,16 @@ namespace Solitaire
             SetSupportActionBar(toolbar);
            
             // Getting the extra "id" we passed which will enable use to reference our Board
-            long id = this.Intent.GetLongExtra("Id", -1);
+            long boardId = this.Intent.GetLongExtra("BoardId", -1);
             
             // If the board needs initalization run:
             // We dont need to get the data, if that
             if (this.Intent.HasExtra("NeedInit"))
-                InitDefaultBoard(id);
+                InitDefaultBoard(boardId);
             // Otherwise load a pre-existing board:
             else                            
-                LoadBoardIntoKanban(id);
-        }
-        
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-        {
-            if (requestCode == 1 && resultCode == Result.Ok)
-            {
-                // Querying the correct kanban instance by ID
-                KanbanModel kanbanptr = thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanban => kanban.ID == cachedId);
-
-                // Assiging the new values
-                kanbanptr.Title = data.GetStringExtra("Name");
-                kanbanptr.Description = data.GetStringExtra("Description");
-            }
-        }
+                LoadBoardIntoKanban(boardId);
+        }        
 
         ///
         /// 
@@ -246,7 +235,8 @@ namespace Solitaire
                 {
                     ID = card.Id,
                     Title = card.Name,
-                    Category = card.ParentDeck                   
+                    Category = card.ParentDeck,
+                    Description = card.Description
                 });
             }
             thisKanban.ItemsSource = cardList;            
@@ -290,12 +280,56 @@ namespace Solitaire
             // Casting once instead of 3 timers for performance, and basically making a pointer to it
             KanbanModel kanbanModelptr = (KanbanModel)e.Data;
             // caching the id for a lookup that can occur later depending on if the user clicks "edit" or "details" in our dialog we are instanciating
-            cachedId = (long)kanbanModelptr.ID;
+            kanbanModelId = (long)kanbanModelptr.ID;
                        
+            // For this intent we only pass the kanbanModel Id because we dont want to edit the board, only the Sfkanban
             Intent showDetailsActivity = new Intent(this, typeof(DetailsCardActivity));
-            StartActivity(showDetailsActivity);
-            //new ClickedCardOptionsDialog(this, kanbanModelptr.Title, kanbanModelptr.Description);
+            showDetailsActivity.PutExtra("kanbanModelId", kanbanModelId);
+            StartActivityForResult(showDetailsActivity , 2);
         }
+
+
+
+
+
+
+
+
+
+
+        // TODO: Needs a OnResume to refresh after editting a card/kanbanModel
+
+
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            // If the resultCode is equal to Result.Ok then we will manually tell the UI to refresh
+            if (requestCode == DETAILS_ACTIVITY_CODE && resultCode == Result.Ok)
+            {
+                KanbanModel thisKanbanModel = thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == kanbanModelId);
+
+                // We need to assign a new ObservableCollection because we needed the UI to update
+                var cardList = new ObservableCollection<KanbanModel>();
+                foreach (KanbanModel card in thisKanban.ItemsSource)
+                {
+                    cardList.Add(card);
+                }
+                thisKanban.ItemsSource = cardList;                
+
+                Console.WriteLine();
+            }
+        }
+
+
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            //thisKanban.Adapter = new KanbanAdapter(thisKanban);
+        }
+
+
+
 
         /// 
         /// 

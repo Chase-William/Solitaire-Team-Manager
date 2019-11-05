@@ -1088,7 +1088,6 @@ C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\men
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\MainActivity.java
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\drawable\hamburger.png
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\drawable\board_icon.png
-C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsFragmentActivity.java
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\layout\list_boards_fragment.xml
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateBoardDialog.java
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\drawable\custom_border.xml
@@ -1119,3 +1118,7 @@ C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md54908d67eb9afef4acc92753cc61471e9\CircleImageView.java
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\drawable\gradient_bg.xml
+C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\layout\list_contributors_fragment.xml
+C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsFragment.java
+C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListContributorsFragment.java
+C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache

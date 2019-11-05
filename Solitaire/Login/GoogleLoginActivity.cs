@@ -134,7 +134,7 @@ namespace Solitaire
             {
                 // Signed in successfully, show authenticated UI.
                 AssetManager.thisGoogleAccount = result.SignInAccount;
-                mStatusTextView.Text = $"{SIGNED_IN_FMT}, { AssetManager.thisGoogleAccount.DisplayName}";
+                mStatusTextView.Text = $"{SIGNED_IN_FMT} { AssetManager.thisGoogleAccount.DisplayName}";
                 UpdateUI(true);
 
                 // Starting our application now that the user has successfully logged in

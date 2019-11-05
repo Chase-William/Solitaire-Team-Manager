@@ -29,12 +29,20 @@ namespace Solitaire
             var createDeckBtn = FindViewById<Button>(Resource.Id.createDeckBtn);
             var cancelDeckBtn   = FindViewById<Button>(Resource.Id.cancelDeckBtn);
             var categorySpinner = FindViewById<Spinner>(Resource.Id.categorySpinnerDialog);
-            
-            foreach (var deck in callerInstance.thisKanban.Columns)
+
+
+            //
+            //      IMPORTANT: this list is used for the Spinner's Adapter!     
+            //
+            foreach (var deck in UseBoardActivity.thisKanban.Columns)
             {
                 // A Deck only is allowed 1 category right now hence we index 0
                 categories.Add((string)deck.Categories[0]);
             }
+
+
+            // TODO: Customize the spinner adapter
+
 
             // Creating our adapter for our spinner which allows the user to choose which category this shall be assigned to
             var adapter = new ArrayAdapter<string>(callerInstance, Android.Resource.Layout.SimpleSpinnerItem, categories);
@@ -48,7 +56,16 @@ namespace Solitaire
 
                 // Getting the titles of the kanbanModels within the IEnumerable list, kanbanmodels are the cards basically
                 List<string> names = new List<string>();
-                foreach (KanbanModel item in callerInstance.thisKanban.ItemsSource) { names.Add(item.Title); }
+                foreach (KanbanModel item in UseBoardActivity.thisKanban.ItemsSource) 
+                { 
+                    names.Add(item.Title); 
+                }
+
+
+
+                // TODO: Use Linq instead of the foreach loop above
+
+
 
 
                 // Checks to make sure that the name doesn't already exist and isn't a space filled string
@@ -58,8 +75,7 @@ namespace Solitaire
                 {
                     Toast.MakeText(callerInstance, "This Name is already used.", ToastLength.Long);
                     return;
-                }
-                    
+                }                    
                 Dismiss();
             };
 

@@ -38,6 +38,7 @@ HorizontalScrollView;C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire
 ImageView;obj\Debug\90\res\layout\board_row.xml
 ImageView;obj\Debug\90\res\layout\create_contributor_activity.xml
 ImageView;obj\Debug\90\res\layout\details_card_activity.xml
+ImageView;obj\Debug\90\res\layout\edit_card_activity.xml
 ImageView;obj\Debug\90\res\layout\google_login_activity.xml
 include;obj\Debug\90\res\layout\create_contributor_activity.xml
 include;obj\Debug\90\res\layout\details_card_activity.xml
@@ -70,6 +71,7 @@ LinearLayout;obj\Debug\90\res\layout\main_activity.xml
 LinearLayout;obj\Debug\90\res\layout\nav_header.xml
 LinearLayout;obj\Debug\90\res\layout\use_board_activity.xml
 ListView;obj\Debug\90\res\layout\details_card_activity.xml
+ListView;obj\Debug\90\res\layout\edit_card_activity.xml
 ListView;obj\Debug\90\res\layout\list_boards_fragment.xml
 menu;obj\Debug\90\res\menu\create_contributor_menu.xml
 menu;obj\Debug\90\res\menu\details_card_menu.xml
@@ -122,5 +124,6 @@ TextView;obj\Debug\90\res\layout\create_board_dialog.xml
 TextView;obj\Debug\90\res\layout\create_card_dialog.xml
 TextView;obj\Debug\90\res\layout\create_deck_dialog.xml
 TextView;obj\Debug\90\res\layout\details_card_activity.xml
+TextView;obj\Debug\90\res\layout\edit_card_activity.xml
 TextView;obj\Debug\90\res\layout\google_login_activity.xml
 TextView;obj\Debug\90\res\layout\nav_header.xml
