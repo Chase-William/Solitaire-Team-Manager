@@ -1205,4 +1205,3 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\LoginResultCallback.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\MainActivity.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5dab4f5c7853fd57f3a9c9a523364ac69\AwaitableTaskCompleteListener_1.java
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5e664310586a2c7741659007b512c5766\DoubleClickGestureListener.java

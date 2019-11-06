@@ -4216,70 +4216,73 @@ namespace Solitaire
 			public const int title_text = 2131230960;
 			
 			// aapt resource value: 0x7F0800F1
-			public const int toolbar = 2131230961;
+			public const int toggleAllCards = 2131230961;
 			
 			// aapt resource value: 0x7F0800F2
-			public const int top = 2131230962;
+			public const int toolbar = 2131230962;
 			
 			// aapt resource value: 0x7F0800F3
-			public const int topPanel = 2131230963;
+			public const int top = 2131230963;
 			
 			// aapt resource value: 0x7F0800F4
-			public const int totalCards = 2131230964;
+			public const int topPanel = 2131230964;
 			
 			// aapt resource value: 0x7F0800F5
-			public const int totalCardsLabel = 2131230965;
+			public const int totalCards = 2131230965;
 			
 			// aapt resource value: 0x7F0800F6
-			public const int totalDecks = 2131230966;
+			public const int totalCardsLabel = 2131230966;
 			
 			// aapt resource value: 0x7F0800F7
-			public const int totalDecksLabel = 2131230967;
+			public const int totalDecks = 2131230967;
 			
 			// aapt resource value: 0x7F0800F8
-			public const int touch_outside = 2131230968;
+			public const int totalDecksLabel = 2131230968;
 			
 			// aapt resource value: 0x7F0800F9
-			public const int transition_current_scene = 2131230969;
+			public const int touch_outside = 2131230969;
 			
 			// aapt resource value: 0x7F0800FA
-			public const int transition_layout_save = 2131230970;
+			public const int transition_current_scene = 2131230970;
 			
 			// aapt resource value: 0x7F0800FB
-			public const int transition_position = 2131230971;
+			public const int transition_layout_save = 2131230971;
 			
 			// aapt resource value: 0x7F0800FC
-			public const int transition_scene_layoutid_cache = 2131230972;
+			public const int transition_position = 2131230972;
 			
 			// aapt resource value: 0x7F0800FD
-			public const int transition_transform = 2131230973;
+			public const int transition_scene_layoutid_cache = 2131230973;
 			
 			// aapt resource value: 0x7F0800FE
-			public const int uniform = 2131230974;
+			public const int transition_transform = 2131230974;
 			
 			// aapt resource value: 0x7F0800FF
-			public const int unlabeled = 2131230975;
+			public const int uniform = 2131230975;
 			
 			// aapt resource value: 0x7F080100
-			public const int up = 2131230976;
+			public const int unlabeled = 2131230976;
 			
 			// aapt resource value: 0x7F080101
-			public const int useLogo = 2131230977;
+			public const int up = 2131230977;
 			
 			// aapt resource value: 0x7F080102
-			public const int view_offset_helper = 2131230978;
+			public const int useLogo = 2131230978;
 			
 			// aapt resource value: 0x7F080103
-			public const int visible = 2131230979;
+			public const int view_offset_helper = 2131230979;
 			
 			// aapt resource value: 0x7F080104
-			public const int wide = 2131230980;
+			public const int visible = 2131230980;
 			
 			// aapt resource value: 0x7F080105
-			public const int withText = 2131230981;
+			public const int wide = 2131230981;
 			
 			// aapt resource value: 0x7F080106
-			public const int wrap_content = 2131230982;
+			public const int withText = 2131230982;
+			
+			// aapt resource value: 0x7F080107
+			public const int wrap_content = 2131230983;
 			
 			static Id()
 			{

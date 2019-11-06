@@ -37,7 +37,7 @@ namespace Solitaire.CustomGestures
                 callerInstance.clickIdentifier = true;
                 // For this intent we only pass the kanbanModel Id because we dont want to edit the board, only the Sfkanban
                 Intent showDetailsActivity = new Intent(callerInstance, typeof(DetailsCardActivity));
-                showDetailsActivity.PutExtra("kanbanModelId", callerInstance.clickedKanbanModelId);
+                showDetailsActivity.PutExtra("kanbanModelId", (long)callerInstance.clickedKanbanModel.ID);
                 callerInstance.StartActivityForResult(showDetailsActivity, callerInstance.DETAILS_ACTIVITY_CODE);
             };
         }     

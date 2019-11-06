@@ -125,7 +125,7 @@ public final class R {
 		public static final int text2 = 0x7f0800e2;
 		public static final int time = 0x7f0800ea;
 		public static final int title = 0x7f0800eb;
-		public static final int top = 0x7f0800f0;
+		public static final int top = 0x7f0800f1;
 	}
 	public static final class integer {
 		public static final int status_bar_notification_info_maxnum = 0x7f09000f;
