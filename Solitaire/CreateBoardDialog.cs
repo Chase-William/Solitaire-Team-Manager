@@ -57,7 +57,7 @@ namespace Solitaire
 
                 Intent useCreateBoard = new Intent(callerInstance, typeof(UseBoardActivity));
                 useCreateBoard.PutExtra("BoardId", boardId);
-                useCreateBoard.PutExtra("NeedInit", true);
+                useCreateBoard.PutExtra("IsNew", true);
 
                 Dismiss();
                 callerInstance.StartActivity(useCreateBoard);

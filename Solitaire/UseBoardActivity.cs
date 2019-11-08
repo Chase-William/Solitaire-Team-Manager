@@ -38,7 +38,7 @@ namespace Solitaire
         // The board acts as a *pointer to the working board, therefore all changes will occur to the original - NOT A COPY
         public Board thisBoard;
         // The SfKanban is merly used as a way for the user to interact with their board and change its data
-        public static SfKanban thisKanban;
+        public SfKanban thisKanban;
         // Contains a list off all the categories so we can keep track of all the categories each board needs to support
         private List<object> allSupportedCategories = new List<object>();
         // When we click on a card, we will save which card was clicked
@@ -57,6 +57,15 @@ namespace Solitaire
         private const string UNFINISHED_CARD_COLOR = "Green";
 
 
+        /*
+         
+            Test:
+
+         */
+        
+        public static List<KanbanModel> kanbanModels;
+
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -68,19 +77,22 @@ namespace Solitaire
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Your Board";
             SetSupportActionBar(toolbar);
-           
+
+            // Calling our initalizer class
+            new SetupBoardAndSfkanban(this).InvokeInitEvent();
+
             // Getting the extra "id" we passed which will enable use to reference our Board
-            long boardId = this.Intent.GetLongExtra("BoardId", -1);
+            //long boardId = this.Intent.GetLongExtra("BoardId", -1);
 
             // We then get the SfKanban which will be how the user interacts with the board's data
-            thisKanban = FindViewById<SfKanban>(Resource.Id.kanban);
-            // If the board needs initalization run:
-            // We dont need to get the data, if that
-            if (this.Intent.HasExtra("NeedInit"))
-                InitDefaultBoard(boardId);
-            // Otherwise load a pre-existing board:
-            else                            
-                LoadBoardIntoKanban(boardId);            
+            //thisKanban = FindViewById<SfKanban>(Resource.Id.kanban);
+            //// If the board needs initalization run:
+            //// We dont need to get the data, if that
+            //if (this.Intent.HasExtra("NeedInit"))
+            //    InitDefaultBoard(boardId);
+            //// Otherwise load a pre-existing board:
+            //else                            
+            //    LoadBoardIntoKanban(boardId);            
         }
 
         ///
@@ -239,28 +251,29 @@ namespace Solitaire
         ///     Creates default board & applies it to the UI
         ///
         ///
-        private void InitDefaultBoard(long _id)
-        {
-            // Assigning the board to our (Boardptr*) basically which will be the board we will be modifing 
-            thisBoard = AssetManager.boards.Single(board => board.Id == _id);            
+        //private void InitDefaultBoard(long _id)
+        //{
+        //    // Assigning the board to our(Boardptr *) basically which will be the board we will be modifing
+        //    thisBoard = AssetManager.boards.Single(board => board.Id == _id);
 
-            // Intializing the colors needed to indicate whether a card is finished or not
-            List<KanbanColorMapping> colorModels = new List<KanbanColorMapping>();
-            colorModels.Add(new KanbanColorMapping(UNFINISHED_CARD_COLOR, Color.Green));
-            colorModels.Add(new KanbanColorMapping(FINISHED_CARD_COLOR, Color.Red));
-            thisKanban.IndicatorColorPalette = colorModels;
+        //    // Intializing the colors needed to indicate whether a card is finished or not
+        //    List<KanbanColorMapping> colorModels = new List<KanbanColorMapping>();
+        //    colorModels.Add(new KanbanColorMapping(UNFINISHED_CARD_COLOR, Color.Green));
+        //    colorModels.Add(new KanbanColorMapping(FINISHED_CARD_COLOR, Color.Red));
+        //    thisKanban.IndicatorColorPalette = colorModels;
 
-            thisKanban.ItemTapped += KanbanModelClicked;
+        //    thisKanban.ItemTapped += KanbanModelClicked;
 
-            // Initalizing our Workflows collection
-            thisKanban.Workflows = new List<KanbanWorkflow>();
-            // Initalizing our ItemSource collection 
-            thisKanban.ItemsSource = new ObservableCollection<KanbanModel>();
+        //    // Initalizing our Workflows collection
+        //    thisKanban.Workflows = new List<KanbanWorkflow>();
+        //    // Initalizing our ItemSource collection
+        //    kanbanModels = new ObservableCollection<KanbanModel>();
+        //    thisKanban.ItemsSource = new ObservableCollection<KanbanModel>();
 
-            // We need to initialize our Custom double click gesture before we can use it
-            thisDoubleClickGestureListener = new DoubleClickGesture();
-            thisDoubleClickGestureListener.InitDoubleClickGesture(this);
-        }        
+        //    // We need to initialize our Custom double click gesture before we can use it
+        //    thisDoubleClickGestureListener = new DoubleClickGesture();
+        //    thisDoubleClickGestureListener.InitDoubleClickGesture(this);
+        //}        
 
         /// 
         /// 
@@ -510,6 +523,176 @@ namespace Solitaire
             await LoadKanbanIntoBoard();
             // AssetManager.WriteToBoardsOnFile();
             base.OnBackPressed();
-        }        
-    }
+        }
+
+        /// 
+        /// 
+        ///     Responsible for setting up the board and sfkanban for the UseBoardActivity
+        /// 
+        ///
+        private sealed class SetupBoardAndSfkanban
+        {
+            // Event that will guide the initialization process... Events are awesome and so is C#
+            private event Action setupBoardAndSfKanban;
+            private readonly UseBoardActivity useBoardActivity;
+
+            public SetupBoardAndSfkanban(UseBoardActivity _useboardActivity)
+            {
+                useBoardActivity = _useboardActivity;
+
+                setupBoardAndSfKanban += GetRefToSfKanbanFromXml;
+                setupBoardAndSfKanban += GetRefToBoard;
+                setupBoardAndSfKanban += InitSfKanbanWorkflow;
+                setupBoardAndSfKanban += InitSfKanbanColorKey;
+                setupBoardAndSfKanban += InitSfKanbanGestures;
+            }
+
+            /// 
+            /// 
+            ///     Property for our Mutating our event
+            ///     https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-implement-custom-event-accessors
+            /// 
+            /// 
+            event Action SetupBoardAndSfKanban
+            {
+                add
+                {
+                    lock (setupBoardAndSfKanban)
+                    {
+                        setupBoardAndSfKanban += value;
+                    }
+                }
+                remove
+                {
+                    lock (setupBoardAndSfKanban)
+                    {
+                        setupBoardAndSfKanban -= value;
+                    }
+                }
+            }
+
+            /// 
+            /// 
+            ///     Allows for safe public invoking for setupBoardAndSfKanban
+            /// 
+            /// 
+            public void InvokeInitEvent()
+            {
+                setupBoardAndSfKanban?.Invoke();
+            }
+
+            /// 
+            /// 
+            ///     Getting a ref to the SfKanban from the inflated layout from XML, therefore getting it from the Resource.Id class
+            /// 
+            /// 
+            private void GetRefToSfKanbanFromXml()
+            {
+                useBoardActivity.thisKanban = useBoardActivity.FindViewById<SfKanban>(Resource.Id.sfKanban);
+            }
+
+            ///
+            /// 
+            ///     Getting a ref to the Board that was created or was clicked on that started the UseBoardActivity
+            /// 
+            /// 
+            private void GetRefToBoard()
+            {
+                // If our board has extra data needing to be loaded, attach a method to event for that
+                if (!useBoardActivity.Intent.HasExtra("IsNew"))
+                    SetupBoardAndSfKanban += LoadDataFromBoardIntoSfKanban;
+
+                // Getting a ref to the board we "working" with using an Intent.Extra
+                useBoardActivity.thisBoard = AssetManager.boards.Single(board => board.Id == useBoardActivity.Intent.GetLongExtra("boardId", -1));
+            }
+
+            /// 
+            /// 
+            ///     Initializes the workflow for the SfKanban
+            /// 
+            /// 
+            private void InitSfKanbanWorkflow()
+            {
+                useBoardActivity.thisKanban.Workflows = new List<KanbanWorkflow>();
+            }
+
+            /// 
+            ///
+            ///     Initializes the color key used for detecting and displaying whether a kanbanModel is "finished" 
+            /// 
+            /// 
+            private void InitSfKanbanColorKey()
+            {
+                useBoardActivity.thisKanban.IndicatorColorPalette = new List<KanbanColorMapping>
+                {
+                    new KanbanColorMapping(UNFINISHED_CARD_COLOR, Color.Green),
+                    new KanbanColorMapping(FINISHED_CARD_COLOR, Color.Red)
+                };
+            }
+
+            /// 
+            /// 
+            ///     Initializing the single click and double click gestures
+            /// 
+            /// 
+            private void InitSfKanbanGestures()
+            {
+                // Single click
+                useBoardActivity.thisKanban.ItemTapped += useBoardActivity.KanbanModelClicked;
+
+                // Double click
+                useBoardActivity.thisDoubleClickGestureListener = new DoubleClickGesture();                
+                useBoardActivity.thisDoubleClickGestureListener.InitDoubleClickGesture(useBoardActivity);
+            }
+
+            /// 
+            /// 
+            ///     Loads data from board ref into our Sfkanban (optional method), look GetRefToBoard()
+            /// 
+            ///     Steps:
+            ///         1. Init KanbanColumn
+            ///             A. Add this KanbanColumn instance's Category property to the allSupportedCategories list
+            ///             B. Add new workflow using this KanbanColumn instance's Category and the allSupportedCategories list
+            ///             C. Add this KanbanColumn instance to the SfKanban.Columns list
+            ///             
+            ///         2. Init KanbanModel
+            ///             A.  TODO PICK UP HERE ------------------------------------------------------------------------------------------------------------------------------------------------------
+            ///
+            private void LoadDataFromBoardIntoSfKanban()
+            {
+                //// Initializing all the KanbanModels with data from the list of cards
+                //var unfinishedCards = new ObservableCollection<KanbanModel>();
+                //foreach (Card card in thisBoard.Cards)
+                //{
+                //    // We add the finished cards to their own collection
+                //    if (card.IsFinished)
+                //    {
+                //        finishedKanbanModels.Add(new KanbanModel()
+                //        {
+                //            ID = card.Id,
+                //            Title = card.Name,
+                //            Category = card.ParentDeck,
+                //            Description = card.Description,
+                //            ColorKey = FINISHED_CARD_COLOR
+                //        });
+                //    }
+                //    // The unfinished cards get added to their own collection
+                //    else
+                //    {
+                //        unfinishedCards.Add(new KanbanModel()
+                //        {
+                //            ID = card.Id,
+                //            Title = card.Name,
+                //            Category = card.ParentDeck,
+                //            Description = card.Description,
+                //            ColorKey = UNFINISHED_CARD_COLOR
+                //        });
+                //    }
+                //}
+
+
+                //thisKanban.ItemsSource = unfinishedCards;
+            }
+        }
+    }    
 }
