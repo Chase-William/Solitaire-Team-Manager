@@ -8,18 +8,28 @@ using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Syncfusion.SfKanban.Android;
 using Solitaire.Lang;
 using Android.Support.V7.App;
-using Android.Views.Animations;
-using Android.Animation;
 using System.Threading.Tasks;
-using System.Timers;
 using Solitaire.CustomGestures;
 
+/*
+
+    This is definatly not the most efficient way of performing the operations needed in this Activity.
+    Due to time constraints and lack of indepth documention at https://help.syncfusion.com/xamarin-android/sfkanban/overview
+
+    I await the day I can use my fixed, unsafe, stackalloc keywords!
+    
+*/
+
+/*
+
+    CURRENT BUG: When the project only contains finished cards an error will occur once you save -> re-open board -> show finished 
+        then clicking on a card will result in a exception
+
+*/
 namespace Solitaire
 {
     [Activity(Label = "UseBoardActivity")]
@@ -40,10 +50,13 @@ namespace Solitaire
         public bool clickIdentifier = true;
         // Pointer needed when using the DoubleClickGesture to have access to the instance 
         DoubleClickGesture thisDoubleClickGestureListener;
+        // Contains all the finished kanbanModels
         List<KanbanModel> finishedKanbanModels = new List<KanbanModel>();
+        // Finished kanbanModels are marked via the collor swatch on the bottem right of their card
         private const string FINISHED_CARD_COLOR = "Red";
-        private const string UNFINISHED_CARD_COLOR = "GREEN";
-        
+        private const string UNFINISHED_CARD_COLOR = "Green";
+
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -69,6 +82,7 @@ namespace Solitaire
             else                            
                 LoadBoardIntoKanban(boardId);            
         }
+
         ///
         /// 
         ///     Initalizes & Applies our custom toolbar
@@ -91,19 +105,27 @@ namespace Solitaire
             switch (item.TitleFormatted.ToString())
             {
                 // If Add Column is clicked we need to create a new default column
+                /*
+
+                    I wrap our dialogs in a using statement because they the IDisposable interface which will provide deallocation
+                    I really don't want a memeory leak because this is already an expensive app to run
+                    Amazing Article: https://www.codeproject.com/Articles/29534/IDisposable-What-Your-Mother-Never-Told-You-About
+
+                */
                 case "Add Deck":
                     new CreateDeckDialog(this);
                     break;
                 case "Add Card":
                     new CreateCardDialog(this);
-                    break;
+                        break;
                 case "Add Contact":
                     new ContributorOptionsDialog(this);
                     break;
-                case "Toggle Finished Cards":
-
-                    // TODO: Show all finished cards, when clicked a second time should untoggle
-
+                case "Show Finished Cards":
+                    ShowFinishedCards();
+                    break;
+                case "Hide Finished Cards":
+                    HideAllFinishedCards();
                     break;
                 default:
                     break;
@@ -111,6 +133,43 @@ namespace Solitaire
             return base.OnOptionsItemSelected(item);
         }
 
+        ///
+        /// 
+        ///     Adds all the finished cards to the UI
+        /// 
+        /// 
+        private void ShowFinishedCards()
+        {
+            var cards = new List<KanbanModel>();   
+            cards = thisKanban.ItemsSource.Cast<KanbanModel>().ToList();
+            cards.AddRange(finishedKanbanModels);
+
+            // Need to clear the finished cards list
+            finishedKanbanModels.Clear();
+            thisKanban.ItemsSource = cards;
+        }
+
+        /// 
+        /// 
+        ///     Removes all finished cards from the UI
+        /// 
+        ///     THE ERROR IS SOMEWHERE HERE BECAUSE WHEN WE TRY AND HIDE FINSIHED THAT CAUSES THE SEG FAULT
+        /// 
+        /// 
+        private void HideAllFinishedCards()
+        {
+            var cards = new List<KanbanModel>();
+
+            foreach (KanbanModel kanbanModel in thisKanban.ItemsSource)
+            {
+                if ((string)kanbanModel.ColorKey == UNFINISHED_CARD_COLOR)
+                    cards.Add(kanbanModel);
+                else
+                    finishedKanbanModels.Add(kanbanModel);
+            }
+            // Need to clear the finished cards list            
+            thisKanban.ItemsSource = cards;
+        }
 
         /// 
         /// 
@@ -258,7 +317,7 @@ namespace Solitaire
                     AllowedTransitions = allSupportedCategories                    
                 });
             }
-
+            
             // Initializing all the KanbanModels with data from the list of cards
             var unfinishedCards = new ObservableCollection<KanbanModel>();
             foreach (Card card in thisBoard.Cards)
@@ -303,7 +362,7 @@ namespace Solitaire
             // Packing our KanbanColumn info into a list to be added onto the board's deck list
             List<Deck> decks = new List<Deck>();
             foreach (KanbanColumn deck in thisKanban.Columns)
-            {
+            {                
                 decks.Add(new Deck(deck.Title, deck.ContentDescription));
             }
             thisBoard.Decks = decks;
@@ -314,13 +373,29 @@ namespace Solitaire
             {
                 cards.Add(new Card(kanbanModel.Title, kanbanModel.Description, kanbanModel.Category.ToString())
                 {
-                    // Stating whether this card was finished or not
-                    IsFinished = false
+                    // Determining if this kanban model is finished and then assigning it to the color
+                    IsFinished = ((string)kanbanModel.ColorKey) == FINISHED_CARD_COLOR ? true : false
                 });
             }
-            // We want to overwrite the old data first
+            // Want to overwrite the old data first
             thisBoard.Cards = cards;
 
+            if (finishedKanbanModels.Count != 0)
+            {
+                // Need to add all the finished cards to the board card collection
+                AddFinshedCardsToBoard();
+            }            
+
+            return Task.CompletedTask;
+        }
+
+        ///
+        /// 
+        ///     Converts finished kanbanModels into cards and adds them the currently selected board card list
+        /// 
+        ///
+        private void AddFinshedCardsToBoard()
+        {
             // Now we can add to it since the old setup was overwritten
             foreach (KanbanModel kanbanModel in finishedKanbanModels)
             {
@@ -330,8 +405,6 @@ namespace Solitaire
                     IsFinished = true
                 });
             }
-            
-            return Task.CompletedTask;
         }
 
         ///
@@ -383,12 +456,21 @@ namespace Solitaire
         private void MarkCardAsFinished(KanbanColumn _column, int _position)
         {
             // Adding this card to the list of finished cards
+            clickedKanbanModel.ColorKey = FINISHED_CARD_COLOR;
             finishedKanbanModels.Add(clickedKanbanModel);
             // Removing it from the column so it won't be displayed.. was hard to find this
             _column.RemoveItem(clickedKanbanModel);
-            // Removing it from the ItemSource Collection
-            //KanbanModel kanbanModelptr = thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanban => kanban.Equals(clickedKanbanModel));  
 
+            // Removing it from the ItemSource Collection
+            try
+            {
+                KanbanModel kanbanModelptr = thisKanban.ItemsSource.Cast<KanbanModel>().ToList().Single(kanban => kanban.Equals(clickedKanbanModel));
+            }
+            catch 
+            {
+                Android.Widget.Toast.MakeText(this, "Failed find card", Android.Widget.ToastLength.Short).Show();
+            }          
+            
             var tempKanbanModels = thisKanban.ItemsSource.Cast<KanbanModel>().ToList();
             tempKanbanModels.Remove(clickedKanbanModel);            
             thisKanban.ItemsSource = tempKanbanModels;
@@ -408,7 +490,7 @@ namespace Solitaire
                 // KanbanModel thisKanbanModel = thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.Equals(clickedKanbanModel));
 
                 // We need to assign a new ObservableCollection because we needed the UI to update
-                var cardList = new ObservableCollection<KanbanModel>();
+                var cardList = new List<KanbanModel>();
                 foreach (KanbanModel card in thisKanban.ItemsSource)
                 {
                     cardList.Add(card);

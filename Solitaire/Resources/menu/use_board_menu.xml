@@ -16,5 +16,9 @@
   <item
        android:id="@+id/toggleAllCards"
        app:showAsAction="never"
-       android:title="Toggle Finished Cards" />
+       android:title="Show Finished Cards" />
+  <item
+       android:id="@+id/toggleAllCards"
+       app:showAsAction="never"
+       android:title="Hide Finished Cards" />
 </menu>

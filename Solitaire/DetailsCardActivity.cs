@@ -36,7 +36,10 @@ namespace Solitaire
             
             // Getting our kanbanModel from our static Sfkanban inside UseBoardActivity
             // IEnumberables are annoying because then I gotta cast everything
+            
             kanbanModelptr = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == kanbanModelId);
+            
+            
 
             // Setting the textviews to display the information about the kanbanModel
             FindViewById<TextView>(Resource.Id.cardNameTextView).Text = kanbanModelptr.Title;
