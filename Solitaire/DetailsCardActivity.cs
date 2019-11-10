@@ -18,7 +18,7 @@ namespace Solitaire
     public class DetailsCardActivity : AppCompatActivity
     {
         long kanbanModelId;
-        KanbanModel kanbanModelptr;
+        KanbanModel clickedKanbanModel;
         private const int EDIT_ACTIVITY_CODE = 3;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -37,13 +37,13 @@ namespace Solitaire
             // Getting our kanbanModel from our static Sfkanban inside UseBoardActivity
             // IEnumberables are annoying because then I gotta cast everything
             
-            kanbanModelptr = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == kanbanModelId);
+            clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == kanbanModelId);
             
             
 
             // Setting the textviews to display the information about the kanbanModel
-            FindViewById<TextView>(Resource.Id.cardNameTextView).Text = kanbanModelptr.Title;
-            FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = kanbanModelptr.Description;
+            FindViewById<TextView>(Resource.Id.cardNameTextView).Text = clickedKanbanModel.Title;
+            FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = clickedKanbanModel.Description;
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -90,8 +90,8 @@ namespace Solitaire
         protected override void OnResume()
         {
             base.OnResume();
-            FindViewById<TextView>(Resource.Id.cardNameTextView).Text = kanbanModelptr.Title;
-            FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = kanbanModelptr.Description;
+            FindViewById<TextView>(Resource.Id.cardNameTextView).Text = clickedKanbanModel.Title;
+            FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = clickedKanbanModel.Description;
         }
     }
 }

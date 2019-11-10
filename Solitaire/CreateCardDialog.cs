@@ -56,7 +56,10 @@ namespace Solitaire
 
                 // Getting the titles of the kanbanModels within the IEnumerable list, kanbanmodels are the cards basically
                 List<string> names = new List<string>();
-                foreach (KanbanModel item in UseBoardActivity.thisKanban.ItemsSource) 
+
+                var test = UseBoardActivity.kanbanModels;
+
+                foreach (KanbanModel item in UseBoardActivity.kanbanModels) 
                 { 
                     names.Add(item.Title); 
                 }
