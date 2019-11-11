@@ -165,21 +165,26 @@ namespace Solitaire
         /// 
         ///     Removes all finished cards from the UI
         /// 
-        ///     THE ERROR IS SOMEWHERE HERE BECAUSE WHEN WE TRY AND HIDE FINSIHED THAT CAUSES THE SEG FAULT
-        /// 
         /// 
         private void HideAllFinishedCards()
         {
-            //var cards = new List<KanbanModel>();
+            // If kanbanModels contains unfinished cards we need to manually remove them from the colums
+            if (kanbanModels.All(kanbanModel => (string)kanbanModel.ColorKey == FINISHED_CARD_COLOR))
+            {
+                var finishedList = kanbanModels.Where(kanbanModel => (string)kanbanModel.ColorKey == FINISHED_CARD_COLOR).ToList();
+                              
+                foreach (var kanbanColumn in thisKanban.Columns)
+                {
+                    for (int i = 0; i < kanbanColumn.ItemsCount; i++)
+                    {
+                        // TODO: All children in finishedList need to be removed from KanbanColumns
+                        //kanbanColumn.RemoveItem(finishedList.ElementAt(i));
+                        //finishedList.Remove(finishedList.ElementAt(i));
+                    }
+                }               
+            }
 
-            //foreach (KanbanModel kanbanModel in thisKanban.ItemsSource)
-            //{
-            //    if ((string)kanbanModel.ColorKey == UNFINISHED_CARD_COLOR)
-            //        cards.Add(kanbanModel);
-            //    else
-            //        finishedKanbanModels.Add(kanbanModel);
-            //}
-            // Need to clear the finished cards list            
+            // Updating the ItemSource so it contains zero FINISHED kanbanModels
             thisKanban.ItemsSource = kanbanModels.Where(kanbanModel => (string)kanbanModel.ColorKey == UNFINISHED_CARD_COLOR).ToList();
         }
 
@@ -232,8 +237,6 @@ namespace Solitaire
             // Decorating the new KanbanColumn
             newColumn.ContentDescription = _descriptionColumn;
             newColumn.ErrorBarSettings.Color = Color.Green;
-            newColumn.ErrorBarSettings.MinValidationColor = Color.Orange;
-            newColumn.ErrorBarSettings.MaxValidationColor = Color.Red;
             newColumn.ErrorBarSettings.Height = 4;
 
             // We need to add this kanbanWorkflow because it will be used when moving and deciding where cards shall be placed 
@@ -249,125 +252,6 @@ namespace Solitaire
 
         /// 
         /// 
-        ///     Creates default board & applies it to the UI
-        ///
-        ///
-        //private void InitDefaultBoard(long _id)
-        //{
-        //    // Assigning the board to our(Boardptr *) basically which will be the board we will be modifing
-        //    thisBoard = AssetManager.boards.Single(board => board.Id == _id);
-
-        //    // Intializing the colors needed to indicate whether a card is finished or not
-        //    List<KanbanColorMapping> colorModels = new List<KanbanColorMapping>();
-        //    colorModels.Add(new KanbanColorMapping(UNFINISHED_CARD_COLOR, Color.Green));
-        //    colorModels.Add(new KanbanColorMapping(FINISHED_CARD_COLOR, Color.Red));
-        //    thisKanban.IndicatorColorPalette = colorModels;
-
-        //    thisKanban.ItemTapped += KanbanModelClicked;
-
-        //    // Initalizing our Workflows collection
-        //    thisKanban.Workflows = new List<KanbanWorkflow>();
-        //    // Initalizing our ItemSource collection
-        //    kanbanModels = new ObservableCollection<KanbanModel>();
-        //    thisKanban.ItemsSource = new ObservableCollection<KanbanModel>();
-
-        //    // We need to initialize our Custom double click gesture before we can use it
-        //    thisDoubleClickGestureListener = new DoubleClickGesture();
-        //    thisDoubleClickGestureListener.InitDoubleClickGesture(this);
-        //}        
-
-        /// 
-        /// 
-        ///     Loads an pre-existing board & applies it to the UI <>
-        /// 
-        ///
-        //private void LoadBoardIntoKanban(long _id)
-        //{
-        //    // Assign the board instance we desire to our *pointer
-        //    thisBoard = AssetManager.boards.Single(board => board.Id == _id);
-
-        //    // Intializing the colors needed to indicate whether a card is finished or not
-        //    List<KanbanColorMapping> colorModels = new List<KanbanColorMapping>();
-        //    colorModels.Add(new KanbanColorMapping(UNFINISHED_CARD_COLOR, Color.Green));
-        //    colorModels.Add(new KanbanColorMapping(FINISHED_CARD_COLOR, Color.Red));
-        //    thisKanban.IndicatorColorPalette = colorModels;
-
-
-        //    // We need to initialize our Custom double click gesture before we can use it
-        //    thisDoubleClickGestureListener = new DoubleClickGesture();
-        //    thisDoubleClickGestureListener.InitDoubleClickGesture(this);
-
-        //    /*
-             
-        //        First we init the Decks and their workflows
-
-        //        Then we init the cards
-                
-        //    */
-
-        //    // Initializing all KanbanColumns with data from the list of decks in board
-        //    foreach (Deck deck in thisBoard.Decks)
-        //    {
-        //        var newDeck = new KanbanColumn(this)
-        //        {
-        //            Title = deck.Name,
-        //            ContentDescription = deck.Description,
-        //            MinimumLimit = 0,
-        //            MaximumLimit = 5,
-        //            Categories = new List<object>() { deck.Name }
-        //        };
-        //        newDeck.ErrorBarSettings.Color = Color.Green;
-        //        newDeck.ErrorBarSettings.MinValidationColor = Color.Orange;
-        //        newDeck.ErrorBarSettings.MaxValidationColor = Color.Red;
-        //        newDeck.ErrorBarSettings.Height = 4;
-                
-        //        thisKanban.Columns.Add(newDeck);
-        //        allSupportedCategories.Add(newDeck.Title);
-
-        //        // Initializing the kanban's workflow for each column
-        //        thisKanban.Workflows.Add(new KanbanWorkflow()
-        //        {
-        //            Category = deck.Name,
-        //            AllowedTransitions = allSupportedCategories                    
-        //        });
-        //    }
-            
-        //    // Initializing all the KanbanModels with data from the list of cards
-        //    var unfinishedCards = new ObservableCollection<KanbanModel>();
-        //    foreach (Card card in thisBoard.Cards)
-        //    {
-        //        // We add the finished cards to their own collection
-        //        if (card.IsFinished)
-        //        {
-        //            finishedKanbanModels.Add(new KanbanModel()
-        //            {
-        //                ID = card.Id,
-        //                Title = card.Name,
-        //                Category = card.ParentDeck,
-        //                Description = card.Description,
-        //                ColorKey = FINISHED_CARD_COLOR
-        //            });
-        //        }    
-        //        // The unfinished cards get added to their own collection
-        //        else
-        //        {
-        //            unfinishedCards.Add(new KanbanModel()
-        //            {
-        //                ID = card.Id,
-        //                Title = card.Name,
-        //                Category = card.ParentDeck,
-        //                Description = card.Description,
-        //                ColorKey = UNFINISHED_CARD_COLOR
-        //            });
-        //        }
-        //    }
-
-        //    thisKanban.ItemsSource = unfinishedCards;            
-        //    thisKanban.ItemTapped += KanbanModelClicked;            
-        //}
-
-        /// 
-        /// 
         ///     Takes our kanban values and loads them into the working board for saving
         /// 
         /// 
@@ -375,69 +259,16 @@ namespace Solitaire
         {
             lock (thisBoard)
             {
-                // Packing our KanbanColumn info into a list to be added onto the board's deck list
-                List<Deck> decks = new List<Deck>();
-                foreach (KanbanColumn deck in thisKanban.Columns)
-                {
-                    decks.Add(new Deck(deck.Title, deck.ContentDescription));
-                }
-                thisBoard.Decks = decks;
+                // Createing decks from the kanbanColumn data into thisBoard.Decks list
+                thisBoard.Decks = thisKanban.Columns.Select(kanbanColumn => new Deck(kanbanColumn.Title, kanbanColumn.ContentDescription)).ToList();
                 
-
-
-                // TODO: Use some fany Linq boys for creating cards from the kanbanModels
-
-
-
-
-                var test = thisKanban.Columns.SelectMany(kanbanColumn => new Deck(kanbanColumn.Title, kanbanColumn.ContentDescription));
-
-                thisBoard.Decks = thisKanban.Columns.SelectMany(kanbanColumn => new Deck(kanbanColumn.Title, kanbanColumn.ContentDescription));
-
-                // var customerOrders2 = customers.SelectMany(c => orders.Where(o => o.CustomerId == c.Id), (c, o) => new { CustomerId = c.Id, OrderDescription = o.Description });
-
-
-
-                // Packing our KanbanModel into the a list to be added to the board's cards list
-                List<Card> cards = new List<Card>();
-                foreach (KanbanModel kanbanModel in thisKanban.ItemsSource)
-                {
-                    cards.Add(new Card(kanbanModel.Title, kanbanModel.Description, kanbanModel.Category.ToString())
-                    {
-                        // Determining if this kanban model is finished and then assigning it to the color
-                        IsFinished = ((string)kanbanModel.ColorKey) == FINISHED_CARD_COLOR ? true : false
-                    });
-                }
-                // Want to overwrite the old data first
-                thisBoard.Cards = cards;
-
-                //if (finishedKanbanModels.Count != 0)
-                //{
-                //    // Need to add all the finished cards to the board card collection
-                //    AddFinshedCardsToBoard();
-                //}  
+                // Creating cards from kanbanModel data into a list and assigning it to thisBoards.Cards list
+                thisBoard.Cards = kanbanModels.Select(kanbanModel =>
+                    new Card(kanbanModel.Title, kanbanModel.Description, (string)kanbanModel.Category)             
+                    { IsFinished = ((string)kanbanModel.ColorKey) == FINISHED_CARD_COLOR ? true : false }).ToList(); 
             }
-
             return Task.CompletedTask;
         }
-
-        ///
-        /// 
-        ///     Converts finished kanbanModels into cards and adds them the currently selected board card list
-        /// 
-        ///
-        //private void AddFinshedCardsToBoard()
-        //{
-        //    // Now we can add to it since the old setup was overwritten
-        //    foreach (KanbanModel kanbanModel in finishedKanbanModels)
-        //    {
-        //        thisBoard.Cards.Add(new Card(kanbanModel.Title, kanbanModel.Description, kanbanModel.Category.ToString())
-        //        {
-        //            // Stating whether this card was finished or not
-        //            IsFinished = true
-        //        });
-        //    }
-        //}
 
         ///
         /// 
@@ -487,35 +318,20 @@ namespace Solitaire
         /// 
         private void MarkCardAsFinished(KanbanColumn _kanbanColumn, long _id)
         {
-            // Adding this card to the list of finished cards
-            //clickedKanbanModel.ColorKey = FINISHED_CARD_COLOR;
-            //finishedKanbanModels.Add(clickedKanbanModel);
-            //// Removing it from the column so it won't be displayed.. was hard to find this
-            //_column.RemoveItem(clickedKanbanModel);
-
-            //// Removing it from the ItemSource Collection
-            //try
-            //{
-            //    KanbanModel kanbanModelptr = thisKanban.ItemsSource.Cast<KanbanModel>().ToList().Single(kanban => kanban.Equals(clickedKanbanModel));
-            //}
-            //catch 
-            //{
-            //    Android.Widget.Toast.MakeText(this, "Failed find card", Android.Widget.ToastLength.Short).Show();
-            //}          
-
-            //var tempKanbanModels = thisKanban.ItemsSource.Cast<KanbanModel>().ToList();
-            //tempKanbanModels.Remove(clickedKanbanModel);            
-            //thisKanban.ItemsSource = tempKanbanModels;
-
-
+            // ItemSource will not automatically remove finished card from Column
+            // therefore we do it manually:
             _kanbanColumn.RemoveItem(clickedKanbanModel);
 
-
-            foreach (var kanbanModel in kanbanModels)
-            {
-                if (kanbanModel.ID == _id) kanbanModel.ColorKey = FINISHED_CARD_COLOR;
-            }
-
+            // Assigning the tapped card in the list to be mark as finished
+            kanbanModels = kanbanModels.Select(kanbanModel => 
+            { 
+                if (kanbanModel.ID == _id) { 
+                    kanbanModel.ColorKey = FINISHED_CARD_COLOR; 
+                } 
+                return kanbanModel; 
+            }).ToList();
+            
+            // Resetting the ItemSource to display only the UNFINISHED cards
             thisKanban.ItemsSource = kanbanModels.Where(kanbanModel => (string)kanbanModel.ColorKey == UNFINISHED_CARD_COLOR).ToList();
         }
 
@@ -561,12 +377,17 @@ namespace Solitaire
         /// 
         ///
         private sealed class SetupBoardAndSfkanban
-        {
-            // Event that will guide the initialization process... Events are awesome and so is C#
-            private event Action setupBoardAndSfKanban;
-            private event Action loadPreExistingBoardData;
-            private readonly UseBoardActivity useBoardActivity;
+        {            
+            private event Action setupBoardAndSfKanban;             // General initialization processes that will always run
+            private event Action loadPreExistingBoardData;          // Fires if pre-existing Board data is needing to be loaded
+            private readonly UseBoardActivity useBoardActivity;     // Context this was create from to access it's member variables
 
+            /// 
+            /// 
+            ///     Constructor assigns Context this was called from to a variable
+            ///         and chains all handlers to corresponding event
+            ///
+            /// 
             public SetupBoardAndSfkanban(UseBoardActivity _useboardActivity)
             {
                 useBoardActivity = _useboardActivity;
@@ -584,7 +405,7 @@ namespace Solitaire
 
             /// 
             /// 
-            ///     Allows for safe public invoking for setupBoardAndSfKanban
+            ///     Allows for safe public invoking of setupBoardAndSfKanban event
             /// 
             /// 
             public void InvokeInitEvent()
@@ -647,10 +468,10 @@ namespace Solitaire
             /// 
             private void InitSfKanbanGestures()
             {
-                // Single click
+                // Single click 
                 UseBoardActivity.thisKanban.ItemTapped += useBoardActivity.KanbanModelClicked;
 
-                // Double click
+                // Double click 
                 useBoardActivity.thisDoubleClickGestureListener = new DoubleClickGesture();                
                 useBoardActivity.thisDoubleClickGestureListener.InitDoubleClickGesture(useBoardActivity);
             }
@@ -701,23 +522,21 @@ namespace Solitaire
                     });
                 }
 
-
-                // Initializing KanbanModels
-                // UseBoardActivity.kanbanModels = new List<KanbanModel>();
-                foreach (Card card in useBoardActivity.thisBoard.Cards)
-                {
-                    UseBoardActivity.kanbanModels.Add(new KanbanModel()
-                    {
+                // Creating KanbanModels from Card data and assigning all new KanbanModel instance into kanbans list
+                UseBoardActivity.kanbanModels = useBoardActivity.thisBoard.Cards.Select(card =>
+                    new KanbanModel()
+                    { 
                         ID = card.Id,
                         Title = card.Name,
                         Category = card.ParentDeck,
                         Description = card.Description,
                         ColorKey = card.IsFinished ? FINISHED_CARD_COLOR : UNFINISHED_CARD_COLOR
-                    });
-                }
+                    }).ToList();
 
-                // Assigning the kanbanModels to the ItemSource
-                UseBoardActivity.thisKanban.ItemsSource = kanbanModels;
+                // Assigning the kanbans into the ItemsSource so they can be displayed
+                // IMPORTANT: Finished cards are hidden by default
+                UseBoardActivity.thisKanban.ItemsSource = UseBoardActivity.kanbanModels
+                    .Where(kanbanModel => (string)kanbanModel.ColorKey == UNFINISHED_CARD_COLOR);
             }
         }
     }    
