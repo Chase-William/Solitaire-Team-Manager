@@ -63,7 +63,13 @@ namespace Solitaire
             // Otherwise load a pre-existing board:
             else                            
                 LoadBoardIntoKanban(boardId);
-          
+
+            List<Contributor> ree = new List<Contributor>();
+            ree.Add(new Contributor("Kyle", "Murphy", "ksm3091@rit.edu"));
+            ree.Add(new Contributor("re", "goddamn", "fuuuuck"));
+
+            thisBoard.Contributors = ree;
+
         }
         ///
         /// 

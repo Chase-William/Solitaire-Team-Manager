@@ -65,6 +65,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddExistingContributorDialog.cs" />
     <Compile Include="BoardAdapter.cs" />
     <Compile Include="ContributorOptionsDialog.cs" />
     <Compile Include="CreateBoardDialog.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="DetailsCardActivity.cs" />
     <Compile Include="EditCardActivity.cs" />
     <Compile Include="AssetManager.cs" />
+    <Compile Include="ExisitingContributorsAdapter.cs" />
     <Compile Include="Lang\Contributor.cs" />
     <Compile Include="ListContributorsFragment.cs" />
     <Compile Include="Login\GoogleLoginActivity.cs" />
@@ -276,6 +278,37 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\list_contributors_fragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\add_existing_contributor.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\exisiting_contributor_adapter.xml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\avatar_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\avatar_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\avatar_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\avatar_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\avatar_purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\add_new_contributor.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

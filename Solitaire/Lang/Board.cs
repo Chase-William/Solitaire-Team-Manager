@@ -19,6 +19,13 @@ namespace Solitaire.Lang
 
         private List<Deck> decks = new List<Deck>();
         private List<Card> cards = new List<Card>();
+        private List<Contributor> contributors = new List<Contributor>();
+
+        public List<Contributor> Contributors
+        {
+            get { return contributors; }
+            set { contributors = value; }
+        }
 
         public List<Card> Cards
         {

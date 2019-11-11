@@ -20,8 +20,13 @@ namespace Solitaire
     public class ContributorOptionsDialog : Dialog
     {
         UseBoardActivity callerInstance;
-
-        public ContributorOptionsDialog(Context _context) : base(_context) { callerInstance = (UseBoardActivity)_context; this.Show(); }
+        Context context;
+        public ContributorOptionsDialog(Context _context) : base(_context)
+        {
+            callerInstance = (UseBoardActivity)_context;
+            this.Show();
+            context = _context;
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,7 +45,7 @@ namespace Solitaire
             FindViewById<Button>(Resource.Id.addExistingContributor).Click += delegate
             {
                 // TODO: Add existing contributors logic here and like how will be show them
-
+                new AddExistingContributorDialog(context);
                 Dismiss();
             };
         }

@@ -2,7 +2,7 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SelectedDevice>Google Pixel 3</SelectedDevice>
-    <DefaultDevice>my_device</DefaultDevice>
+    <DefaultDevice>pixelxl</DefaultDevice>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>pixel_xl</AndroidDesignerPreferredDevice>
   </PropertyGroup>

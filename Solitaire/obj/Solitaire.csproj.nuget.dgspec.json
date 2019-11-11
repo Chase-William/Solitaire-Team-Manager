@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Dev\\Solitaire\\Solitaire\\Solitaire.csproj": {}
+    "C:\\Users\\murph\\source\\repos\\Solitare\\Solitaire\\Solitaire\\Solitaire.csproj": {}
   },
   "projects": {
-    "C:\\Dev\\Solitaire\\Solitaire\\Solitaire.csproj": {
+    "C:\\Users\\murph\\source\\repos\\Solitare\\Solitaire\\Solitaire\\Solitaire.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dev\\Solitaire\\Solitaire\\Solitaire.csproj",
+        "projectUniqueName": "C:\\Users\\murph\\source\\repos\\Solitare\\Solitaire\\Solitaire\\Solitaire.csproj",
         "projectName": "Solitaire",
-        "projectPath": "C:\\Dev\\Solitaire\\Solitaire\\Solitaire.csproj",
-        "packagesPath": "C:\\Users\\cxr69\\.nuget\\packages\\",
-        "outputPath": "C:\\Dev\\Solitaire\\Solitaire\\obj\\",
+        "projectPath": "C:\\Users\\murph\\source\\repos\\Solitare\\Solitaire\\Solitaire\\Solitaire.csproj",
+        "packagesPath": "C:\\Users\\murph\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\murph\\source\\repos\\Solitare\\Solitaire\\Solitaire\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\cxr69\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\murph\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
