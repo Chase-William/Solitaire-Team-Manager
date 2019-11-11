@@ -34,11 +34,16 @@ namespace Solitaire
             // Getting the Id of the kanbanModel so we can setup a pointer to it
             kanbanModelId =  this.Intent.GetLongExtra("kanbanModelId", -1);
             
-            // Getting our kanbanModel from our static Sfkanban inside UseBoardActivity
-            // IEnumberables are annoying because then I gotta cast everything
-            
-            clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == kanbanModelId);
-            
+            // We will try and find the kanbanModel but if we can't for some odd reason
+            try
+            {
+                clickedKanbanModel = UseBoardActivity.kanbanModels.Single(kanbanModel => kanbanModel.ID == kanbanModelId);
+            }
+            // Just finish the activity
+            catch
+            {
+                Finish();
+            }
             
 
             // Setting the textviews to display the information about the kanbanModel
@@ -86,7 +91,7 @@ namespace Solitaire
         }
 
 
-        // When this resume we reassign the screen the proper values
+        // When this resumes we re-assign the views the proper values
         protected override void OnResume()
         {
             base.OnResume();

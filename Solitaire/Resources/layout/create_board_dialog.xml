@@ -24,12 +24,12 @@
     <EditText
         android:id="@+id/nameEditTextDialog"
         style="@style/CustomDialogEditText"
-        android:hint="Card Name" />
+        android:hint="Board Name" />
 
     <EditText
         android:id="@+id/descriptionTextDialog"
         style="@style/CustomDialogEditText"
-        android:hint="Card Description" />
+        android:hint="Board Description" />
 
   </LinearLayout>
   

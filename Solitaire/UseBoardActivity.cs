@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -14,6 +13,7 @@ using Solitaire.Lang;
 using Android.Support.V7.App;
 using System.Threading.Tasks;
 using Solitaire.CustomGestures;
+using Android.Widget;
 
 namespace Solitaire
 {
@@ -85,7 +85,7 @@ namespace Solitaire
                 /*
 
                     I wrap our dialogs in a using statement because they the IDisposable interface which will provide deallocation
-                    I really don't want a memeory leak because this is already an expensive app to run
+                    I really don't want a memory leak, but will see if I have time to fix this
                     Amazing Article: https://www.codeproject.com/Articles/29534/IDisposable-What-Your-Mother-Never-Told-You-About
 
                 */
@@ -93,6 +93,14 @@ namespace Solitaire
                     new CreateDeckDialog(this);
                     break;
                 case "Add Card":
+                    // If a column doesn't exist for this kanbanModel to go inside of... then inform the user
+                    // and skip the creation proccess
+                    if (thisKanban.Columns.Count == 0)
+                    {
+                        Toast.MakeText(this, "Please add a deck before you add a card.", ToastLength.Short).Show();
+                        break;
+                    }
+                    // If a column does exist we will create the dialog
                     new CreateCardDialog(this);
                         break;
                 case "Add Contact":
@@ -117,7 +125,8 @@ namespace Solitaire
         /// 
         private void ShowFinishedCards()
         {
-            thisKanban.ItemsSource = kanbanModels;
+            // OrderBy will make unfinished cards appear ontop of finished cards
+            thisKanban.ItemsSource = kanbanModels.OrderBy(kanban => kanban.ColorKey);
         }
 
         /// 
@@ -131,13 +140,8 @@ namespace Solitaire
             if (kanbanModels.All(kanbanModel => (string)kanbanModel.ColorKey == FINISHED_CARD_COLOR))
             {
                 var finishedKanbanModels = kanbanModels.Where(kanbanModel => (string)kanbanModel.ColorKey == FINISHED_CARD_COLOR).ToList();
-
                 foreach (var kanbanColumn in thisKanban.Columns)
                 {
-
-                    int countOfFinsihed = finishedKanbanModels.Count;
-                    int countOfColumn = kanbanColumn.ItemsCount;
-
                     // Since the list inside the KanbanColumn and the finishedKanbanModels will truncate, we dont actually want the for loop to increment
                     for (int i = 0; i < kanbanColumn.ItemsCount; i++)
                     {
@@ -190,7 +194,7 @@ namespace Solitaire
         {
             allSupportedCategories.Add(_nameColumn);
 
-            KanbanColumn newColumn = new KanbanColumn(this)
+            var newColumn = new KanbanColumn(this)
             {
                 Title = _nameColumn,
                 MinimumLimit = 0,
@@ -310,16 +314,9 @@ namespace Solitaire
             // If the resultCode is equal to Result.Ok then we will manually tell the UI to refresh
             if (requestCode == DETAILS_ACTIVITY_CODE && resultCode == Result.Ok)
             {
-                // Getting the instance within the ItemSource list that matches the edditted 
-                // KanbanModel thisKanbanModel = thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.Equals(clickedKanbanModel));
-
-                // We need to assign a new ObservableCollection because we needed the UI to update
-                var cardList = new List<KanbanModel>();
-                foreach (KanbanModel card in thisKanban.ItemsSource)
-                {
-                    cardList.Add(card);
-                }
-                thisKanban.ItemsSource = cardList; 
+                // Triggering the ItemSource to update the UI by assigning the kanbanModels
+                // I tried to find like a NotfifySubSetChanged method to trigger a UI update but this what I found works
+                thisKanban.ItemsSource = kanbanModels; 
             }
         }
 

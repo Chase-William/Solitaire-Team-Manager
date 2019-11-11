@@ -332,7 +332,6 @@ C:\Dev\Solitaire\Solitaire\bin\Debug\com.companyname.solitaire-Signed.apk
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\build.props
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\adb.props
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\resourcepaths.cache
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res.flag
