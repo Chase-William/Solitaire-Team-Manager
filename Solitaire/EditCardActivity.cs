@@ -19,7 +19,7 @@ namespace Solitaire
     {
         EditText cardNameEditText;
         EditText cardDescriptionEditText;
-        KanbanModel kanbanModelptr;
+        KanbanModel clickedKanbanModel;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -32,7 +32,7 @@ namespace Solitaire
             SetSupportActionBar(toolbar);
 
             // Finding our kanbanModel inside the item source while using the intent extra we put from the calling activity
-            kanbanModelptr = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));    
+            clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));    
 
 
 
@@ -46,8 +46,8 @@ namespace Solitaire
             cardNameEditText = FindViewById<EditText>(Resource.Id.cardNameEditText);
             cardDescriptionEditText = FindViewById<EditText>(Resource.Id.cardDescriptionEditText);
             // Assigning the textviews the current values of the kanbanModel
-            cardNameEditText.Text = kanbanModelptr.Title;
-            cardDescriptionEditText.Text = kanbanModelptr.Description;            
+            cardNameEditText.Text = clickedKanbanModel.Title;
+            cardDescriptionEditText.Text = clickedKanbanModel.Description;            
         }
 
         /// 
@@ -57,23 +57,21 @@ namespace Solitaire
         ///
         private void SaveAndFinishedEditing()
         {
-            List<string> names = new List<string>();
-            foreach (KanbanModel item in UseBoardActivity.thisKanban.ItemsSource)
-            {
-                names.Add(item.Title);
-            }
+            // Array of all the names to check with
+            string[] names = UseBoardActivity.kanbanModels.Where(kanban => !kanban.Equals(this.clickedKanbanModel)).Select(kanban => kanban.Title).ToArray();
+
             string name = cardNameEditText.Text.Trim();
             // Checks to make sure that the name doesn't already exist and isn't a space filled string
             if (name != "" && names.All(usedName => usedName != name))
             {
-                kanbanModelptr.Title = cardNameEditText.Text;
-                kanbanModelptr.Description = cardDescriptionEditText.Text;
+                clickedKanbanModel.Title = cardNameEditText.Text;
+                clickedKanbanModel.Description = cardDescriptionEditText.Text;
                 SetResult(Result.Ok);
                 Finish();
             }
             else
             {
-                Toast.MakeText(this, "This Name is already used.", ToastLength.Long);
+                Toast.MakeText(this, "This name is already being used.", ToastLength.Long).Show();
                 return;
             }                                           
         }

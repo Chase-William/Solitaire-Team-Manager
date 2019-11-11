@@ -15,21 +15,6 @@ using Android.Support.V7.App;
 using System.Threading.Tasks;
 using Solitaire.CustomGestures;
 
-/*
-
-    This is definatly not the most efficient way of performing the operations needed in this Activity.
-    Due to time constraints and lack of indepth documention at https://help.syncfusion.com/xamarin-android/sfkanban/overview
-
-    I await the day I can use my fixed, unsafe, stackalloc keywords!
-    
-*/
-
-/*
-
-    CURRENT BUG: When the project only contains finished cards an error will occur once you save -> re-open board -> show finished 
-        then clicking on a card will result in a exception
-
-*/
 namespace Solitaire
 {
     [Activity(Label = "UseBoardActivity")]
@@ -47,22 +32,15 @@ namespace Solitaire
         // it within DoubleClickGesture will cause an error
         public readonly int DETAILS_ACTIVITY_CODE = 2;
         // Identifies whether the current click is the first click or the second click in a chain of clicks
+        // Used when determining double clicks vs single clicks and if each click was on another object
         public bool clickIdentifier = true;
-        // Pointer needed when using the DoubleClickGesture to have access to the instance 
+        // Double click class listener
         DoubleClickGesture thisDoubleClickGestureListener;
-        // Contains all the finished kanbanModels
-        // List<KanbanModel> finishedKanbanModels;
         // Finished kanbanModels are marked via the collor swatch on the bottem right of their card
         private const string FINISHED_CARD_COLOR = "Red";
         private const string UNFINISHED_CARD_COLOR = "Green";
 
 
-        /*
-         
-            Test:
-
-         */
-        
         public static List<KanbanModel> kanbanModels = new List<KanbanModel>();
 
 
@@ -79,20 +57,7 @@ namespace Solitaire
             SetSupportActionBar(toolbar);
 
             // Calling our initalizer class
-            new SetupBoardAndSfkanban(this).InvokeInitEvent();
-
-            // Getting the extra "id" we passed which will enable use to reference our Board
-            //long boardId = this.Intent.GetLongExtra("BoardId", -1);
-
-            // We then get the SfKanban which will be how the user interacts with the board's data
-            //thisKanban = FindViewById<SfKanban>(Resource.Id.kanban);
-            //// If the board needs initalization run:
-            //// We dont need to get the data, if that
-            //if (this.Intent.HasExtra("NeedInit"))
-            //    InitDefaultBoard(boardId);
-            //// Otherwise load a pre-existing board:
-            //else                            
-            //    LoadBoardIntoKanban(boardId);            
+            new SetupBoardAndSfkanban(this).InvokeInitEvent();            
         }
 
         ///
@@ -152,12 +117,6 @@ namespace Solitaire
         /// 
         private void ShowFinishedCards()
         {
-            //var cards = new List<KanbanModel>();   
-            //cards = thisKanban.ItemsSource.Cast<KanbanModel>().ToList();
-            //cards.AddRange(finishedKanbanModels);
-
-            //// Need to clear the finished cards list
-            //finishedKanbanModels.Clear();
             thisKanban.ItemsSource = kanbanModels;
         }
 
@@ -171,20 +130,26 @@ namespace Solitaire
             // If kanbanModels contains unfinished cards we need to manually remove them from the colums
             if (kanbanModels.All(kanbanModel => (string)kanbanModel.ColorKey == FINISHED_CARD_COLOR))
             {
-                var finishedList = kanbanModels.Where(kanbanModel => (string)kanbanModel.ColorKey == FINISHED_CARD_COLOR).ToList();
-                              
+                var finishedKanbanModels = kanbanModels.Where(kanbanModel => (string)kanbanModel.ColorKey == FINISHED_CARD_COLOR).ToList();
+
                 foreach (var kanbanColumn in thisKanban.Columns)
                 {
+
+                    int countOfFinsihed = finishedKanbanModels.Count;
+                    int countOfColumn = kanbanColumn.ItemsCount;
+
+                    // Since the list inside the KanbanColumn and the finishedKanbanModels will truncate, we dont actually want the for loop to increment
                     for (int i = 0; i < kanbanColumn.ItemsCount; i++)
                     {
-                        // TODO: All children in finishedList need to be removed from KanbanColumns
-                        //kanbanColumn.RemoveItem(finishedList.ElementAt(i));
-                        //finishedList.Remove(finishedList.ElementAt(i));
+                        kanbanColumn.RemoveItem(finishedKanbanModels.ElementAt(i));
+                        finishedKanbanModels.Remove(finishedKanbanModels.ElementAt(i));
+                        i--;
                     }
-                }               
+                }
             }
 
             // Updating the ItemSource so it contains zero FINISHED kanbanModels
+            thisKanban.ItemsSource = new List<KanbanModel>();
             thisKanban.ItemsSource = kanbanModels.Where(kanbanModel => (string)kanbanModel.ColorKey == UNFINISHED_CARD_COLOR).ToList();
         }
 
@@ -539,5 +504,5 @@ namespace Solitaire
                     .Where(kanbanModel => (string)kanbanModel.ColorKey == UNFINISHED_CARD_COLOR);
             }
         }
-    }    
+    }
 }
