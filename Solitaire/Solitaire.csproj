@@ -293,7 +293,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\images\avatar_red.png" />
+    <AndroidResource Include="Resources\layout\add_new_contributor.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\images\avatar_blue.png" />
@@ -308,9 +310,7 @@
     <AndroidAsset Include="Assets\images\avatar_purple.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\add_new_contributor.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
+    <AndroidAsset Include="Assets\images\avatar_red.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

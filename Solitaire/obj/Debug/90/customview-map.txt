@@ -90,6 +90,7 @@ refractored.controls.CircleImageView;obj\Debug\90\res\layout\exisiting_contribut
 refractored.controls.CircleImageView;obj\Debug\90\res\layout\nav_header.xml
 RelativeLayout;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
 RelativeLayout;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
+RelativeLayout;obj\Debug\90\res\layout\add_existing_contributor.xml
 RelativeLayout;obj\Debug\90\res\layout\board_row.xml
 RelativeLayout;obj\Debug\90\res\layout\contributor_options_dialog.xml
 RelativeLayout;obj\Debug\90\res\layout\create_board_dialog.xml

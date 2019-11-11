@@ -1209,7 +1209,6 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5e664310586a2c7741659007b5
 C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\build.props
 C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\adb.props
-C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
 C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\resourcepaths.cache
 C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\res.flag
@@ -1639,3 +1638,5 @@ C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\stamp\_Cop
 C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\res\layout\add_new_contributor.xml
+C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb

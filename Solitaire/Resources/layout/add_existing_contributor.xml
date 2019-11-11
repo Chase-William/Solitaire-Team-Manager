@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -9,30 +9,31 @@
         android:id="@+id/ExisitingContacts"
     />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+        >
         <Button
+            style="@style/CustomDialogButton"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:id="@+id/cancel_button"
             android:text="Cancel"
-            android:layout_gravity="left"
+            android:layout_alignParentLeft="true"
             android:textColor="@android:color/holo_red_dark"
         />
 
         <Button
+            style="@style/CustomDialogButton"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:textColor="#1E90FF"
             android:layout_weight="0"
-            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
             android:text="Add"
             android:id="@+id/add_button"
         />
 
         
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
