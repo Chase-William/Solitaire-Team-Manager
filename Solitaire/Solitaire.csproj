@@ -41,7 +41,7 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -71,6 +71,7 @@
     <Compile Include="CreateCardDialog.cs" />
     <Compile Include="CreateContributorActivity.cs" />
     <Compile Include="CreateDeckDialog.cs" />
+    <Compile Include="CustomGestures\DoubleClickGesture.cs" />
     <Compile Include="DetailsCardActivity.cs" />
     <Compile Include="EditCardActivity.cs" />
     <Compile Include="AssetManager.cs" />

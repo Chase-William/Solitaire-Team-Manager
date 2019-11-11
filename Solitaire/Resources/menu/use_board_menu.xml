@@ -12,5 +12,13 @@
   <item
        android:id="@+id/addContact"
        app:showAsAction="never"
-       android:title="Add Contact" />    
+       android:title="Add Contact" />
+  <item
+       android:id="@+id/toggleAllCards"
+       app:showAsAction="never"
+       android:title="Show Finished Cards" />
+  <item
+       android:id="@+id/toggleAllCards"
+       app:showAsAction="never"
+       android:title="Hide Finished Cards" />
 </menu>

@@ -26,7 +26,7 @@
 
     <TextView        
         android:id="@+id/cardNameTextView"
-        android:text="-- Project Name --"
+        android:text="-- Card Name --"
         android:textSize="24dp"
         android:layout_marginTop="15dp"
         android:layout_gravity="center_horizontal"

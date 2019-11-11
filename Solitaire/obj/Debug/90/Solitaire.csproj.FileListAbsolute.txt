@@ -9,34 +9,19 @@ C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_BuildLibrary
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\resourcepaths.cache
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res.flag
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\8d1bdaf38c00220487ceb922bf10727b7c949c96.stamp
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\2eea0fe8778bf94962aaa5795f25f777ec8cc592.stamp
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\ee58fe799664314b73acedbf944f3f3a3c7753e3.stamp
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\dc2a0cb56a3f1f692c4d1b1704468e93f8d1b34b.stamp
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\30c0337236c0708fd4c8a0b1f29e473d1d9f0445.stamp
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\249a2322f6fe86a4464e0d86a53ee42a0fc82e71.stamp
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\953526d173838dc9b8c3604430393422c7ae7538.stamp
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\41633a20ea3f51cdae45ac9fd92b108c045ae1c9.stamp
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\f3356a7d45a5e0b3ac2415e74fbe9877a5394ba4.stamp
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\ed691283a0822a3a60aec440c05e176fa29d74cd.stamp
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\60d7822c53177886021617624225deb5d7ed5814.stamp
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\8d1bdaf38c00220487ceb922bf10727b7c949c96.flata
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\2eea0fe8778bf94962aaa5795f25f777ec8cc592.flata
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\ee58fe799664314b73acedbf944f3f3a3c7753e3.flata
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\dc2a0cb56a3f1f692c4d1b1704468e93f8d1b34b.flata
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\30c0337236c0708fd4c8a0b1f29e473d1d9f0445.flata
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\249a2322f6fe86a4464e0d86a53ee42a0fc82e71.flata
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\953526d173838dc9b8c3604430393422c7ae7538.flata
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\41633a20ea3f51cdae45ac9fd92b108c045ae1c9.flata
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\f3356a7d45a5e0b3ac2415e74fbe9877a5394ba4.flata
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\ed691283a0822a3a60aec440c05e176fa29d74cd.flata
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\60d7822c53177886021617624225deb5d7ed5814.flata
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\compiled.flata
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\R.txt
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\R.cs.flag
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\Solitaire.dll
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\Solitaire.pdb
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\bin\com.companyname.solitaire.apk
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\activity_main.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\values\colors.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\values\ic_launcher_background.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\values\strings.xml
@@ -61,7 +46,6 @@ C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\mipmap-xxxhdpi\
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\use_board_menu.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\board_row.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\toolbar.xml
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\main_menu.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\back_icon.png
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\use_board_activity.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\create_deck_dialog.xml
@@ -333,18 +317,14 @@ C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_CopyPdbFiles
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\clicked_card_options_dialog.xml
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ClickedCardOptionsDialog.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\create_board_dialog.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateBoardDialog.java
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsMainActivity.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\details_card_activity.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\edit_card_menu.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\edit_card_activity.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\DetailsCardActivity.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\EditCardActivity.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
 C:\Dev\Solitaire\Solitaire\bin\Debug\Solitaire.dll
 C:\Dev\Solitaire\Solitaire\bin\Debug\Solitaire.pdb
 C:\Dev\Solitaire\Solitaire\bin\Debug\com.companyname.solitaire.apk
@@ -352,39 +332,23 @@ C:\Dev\Solitaire\Solitaire\bin\Debug\com.companyname.solitaire-Signed.apk
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\build.props
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\adb.props
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\resourcepaths.cache
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res.flag
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\4537776aae5dc2892f774f572632074dd9ab491c.stamp
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\0f3118dec81479c057283937b5af05e4f392904a.stamp
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\fd0acd484272b4ea87cb48cff7f10fabb41a73a0.stamp
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\aff6a7c959f462c4f11afecb238e8bdefdfbfcce.stamp
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\8cfbe2a9c43aef6b2249e4e248083f3c917db0f1.stamp
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\550f8ee76086af621e948ae6ce35a410ac7c61b2.stamp
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\a6e420537c4a457ed66cfe0bf5a6aec34b0e5963.stamp
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\bd62c3bf3e894685682bb91949323f8f5fb600d1.stamp
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\185fb7fd037a328c966cea207547cb27bf36e065.stamp
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\7e7219764945af4c917d2d8ade2d4b552cc807ff.stamp
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\4dce85fa66ef5641dcf27c0447fb275ca0058743.stamp
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\4537776aae5dc2892f774f572632074dd9ab491c.flata
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\0f3118dec81479c057283937b5af05e4f392904a.flata
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\fd0acd484272b4ea87cb48cff7f10fabb41a73a0.flata
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\aff6a7c959f462c4f11afecb238e8bdefdfbfcce.flata
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\8cfbe2a9c43aef6b2249e4e248083f3c917db0f1.flata
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\550f8ee76086af621e948ae6ce35a410ac7c61b2.flata
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\a6e420537c4a457ed66cfe0bf5a6aec34b0e5963.flata
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\bd62c3bf3e894685682bb91949323f8f5fb600d1.flata
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\185fb7fd037a328c966cea207547cb27bf36e065.flata
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\7e7219764945af4c917d2d8ade2d4b552cc807ff.flata
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\4dce85fa66ef5641dcf27c0447fb275ca0058743.flata
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\compiled.flata
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\R.txt
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\R.cs.flag
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.dll
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.pdb
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\bin\com.companyname.solitaire.apk
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\activity_main.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\values\colors.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\values\ic_launcher_background.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\values\strings.xml
@@ -409,13 +373,11 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\mipmap-xxxhdpi\ic_launcher_round.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\use_board_menu.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\board_row.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\toolbar.xml
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\main_menu.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\back_icon.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\use_board_activity.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\create_deck_dialog.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\create_card_dialog.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\category_spinner_row.xml
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\clicked_card_options_dialog.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\create_board_dialog.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\details_card_activity.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\edit_card_menu.xml
@@ -668,13 +630,11 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5ce013bcf3062ee1948fb83ecb
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5ce013bcf3062ee1948fb83ecb8b7d3fa\TouchListener.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\BoardAdapter.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\BoardViewHolder.java
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ClickedCardOptionsDialog.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateBoardDialog.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateCardDialog.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateDeckDialog.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\DetailsCardActivity.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\EditCardActivity.java
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsMainActivity.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\UseBoardActivity.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\android\support\coordinatorlayout\R.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\android\support\compat\R.java
@@ -1088,7 +1048,6 @@ C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\men
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\MainActivity.java
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\drawable\hamburger.png
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\drawable\board_icon.png
-C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsFragmentActivity.java
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\layout\list_boards_fragment.xml
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateBoardDialog.java
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\drawable\custom_border.xml
@@ -1119,3 +1078,212 @@ C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md54908d67eb9afef4acc92753cc61471e9\CircleImageView.java
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb
 C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\drawable\gradient_bg.xml
+C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\res\layout\list_contributors_fragment.xml
+C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsFragment.java
+C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListContributorsFragment.java
+C:\Users\Chase Roth\Desktop\New Version\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\bf5350d38e64c606958f8e5cf01d4a40b347fc78.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\e74f6ecbc2db2e5bef320ad90bb0fbfe7fea5460.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\bf5dbf1034d8f536d8aa2b1e3af5ce4fe8f05482.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\7ca09c1b3cf09f669d92c923b3ed46695337ca06.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\3fbf8ed21b71838223adab881a4d78005e9a30e0.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\314795382230b71ed3429bd91d85f745ce1cdc61.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\7e4cd1abfccefb6c9c21cbef51f52074bc21ccbb.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\e915a64c28e548e2b6f8aa66662e223f6e8da462.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\5678509a7d6732ecdf9e4d44d59ba228af5854a4.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\b5baab3e81977d234391ebf0c50f35e6d5677103.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\c63ecba3db76042a49d166294c65e4530582dfeb.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\bf5350d38e64c606958f8e5cf01d4a40b347fc78.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\e74f6ecbc2db2e5bef320ad90bb0fbfe7fea5460.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\bf5dbf1034d8f536d8aa2b1e3af5ce4fe8f05482.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\7ca09c1b3cf09f669d92c923b3ed46695337ca06.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\3fbf8ed21b71838223adab881a4d78005e9a30e0.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\314795382230b71ed3429bd91d85f745ce1cdc61.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\7e4cd1abfccefb6c9c21cbef51f52074bc21ccbb.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\e915a64c28e548e2b6f8aa66662e223f6e8da462.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\5678509a7d6732ecdf9e4d44d59ba228af5854a4.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\b5baab3e81977d234391ebf0c50f35e6d5677103.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\flata\c63ecba3db76042a49d166294c65e4530582dfeb.flata
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\list_boards_fragment.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\check_icon.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\google_login_activity.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\mipmap-xxxhdpi\ic_google.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\default_avatar.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\edit_icon.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\details_card_menu.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\contributor_options_dialog.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\create_contributor_activity.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\create_contributor_menu.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\main_activity.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\navigation_menu.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\hamburger.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\board_icon.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\custom_border.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\default_board.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\google_icon.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\nav_header.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\gradient_bg.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\list_contributors_fragment.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Newtonsoft.Json.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Refractored.Controls.CircleImageView.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Auth.Api.Phone.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Auth.Base.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Auth.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Base.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Basement.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Tasks.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\netstandard.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\System.Data.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\System.Transactions.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\System.IO.Compression.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\System.IO.Compression.FileSystem.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\System.Web.Services.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\System.Xml.Linq.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\netstandard.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Newtonsoft.Json.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Refractored.Controls.CircleImageView.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\System.Data.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\System.IO.Compression.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\System.IO.Compression.FileSystem.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\System.Transactions.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\System.Web.Services.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\System.Xml.Linq.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Auth.Api.Phone.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Auth.Base.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Auth.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Base.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Basement.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Tasks.dll
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\tasks\OnCanceledListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\tasks\OnCompleteListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\tasks\OnFailureListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\tasks\OnSuccessListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\tasks\OnTokenCanceledListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\security\ProviderInstaller_ProviderInstallListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\dynamic\OnDelegateCreatedListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\common\images\ImageManager_OnImageLoadedListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\common\api\internal\BackgroundDetector_BackgroundStateChangeListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\common\api\internal\SignInConnectionListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\common\api\GoogleApiClient_OnConnectionFailedListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\common\api\PendingResult_StatusListenerImplementor.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\de\hdodenhof\circleimageview\R.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\com\xamarin\signinquickstart\MainActivity.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\com\google\android\gms\common\R.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\com\google\android\gms\base\R.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\com\google\android\gms\auth\api\R.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md54908d67eb9afef4acc92753cc61471e9\CircleImageView.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md513d0258903c37fed2a3d17a14e8551a2\AwaitableResultCallback_1.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md513d0258903c37fed2a3d17a14e8551a2\ResultCallback_1.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md513074be467e0034b6ca192c1689af813\GoogleApiClientConnectionCallbacksImpl.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md513074be467e0034b6ca192c1689af813\GoogleApiClientOnConnectionFailedListenerImpl.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ContributorOptionsDialog.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateContributorActivity.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsFragment.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListContributorsFragment.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\LoggoutResultCallback.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\LoginResultCallback.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\MainActivity.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5dab4f5c7853fd57f3a9c9a523364ac69\AwaitableTaskCompleteListener_1.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\b334e0cca3ad7e2bff1f121a4f2a03f7da200ee6.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\335385a4bd86cbc4bb8c37cafa454b3a484270bf.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\3f7835589559f080015215a3aa06f74b06883d32.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\6621d3b085cc41126d0ef2ca5983faafbe6430d1.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\4b5ccdbfd5b8aaf059ab02d7840c83d556d3d0c0.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\a15b723d7e94e9cd1b2f6d349ab5434eed6c756f.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\583414f90aa30f334315805d51f921ab12a1e339.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\2ed417efc6b5ced38784c5ff6498fef7fd122e90.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\519c5dc79f1f16a2d3e6a732e7dffaa93749a8d9.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\68999893422647528e8adefb47acfb0ffdae0c12.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\7eeb1091dac42a691f46500cea51340dc05ca27a.stamp
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\b334e0cca3ad7e2bff1f121a4f2a03f7da200ee6.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\335385a4bd86cbc4bb8c37cafa454b3a484270bf.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\3f7835589559f080015215a3aa06f74b06883d32.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\6621d3b085cc41126d0ef2ca5983faafbe6430d1.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\4b5ccdbfd5b8aaf059ab02d7840c83d556d3d0c0.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\a15b723d7e94e9cd1b2f6d349ab5434eed6c756f.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\583414f90aa30f334315805d51f921ab12a1e339.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\2ed417efc6b5ced38784c5ff6498fef7fd122e90.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\519c5dc79f1f16a2d3e6a732e7dffaa93749a8d9.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\68999893422647528e8adefb47acfb0ffdae0c12.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\flata\7eeb1091dac42a691f46500cea51340dc05ca27a.flata
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\list_boards_fragment.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\check_icon.png
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\google_login_activity.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\mipmap-xxxhdpi\ic_google.png
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\default_avatar.png
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\edit_icon.png
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\details_card_menu.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\contributor_options_dialog.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\create_contributor_activity.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\create_contributor_menu.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\main_activity.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\navigation_menu.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\hamburger.png
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\board_icon.png
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\custom_border.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\default_board.png
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\google_icon.png
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\nav_header.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\gradient_bg.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\list_contributors_fragment.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\Newtonsoft.Json.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\Refractored.Controls.CircleImageView.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Auth.Api.Phone.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Auth.Base.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Auth.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Base.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Basement.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Tasks.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\netstandard.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\System.Data.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\System.Transactions.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\System.IO.Compression.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\System.IO.Compression.FileSystem.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\System.Web.Services.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\linksrc\System.Xml.Linq.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\netstandard.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Newtonsoft.Json.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Refractored.Controls.CircleImageView.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\System.Data.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\System.IO.Compression.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\System.IO.Compression.FileSystem.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\System.Transactions.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\System.Web.Services.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\System.Xml.Linq.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Auth.Api.Phone.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Auth.Base.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Auth.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Base.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Basement.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\assets\Xamarin.GooglePlayServices.Tasks.dll
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\tasks\OnCanceledListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\tasks\OnCompleteListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\tasks\OnFailureListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\tasks\OnSuccessListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\tasks\OnTokenCanceledListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\security\ProviderInstaller_ProviderInstallListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\dynamic\OnDelegateCreatedListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\common\images\ImageManager_OnImageLoadedListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\common\api\internal\BackgroundDetector_BackgroundStateChangeListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\common\api\internal\SignInConnectionListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\common\api\GoogleApiClient_OnConnectionFailedListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\mono\com\google\android\gms\common\api\PendingResult_StatusListenerImplementor.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\de\hdodenhof\circleimageview\R.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\com\xamarin\signinquickstart\MainActivity.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\com\google\android\gms\common\R.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\com\google\android\gms\base\R.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\com\google\android\gms\auth\api\R.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md54908d67eb9afef4acc92753cc61471e9\CircleImageView.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md513d0258903c37fed2a3d17a14e8551a2\AwaitableResultCallback_1.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md513d0258903c37fed2a3d17a14e8551a2\ResultCallback_1.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md513074be467e0034b6ca192c1689af813\GoogleApiClientConnectionCallbacksImpl.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md513074be467e0034b6ca192c1689af813\GoogleApiClientOnConnectionFailedListenerImpl.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ContributorOptionsDialog.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateContributorActivity.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsFragment.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListContributorsFragment.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\LoggoutResultCallback.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\LoginResultCallback.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\MainActivity.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5dab4f5c7853fd57f3a9c9a523364ac69\AwaitableTaskCompleteListener_1.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache

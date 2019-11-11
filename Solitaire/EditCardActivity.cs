@@ -18,8 +18,8 @@ namespace Solitaire
     public class EditCardActivity : AppCompatActivity
     {
         EditText cardNameEditText;
-        EditText cardDescriptionEditText; 
-        
+        EditText cardDescriptionEditText;
+        KanbanModel clickedKanbanModel;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -30,27 +30,51 @@ namespace Solitaire
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Edit Card";
             SetSupportActionBar(toolbar);
-                          
 
-            // Need to figure out how to convert this IEnumerable... even IQueryable didn't work...
-            
+            // Finding our kanbanModel inside the item source while using the intent extra we put from the calling activity
+            clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));    
+
+
+
+
+            // TODO: Might need to check name for null and other unacceptable values
+
+
+
+
+            // Setting up the pointers to the TextViews
             cardNameEditText = FindViewById<EditText>(Resource.Id.cardNameEditText);
             cardDescriptionEditText = FindViewById<EditText>(Resource.Id.cardDescriptionEditText);
-
-            cardNameEditText.Text = this.Intent.GetStringExtra("Name");
-            cardDescriptionEditText.Text = this.Intent.GetStringExtra("Description");
+            // Assigning the textviews the current values of the kanbanModel
+            cardNameEditText.Text = clickedKanbanModel.Title;
+            cardDescriptionEditText.Text = clickedKanbanModel.Description;            
         }
 
+        /// 
+        /// 
+        ///     Saving the data to the KanbanModel (NOT THE BOARD'S CARD) and returning to the details activity
+        /// 
+        ///
         private void SaveAndFinishedEditing()
         {
-            Intent returnData = new Intent();
-            returnData.PutExtra("Name", cardNameEditText.Text);
-            returnData.PutExtra("Description", cardDescriptionEditText.Text);
-            SetResult(Result.Ok, returnData);
-            Finish();
+            // Array of all the names to check with
+            string[] names = UseBoardActivity.kanbanModels.Where(kanban => !kanban.Equals(this.clickedKanbanModel)).Select(kanban => kanban.Title).ToArray();
+
+            string name = cardNameEditText.Text.Trim();
+            // Checks to make sure that the name doesn't already exist and isn't a space filled string
+            if (name != "" && names.All(usedName => usedName != name))
+            {
+                clickedKanbanModel.Title = cardNameEditText.Text;
+                clickedKanbanModel.Description = cardDescriptionEditText.Text;
+                SetResult(Result.Ok);
+                Finish();
+            }
+            else
+            {
+                Toast.MakeText(this, "This name is already being used.", ToastLength.Long).Show();
+                return;
+            }                                           
         }
-
-
 
         ///
         /// 

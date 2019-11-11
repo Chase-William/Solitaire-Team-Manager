@@ -10,7 +10,7 @@
         layout="@layout/toolbar"/>
     
     <Syncfusion.SfKanban.Android.SfKanban
-        android:id="@+id/kanban"
+        android:id="@+id/sfKanban"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

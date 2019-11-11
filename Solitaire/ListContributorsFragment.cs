@@ -16,7 +16,7 @@ namespace Solitaire
     public class ListContributorsFragment : Android.Support.V4.App.Fragment
     {
         MainActivity parentActivityPtr;
-        ListView contributorListView;
+        // ListView contributorListView;
 
         public ListContributorsFragment(MainActivity _context) { parentActivityPtr = _context; }
 
@@ -24,7 +24,7 @@ namespace Solitaire
         {
             var view = inflater.Inflate(Resource.Layout.list_boards_fragment, container, false);
 
-            contributorListView = view.FindViewById<ListView>(Resource.Id.);
+            //contributorListView = view.FindViewById<ListView>(Resource.Id.);
 
 
 

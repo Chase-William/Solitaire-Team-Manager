@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
@@ -14,6 +15,7 @@
       android:text="Add New Board" />
   
   <LinearLayout
+      android:id="@+id/inputDataLayout"
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:orientation="vertical"
@@ -22,12 +24,12 @@
     <EditText
         android:id="@+id/nameEditTextDialog"
         style="@style/CustomDialogEditText"
-        android:hint="Card Name" />
+        android:hint="Board Name" />
 
     <EditText
         android:id="@+id/descriptionTextDialog"
         style="@style/CustomDialogEditText"
-        android:hint="Card Description" />
+        android:hint="Board Description" />
 
   </LinearLayout>
   
@@ -36,13 +38,13 @@
         android:layout_width="wrap_content">
     
     <Button
-        android:id="@+id/createDeckBtn"
+        android:id="@+id/createBoardBtn"
         style="@style/CustomDialogButton"
         android:layout_alignParentRight="true"
         android:text="Add" />
         
     <Button
-        android:id="@+id/cancelDeckBtn"
+        android:id="@+id/cancelBoardBtn"
         style="@style/CustomDialogButton"
         android:layout_alignParentLeft="true"
         android:text="Cancel" />

@@ -20,7 +20,7 @@ using Android.Gms.Auth.Api;
 namespace Solitaire
 {
     // IMPORTANT: NoHistory needs to be true so our app doesn't refer to this as the "home" or "index" 
-    [Activity(MainLauncher = true, Theme = "@style/ThemeOverlay.MyNoTitleActivity", NoHistory = true)]
+    [Activity(Theme = "@style/ThemeOverlay.MyNoTitleActivity", NoHistory = true)]
     [Register("com.xamarin.signinquickstart.MainActivity")]
     public class GoogleLoginActivity : AppCompatActivity, GoogleApiClient.IOnConnectionFailedListener
     {
@@ -47,17 +47,19 @@ namespace Solitaire
             FindViewById(Resource.Id.sign_out_button).Click += delegate { SignOut(); };
             FindViewById(Resource.Id.disconnect_button).Click += delegate { RevokeAccess(); };
 
-         
+
             // Configure sign-in to request the user's ID, email address, and basic
             // profile. ID and basic profile are included in DEFAULT_SIGN_IN.           
-            var gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn).RequestEmail().Build();
-            // [END configure_signin]
+            var gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
+                .RequestEmail()
+                .Build();
 
             // [START build_client]
             // Build a GoogleApiClient with access to the Google Sign-In API and the
             // options specified by gso.
             thisUsersGoogleApiClient = new GoogleApiClient.Builder(this)
-                    .EnableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+                    .EnableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)                    
+                    .AddOnConnectionFailedListener(this)
                     .AddApi(Auth.GOOGLE_SIGN_IN_API, gso)
                     .Build();
             // [END build_client]
@@ -134,7 +136,7 @@ namespace Solitaire
             {
                 // Signed in successfully, show authenticated UI.
                 AssetManager.thisGoogleAccount = result.SignInAccount;
-                mStatusTextView.Text = $"{SIGNED_IN_FMT}, { AssetManager.thisGoogleAccount.DisplayName}";
+                mStatusTextView.Text = $"{SIGNED_IN_FMT} { AssetManager.thisGoogleAccount.DisplayName}";
                 UpdateUI(true);
 
                 // Starting our application now that the user has successfully logged in
@@ -155,8 +157,8 @@ namespace Solitaire
         ///
         void SignIn()
         {
-            var signInIntent = Auth.GoogleSignInApi.GetSignInIntent(thisUsersGoogleApiClient);
-            StartActivityForResult(signInIntent, RC_SIGN_IN);
+            var attemptSignIn = Auth.GoogleSignInApi.GetSignInIntent(thisUsersGoogleApiClient);
+            StartActivityForResult(attemptSignIn, RC_SIGN_IN);
         }
 
         /// 
@@ -230,7 +232,7 @@ namespace Solitaire
             else
             {
                 mStatusTextView.Text = SIGNED_OUT;
-
+                Toast.MakeText(this, "Sign in failed.", ToastLength.Short).Show();
                 FindViewById(Resource.Id.sign_in_button).Visibility = ViewStates.Visible;
                 FindViewById(Resource.Id.sign_out_and_disconnect).Visibility = ViewStates.Gone;
             }
