@@ -20,7 +20,7 @@ using Android.Gms.Auth.Api;
 namespace Solitaire
 {
     // IMPORTANT: NoHistory needs to be true so our app doesn't refer to this as the "home" or "index" 
-    [Activity(Theme = "@style/ThemeOverlay.MyNoTitleActivity", NoHistory = true)]
+    [Activity(Theme = "@style/ThemeOverlay.MyNoTitleActivity", NoHistory = true, MainLauncher = true)]
     [Register("com.xamarin.signinquickstart.MainActivity")]
     public class GoogleLoginActivity : AppCompatActivity, GoogleApiClient.IOnConnectionFailedListener
     {

@@ -11,9 +11,9 @@
         private string firstName;
         private string lastName;
 
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Email { get; set; }
+        public string LastName { get { return lastName; } set { lastName = value; } }
+        public string FirstName { get { return firstName; } set { firstName = value; } }
+        public string Email { get { return email; } set { email = value; } }
 
         public Contributor() { }
 

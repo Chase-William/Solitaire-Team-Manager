@@ -15,7 +15,7 @@ using Android.Support.Design.Widget;
 
 namespace Solitaire
 {   
-    [Activity(Label = "MainActivity", MainLauncher = true)] 
+    [Activity(Label = "MainActivity")] 
     public class MainActivity : AppCompatActivity
     {
         DrawerLayout drawerLayout;
@@ -44,14 +44,17 @@ namespace Solitaire
             // Then we get the header view from it
             var headerView = navigationView.GetHeaderView(0);
             // FINALLY at last we can get the references to the TextViews inside the headerView we want            
-            //headerView.FindViewById<TextView>(Resource.Id.nameForNavHeader).Text = AssetManager.thisGoogleAccount.DisplayName;
-            //headerView.FindViewById<TextView>(Resource.Id.emailForNavHeader).Text = AssetManager.thisGoogleAccount.Email;
+            headerView.FindViewById<TextView>(Resource.Id.nameForNavHeader).Text = AssetManager.thisGoogleAccount.DisplayName;
+            headerView.FindViewById<TextView>(Resource.Id.emailForNavHeader).Text = AssetManager.thisGoogleAccount.Email;
 
             // Getting the avatar, using Refractored package for CircleImageView
-            //headerView.FindViewById<Refractored.Controls.CircleImageView>(Resource.Id.avatarForNavHeader).SetImageDrawable(AssetManager.QueryGoogleAccountAvatar());
 
-            //var test = AssetManager.thisGoogleAccount;
+            headerView.FindViewById<Refractored.Controls.CircleImageView>(Resource.Id.avatarForNavHeader).SetImageDrawable(AssetManager.QueryGoogleAccountAvatar());
 
+           //var test = AssetManager.thisGoogleAccount;
+
+
+           ClientManager.InitClientSocket();
         }
         
         /// 
@@ -77,9 +80,9 @@ namespace Solitaire
             e.MenuItem.SetChecked(true);
             switch (e.MenuItem.ItemId)
             {
-                case Resource.Id.boards:
+                case Resource.Id.allboards:                    
                     Navigate(new ListBoardsFragment(this));
-                    break;
+                    break;               
             }
             drawerLayout.CloseDrawer(Android.Support.V4.View.GravityCompat.Start);
         }
@@ -106,6 +109,9 @@ namespace Solitaire
             {
                 case Android.Resource.Id.Home:
                     drawerLayout.OpenDrawer(Android.Support.V4.View.GravityCompat.Start);
+                    break;
+                case Resource.Id.serverConnect:
+                    Toast.MakeText(this, ClientManager.SendRequest("get time"), ToastLength.Long).Show();
                     break;
             }
             return true;

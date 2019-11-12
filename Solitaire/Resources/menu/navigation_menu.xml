@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
   <!-- checkableBehavior will make sure we can have one item selected at a time -->
-	<group android:checkableBehavior="single">
+  <item
+            android:id="@+id/serverConnect"
+            app:showAsAction="always"
+            android:title="Server Connect" />
+	<group android:checkableBehavior="single">      
 	    <item
-    	    android:id="@+id/boards"
+    	    android:id="@+id/allboards"
         	android:title="Boards" />
-    	<item
+      <item
         	android:id="@+id/allContributors"
         	android:title="All Contributors"/>
-	    <item
+    <!--<item
     	    android:id="@+id/demographics"
-        	android:title="Demographics"/>
+        	android:title="Demographics"/>-->
 	</group>
 </menu>

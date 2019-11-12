@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="AddExistingContributorDialog.cs" />
     <Compile Include="BoardAdapter.cs" />
+    <Compile Include="Client\ClientManager.cs" />
     <Compile Include="ContributorOptionsDialog.cs" />
     <Compile Include="CreateBoardDialog.cs" />
     <Compile Include="CreateCardDialog.cs" />
@@ -289,6 +290,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\existing_contributor_adapter.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\avatar_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\avatar_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\avatar_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\avatar_purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\images\avatar_red.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

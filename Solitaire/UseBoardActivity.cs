@@ -14,7 +14,11 @@ using Android.Support.V7.App;
 using System.Threading.Tasks;
 using Solitaire.CustomGestures;
 using Android.Widget;
+/*
+ 
+    Chase - My Master Piece -- Main activity for the user to interact with the cards
 
+*/
 namespace Solitaire
 {
     [Activity(Label = "UseBoardActivity")]
