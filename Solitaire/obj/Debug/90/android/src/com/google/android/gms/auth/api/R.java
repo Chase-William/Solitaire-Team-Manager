@@ -52,15 +52,15 @@ public final class R {
 		public static final int googleg_standard_color_18 = 0x7f070080;
 	}
 	public static final class id {
-		public static final int adjust_height = 0x7f08001f;
-		public static final int adjust_width = 0x7f080020;
-		public static final int auto = 0x7f080026;
-		public static final int dark = 0x7f080053;
-		public static final int icon_only = 0x7f08007b;
-		public static final int light = 0x7f080086;
-		public static final int none = 0x7f08009a;
-		public static final int standard = 0x7f0800d4;
-		public static final int wide = 0x7f080103;
+		public static final int adjust_height = 0x7f080020;
+		public static final int adjust_width = 0x7f080021;
+		public static final int auto = 0x7f080027;
+		public static final int dark = 0x7f080056;
+		public static final int icon_only = 0x7f080080;
+		public static final int light = 0x7f08008b;
+		public static final int none = 0x7f0800a0;
+		public static final int standard = 0x7f0800da;
+		public static final int wide = 0x7f080109;
 	}
 	public static final class integer {
 		public static final int google_play_services_version = 0x7f090008;

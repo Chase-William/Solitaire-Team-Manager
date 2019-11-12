@@ -65,6 +65,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddExistingContributorDialog.cs" />
     <Compile Include="BoardAdapter.cs" />
     <Compile Include="ContributorOptionsDialog.cs" />
     <Compile Include="CreateBoardDialog.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="DetailsCardActivity.cs" />
     <Compile Include="EditCardActivity.cs" />
     <Compile Include="AssetManager.cs" />
+    <Compile Include="ExisitingContributorsAdapter.cs" />
     <Compile Include="Lang\Contributor.cs" />
     <Compile Include="ListContributorsFragment.cs" />
     <Compile Include="Login\GoogleLoginActivity.cs" />
@@ -278,6 +280,15 @@
     <AndroidResource Include="Resources\layout\list_contributors_fragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\add_existing_contributor.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\add_new_contributor.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\existing_contributor_adapter.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

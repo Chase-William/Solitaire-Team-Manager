@@ -1,15 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Syncfusion.SfKanban.Android;
 
 namespace Solitaire.Lang
 {
@@ -19,16 +9,10 @@ namespace Solitaire.Lang
 
         private List<Deck> decks = new List<Deck>();
         private List<Card> cards = new List<Card>();
+        private List<Contributor> contributors = new List<Contributor>();
 
-        public List<Card> Cards
-        {
-            get { return cards; }
-            set { cards = value; }
-        }
-        public List<Deck> Decks
-        {
-            get { return decks; }
-            set { decks = value; }
-        }
+        public List<Contributor> Contributors {get; set; }
+        public List<Card> Cards { get; set; }
+        public List<Deck> Decks { get; set; }
     }    
 }
