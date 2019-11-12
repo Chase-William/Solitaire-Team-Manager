@@ -1721,3 +1721,9 @@ C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\stamp\_CopyPd
 C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\add_existing_contributor.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\add_new_contributor.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\existing_contributor_adapter.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\AddExistingContributorDialog.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ExisitingContributorsAdapter.java

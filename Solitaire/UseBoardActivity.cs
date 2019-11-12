@@ -61,7 +61,13 @@ namespace Solitaire
             SetSupportActionBar(toolbar);
 
             // Calling our initalizer class
-            new SetupBoardAndSfkanban(this).InvokeInitEvent();            
+            new SetupBoardAndSfkanban(this).InvokeInitEvent();
+
+            List<Contributor> ree = new List<Contributor>();
+            ree.Add(new Contributor("Kyle", "Murphy", "ksm3091@rit.edu"));
+            ree.Add(new Contributor("re", "goddamn", "fuuuuck"));
+
+            thisBoard.Contributors = ree;
         }
 
         ///
