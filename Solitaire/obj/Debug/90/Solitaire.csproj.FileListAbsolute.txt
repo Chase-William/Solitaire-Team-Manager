@@ -1286,7 +1286,6 @@ C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\LoginResultCallback.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\MainActivity.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5dab4f5c7853fd57f3a9c9a523364ac69\AwaitableTaskCompleteListener_1.java
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
 C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\build.props
 C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\adb.props
@@ -1727,3 +1726,9 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\add_new_contributor.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\existing_contributor_adapter.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\AddExistingContributorDialog.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ExisitingContributorsAdapter.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\add_existing_contributor.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\add_new_contributor.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\existing_contributor_adapter.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\AddExistingContributorDialog.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ExisitingContributorsAdapter.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\large_text_body_bg.xml

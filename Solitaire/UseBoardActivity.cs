@@ -68,6 +68,7 @@ namespace Solitaire
             ree.Add(new Contributor("re", "goddamn", "fuuuuck"));
 
             thisBoard.Contributors = ree;
+            
         }
 
         ///
