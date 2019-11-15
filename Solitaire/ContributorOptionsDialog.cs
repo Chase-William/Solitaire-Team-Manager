@@ -34,14 +34,13 @@ namespace Solitaire
             RequestWindowFeature((int)WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.contributor_options_dialog);
 
-
             // Starts the activity to create a new contributor
             FindViewById<Button>(Resource.Id.addNewContributor).Click += delegate
             {
-                Intent createContributor = new Intent(callerInstance, typeof(CreateContributorActivity));
-                callerInstance.StartActivity(createContributor);
+                new CreateContributorDialog(context);
                 Dismiss();
             };
+
             FindViewById<Button>(Resource.Id.addExistingContributor).Click += delegate
             {
                 // TODO: Add existing contributors logic here and like how will be show them

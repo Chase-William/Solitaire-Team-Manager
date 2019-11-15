@@ -21,10 +21,12 @@ namespace Solitaire
     {
         UseBoardActivity callerInstance;
         List<Contributor> selectedContribtors = new List<Contributor>();
+        Context context;
 
         public AddExistingContributorDialog(Context _context) : base(_context)
         {
             callerInstance = (UseBoardActivity)_context;
+            context = _context;
             this.Show();
         }
 
@@ -41,9 +43,7 @@ namespace Solitaire
             ExisitingContributors.ItemClick += ContributorSelected;
             FindViewById<Button>(Resource.Id.add_button).Click += delegate
             {
-                // TODO: take selected and add them to the board
-                
-                //callerInstance.thisBoard.Contributors.Add()
+                new CreateContributorDialog(context);
                 Dismiss();
             };
             FindViewById<Button>(Resource.Id.cancel_button).Click += delegate

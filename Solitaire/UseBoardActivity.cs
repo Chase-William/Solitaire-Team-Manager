@@ -65,8 +65,8 @@ namespace Solitaire
                 LoadBoardIntoKanban(boardId);
 
             List<Contributor> ree = new List<Contributor>();
-            ree.Add(new Contributor("Kyle", "Murphy", "ksm3091@rit.edu"));
-            ree.Add(new Contributor("re", "goddamn", "fuuuuck"));
+            ree.Add(new Contributor("Kyle Murphy", "ksm3091@rit.edu"));
+            ree.Add(new Contributor("ree goddamn", "fuuuuck"));
 
             //Updates all contributors
             AssetManager.contributors = ree;
@@ -102,7 +102,7 @@ namespace Solitaire
                 case "Add Card":
                     new CreateCardDialog(this);
                     break;
-                case "Add Contact":
+                case "Add Contributor":
                     new ContributorOptionsDialog(this);
                     break;
                 default:
@@ -227,6 +227,7 @@ namespace Solitaire
                     MaximumLimit = 5,
                     Categories = new List<object>() { deck.Name }
                 };
+
                 newDeck.ErrorBarSettings.Color = Color.Green;
                 newDeck.ErrorBarSettings.MinValidationColor = Color.Orange;
                 newDeck.ErrorBarSettings.MaxValidationColor = Color.Red;

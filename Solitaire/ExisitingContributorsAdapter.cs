@@ -42,7 +42,8 @@ namespace Solitaire
                 var name = view.FindViewById<TextView>(Resource.Id.nameOfContributor);
                 var email = view.FindViewById<TextView>(Resource.Id.emailOfContributor);
 
-                name.Text = contributors[position].FirstName + " " + contributors[position].LastName;
+                avatar.SetImageDrawable(Drawable.CreateFromStream(parent.Context.Assets.Open(contributors[position].ImageUrl), null));
+                name.Text = contributors[position].Name;
                 email.Text = contributors[position].Email;
 
             }

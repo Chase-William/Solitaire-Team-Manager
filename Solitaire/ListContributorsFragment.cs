@@ -14,24 +14,29 @@ using Solitaire.Lang;
 
 namespace Solitaire
 {
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class ListContributorsFragment : Android.Support.V4.App.Fragment
     {
         MainActivity parentActivityPtr;
         ListView contributorListView;
-
+        List<Contributor> ree = new List<Contributor>();
         public ListContributorsFragment(MainActivity _context) { parentActivityPtr = _context; }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.list_contributors_fragment, container, false);
+            var view = inflater.Inflate(Resource.Layout.all_contributors_fragment, container, false);
 
             contributorListView = view.FindViewById<ListView>(Resource.Id.listViewContributors);
 
             //Fill up assetmanagers contributors with starter contributors for testing.
-            List<Contributor> ree = new List<Contributor>();
-            ree.Add(new Contributor("Kyle", "Murphy", "ksm3091@rit.edu"));
-            ree.Add(new Contributor("re", "goddamn", "fuuuuck"));
-            AssetManager.contributors = ree;
+            if(ree.Count == 0)
+            {
+
+                ree.Add(new Contributor("Kyle Murphy", "ksm3091@rit.edu"));
+                ree.Add(new Contributor("re goddamn", "fuuuuck"));
+                AssetManager.contributors = ree;
+            }
+            
 
             contributorListView.Adapter = new ExisitingContributorsAdapter(AssetManager.contributors);
 

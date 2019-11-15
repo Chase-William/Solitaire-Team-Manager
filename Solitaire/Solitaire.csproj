@@ -70,7 +70,7 @@
     <Compile Include="ContributorOptionsDialog.cs" />
     <Compile Include="CreateBoardDialog.cs" />
     <Compile Include="CreateCardDialog.cs" />
-    <Compile Include="CreateContributorActivity.cs" />
+    <Compile Include="CreateContributorDialog.cs" />
     <Compile Include="CreateDeckDialog.cs" />
     <Compile Include="CustomGestures\DoubleClickGesture.cs" />
     <Compile Include="DetailsCardActivity.cs" />
@@ -232,14 +232,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\create_contributor_activity.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\menu\create_contributor_menu.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\main_activity.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -277,11 +269,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\list_contributors_fragment.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\add_existing_contributor.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -314,11 +301,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\all_contributors_fragment.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="contributors_fragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

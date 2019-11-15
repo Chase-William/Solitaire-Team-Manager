@@ -8,6 +8,7 @@ attr;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\0\
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Debug\90\res\layout\add_existing_contributor.xml
+Button;obj\Debug\90\res\layout\add_new_contributor.xml
 Button;obj\Debug\90\res\layout\contributor_options_dialog.xml
 Button;obj\Debug\90\res\layout\create_board_dialog.xml
 Button;obj\Debug\90\res\layout\create_card_dialog.xml
@@ -21,6 +22,7 @@ com.google.android.gms.common.SignInButton;obj\Debug\90\res\layout\google_login_
 corners;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\roundedcorner.xml
 corners;obj\Debug\90\res\drawable\custom_border.xml
 declare-styleable;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\values\values.xml
+EditText;obj\Debug\90\res\layout\add_new_contributor.xml
 EditText;obj\Debug\90\res\layout\create_board_dialog.xml
 EditText;obj\Debug\90\res\layout\create_card_dialog.xml
 EditText;obj\Debug\90\res\layout\create_contributor_activity.xml
@@ -47,7 +49,6 @@ include;obj\Debug\90\res\layout\edit_card_activity.xml
 include;obj\Debug\90\res\layout\main_activity.xml
 include;obj\Debug\90\res\layout\use_board_activity.xml
 item;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
-item;obj\Debug\90\res\menu\create_contributor_menu.xml
 item;obj\Debug\90\res\menu\details_card_menu.xml
 item;obj\Debug\90\res\menu\edit_card_menu.xml
 item;obj\Debug\90\res\menu\navigation_menu.xml
@@ -71,7 +72,6 @@ LinearLayout;obj\Debug\90\res\layout\edit_card_activity.xml
 LinearLayout;obj\Debug\90\res\layout\exisiting_contributor_adapter.xml
 LinearLayout;obj\Debug\90\res\layout\google_login_activity.xml
 LinearLayout;obj\Debug\90\res\layout\list_boards_fragment.xml
-LinearLayout;obj\Debug\90\res\layout\list_contributors_fragment.xml
 LinearLayout;obj\Debug\90\res\layout\main_activity.xml
 LinearLayout;obj\Debug\90\res\layout\nav_header.xml
 LinearLayout;obj\Debug\90\res\layout\use_board_activity.xml
@@ -80,7 +80,6 @@ ListView;obj\Debug\90\res\layout\all_contributors_fragment.xml
 ListView;obj\Debug\90\res\layout\details_card_activity.xml
 ListView;obj\Debug\90\res\layout\edit_card_activity.xml
 ListView;obj\Debug\90\res\layout\list_boards_fragment.xml
-menu;obj\Debug\90\res\menu\create_contributor_menu.xml
 menu;obj\Debug\90\res\menu\details_card_menu.xml
 menu;obj\Debug\90\res\menu\edit_card_menu.xml
 menu;obj\Debug\90\res\menu\navigation_menu.xml
@@ -93,6 +92,7 @@ refractored.controls.CircleImageView;obj\Debug\90\res\layout\nav_header.xml
 RelativeLayout;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
 RelativeLayout;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
 RelativeLayout;obj\Debug\90\res\layout\add_existing_contributor.xml
+RelativeLayout;obj\Debug\90\res\layout\add_new_contributor.xml
 RelativeLayout;obj\Debug\90\res\layout\board_row.xml
 RelativeLayout;obj\Debug\90\res\layout\contributor_options_dialog.xml
 RelativeLayout;obj\Debug\90\res\layout\create_board_dialog.xml
@@ -126,6 +126,7 @@ Syncfusion.SfKanban.Android.KanbanCircleImage;C:\Users\murph\source\repos\Solita
 Syncfusion.SfKanban.Android.SfKanban;obj\Debug\90\res\layout\use_board_activity.xml
 TextView;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
 TextView;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
+TextView;obj\Debug\90\res\layout\add_new_contributor.xml
 TextView;obj\Debug\90\res\layout\board_row.xml
 TextView;obj\Debug\90\res\layout\category_spinner_row.xml
 TextView;obj\Debug\90\res\layout\contributor_options_dialog.xml
