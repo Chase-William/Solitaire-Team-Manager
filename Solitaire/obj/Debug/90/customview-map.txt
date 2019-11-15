@@ -58,6 +58,7 @@ LinearLayout;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\
 LinearLayout;C:\Users\murph\source\repos\Solitare\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
 LinearLayout;obj\Debug\90\res\layout\add_existing_contributor.xml
 LinearLayout;obj\Debug\90\res\layout\add_new_contributor.xml
+LinearLayout;obj\Debug\90\res\layout\all_contributors_fragment.xml
 LinearLayout;obj\Debug\90\res\layout\board_row.xml
 LinearLayout;obj\Debug\90\res\layout\category_spinner_row.xml
 LinearLayout;obj\Debug\90\res\layout\contributor_options_dialog.xml
@@ -75,6 +76,7 @@ LinearLayout;obj\Debug\90\res\layout\main_activity.xml
 LinearLayout;obj\Debug\90\res\layout\nav_header.xml
 LinearLayout;obj\Debug\90\res\layout\use_board_activity.xml
 ListView;obj\Debug\90\res\layout\add_existing_contributor.xml
+ListView;obj\Debug\90\res\layout\all_contributors_fragment.xml
 ListView;obj\Debug\90\res\layout\details_card_activity.xml
 ListView;obj\Debug\90\res\layout\edit_card_activity.xml
 ListView;obj\Debug\90\res\layout\list_boards_fragment.xml

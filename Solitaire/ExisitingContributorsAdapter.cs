@@ -31,7 +31,6 @@ namespace Solitaire
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            string[] images = { "images/avatar_red.png", "images/avatar_orange.png", "images/avatar_blue.png", "images/avatar_purple.png", "images/avatar_green.png" };
 
             View view = convertView;
 
@@ -45,14 +44,18 @@ namespace Solitaire
 
                 name.Text = contributors[position].FirstName + " " + contributors[position].LastName;
                 email.Text = contributors[position].Email;
-                Random rand = new Random();
-                string imageSelected = images[rand.Next(0, 4)];
-                avatar.SetImageDrawable(Drawable.CreateFromStream(parent.Context.Assets.Open(imageSelected), null));
+
             }
-
-            
-
             return view;
         }
+    }
+
+    public class ContributorsViewHolder : Java.Lang.Object 
+    {
+        public TextView nameOfContributor { get; set; }
+        public TextView emailOfContributor { get; set; }
+        public Refractored.Controls.CircleImageView avatar { get; set; }
+        
+
     }
 }

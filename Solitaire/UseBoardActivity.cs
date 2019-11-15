@@ -68,6 +68,9 @@ namespace Solitaire
             ree.Add(new Contributor("Kyle", "Murphy", "ksm3091@rit.edu"));
             ree.Add(new Contributor("re", "goddamn", "fuuuuck"));
 
+            //Updates all contributors
+            AssetManager.contributors = ree;
+            //Updates board contributors
             thisBoard.Contributors = ree;
 
         }
