@@ -38,7 +38,11 @@ namespace Solitaire
                 long boardId;
 
                 // Checks to make sure this name doesnt not already exist within the respective board, because we will be using the board's title as the category name
-                if (name == "" || name == null) return;
+                if (name == "" || name == null)
+                {
+                    Toast.MakeText(callerInstance, "Name field cannot be empty.", ToastLength.Short).Show();
+                    return;
+                }
 
                 // If the board doesn't contain any boards then we can skip testing used names
                 if (AssetManager.boards.Count > 0)
@@ -47,6 +51,7 @@ namespace Solitaire
                     // We also DO NOT create an instance of the board 
                     if (AssetManager.boards.Any(boardName => boardName.Name == name))
                     {
+                        Toast.MakeText(callerInstance, $"{name} name is already being used.", ToastLength.Short).Show();
                         return;
                     }
                 }

@@ -26,7 +26,7 @@
 
     <EditText
         android:id="@+id/descriptionTextDialog"
-        style="@style/CustomDialogEditText"
+        style="@style/CustomDialogEditTextDescription"
         android:hint="Deck Description" />
     
   </LinearLayout>

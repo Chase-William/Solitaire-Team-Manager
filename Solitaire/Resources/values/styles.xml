@@ -12,8 +12,14 @@
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_marginTop">5dp</item>
-    <item name="android:textSize">15dp</item>    
-  </style>  
+    <item name="android:textSize">15dp</item>
+    <item name="android:gravity">top</item>
+    <item name="android:width">250dp</item>
+  </style>
+
+  <style name="CustomDialogEditTextDescription" parent="CustomDialogEditText">    
+    <item name="android:height">100dp</item>
+  </style>
 
   <style name="CustomDialogButton" parent="android:Widget.Button">
     <item name="android:layout_width">wrap_content</item>

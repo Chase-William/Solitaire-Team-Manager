@@ -74,7 +74,9 @@
     <Compile Include="CreateContributorActivity.cs" />
     <Compile Include="CreateDeckDialog.cs" />
     <Compile Include="CustomGestures\DoubleClickGesture.cs" />
+    <Compile Include="DetailsBoardActivity.cs" />
     <Compile Include="DetailsCardActivity.cs" />
+    <Compile Include="EditBoardActivity.cs" />
     <Compile Include="EditCardActivity.cs" />
     <Compile Include="AssetManager.cs" />
     <Compile Include="ExisitingContributorsAdapter.cs" />
@@ -196,7 +198,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\edit_card_menu.xml">
+    <AndroidResource Include="Resources\menu\edit_menu.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -223,7 +225,7 @@
     <AndroidResource Include="Resources\drawable\edit_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\details_card_menu.xml">
+    <AndroidResource Include="Resources\menu\details_menu.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -308,6 +310,19 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\large_text_body_bg.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\details_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\details_board_activity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\edit_board_activity.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

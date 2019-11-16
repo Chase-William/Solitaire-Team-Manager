@@ -53,19 +53,16 @@ namespace Solitaire
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.details_card_menu, menu);
+            MenuInflater.Inflate(Resource.Menu.details_menu, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             // Comparing the title of the toolbar btns to a string to determine which was clicked
-            switch (item.TitleFormatted.ToString())
+            switch (item.ItemId)
             {
-                case "Edit":
-                    // Starting an activity to edit our kanbanModel
-                    // We pass the Id of the kanbanModel to the edit Activity so we can basically get a pointer back to the original kanbanModel
-                    // I really don't like passing all the data via PutExtras... really like just passing a primary key or something to a collection
+                case Resource.Id.edit:
                     Intent editCardActivity = new Intent(this, typeof(EditCardActivity));
                     editCardActivity.PutExtra("kanbanModelId", kanbanModelId);                        
                     StartActivityForResult(editCardActivity, EDIT_ACTIVITY_CODE);

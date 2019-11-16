@@ -320,7 +320,6 @@ C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_ResolveLibra
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\create_board_dialog.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateBoardDialog.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\details_card_activity.xml
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\edit_card_menu.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\edit_card_activity.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\DetailsCardActivity.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\EditCardActivity.java
@@ -1212,7 +1211,6 @@ C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\google_l
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\mipmap-xxxhdpi\ic_google.png
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\default_avatar.png
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\edit_icon.png
-C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\details_card_menu.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\contributor_options_dialog.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\create_contributor_activity.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\create_contributor_menu.xml
@@ -1732,3 +1730,10 @@ C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\existing
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\AddExistingContributorDialog.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ExisitingContributorsAdapter.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\large_text_body_bg.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\drawable\details_icon.png
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\details_board_activity.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\DetailsBoardActivity.java
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\edit_menu.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\menu\details_menu.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\edit_board_activity.xml
+C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\EditBoardActivity.java

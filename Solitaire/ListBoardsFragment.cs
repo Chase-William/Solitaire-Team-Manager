@@ -35,7 +35,7 @@ namespace Solitaire
             };
 
             boardListView = view.FindViewById<ListView>(Resource.Id.boardListView);
-            boardListView.Adapter = new BoardAdapter(AssetManager.boards);
+            boardListView.Adapter = new BoardAdapter(AssetManager.boards, parentActivityPtr);
             boardListView.ItemClick += (e, a) =>
             {
                 parentActivityPtr.GenericActionRequest(new System.Action(() =>
@@ -119,7 +119,7 @@ namespace Solitaire
         public override void OnResume()
         {
             base.OnResume();
-            boardListView.Adapter = new BoardAdapter(AssetManager.boards);
+            boardListView.Adapter = new BoardAdapter(AssetManager.boards, parentActivityPtr);
         }
     }
 }

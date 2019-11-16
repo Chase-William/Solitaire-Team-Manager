@@ -26,6 +26,7 @@ EditText;obj\Debug\90\res\layout\create_board_dialog.xml
 EditText;obj\Debug\90\res\layout\create_card_dialog.xml
 EditText;obj\Debug\90\res\layout\create_contributor_activity.xml
 EditText;obj\Debug\90\res\layout\create_deck_dialog.xml
+EditText;obj\Debug\90\res\layout\edit_board_activity.xml
 EditText;obj\Debug\90\res\layout\edit_card_activity.xml
 external-cache-path;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
@@ -37,19 +38,24 @@ gradient;obj\Debug\90\res\drawable\gradient_bg.xml
 group;obj\Debug\90\res\menu\navigation_menu.xml
 HorizontalScrollView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
 HorizontalScrollView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
+ImageButton;obj\Debug\90\res\layout\board_row.xml
 ImageView;obj\Debug\90\res\layout\board_row.xml
 ImageView;obj\Debug\90\res\layout\create_contributor_activity.xml
+ImageView;obj\Debug\90\res\layout\details_board_activity.xml
+ImageView;obj\Debug\90\res\layout\edit_board_activity.xml
 ImageView;obj\Debug\90\res\layout\google_login_activity.xml
 include;obj\Debug\90\res\layout\create_contributor_activity.xml
+include;obj\Debug\90\res\layout\details_board_activity.xml
 include;obj\Debug\90\res\layout\details_card_activity.xml
+include;obj\Debug\90\res\layout\edit_board_activity.xml
 include;obj\Debug\90\res\layout\edit_card_activity.xml
 include;obj\Debug\90\res\layout\main_activity.xml
 include;obj\Debug\90\res\layout\use_board_activity.xml
 item;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
 item;obj\Debug\90\res\drawable\large_text_body_bg.xml
 item;obj\Debug\90\res\menu\create_contributor_menu.xml
-item;obj\Debug\90\res\menu\details_card_menu.xml
-item;obj\Debug\90\res\menu\edit_card_menu.xml
+item;obj\Debug\90\res\menu\details_menu.xml
+item;obj\Debug\90\res\menu\edit_menu.xml
 item;obj\Debug\90\res\menu\navigation_menu.xml
 item;obj\Debug\90\res\menu\use_board_menu.xml
 item;obj\Debug\90\res\values\styles.xml
@@ -66,7 +72,9 @@ LinearLayout;obj\Debug\90\res\layout\create_board_dialog.xml
 LinearLayout;obj\Debug\90\res\layout\create_card_dialog.xml
 LinearLayout;obj\Debug\90\res\layout\create_contributor_activity.xml
 LinearLayout;obj\Debug\90\res\layout\create_deck_dialog.xml
+LinearLayout;obj\Debug\90\res\layout\details_board_activity.xml
 LinearLayout;obj\Debug\90\res\layout\details_card_activity.xml
+LinearLayout;obj\Debug\90\res\layout\edit_board_activity.xml
 LinearLayout;obj\Debug\90\res\layout\edit_card_activity.xml
 LinearLayout;obj\Debug\90\res\layout\existing_contributor_adapter.xml
 LinearLayout;obj\Debug\90\res\layout\google_login_activity.xml
@@ -76,12 +84,14 @@ LinearLayout;obj\Debug\90\res\layout\main_activity.xml
 LinearLayout;obj\Debug\90\res\layout\nav_header.xml
 LinearLayout;obj\Debug\90\res\layout\use_board_activity.xml
 ListView;obj\Debug\90\res\layout\add_existing_contributor.xml
+ListView;obj\Debug\90\res\layout\details_board_activity.xml
 ListView;obj\Debug\90\res\layout\details_card_activity.xml
+ListView;obj\Debug\90\res\layout\edit_board_activity.xml
 ListView;obj\Debug\90\res\layout\edit_card_activity.xml
 ListView;obj\Debug\90\res\layout\list_boards_fragment.xml
 menu;obj\Debug\90\res\menu\create_contributor_menu.xml
-menu;obj\Debug\90\res\menu\details_card_menu.xml
-menu;obj\Debug\90\res\menu\edit_card_menu.xml
+menu;obj\Debug\90\res\menu\details_menu.xml
+menu;obj\Debug\90\res\menu\edit_menu.xml
 menu;obj\Debug\90\res\menu\navigation_menu.xml
 menu;obj\Debug\90\res\menu\use_board_menu.xml
 objectAnimator;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_hide.xml
@@ -135,7 +145,9 @@ TextView;obj\Debug\90\res\layout\contributor_options_dialog.xml
 TextView;obj\Debug\90\res\layout\create_board_dialog.xml
 TextView;obj\Debug\90\res\layout\create_card_dialog.xml
 TextView;obj\Debug\90\res\layout\create_deck_dialog.xml
+TextView;obj\Debug\90\res\layout\details_board_activity.xml
 TextView;obj\Debug\90\res\layout\details_card_activity.xml
+TextView;obj\Debug\90\res\layout\edit_board_activity.xml
 TextView;obj\Debug\90\res\layout\edit_card_activity.xml
 TextView;obj\Debug\90\res\layout\existing_contributor_adapter.xml
 TextView;obj\Debug\90\res\layout\google_login_activity.xml

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -33,14 +32,6 @@ namespace Solitaire
 
             // Finding our kanbanModel inside the item source while using the intent extra we put from the calling activity
             clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));    
-
-
-
-
-            // TODO: Might need to check name for null and other unacceptable values
-
-
-
 
             // Setting up the pointers to the TextViews
             cardNameEditText = FindViewById<EditText>(Resource.Id.cardNameEditText);
@@ -83,7 +74,7 @@ namespace Solitaire
         ///
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.edit_card_menu, menu);
+            MenuInflater.Inflate(Resource.Menu.edit_menu, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -95,9 +86,9 @@ namespace Solitaire
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             // Comparing the title of the toolbar btns to a string to determine which was clicked
-            switch (item.TitleFormatted.ToString())
+            switch (item.ItemId)
             {
-                case "Save":
+                case Resource.Id.saveEdit:
                     SaveAndFinishedEditing();
                     break;
                 default:
