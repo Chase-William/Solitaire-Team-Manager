@@ -64,10 +64,10 @@ namespace Solitaire
             new SetupBoardAndSfkanban(this).InvokeInitEvent();
 
             List<Contributor> ree = new List<Contributor>();
-            ree.Add(new Contributor("Kyle", "Murphy", "ksm3091@rit.edu"));
-            ree.Add(new Contributor("re", "goddamn", "fuuuuck"));
+            ree.Add(new Contributor("Kyle Murphy", "ksm3091@rit.edu"));
+            ree.Add(new Contributor("ree goddamn", "fuuuuck"));
 
-            thisBoard.Contributors = ree;            
+            AssetManager.contributors = ree;            
         }
 
         ///
@@ -113,7 +113,7 @@ namespace Solitaire
                     // If a column does exist we will create the dialog
                     new CreateCardDialog(this);
                         break;
-                case "Add Contact":
+                case "Add Contributor":
                     new ContributorOptionsDialog(this);
                     break;
                 case "Show Finished Cards":

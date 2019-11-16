@@ -20,7 +20,7 @@
           "lib/MonoAndroid10/Refractored.Controls.CircleImageView.dll": {}
         }
       },
-      "Syncfusion.Licensing/17.3.0.19": {
+      "Syncfusion.Licensing/17.3.0.27": {
         "type": "package",
         "compile": {
           "lib/MonoAndroid10/Syncfusion.Licensing.dll": {}
@@ -29,10 +29,10 @@
           "lib/MonoAndroid10/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.Xamarin.SfKanban.Android/17.3.0.19": {
+      "Syncfusion.Xamarin.SfKanban.Android/17.3.0.27": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Licensing": "17.3.0.19"
+          "Syncfusion.Licensing": "17.3.0.27"
         },
         "compile": {
           "lib/MonoAndroid10/Syncfusion.SfKanban.Android.dll": {}
@@ -986,10 +986,10 @@
         "refractored.controls.circleimageview.nuspec"
       ]
     },
-    "Syncfusion.Licensing/17.3.0.19": {
-      "sha512": "sADWlWsYRVxzINixq5A2Mm0uBwaxtLbF6gf0dJJkL82ETiEsiFW7o1y1cIBgkR7+hPjR7ZUK/3f8hFOL4eo+ZA==",
+    "Syncfusion.Licensing/17.3.0.27": {
+      "sha512": "vJgiD27d3n3doJDX4z6n3lKt7Eent1/u0GHvhTODXxYWjZMmwM5R7ztQ8tyhMwLTiyj/QiD1858Ll2mYJIsIEA==",
       "type": "package",
-      "path": "syncfusion.licensing/17.3.0.19",
+      "path": "syncfusion.licensing/17.3.0.27",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1009,20 +1009,20 @@
         "lib/netstandard2.0/Syncfusion.Licensing.dll",
         "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
         "lib/uap10.0/Syncfusion.Licensing.dll",
-        "syncfusion.licensing.17.3.0.19.nupkg.sha512",
+        "syncfusion.licensing.17.3.0.27.nupkg.sha512",
         "syncfusion.licensing.nuspec"
       ]
     },
-    "Syncfusion.Xamarin.SfKanban.Android/17.3.0.19": {
-      "sha512": "H7dAafQacI/RwYIZFYrc5rZF7iRw0Pu7fUaX8Rjk36cWLtp/KYxydzEsQgq4pkwz9V1EqyWQAKzjJwOGdrlMdg==",
+    "Syncfusion.Xamarin.SfKanban.Android/17.3.0.27": {
+      "sha512": "aIoB15LYGTd/PwbETLLPlDaDvmkbebs/PsEyw2bGASvg6YH0i0gm+uDIrGQ0BpWiwN81jhnANgxI1AlSKkNIGw==",
       "type": "package",
-      "path": "syncfusion.xamarin.sfkanban.android/17.3.0.19",
+      "path": "syncfusion.xamarin.sfkanban.android/17.3.0.27",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/MonoAndroid10/Syncfusion.SfKanban.Android.XML",
         "lib/MonoAndroid10/Syncfusion.SfKanban.Android.dll",
-        "syncfusion.xamarin.sfkanban.android.17.3.0.19.nupkg.sha512",
+        "syncfusion.xamarin.sfkanban.android.17.3.0.27.nupkg.sha512",
         "syncfusion.xamarin.sfkanban.android.nuspec"
       ]
     },
@@ -1963,7 +1963,7 @@
     "MonoAndroid,Version=v9.0": [
       "Newtonsoft.Json >= 12.0.2",
       "Refractored.Controls.CircleImageView >= 1.0.1",
-      "Syncfusion.Xamarin.SfKanban.Android >= 17.3.0.19",
+      "Syncfusion.Xamarin.SfKanban.Android >= 17.3.0.27",
       "Xamarin.Android.Support.Core.Utils >= 28.0.0.1",
       "Xamarin.Android.Support.CustomTabs >= 28.0.0.1",
       "Xamarin.Android.Support.Design >= 28.0.0.1",
@@ -1973,24 +1973,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Chase Roth\\.nuget\\packages\\": {},
+    "C:\\Users\\murph\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Chase Roth\\Desktop\\Solitaire\\Solitaire\\Solitaire.csproj",
+      "projectUniqueName": "C:\\Users\\murph\\Desktop\\Solitaire\\Solitaire\\Solitaire.csproj",
       "projectName": "Solitaire",
-      "projectPath": "C:\\Users\\Chase Roth\\Desktop\\Solitaire\\Solitaire\\Solitaire.csproj",
-      "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Chase Roth\\Desktop\\Solitaire\\Solitaire\\obj\\",
+      "projectPath": "C:\\Users\\murph\\Desktop\\Solitaire\\Solitaire\\Solitaire.csproj",
+      "packagesPath": "C:\\Users\\murph\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\murph\\Desktop\\Solitaire\\Solitaire\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Chase Roth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\murph\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2020,7 +2020,7 @@
           },
           "Syncfusion.Xamarin.SfKanban.Android": {
             "target": "Package",
-            "version": "[17.3.0.19, )"
+            "version": "[17.3.0.27, )"
           },
           "Xamarin.Android.Support.Core.Utils": {
             "target": "Package",

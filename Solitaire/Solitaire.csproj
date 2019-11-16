@@ -71,7 +71,7 @@
     <Compile Include="ContributorOptionsDialog.cs" />
     <Compile Include="CreateBoardDialog.cs" />
     <Compile Include="CreateCardDialog.cs" />
-    <Compile Include="CreateContributorActivity.cs" />
+    <Compile Include="CreateContributorDialog.cs" />
     <Compile Include="CreateDeckDialog.cs" />
     <Compile Include="CustomGestures\DoubleClickGesture.cs" />
     <Compile Include="DetailsBoardActivity.cs" />
@@ -141,7 +141,7 @@
       <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfKanban.Android">
-      <Version>17.3.0.19</Version>
+      <Version>17.3.0.27</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.1" />
@@ -235,14 +235,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\create_contributor_activity.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\menu\create_contributor_menu.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\main_activity.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -276,11 +268,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\gradient_bg.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\list_contributors_fragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -323,6 +310,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\edit_board_activity.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\all_contributors_fragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

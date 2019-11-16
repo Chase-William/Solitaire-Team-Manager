@@ -80,6 +80,9 @@ namespace Solitaire
             e.MenuItem.SetChecked(true);
             switch (e.MenuItem.ItemId)
             {
+                case Resource.Id.allContributors:
+                    Navigate(new ListContributorsFragment(this));
+                    break;
                 case Resource.Id.allboards:                    
                     Navigate(new ListBoardsFragment(this));
                     break;               

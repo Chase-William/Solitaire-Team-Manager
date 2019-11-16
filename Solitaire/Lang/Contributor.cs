@@ -1,4 +1,6 @@
-﻿namespace Solitaire.Lang
+﻿using System;
+
+namespace Solitaire.Lang
 {
     /// 
     /// 
@@ -8,20 +10,32 @@
     public class Contributor
     {       
         private string email;
-        private string firstName;
-        private string lastName;
+        private string imageUrl;
+        private string name;
 
-        public string LastName { get { return lastName; } set { lastName = value; } }
-        public string FirstName { get { return firstName; } set { firstName = value; } }
+        public string Name { get { return name; } set { name = value; } }
         public string Email { get { return email; } set { email = value; } }
+
+        public string ImageUrl { get => imageUrl; set => imageUrl = value; }
 
         public Contributor() { }
 
-        public Contributor(string _first, string _last, string _email)
+        public Contributor(string _name, string _email)
         {
-            FirstName = _first;
-            LastName = _last;
+            Name = _name;
             Email = _email;
+
+            Random rand = new Random();
+            string[] images = { "images/avatar_red.png", "images/avatar_orange.png", "images/avatar_blue.png", "images/avatar_purple.png", "images/avatar_green.png" };
+            string imageSelected = images[rand.Next(0, 4)];
+            ImageUrl = imageSelected;
+        }
+
+        public Contributor(string name, string email, string imageUrl)
+        {
+            Name = name;
+            Email = email;
+            ImageUrl = imageUrl;
         }
     }
 }

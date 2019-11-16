@@ -3664,190 +3664,190 @@ namespace Solitaire
 			public const int cancelDeckBtn = 2131230780;
 			
 			// aapt resource value: 0x7F08003D
-			public const int cancel_action = 2131230781;
+			public const int cancelNewContributor = 2131230781;
 			
 			// aapt resource value: 0x7F08003E
-			public const int cancel_button = 2131230782;
+			public const int cancel_action = 2131230782;
 			
 			// aapt resource value: 0x7F08003F
-			public const int cardDescriptionEditText = 2131230783;
+			public const int cancel_button = 2131230783;
 			
 			// aapt resource value: 0x7F080040
-			public const int cardDescriptionTextView = 2131230784;
+			public const int cardDescriptionEditText = 2131230784;
 			
 			// aapt resource value: 0x7F080041
-			public const int cardLeader = 2131230785;
+			public const int cardDescriptionTextView = 2131230785;
 			
 			// aapt resource value: 0x7F080042
-			public const int cardNameEditText = 2131230786;
+			public const int cardLeader = 2131230786;
 			
 			// aapt resource value: 0x7F080043
-			public const int cardNameTextView = 2131230787;
+			public const int cardNameEditText = 2131230787;
 			
 			// aapt resource value: 0x7F080044
-			public const int cardView = 2131230788;
+			public const int cardNameTextView = 2131230788;
 			
 			// aapt resource value: 0x7F080045
-			public const int categorySpinnerDialog = 2131230789;
+			public const int cardView = 2131230789;
 			
 			// aapt resource value: 0x7F080046
-			public const int center = 2131230790;
+			public const int categorySpinnerDialog = 2131230790;
 			
 			// aapt resource value: 0x7F080047
-			public const int center_horizontal = 2131230791;
+			public const int center = 2131230791;
 			
 			// aapt resource value: 0x7F080048
-			public const int center_vertical = 2131230792;
+			public const int center_horizontal = 2131230792;
 			
 			// aapt resource value: 0x7F080049
-			public const int checkbox = 2131230793;
+			public const int center_vertical = 2131230793;
 			
 			// aapt resource value: 0x7F08004A
-			public const int chronometer = 2131230794;
+			public const int checkbox = 2131230794;
 			
 			// aapt resource value: 0x7F08004B
-			public const int clip_horizontal = 2131230795;
+			public const int chronometer = 2131230795;
 			
 			// aapt resource value: 0x7F08004C
-			public const int clip_vertical = 2131230796;
+			public const int clip_horizontal = 2131230796;
 			
 			// aapt resource value: 0x7F08004D
-			public const int collapseActionView = 2131230797;
+			public const int clip_vertical = 2131230797;
 			
 			// aapt resource value: 0x7F08004E
-			public const int container = 2131230798;
+			public const int collapseActionView = 2131230798;
 			
 			// aapt resource value: 0x7F08004F
-			public const int content = 2131230799;
+			public const int container = 2131230799;
 			
 			// aapt resource value: 0x7F080050
-			public const int contentFrame = 2131230800;
+			public const int content = 2131230800;
 			
 			// aapt resource value: 0x7F080051
-			public const int contentPanel = 2131230801;
+			public const int contentFrame = 2131230801;
 			
 			// aapt resource value: 0x7F080052
-			public const int contributors = 2131230802;
+			public const int contentPanel = 2131230802;
 			
 			// aapt resource value: 0x7F080053
-			public const int contributorsLabel = 2131230803;
+			public const int contributorEmail = 2131230803;
 			
 			// aapt resource value: 0x7F080054
-			public const int coordinator = 2131230804;
+			public const int contributorName = 2131230804;
 			
 			// aapt resource value: 0x7F080055
-			public const int createBoardBtn = 2131230805;
+			public const int contributors = 2131230805;
 			
 			// aapt resource value: 0x7F080056
-			public const int createContact = 2131230806;
+			public const int contributorsLabel = 2131230806;
 			
 			// aapt resource value: 0x7F080057
-			public const int createDeckBtn = 2131230807;
+			public const int coordinator = 2131230807;
+			
+			// aapt resource value: 0x7F080058
+			public const int createBoardBtn = 2131230808;
+			
+			// aapt resource value: 0x7F080059
+			public const int createDeckBtn = 2131230809;
 			
 			// aapt resource value: 0x7F080001
 			public const int CTRL = 2131230721;
 			
-			// aapt resource value: 0x7F080058
-			public const int custom = 2131230808;
-			
-			// aapt resource value: 0x7F080059
-			public const int customPanel = 2131230809;
-			
 			// aapt resource value: 0x7F08005A
-			public const int dark = 2131230810;
+			public const int custom = 2131230810;
 			
 			// aapt resource value: 0x7F08005B
-			public const int decor_content_parent = 2131230811;
+			public const int customPanel = 2131230811;
 			
 			// aapt resource value: 0x7F08005C
-			public const int default_activity_button = 2131230812;
+			public const int dark = 2131230812;
 			
 			// aapt resource value: 0x7F08005D
-			public const int description = 2131230813;
+			public const int decor_content_parent = 2131230813;
 			
 			// aapt resource value: 0x7F08005E
-			public const int descriptionTextDialog = 2131230814;
+			public const int default_activity_button = 2131230814;
 			
 			// aapt resource value: 0x7F08005F
-			public const int design_bottom_sheet = 2131230815;
+			public const int description = 2131230815;
 			
 			// aapt resource value: 0x7F080060
-			public const int design_menu_item_action_area = 2131230816;
+			public const int descriptionTextDialog = 2131230816;
 			
 			// aapt resource value: 0x7F080061
-			public const int design_menu_item_action_area_stub = 2131230817;
+			public const int design_bottom_sheet = 2131230817;
 			
 			// aapt resource value: 0x7F080062
-			public const int design_menu_item_text = 2131230818;
+			public const int design_menu_item_action_area = 2131230818;
 			
 			// aapt resource value: 0x7F080063
-			public const int design_navigation_view = 2131230819;
+			public const int design_menu_item_action_area_stub = 2131230819;
 			
 			// aapt resource value: 0x7F080064
-			public const int detailsBoardBtn = 2131230820;
+			public const int design_menu_item_text = 2131230820;
 			
 			// aapt resource value: 0x7F080065
-			public const int disableHome = 2131230821;
+			public const int design_navigation_view = 2131230821;
 			
 			// aapt resource value: 0x7F080066
-			public const int disconnect_button = 2131230822;
+			public const int detailsBoardBtn = 2131230822;
 			
 			// aapt resource value: 0x7F080067
-			public const int drawerLayout = 2131230823;
+			public const int disableHome = 2131230823;
 			
 			// aapt resource value: 0x7F080068
-			public const int edit = 2131230824;
+			public const int disconnect_button = 2131230824;
 			
 			// aapt resource value: 0x7F080069
-			public const int edit_query = 2131230825;
+			public const int drawerLayout = 2131230825;
 			
 			// aapt resource value: 0x7F08006A
-			public const int emailEditText = 2131230826;
+			public const int edit = 2131230826;
 			
 			// aapt resource value: 0x7F08006B
-			public const int emailForNavHeader = 2131230827;
+			public const int edit_query = 2131230827;
 			
 			// aapt resource value: 0x7F08006C
-			public const int emailOfContributor = 2131230828;
+			public const int emailForNavHeader = 2131230828;
 			
 			// aapt resource value: 0x7F08006D
-			public const int end = 2131230829;
+			public const int emailOfContributor = 2131230829;
 			
 			// aapt resource value: 0x7F08006E
-			public const int end_padder = 2131230830;
+			public const int end = 2131230830;
 			
 			// aapt resource value: 0x7F08006F
-			public const int enterAlways = 2131230831;
+			public const int end_padder = 2131230831;
 			
 			// aapt resource value: 0x7F080070
-			public const int enterAlwaysCollapsed = 2131230832;
+			public const int enterAlways = 2131230832;
 			
 			// aapt resource value: 0x7F080071
-			public const int existingContacts = 2131230833;
+			public const int enterAlwaysCollapsed = 2131230833;
 			
 			// aapt resource value: 0x7F080072
-			public const int exitUntilCollapsed = 2131230834;
-			
-			// aapt resource value: 0x7F080074
-			public const int expanded_menu = 2131230836;
+			public const int existingContacts = 2131230834;
 			
 			// aapt resource value: 0x7F080073
-			public const int expand_activities_button = 2131230835;
+			public const int exitUntilCollapsed = 2131230835;
 			
 			// aapt resource value: 0x7F080075
-			public const int fill = 2131230837;
+			public const int expanded_menu = 2131230837;
 			
-			// aapt resource value: 0x7F080078
-			public const int filled = 2131230840;
+			// aapt resource value: 0x7F080074
+			public const int expand_activities_button = 2131230836;
 			
 			// aapt resource value: 0x7F080076
-			public const int fill_horizontal = 2131230838;
-			
-			// aapt resource value: 0x7F080077
-			public const int fill_vertical = 2131230839;
+			public const int fill = 2131230838;
 			
 			// aapt resource value: 0x7F080079
-			public const int firstNameEditText = 2131230841;
+			public const int filled = 2131230841;
+			
+			// aapt resource value: 0x7F080077
+			public const int fill_horizontal = 2131230839;
+			
+			// aapt resource value: 0x7F080078
+			public const int fill_vertical = 2131230840;
 			
 			// aapt resource value: 0x7F08007A
 			public const int @fixed = 2131230842;
@@ -3910,22 +3910,22 @@ namespace Solitaire
 			public const int largeLabel = 2131230860;
 			
 			// aapt resource value: 0x7F08008D
-			public const int lastNameEditText = 2131230861;
+			public const int left = 2131230861;
 			
 			// aapt resource value: 0x7F08008E
-			public const int left = 2131230862;
+			public const int light = 2131230862;
 			
 			// aapt resource value: 0x7F08008F
-			public const int light = 2131230863;
+			public const int line1 = 2131230863;
 			
 			// aapt resource value: 0x7F080090
-			public const int line1 = 2131230864;
+			public const int line3 = 2131230864;
 			
 			// aapt resource value: 0x7F080091
-			public const int line3 = 2131230865;
+			public const int listMode = 2131230865;
 			
 			// aapt resource value: 0x7F080092
-			public const int listMode = 2131230866;
+			public const int listViewContributors = 2131230866;
 			
 			// aapt resource value: 0x7F080093
 			public const int list_item = 2131230867;
@@ -4504,31 +4504,31 @@ namespace Solitaire
 			public const int add_new_contributor = 2131427357;
 			
 			// aapt resource value: 0x7F0B001E
-			public const int board_row = 2131427358;
+			public const int all_contributors_fragment = 2131427358;
 			
 			// aapt resource value: 0x7F0B001F
-			public const int browser_actions_context_menu_page = 2131427359;
+			public const int board_row = 2131427359;
 			
 			// aapt resource value: 0x7F0B0020
-			public const int browser_actions_context_menu_row = 2131427360;
+			public const int browser_actions_context_menu_page = 2131427360;
 			
 			// aapt resource value: 0x7F0B0021
-			public const int CardViewHolder = 2131427361;
+			public const int browser_actions_context_menu_row = 2131427361;
 			
 			// aapt resource value: 0x7F0B0022
-			public const int category_spinner_row = 2131427362;
+			public const int CardViewHolder = 2131427362;
 			
 			// aapt resource value: 0x7F0B0023
-			public const int contributor_options_dialog = 2131427363;
+			public const int category_spinner_row = 2131427363;
 			
 			// aapt resource value: 0x7F0B0024
-			public const int create_board_dialog = 2131427364;
+			public const int contributor_options_dialog = 2131427364;
 			
 			// aapt resource value: 0x7F0B0025
-			public const int create_card_dialog = 2131427365;
+			public const int create_board_dialog = 2131427365;
 			
 			// aapt resource value: 0x7F0B0026
-			public const int create_contributor_activity = 2131427366;
+			public const int create_card_dialog = 2131427366;
 			
 			// aapt resource value: 0x7F0B0027
 			public const int create_deck_dialog = 2131427367;
@@ -4600,82 +4600,79 @@ namespace Solitaire
 			public const int list_boards_fragment = 2131427389;
 			
 			// aapt resource value: 0x7F0B003E
-			public const int list_contributors_fragment = 2131427390;
+			public const int main_activity = 2131427390;
 			
 			// aapt resource value: 0x7F0B003F
-			public const int main_activity = 2131427391;
+			public const int mtrl_layout_snackbar = 2131427391;
 			
 			// aapt resource value: 0x7F0B0040
-			public const int mtrl_layout_snackbar = 2131427392;
+			public const int mtrl_layout_snackbar_include = 2131427392;
 			
 			// aapt resource value: 0x7F0B0041
-			public const int mtrl_layout_snackbar_include = 2131427393;
+			public const int nav_header = 2131427393;
 			
 			// aapt resource value: 0x7F0B0042
-			public const int nav_header = 2131427394;
+			public const int notification_action = 2131427394;
 			
 			// aapt resource value: 0x7F0B0043
-			public const int notification_action = 2131427395;
+			public const int notification_action_tombstone = 2131427395;
 			
 			// aapt resource value: 0x7F0B0044
-			public const int notification_action_tombstone = 2131427396;
+			public const int notification_media_action = 2131427396;
 			
 			// aapt resource value: 0x7F0B0045
-			public const int notification_media_action = 2131427397;
+			public const int notification_media_cancel_action = 2131427397;
 			
 			// aapt resource value: 0x7F0B0046
-			public const int notification_media_cancel_action = 2131427398;
+			public const int notification_template_big_media = 2131427398;
 			
 			// aapt resource value: 0x7F0B0047
-			public const int notification_template_big_media = 2131427399;
+			public const int notification_template_big_media_custom = 2131427399;
 			
 			// aapt resource value: 0x7F0B0048
-			public const int notification_template_big_media_custom = 2131427400;
+			public const int notification_template_big_media_narrow = 2131427400;
 			
 			// aapt resource value: 0x7F0B0049
-			public const int notification_template_big_media_narrow = 2131427401;
+			public const int notification_template_big_media_narrow_custom = 2131427401;
 			
 			// aapt resource value: 0x7F0B004A
-			public const int notification_template_big_media_narrow_custom = 2131427402;
+			public const int notification_template_custom_big = 2131427402;
 			
 			// aapt resource value: 0x7F0B004B
-			public const int notification_template_custom_big = 2131427403;
+			public const int notification_template_icon_group = 2131427403;
 			
 			// aapt resource value: 0x7F0B004C
-			public const int notification_template_icon_group = 2131427404;
+			public const int notification_template_lines_media = 2131427404;
 			
 			// aapt resource value: 0x7F0B004D
-			public const int notification_template_lines_media = 2131427405;
+			public const int notification_template_media = 2131427405;
 			
 			// aapt resource value: 0x7F0B004E
-			public const int notification_template_media = 2131427406;
+			public const int notification_template_media_custom = 2131427406;
 			
 			// aapt resource value: 0x7F0B004F
-			public const int notification_template_media_custom = 2131427407;
+			public const int notification_template_part_chronometer = 2131427407;
 			
 			// aapt resource value: 0x7F0B0050
-			public const int notification_template_part_chronometer = 2131427408;
+			public const int notification_template_part_time = 2131427408;
 			
 			// aapt resource value: 0x7F0B0051
-			public const int notification_template_part_time = 2131427409;
+			public const int select_dialog_item_material = 2131427409;
 			
 			// aapt resource value: 0x7F0B0052
-			public const int select_dialog_item_material = 2131427410;
+			public const int select_dialog_multichoice_material = 2131427410;
 			
 			// aapt resource value: 0x7F0B0053
-			public const int select_dialog_multichoice_material = 2131427411;
+			public const int select_dialog_singlechoice_material = 2131427411;
 			
 			// aapt resource value: 0x7F0B0054
-			public const int select_dialog_singlechoice_material = 2131427412;
+			public const int support_simple_spinner_dropdown_item = 2131427412;
 			
 			// aapt resource value: 0x7F0B0055
-			public const int support_simple_spinner_dropdown_item = 2131427413;
+			public const int toolbar = 2131427413;
 			
 			// aapt resource value: 0x7F0B0056
-			public const int toolbar = 2131427414;
-			
-			// aapt resource value: 0x7F0B0057
-			public const int use_board_activity = 2131427415;
+			public const int use_board_activity = 2131427414;
 			
 			static Layout()
 			{
@@ -4691,19 +4688,16 @@ namespace Solitaire
 		{
 			
 			// aapt resource value: 0x7F0C0000
-			public const int create_contributor_menu = 2131492864;
+			public const int details_menu = 2131492864;
 			
 			// aapt resource value: 0x7F0C0001
-			public const int details_menu = 2131492865;
+			public const int edit_menu = 2131492865;
 			
 			// aapt resource value: 0x7F0C0002
-			public const int edit_menu = 2131492866;
+			public const int navigation_menu = 2131492866;
 			
 			// aapt resource value: 0x7F0C0003
-			public const int navigation_menu = 2131492867;
-			
-			// aapt resource value: 0x7F0C0004
-			public const int use_board_menu = 2131492868;
+			public const int use_board_menu = 2131492867;
 			
 			static Menu()
 			{

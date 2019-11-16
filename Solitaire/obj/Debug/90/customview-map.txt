@@ -2,75 +2,73 @@ adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 android.support.design.widget.NavigationView;obj\Debug\90\res\layout\main_activity.xml
 android.support.v4.widget.DrawerLayout;obj\Debug\90\res\layout\main_activity.xml
-android.support.v7.widget.CardView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\cardviewholder.xml
+android.support.v7.widget.CardView;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\cardviewholder.xml
 android.support.v7.widget.Toolbar;obj\Debug\90\res\layout\toolbar.xml
-attr;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\values\values.xml
+attr;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\values\values.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Debug\90\res\layout\add_existing_contributor.xml
+Button;obj\Debug\90\res\layout\add_new_contributor.xml
 Button;obj\Debug\90\res\layout\contributor_options_dialog.xml
 Button;obj\Debug\90\res\layout\create_board_dialog.xml
 Button;obj\Debug\90\res\layout\create_card_dialog.xml
 Button;obj\Debug\90\res\layout\create_deck_dialog.xml
 Button;obj\Debug\90\res\layout\google_login_activity.xml
 Button;obj\Debug\90\res\layout\list_boards_fragment.xml
-cache-path;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+cache-path;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\90\res\values\colors.xml
 color;obj\Debug\90\res\values\ic_launcher_background.xml
 com.google.android.gms.common.SignInButton;obj\Debug\90\res\layout\google_login_activity.xml
-corners;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\roundedcorner.xml
+corners;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\roundedcorner.xml
 corners;obj\Debug\90\res\drawable\custom_border.xml
 corners;obj\Debug\90\res\drawable\large_text_body_bg.xml
-declare-styleable;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\values\values.xml
+declare-styleable;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\values\values.xml
+EditText;obj\Debug\90\res\layout\add_new_contributor.xml
 EditText;obj\Debug\90\res\layout\create_board_dialog.xml
 EditText;obj\Debug\90\res\layout\create_card_dialog.xml
-EditText;obj\Debug\90\res\layout\create_contributor_activity.xml
 EditText;obj\Debug\90\res\layout\create_deck_dialog.xml
 EditText;obj\Debug\90\res\layout\edit_board_activity.xml
 EditText;obj\Debug\90\res\layout\edit_card_activity.xml
-external-cache-path;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-external-path;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-cache-path;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
-FrameLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\cardviewholder.xml
+FrameLayout;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\cardviewholder.xml
 FrameLayout;obj\Debug\90\res\layout\main_activity.xml
 gradient;obj\Debug\90\res\drawable\gradient_bg.xml
 group;obj\Debug\90\res\menu\navigation_menu.xml
-HorizontalScrollView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
-HorizontalScrollView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
+HorizontalScrollView;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
+HorizontalScrollView;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
 ImageButton;obj\Debug\90\res\layout\board_row.xml
 ImageView;obj\Debug\90\res\layout\board_row.xml
-ImageView;obj\Debug\90\res\layout\create_contributor_activity.xml
 ImageView;obj\Debug\90\res\layout\details_board_activity.xml
 ImageView;obj\Debug\90\res\layout\edit_board_activity.xml
 ImageView;obj\Debug\90\res\layout\google_login_activity.xml
-include;obj\Debug\90\res\layout\create_contributor_activity.xml
 include;obj\Debug\90\res\layout\details_board_activity.xml
 include;obj\Debug\90\res\layout\details_card_activity.xml
 include;obj\Debug\90\res\layout\edit_board_activity.xml
 include;obj\Debug\90\res\layout\edit_card_activity.xml
 include;obj\Debug\90\res\layout\main_activity.xml
 include;obj\Debug\90\res\layout\use_board_activity.xml
-item;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
+item;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
 item;obj\Debug\90\res\drawable\large_text_body_bg.xml
-item;obj\Debug\90\res\menu\create_contributor_menu.xml
 item;obj\Debug\90\res\menu\details_menu.xml
 item;obj\Debug\90\res\menu\edit_menu.xml
 item;obj\Debug\90\res\menu\navigation_menu.xml
 item;obj\Debug\90\res\menu\use_board_menu.xml
 item;obj\Debug\90\res\values\styles.xml
-layer-list;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
+layer-list;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
 layer-list;obj\Debug\90\res\drawable\large_text_body_bg.xml
-LinearLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
-LinearLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
+LinearLayout;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
+LinearLayout;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
 LinearLayout;obj\Debug\90\res\layout\add_existing_contributor.xml
 LinearLayout;obj\Debug\90\res\layout\add_new_contributor.xml
+LinearLayout;obj\Debug\90\res\layout\all_contributors_fragment.xml
 LinearLayout;obj\Debug\90\res\layout\board_row.xml
 LinearLayout;obj\Debug\90\res\layout\category_spinner_row.xml
 LinearLayout;obj\Debug\90\res\layout\contributor_options_dialog.xml
 LinearLayout;obj\Debug\90\res\layout\create_board_dialog.xml
 LinearLayout;obj\Debug\90\res\layout\create_card_dialog.xml
-LinearLayout;obj\Debug\90\res\layout\create_contributor_activity.xml
 LinearLayout;obj\Debug\90\res\layout\create_deck_dialog.xml
 LinearLayout;obj\Debug\90\res\layout\details_board_activity.xml
 LinearLayout;obj\Debug\90\res\layout\details_card_activity.xml
@@ -79,66 +77,67 @@ LinearLayout;obj\Debug\90\res\layout\edit_card_activity.xml
 LinearLayout;obj\Debug\90\res\layout\existing_contributor_adapter.xml
 LinearLayout;obj\Debug\90\res\layout\google_login_activity.xml
 LinearLayout;obj\Debug\90\res\layout\list_boards_fragment.xml
-LinearLayout;obj\Debug\90\res\layout\list_contributors_fragment.xml
 LinearLayout;obj\Debug\90\res\layout\main_activity.xml
 LinearLayout;obj\Debug\90\res\layout\nav_header.xml
 LinearLayout;obj\Debug\90\res\layout\use_board_activity.xml
 ListView;obj\Debug\90\res\layout\add_existing_contributor.xml
+ListView;obj\Debug\90\res\layout\all_contributors_fragment.xml
 ListView;obj\Debug\90\res\layout\details_board_activity.xml
 ListView;obj\Debug\90\res\layout\details_card_activity.xml
 ListView;obj\Debug\90\res\layout\edit_board_activity.xml
 ListView;obj\Debug\90\res\layout\edit_card_activity.xml
 ListView;obj\Debug\90\res\layout\list_boards_fragment.xml
-menu;obj\Debug\90\res\menu\create_contributor_menu.xml
 menu;obj\Debug\90\res\menu\details_menu.xml
 menu;obj\Debug\90\res\menu\edit_menu.xml
 menu;obj\Debug\90\res\menu\navigation_menu.xml
 menu;obj\Debug\90\res\menu\use_board_menu.xml
-objectAnimator;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_hide.xml
-objectAnimator;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_show.xml
-paths;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+objectAnimator;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_hide.xml
+objectAnimator;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_show.xml
+paths;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 refractored.controls.CircleImageView;obj\Debug\90\res\layout\details_card_activity.xml
 refractored.controls.CircleImageView;obj\Debug\90\res\layout\edit_card_activity.xml
 refractored.controls.CircleImageView;obj\Debug\90\res\layout\existing_contributor_adapter.xml
 refractored.controls.CircleImageView;obj\Debug\90\res\layout\nav_header.xml
-RelativeLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
-RelativeLayout;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
+RelativeLayout;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
+RelativeLayout;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
 RelativeLayout;obj\Debug\90\res\layout\add_existing_contributor.xml
+RelativeLayout;obj\Debug\90\res\layout\add_new_contributor.xml
 RelativeLayout;obj\Debug\90\res\layout\board_row.xml
 RelativeLayout;obj\Debug\90\res\layout\contributor_options_dialog.xml
 RelativeLayout;obj\Debug\90\res\layout\create_board_dialog.xml
 RelativeLayout;obj\Debug\90\res\layout\create_card_dialog.xml
 RelativeLayout;obj\Debug\90\res\layout\create_deck_dialog.xml
 RelativeLayout;obj\Debug\90\res\layout\google_login_activity.xml
-resources;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\values\values.xml
-resources;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\values\strings.xml
+resources;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\0\jl\res\values\values.xml
+resources;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\values\strings.xml
 resources;obj\Debug\90\res\values\colors.xml
 resources;obj\Debug\90\res\values\ic_launcher_background.xml
 resources;obj\Debug\90\res\values\strings.xml
 resources;obj\Debug\90\res\values\styles.xml
-ripple;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
-set;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_hide.xml
-set;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_show.xml
-shape;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
-shape;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\roundedcorner.xml
+ripple;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
+set;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_hide.xml
+set;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_show.xml
+shape;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
+shape;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\roundedcorner.xml
 shape;obj\Debug\90\res\drawable\custom_border.xml
 shape;obj\Debug\90\res\drawable\gradient_bg.xml
 shape;obj\Debug\90\res\drawable\large_text_body_bg.xml
-solid;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\roundedcorner.xml
+solid;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\roundedcorner.xml
 solid;obj\Debug\90\res\drawable\custom_border.xml
 solid;obj\Debug\90\res\drawable\large_text_body_bg.xml
 Spinner;obj\Debug\90\res\layout\create_card_dialog.xml
-string;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\values\strings.xml
+string;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\values\strings.xml
 string;obj\Debug\90\res\values\strings.xml
 stroke;obj\Debug\90\res\drawable\custom_border.xml
 style;obj\Debug\90\res\values\styles.xml
-Syncfusion.SfKanban.Android.IndicatorView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
-Syncfusion.SfKanban.Android.IndicatorView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
-Syncfusion.SfKanban.Android.KanbanCircleImage;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
-Syncfusion.SfKanban.Android.KanbanCircleImage;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
+Syncfusion.SfKanban.Android.IndicatorView;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
+Syncfusion.SfKanban.Android.IndicatorView;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
+Syncfusion.SfKanban.Android.KanbanCircleImage;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
+Syncfusion.SfKanban.Android.KanbanCircleImage;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
 Syncfusion.SfKanban.Android.SfKanban;obj\Debug\90\res\layout\use_board_activity.xml
-TextView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
-TextView;C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
+TextView;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
+TextView;C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
+TextView;obj\Debug\90\res\layout\add_new_contributor.xml
 TextView;obj\Debug\90\res\layout\board_row.xml
 TextView;obj\Debug\90\res\layout\category_spinner_row.xml
 TextView;obj\Debug\90\res\layout\contributor_options_dialog.xml

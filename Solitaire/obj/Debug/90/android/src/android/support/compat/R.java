@@ -73,14 +73,14 @@ public final class R {
 		public static final int actions = 0x7f080018;
 		public static final int async = 0x7f080027;
 		public static final int blocking = 0x7f08002c;
-		public static final int chronometer = 0x7f08004a;
+		public static final int chronometer = 0x7f08004b;
 		public static final int forever = 0x7f08007b;
 		public static final int icon = 0x7f080082;
 		public static final int icon_group = 0x7f080083;
 		public static final int info = 0x7f080087;
 		public static final int italic = 0x7f080089;
-		public static final int line1 = 0x7f080090;
-		public static final int line3 = 0x7f080091;
+		public static final int line1 = 0x7f08008f;
+		public static final int line3 = 0x7f080090;
 		public static final int normal = 0x7f0800a5;
 		public static final int notification_background = 0x7f0800a6;
 		public static final int notification_main_column = 0x7f0800a7;
@@ -99,12 +99,12 @@ public final class R {
 		public static final int status_bar_notification_info_maxnum = 0x7f09000f;
 	}
 	public static final class layout {
-		public static final int notification_action = 0x7f0b0043;
-		public static final int notification_action_tombstone = 0x7f0b0044;
-		public static final int notification_template_custom_big = 0x7f0b004b;
-		public static final int notification_template_icon_group = 0x7f0b004c;
-		public static final int notification_template_part_chronometer = 0x7f0b0050;
-		public static final int notification_template_part_time = 0x7f0b0051;
+		public static final int notification_action = 0x7f0b0042;
+		public static final int notification_action_tombstone = 0x7f0b0043;
+		public static final int notification_template_custom_big = 0x7f0b004a;
+		public static final int notification_template_icon_group = 0x7f0b004b;
+		public static final int notification_template_part_chronometer = 0x7f0b004f;
+		public static final int notification_template_part_time = 0x7f0b0050;
 	}
 	public static final class string {
 		public static final int status_bar_notification_info_overflow = 0x7f0e004e;
