@@ -20,6 +20,8 @@ namespace Solitaire
         long kanbanModelId;
         KanbanModel clickedKanbanModel;
         private const int EDIT_ACTIVITY_CODE = 3;
+        ListView contributorsListView;
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -49,6 +51,16 @@ namespace Solitaire
             // Setting the textviews to display the information about the kanbanModel
             FindViewById<TextView>(Resource.Id.cardNameTextView).Text = clickedKanbanModel.Title;
             FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = clickedKanbanModel.Description;
+
+            contributorsListView = FindViewById<ListView>(Resource.Id.contributorsListView);
+            // Gets list of contributors using email as our primary key, also null check
+            contributorsListView.Adapter = new ContributorsAdapter(
+                AssetManager.contributors.Where(contributor => {
+                    if (clickedKanbanModel.Tags != null) {
+                        return clickedKanbanModel.Tags.Contains(contributor.Email);
+                    }
+                    return false;
+                }).ToList());
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -94,6 +106,14 @@ namespace Solitaire
             base.OnResume();
             FindViewById<TextView>(Resource.Id.cardNameTextView).Text = clickedKanbanModel.Title;
             FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = clickedKanbanModel.Description;
+            contributorsListView.Adapter = new ContributorsAdapter(
+                AssetManager.contributors.Where(contributor => {
+                    if (clickedKanbanModel.Tags != null)
+                    {
+                        return clickedKanbanModel.Tags.Contains(contributor.Email);
+                    }
+                    return false;
+                }).ToList());
         }
     }
 }

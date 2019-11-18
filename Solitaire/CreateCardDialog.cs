@@ -15,10 +15,10 @@ namespace Solitaire
 {
     public class CreateCardDialog : Dialog
     {
-        UseBoardActivity callerInstance;
+        UseBoardActivity callerActivity;
         private List<string> categories = new List<string>();
 
-        public CreateCardDialog(UseBoardActivity _context) : base(_context) { callerInstance = _context; this.Show(); }
+        public CreateCardDialog(UseBoardActivity _context) : base(_context) { callerActivity = _context; this.Show(); }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -45,7 +45,7 @@ namespace Solitaire
 
 
             // Creating our adapter for our spinner which allows the user to choose which category this shall be assigned to
-            var adapter = new ArrayAdapter<string>(callerInstance, Android.Resource.Layout.SimpleSpinnerItem, categories);
+            var adapter = new ArrayAdapter<string>(callerActivity, Android.Resource.Layout.SimpleSpinnerItem, categories);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             categorySpinner.Adapter = adapter;
 
@@ -64,19 +64,12 @@ namespace Solitaire
                     names.Add(item.Title); 
                 }
 
-
-
-                // TODO: Use Linq instead of the foreach loop above
-
-
-
-
                 // Checks to make sure that the name doesn't already exist and isn't a space filled string
                 if (name != "" && names.All(usedName => usedName != name))
-                    callerInstance.AddCard(name, FindViewById<EditText>(Resource.Id.descriptionTextDialog).Text.Trim(), categorySpinner.SelectedItem.ToString());
+                    callerActivity.AddCard(name, FindViewById<EditText>(Resource.Id.descriptionTextDialog).Text.Trim(), categorySpinner.SelectedItem.ToString());
                 else
                 {
-                    Toast.MakeText(callerInstance, "This Name is already used.", ToastLength.Long);
+                    Toast.MakeText(callerActivity, "This Name is already used.", ToastLength.Long);
                     return;
                 }                    
                 Dismiss();

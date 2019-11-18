@@ -38,7 +38,7 @@ namespace Solitaire
 
             ListView ExisitingContributors = FindViewById<ListView>(Resource.Id.existingContacts);
 
-            ExisitingContributors.Adapter = new ExisitingContributorsAdapter(AssetManager.contributors);
+            ExisitingContributors.Adapter = new ContributorsAdapter(AssetManager.contributors);
             ExisitingContributors.ItemClick += ContributorSelected;
             FindViewById<Button>(Resource.Id.add_button).Click += delegate
             {

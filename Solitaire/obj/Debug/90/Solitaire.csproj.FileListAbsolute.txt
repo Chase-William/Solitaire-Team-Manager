@@ -379,7 +379,6 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\create_card_dialog.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\category_spinner_row.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\create_board_dialog.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\details_card_activity.xml
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\edit_card_menu.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\edit_card_activity.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\uploadflags.txt
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\resolvedassemblies.hash
@@ -1109,10 +1108,7 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\google_login_activity.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\mipmap-xxxhdpi\ic_google.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\default_avatar.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\edit_icon.png
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\details_card_menu.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\contributor_options_dialog.xml
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\create_contributor_activity.xml
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\create_contributor_menu.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\main_activity.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\navigation_menu.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\hamburger.png
@@ -1122,7 +1118,6 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\default_board.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\google_icon.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\nav_header.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\gradient_bg.xml
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\list_contributors_fragment.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Newtonsoft.Json.dll
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Refractored.Controls.CircleImageView.dll
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.GooglePlayServices.Auth.Api.Phone.dll
@@ -1176,7 +1171,6 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md513d0258903c37fed2a3d17a14
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md513074be467e0034b6ca192c1689af813\GoogleApiClientConnectionCallbacksImpl.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md513074be467e0034b6ca192c1689af813\GoogleApiClientOnConnectionFailedListenerImpl.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ContributorOptionsDialog.java
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateContributorActivity.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListBoardsFragment.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ListContributorsFragment.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\LoggoutResultCallback.java
@@ -1718,7 +1712,6 @@ C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\stamp\_CopyPd
 C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\add_existing_contributor.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\add_new_contributor.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\existing_contributor_adapter.xml
@@ -2175,3 +2168,15 @@ C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_CopyPdbFiles.stam
 C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\murph\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\edit_menu.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\menu\details_menu.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\large_text_body_bg.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\details_icon.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\details_board_activity.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\edit_board_activity.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\all_contributors_fragment.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CreateContributorDialog.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\DetailsBoardActivity.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\EditBoardActivity.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ContributorsAdapter.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache

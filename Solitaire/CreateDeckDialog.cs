@@ -15,9 +15,9 @@ namespace Solitaire
 {
     public class CreateDeckDialog : Dialog
     {
-        UseBoardActivity callerInstance;
+        UseBoardActivity callerActivity;
 
-        public CreateDeckDialog(UseBoardActivity _context) : base(_context) { callerInstance = _context; this.Show(); }
+        public CreateDeckDialog(UseBoardActivity _context) : base(_context) { callerActivity = _context; this.Show(); }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,10 +35,10 @@ namespace Solitaire
 
                 // Checks to make sure this name doesnt not already exist within the respective board, because we will be using the board's title as the category name
                 if (name != "" && UseBoardActivity.thisKanban.Columns.All(deck => deck.Title != name))
-                    callerInstance.AddDeck(name, FindViewById<EditText>(Resource.Id.descriptionTextDialog).Text.Trim());
+                    callerActivity.AddDeck(name, FindViewById<EditText>(Resource.Id.descriptionTextDialog).Text.Trim());
                 else
                 {
-                    Toast.MakeText(callerInstance, "This Name is already used.", ToastLength.Long);
+                    Toast.MakeText(callerActivity, "This Name is already used.", ToastLength.Long);
                     return;
                 }
 

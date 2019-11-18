@@ -18,25 +18,34 @@ namespace Solitaire
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class ListContributorsFragment : Android.Support.V4.App.Fragment
     {
-        MainActivity parentActivityPtr;
-        List<Contributor> ree = new List<Contributor>();
-        public ListContributorsFragment(MainActivity _context) { parentActivityPtr = _context; }
+        MainActivity callerActivity;
+        ListView listViewContributors;
+        //List<Contributor> ree = new List<Contributor>();
+        public ListContributorsFragment(MainActivity _context) { callerActivity = _context; }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.all_contributors_fragment, container, false);
 
+            listViewContributors = view.FindViewById<ListView>(Resource.Id.listViewContributors);
+            listViewContributors.Adapter = new ContributorsAdapter(AssetManager.contributors);
+
+            view.FindViewById<Button>(Resource.Id.addNewContributorBtn).Click += delegate
+            {
+                new CreateContributorDialog(callerActivity);
+            };
+
             //contributorListView = view.FindViewById<ListView>(Resource.Id.);
 
-            if (ree.Count == 0)
-            {
+            //if (ree.Count == 0)
+            //{
+            //    ree.Add(new Contributor("Kyle Murphy", "ksm3091@rit.edu"));
+            //    ree.Add(new Contributor("re goddamn", "fuuuuck"));
+            //    AssetManager.contributors = ree;
+            //}
 
-                ree.Add(new Contributor("Kyle Murphy", "ksm3091@rit.edu"));
-                ree.Add(new Contributor("re goddamn", "fuuuuck"));
-                AssetManager.contributors = ree;
-            }
 
-
+            
 
             return view;
         }

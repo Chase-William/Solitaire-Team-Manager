@@ -79,7 +79,7 @@
     <Compile Include="EditBoardActivity.cs" />
     <Compile Include="EditCardActivity.cs" />
     <Compile Include="AssetManager.cs" />
-    <Compile Include="ExisitingContributorsAdapter.cs" />
+    <Compile Include="ContributorsAdapter.cs" />
     <Compile Include="Lang\Contributor.cs" />
     <Compile Include="ListContributorsFragment.cs" />
     <Compile Include="Login\GoogleLoginActivity.cs" />

@@ -54,6 +54,7 @@
 
         <!-- ListView that will contain contributers -->
         <ListView     
+            android:id="@+id/contributorsListView"
             android:layout_width ="350dp"
             android:layout_height="170dp"/>
 

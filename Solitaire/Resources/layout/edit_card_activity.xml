@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android        ="http://schemas.android.com/apk/res/android"
     xmlns:app            ="http://schemas.android.com/apk/res-auto"
@@ -41,21 +41,41 @@
         android:layout_width    ="wrap_content"
         android:layout_height   ="wrap_content"/>
 
+
+    <RelativeLayout  
+        android:paddingTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/labelContributors"
+            android:layout_alignParentLeft="true"
+            android:text         ="Contributors"
+            android:layout_width ="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/toggleCardContributorBtn"
+            android:gravity="center_vertical"
+            android:text="Removing"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>        
+
     <!-- Container for listview and its label -->
-    <LinearLayout  
-        android:layout_marginTop="10dp"
+    <LinearLayout
         android:orientation     ="vertical"
         android:layout_gravity  ="center_horizontal"
         android:layout_width    ="350dp"
-        android:layout_height   ="match_parent">
-
-        <TextView
-            android:text         ="Contributors"            
-            android:layout_width ="wrap_content"
-            android:layout_height="wrap_content"/>       
-
+        android:layout_height   ="match_parent">        
+        
         <!-- ListView that will contain contributers -->
-        <ListView     
+        <ListView    
+            android:id="@+id/contributorsListView"
             android:layout_width ="350dp"
             android:layout_height="170dp"/>
 

@@ -16,10 +16,10 @@ namespace Solitaire
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class ListBoardsFragment : Android.Support.V4.App.Fragment
     {
-        MainActivity parentActivityPtr;
+        MainActivity callerActivity;
         ListView boardListView;
 
-        public ListBoardsFragment(MainActivity _context) { parentActivityPtr = _context; }
+        public ListBoardsFragment(MainActivity _context) { callerActivity = _context; }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -28,21 +28,21 @@ namespace Solitaire
             // When the Add New Boards button is pressed it will trigger the parent Activity to create it
             view.FindViewById<Button>(Resource.Id.addNewBoardBtn).Click += delegate 
             {
-                parentActivityPtr.GenericActionRequest(new System.Action(() =>
+                callerActivity.GenericActionRequest(new System.Action(() =>
                 {
-                    var createboardDialog = new CreateBoardDialog(parentActivityPtr);
+                    var createboardDialog = new CreateBoardDialog(callerActivity);
                 }));
             };
 
             boardListView = view.FindViewById<ListView>(Resource.Id.boardListView);
-            boardListView.Adapter = new BoardAdapter(AssetManager.boards, parentActivityPtr);
+            boardListView.Adapter = new BoardAdapter(AssetManager.boards, callerActivity);
             boardListView.ItemClick += (e, a) =>
             {
-                parentActivityPtr.GenericActionRequest(new System.Action(() =>
+                callerActivity.GenericActionRequest(new System.Action(() =>
                 {
-                    Intent useSelectedBoard = new Intent(parentActivityPtr, typeof(UseBoardActivity));
+                    Intent useSelectedBoard = new Intent(callerActivity, typeof(UseBoardActivity));
                     useSelectedBoard.PutExtra("BoardId", a.Id);
-                    parentActivityPtr.StartActivity(useSelectedBoard);
+                    callerActivity.StartActivity(useSelectedBoard);
                 }));
             };            
             return view;
@@ -119,7 +119,7 @@ namespace Solitaire
         public override void OnResume()
         {
             base.OnResume();
-            boardListView.Adapter = new BoardAdapter(AssetManager.boards, parentActivityPtr);
+            boardListView.Adapter = new BoardAdapter(AssetManager.boards, callerActivity);
         }
     }
 }

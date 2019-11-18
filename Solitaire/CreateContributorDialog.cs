@@ -14,12 +14,12 @@ namespace Solitaire
 {
     class CreateContributorDialog : Dialog
     {
-        Context context;
+        Context callerActivity;
 
         public CreateContributorDialog(Context _context) : base(_context)
         {
             this.Show();
-            context = _context;
+            callerActivity = _context;
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -34,15 +34,34 @@ namespace Solitaire
             // Starts the activity to create a new contributor
             FindViewById<Button>(Resource.Id.addNewContributor).Click += delegate
             {
-                if ((UseBoardActivity)context is UseBoardActivity)
+                string email = contributorEmail.Text.Trim();
+
+                if (email == "" || email == null)
                 {
-                    UseBoardActivity thisContext = (UseBoardActivity)context;
-                    AssetManager.contributors.Add(new Lang.Contributor(contributorName.Text, contributorEmail.Text));
+                    Toast.MakeText(callerActivity, "Email field cannot be empty.", ToastLength.Short).Show();
+                    return;
                 }
-                else
+
+                if (AssetManager.contributors.Count > 0)
                 {
-                    AssetManager.contributors.Add(new Lang.Contributor(contributorName.Text, contributorEmail.Text));
+                    if (AssetManager.contributors.Any(contributor => contributor.Email == email))
+                    {
+                        Toast.MakeText(callerActivity, $"Email {email} is already being used.", ToastLength.Short).Show();
+                        return;
+                    }
                 }
+
+                AssetManager.contributors.Add(new Lang.Contributor(contributorName.Text.Trim(), email));
+
+                //if ((UseBoardActivity)callerActivity is UseBoardActivity)
+                //{
+                //    UseBoardActivity thisContext = (UseBoardActivity)callerActivity;
+                //    AssetManager.contributors.Add(new Lang.Contributor(contributorName.Text, contributorEmail.Text));
+                //}
+                //else
+                //{
+                //    AssetManager.contributors.Add(new Lang.Contributor(contributorName.Text, contributorEmail.Text));
+                //}
 
                 Dismiss();
             };

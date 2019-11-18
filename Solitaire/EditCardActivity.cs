@@ -16,9 +16,15 @@ namespace Solitaire
     [Activity(Label = "EditCard")]
     public class EditCardActivity : AppCompatActivity
     {
-        EditText cardNameEditText;
-        EditText cardDescriptionEditText;
+        event Action<int> ManipulateContributor;
+        event Action UpdateListViewForMode;
+
+        EditText cardNameEditText, cardDescriptionEditText;
         KanbanModel clickedKanbanModel;
+        ListView contributorsListView;
+        List<Lang.Contributor> contributingContributors = new List<Lang.Contributor>();
+        List<Lang.Contributor> noncontributingContributors = new List<Lang.Contributor>();
+        Button toggleModeBtn;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -30,16 +36,115 @@ namespace Solitaire
             toolbar.Title = "Edit Card";
             SetSupportActionBar(toolbar);
 
+            // Setting a default state
+            ManipulateContributor = RemoveContributor;
+
             // Finding our kanbanModel inside the item source while using the intent extra we put from the calling activity
-            clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));    
+            clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));
+            toggleModeBtn = FindViewById<Button>(Resource.Id.toggleCardContributorBtn);
+            toggleModeBtn.Click += (e ,a) =>
+            {
+                if (toggleModeBtn.Text[0] == 'R')
+                {
+                    toggleModeBtn.Text = "Adding";
+                    UpdateListViewForMode = SetAdapterToAddMode;
+                    ManipulateContributor = AddContributor;
+                }
+                else
+                {
+                    toggleModeBtn.Text = "Removing";
+                    UpdateListViewForMode = SetAdapterToRemoveMode;
+                    ManipulateContributor = RemoveContributor;
+                }
+
+                UpdateListViewForMode.Invoke();
+            };
 
             // Setting up the pointers to the TextViews
             cardNameEditText = FindViewById<EditText>(Resource.Id.cardNameEditText);
             cardDescriptionEditText = FindViewById<EditText>(Resource.Id.cardDescriptionEditText);
             // Assigning the textviews the current values of the kanbanModel
             cardNameEditText.Text = clickedKanbanModel.Title;
-            cardDescriptionEditText.Text = clickedKanbanModel.Description;            
+            cardDescriptionEditText.Text = clickedKanbanModel.Description;
+
+            contributingContributors = AssetManager.contributors.Where(contributor =>
+            {
+                // We are dividing up the entire list into two groups
+                if (clickedKanbanModel.Tags != null)
+                {
+                    if (clickedKanbanModel.Tags.Contains(contributor.Email))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        noncontributingContributors.Add(contributor);
+                        return false;
+                    }
+                }
+                else
+                {
+                    noncontributingContributors.Add(contributor);
+                    return false;
+                }
+            }).ToList();
+
+
+            
+
+            contributorsListView = FindViewById<ListView>(Resource.Id.contributorsListView);
+            // Gets list of contributors using email as our primary key, also null check
+            contributorsListView.Adapter = new ContributorsAdapter(contributingContributors);
+            contributorsListView.ItemClick += (e, a) =>
+            {                
+                ManipulateContributor?.Invoke(a.Position);
+            };
+        }        
+
+        ///
+        /// 
+        ///     Handles the setup required for removing contributors
+        /// 
+        ///
+        private void RemoveContributor(int _pos)
+        {
+            noncontributingContributors.Add(contributingContributors.ElementAt(_pos));
+            contributingContributors.RemoveAt(_pos);
+            UpdateListViewForMode?.Invoke();
         }
+
+        /// 
+        /// 
+        ///     Handles the setup required for add contributors
+        /// 
+        ///
+        private void AddContributor(int _pos)
+        {
+            contributingContributors.Add(noncontributingContributors.ElementAt(_pos));
+            noncontributingContributors.RemoveAt(_pos);
+            UpdateListViewForMode?.Invoke();
+        }
+
+        /// 
+        /// 
+        ///     Sets the current adapter to display all the contributers that can be added
+        /// 
+        /// 
+        private void SetAdapterToAddMode()
+        {
+            contributorsListView.Adapter = new ContributorsAdapter(noncontributingContributors);
+        }
+
+        /// 
+        /// 
+        ///     Sets the current adapter to display the currently contributing contributors
+        /// 
+        /// 
+        private void SetAdapterToRemoveMode()
+        {
+            contributorsListView.Adapter = new ContributorsAdapter(contributingContributors);
+        }
+
 
         /// 
         /// 
@@ -57,6 +162,7 @@ namespace Solitaire
             {
                 clickedKanbanModel.Title = cardNameEditText.Text;
                 clickedKanbanModel.Description = cardDescriptionEditText.Text;
+                clickedKanbanModel.Tags = contributingContributors.Select(contributor => contributor.Email).ToArray();
                 SetResult(Result.Ok);
                 Finish();
             }

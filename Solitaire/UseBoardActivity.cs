@@ -61,13 +61,7 @@ namespace Solitaire
             SetSupportActionBar(toolbar);
 
             // Calling our initalizer class
-            new SetupBoardAndSfkanban(this).InvokeInitEvent();
-
-            List<Contributor> ree = new List<Contributor>();
-            ree.Add(new Contributor("Kyle Murphy", "ksm3091@rit.edu"));
-            ree.Add(new Contributor("ree goddamn", "fuuuuck"));
-
-            AssetManager.contributors = ree;            
+            new SetupBoardAndSfkanban(this).InvokeInitEvent();            
         }
 
         ///
@@ -244,7 +238,10 @@ namespace Solitaire
                 // Creating cards from kanbanModel data into a list and assigning it to thisBoards.Cards list
                 thisBoard.Cards = kanbanModels.Select(kanbanModel =>
                     new Card(kanbanModel.Title, kanbanModel.Description, (string)kanbanModel.Category)             
-                    { IsFinished = ((string)kanbanModel.ColorKey) == FINISHED_CARD_COLOR ? true : false }).ToList(); 
+                    { 
+                        IsFinished = ((string)kanbanModel.ColorKey) == FINISHED_CARD_COLOR ? true : false ,
+                        ContributorEmails = kanbanModel.Tags == null ? null : kanbanModel.Tags.ToList()
+                    }).ToList(); 
             }
             return Task.CompletedTask;
         }
@@ -494,15 +491,17 @@ namespace Solitaire
                     });
                 }
 
+
                 // Creating KanbanModels from Card data and assigning all new KanbanModel instance into kanbans list
                 UseBoardActivity.kanbanModels = useBoardActivity.thisBoard.Cards.Select(card =>
                     new KanbanModel()
-                    { 
+                    {
                         ID = card.Id,
                         Title = card.Name,
                         Category = card.ParentDeck,
                         Description = card.Description,
-                        ColorKey = card.IsFinished ? FINISHED_CARD_COLOR : UNFINISHED_CARD_COLOR
+                        ColorKey = card.IsFinished ? FINISHED_CARD_COLOR : UNFINISHED_CARD_COLOR,
+                        Tags = card.ContributorEmails == null ? null : card.ContributorEmails.ToArray()
                     }).ToList();
 
                 // Assigning the kanbans into the ItemsSource so they can be displayed
