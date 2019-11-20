@@ -12,9 +12,19 @@ using Android.Widget;
 
 namespace Solitaire
 {
+    /// 
+    /// 
+    ///     Contains extension methods for querying board data
+    /// 
+    ///
     public static class QueryUtilities
     {
-        public static List<string> QueryBoardLevelDistinctContributorsForEmail(Lang.Board _board)
+        /// 
+        /// 
+        ///     Queries a board for all distinct emails and then returns the distinct emails as List<string>
+        /// 
+        /// 
+        public static List<string> QueryBoardAllDistinctContributorsForEmail(this Lang.Board _board)
         {
             List<string> emails = new List<string>();
             _board.Cards.ForEach(card =>
@@ -29,21 +39,22 @@ namespace Solitaire
                     });
                 }
             });
-
             return emails;
         }
 
-        // TODO Make these extention methods?
-
-        public static List<Lang.Contributor> QueryBoardLevelDistinctContributorsForInstance(Lang.Board _board)
+        ///
+        ///        
+        ///     Queries a board for all distinct emails and then gets references to those contributors using their emails
+        ///         then it returns the List<Contributor>
+        /// 
+        /// 
+        public static List<Lang.Contributor> QueryBoardDistinctContributorsForInstance(this Lang.Board _board)
         {
-            List<string> emails = QueryBoardLevelDistinctContributorsForEmail(_board);
+            // First aquire list of distinct emails for the board
+            List<string> emails = QueryBoardAllDistinctContributorsForEmail(_board);
 
-
-            // TODO: for this method we need to lookup all the contributors once we have a list of their primary keys
-
-
-            
+            // Then use the emails to get references to the contributor instances
+            return AssetManager.contributors.Where(contributor => emails.Contains(contributor.Email)).ToList();
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Solitaire
             // Need number of contributors
             var board = boards.ElementAt(position);
 
-            holder.TotalContributors.Text = QueryUtilities.QueryBoardLevelDistinctContributorsForInstance(boards.ElementAt(position)).Count.ToString();
+            holder.TotalContributors.Text = boards.ElementAt(position).QueryBoardDistinctContributorsForInstance().Count.ToString();
 
             return view;
         }
