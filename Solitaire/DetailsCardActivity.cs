@@ -60,7 +60,7 @@ namespace Solitaire
                         return clickedKanbanModel.Tags.Contains(contributor.Email);
                     }
                     return false;
-                }).ToList());
+                }).ToList(), this);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -113,7 +113,7 @@ namespace Solitaire
                         return clickedKanbanModel.Tags.Contains(contributor.Email);
                     }
                     return false;
-                }).ToList());
+                }).ToList(), this);
         }
     }
 }

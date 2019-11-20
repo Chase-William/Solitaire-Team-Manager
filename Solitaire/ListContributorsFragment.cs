@@ -28,25 +28,13 @@ namespace Solitaire
             var view = inflater.Inflate(Resource.Layout.all_contributors_fragment, container, false);
 
             listViewContributors = view.FindViewById<ListView>(Resource.Id.listViewContributors);
-            listViewContributors.Adapter = new ContributorsAdapter(AssetManager.contributors);
+            listViewContributors.Adapter = new ContributorsAdapter(AssetManager.contributors, callerActivity);
 
             view.FindViewById<Button>(Resource.Id.addNewContributorBtn).Click += delegate
             {
                 new CreateContributorDialog(callerActivity);
             };
-
-            //contributorListView = view.FindViewById<ListView>(Resource.Id.);
-
-            //if (ree.Count == 0)
-            //{
-            //    ree.Add(new Contributor("Kyle Murphy", "ksm3091@rit.edu"));
-            //    ree.Add(new Contributor("re goddamn", "fuuuuck"));
-            //    AssetManager.contributors = ree;
-            //}
-
-
             
-
             return view;
         }
     }

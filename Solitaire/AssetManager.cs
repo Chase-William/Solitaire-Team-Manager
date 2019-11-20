@@ -22,6 +22,7 @@ namespace Solitaire
 {
     public static class AssetManager
     {
+        private static string[] images = { "images/avatar_red.png", "images/avatar_orange.png", "images/avatar_blue.png", "images/avatar_purple.png", "images/avatar_green.png" };
         private static Dictionary<string, Drawable> imageCache = new Dictionary<string, Drawable>();
         public static List<Board> boards = new List<Board>();
         public static List<Contributor> contributors = new List<Contributor>();
@@ -52,6 +53,16 @@ namespace Solitaire
                 }                
             }
             return imageCache[url];
+        }
+
+        /// 
+        /// 
+        ///     Picks a random number and returns a file attached
+        /// 
+        /// 
+        public static Drawable GetRandomDrawable(Context _context)
+        {
+            return Drawable.CreateFromStream(_context.Assets.Open(images[new Random().Next(0, 4)]), null);
         }
 
         /// 

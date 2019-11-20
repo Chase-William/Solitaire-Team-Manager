@@ -19,12 +19,12 @@ namespace Solitaire
 {
     public class AddExistingContributorDialog : Dialog
     {
-        UseBoardActivity callerInstance;
+        UseBoardActivity callingActivity;
         List<Contributor> selectedContribtors = new List<Contributor>();
         Context context;
         public AddExistingContributorDialog(Context _context) : base(_context)
         {
-            callerInstance = (UseBoardActivity)_context;
+            callingActivity = (UseBoardActivity)_context;
             this.Show();
             context = _context;
         }
@@ -38,7 +38,7 @@ namespace Solitaire
 
             ListView ExisitingContributors = FindViewById<ListView>(Resource.Id.existingContacts);
 
-            ExisitingContributors.Adapter = new ContributorsAdapter(AssetManager.contributors);
+            ExisitingContributors.Adapter = new ContributorsAdapter(AssetManager.contributors, callingActivity);
             ExisitingContributors.ItemClick += ContributorSelected;
             FindViewById<Button>(Resource.Id.add_button).Click += delegate
             {
@@ -57,7 +57,7 @@ namespace Solitaire
 
         private void ContributorSelected(object sender, AdapterView.ItemClickEventArgs e)
         {
-            Contributor contr = callerInstance.thisBoard.Contributors[e.Position];
+            Contributor contr = callingActivity.thisBoard.Contributors[e.Position];
             foreach(Contributor contributor in selectedContribtors)
             {
                 if(contributor == contr)

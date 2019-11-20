@@ -19,7 +19,9 @@ namespace Solitaire.Lang
         private string parentDeck;
         private bool isFinished = false;    // False by default
         private List<string> contributorEmails = new List<string>();
+        private string leadContributor;
 
+        public string LeadContributor { get { return leadContributor; } set { leadContributor = value; } }
         public List<string> ContributorEmails { get { return contributorEmails; } set { contributorEmails = value; } }
         public bool IsFinished { get { return isFinished; } set { isFinished = value; } }
         public string ParentDeck { get { return parentDeck; } set { parentDeck = value; } }

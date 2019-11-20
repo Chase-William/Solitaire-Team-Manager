@@ -25,6 +25,7 @@ namespace Solitaire
         List<Lang.Contributor> contributingContributors = new List<Lang.Contributor>();
         List<Lang.Contributor> noncontributingContributors = new List<Lang.Contributor>();
         Button toggleModeBtn;
+        TextView cardLeaderTextView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -38,6 +39,8 @@ namespace Solitaire
 
             // Setting a default state
             ManipulateContributor = RemoveContributor;
+            // Our default starting activity will be to remove contributors, so we need to set our event for refreshing the UI accordingly
+            UpdateListViewForMode = SetAdapterToRemoveMode;
 
             // Finding our kanbanModel inside the item source while using the intent extra we put from the calling activity
             clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));
@@ -87,14 +90,19 @@ namespace Solitaire
                     noncontributingContributors.Add(contributor);
                     return false;
                 }
-            }).ToList();
+            }).ToList();            
 
 
-            
+            cardLeaderTextView = FindViewById<TextView>(Resource.Id.cardLeaderTextView);
+            // If the card only has 1 contributor, automatically set them as the leader
+            if (contributingContributors.Count != 0)
+            {
+                cardLeaderTextView.Text = contributingContributors[0].Name;
+            }
 
             contributorsListView = FindViewById<ListView>(Resource.Id.contributorsListView);
             // Gets list of contributors using email as our primary key, also null check
-            contributorsListView.Adapter = new ContributorsAdapter(contributingContributors);
+            contributorsListView.Adapter = new ContributorsAdapter(contributingContributors, this);
             contributorsListView.ItemClick += (e, a) =>
             {                
                 ManipulateContributor?.Invoke(a.Position);
@@ -132,7 +140,7 @@ namespace Solitaire
         /// 
         private void SetAdapterToAddMode()
         {
-            contributorsListView.Adapter = new ContributorsAdapter(noncontributingContributors);
+            contributorsListView.Adapter = new ContributorsAdapter(noncontributingContributors, this);
         }
 
         /// 
@@ -142,7 +150,7 @@ namespace Solitaire
         /// 
         private void SetAdapterToRemoveMode()
         {
-            contributorsListView.Adapter = new ContributorsAdapter(contributingContributors);
+            contributorsListView.Adapter = new ContributorsAdapter(contributingContributors, this);
         }
 
 

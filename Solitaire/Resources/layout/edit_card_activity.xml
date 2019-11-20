@@ -13,20 +13,44 @@
     <refractored.controls.CircleImageView
         android:id                 ="@+id/cardLeader"        
         app:civ_border_color       ="@color/colorPrimaryGray" 
-        android:src                ="@drawable/default_avatar"
+        android:src                ="@drawable/default_leader"
         android:layout_marginTop   ="30dp"
         android:layout_gravity     ="center_horizontal"
         android:layout_width       ="100dp"
         android:layout_height      ="100dp"
         app:civ_border_width       ="2dp"
         android:layout_marginBottom="2dp"
-        app:elevation              ="5dp"/>
+        app:elevation              ="5dp"/>        
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text            ="Leader:"       
+            android:layout_width    ="wrap_content"
+            android:layout_height   ="wrap_content"/>
+
+        <TextView
+            android:id              ="@+id/cardLeaderTextView"
+            android:text            ="N/A"      
+            android:layout_marginLeft="5dp"
+            android:layout_width    ="wrap_content"
+            android:layout_height   ="wrap_content"/>
+
+    </LinearLayout>
+
     
-    <TextView
-        android:id              ="@+id/cardLeader"
-        android:text            ="Leader:"        
-        android:layout_marginTop="5dp"        
+
+    <Button
+        android:id              ="@+id/changeCardLeaderBtn"
+        android:text            ="Change"
         android:layout_gravity  ="center_horizontal"
+        android:background      ="@color/colorPrimary"
+        android:textColor       ="#FFF" 
+        android:layout_marginTop="10dp"
         android:layout_width    ="wrap_content"
         android:layout_height   ="wrap_content"/>
 
@@ -43,39 +67,40 @@
 
 
     <RelativeLayout  
-        android:paddingTop="10dp"
+        android:paddingTop    ="10dp"
         android:layout_gravity="center_horizontal"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content">
+        android:layout_width  ="350dp"
+        android:layout_height ="wrap_content">
 
-        <TextView
-            android:gravity="center_vertical"
-            android:id="@+id/labelContributors"
+        <TextView            
+            android:id                    ="@+id/labelContributors"
+            android:gravity               ="center_vertical"
             android:layout_alignParentLeft="true"
-            android:text         ="Contributors"
-            android:layout_width ="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text                  ="Contributors"
+            android:layout_width          ="wrap_content"
+            android:layout_height         ="wrap_content" />
 
         <Button
-            android:id="@+id/toggleCardContributorBtn"
-            android:gravity="center_vertical"
-            android:text="Removing"
+            android:id                     ="@+id/toggleCardContributorBtn"            
+            android:text                   ="Removing"
+            android:background             ="@color/colorPrimary"
+            android:textColor              ="#FFF"            
             android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width           ="wrap_content"
+            android:layout_height          ="wrap_content" />
 
     </RelativeLayout>        
 
     <!-- Container for listview and its label -->
     <LinearLayout
-        android:orientation     ="vertical"
-        android:layout_gravity  ="center_horizontal"
-        android:layout_width    ="350dp"
-        android:layout_height   ="match_parent">        
+        android:orientation   ="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_width  ="350dp"
+        android:layout_height ="match_parent">        
         
         <!-- ListView that will contain contributers -->
         <ListView    
-            android:id="@+id/contributorsListView"
+            android:id           ="@+id/contributorsListView"
             android:layout_width ="350dp"
             android:layout_height="170dp"/>
 

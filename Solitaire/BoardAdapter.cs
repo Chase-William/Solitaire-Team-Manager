@@ -55,10 +55,7 @@ namespace Solitaire
             return view;
         }
     }
-
-    /// <summary>
-    /// 
-    /// </summary>
+    
     public class BoardViewHolder : Java.Lang.Object
     {
         public TextView Name { get; set; }
