@@ -13,7 +13,7 @@
     <refractored.controls.CircleImageView
         android:id                  ="@+id/cardLeader"        
         app:civ_border_color        ="@color/colorPrimaryGray" 
-        android:src                 ="@drawable/default_avatar"
+        android:src                 ="@drawable/default_leader"
         android:layout_marginTop    ="30dp"
         android:layout_gravity      ="center_horizontal"
         android:layout_width        ="100dp"

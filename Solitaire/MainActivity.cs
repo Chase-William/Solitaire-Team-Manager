@@ -113,9 +113,16 @@ namespace Solitaire
                 case Android.Resource.Id.Home:
                     drawerLayout.OpenDrawer(Android.Support.V4.View.GravityCompat.Start);
                     break;
-                case Resource.Id.serverConnect:
-                    Toast.MakeText(this, ClientManager.SendRequest("get time"), ToastLength.Long).Show();
+                //case Resource.Id.serverConnect:
+                //    Toast.MakeText(this, ClientManager.SendRequest("get time"), ToastLength.Long).Show();
+                //    break;
+                case Resource.Id.allContributors:
+                    Navigate(new ListContributorsFragment(this));
                     break;
+                case Resource.Id.allboards:
+                    Navigate(new ListBoardsFragment(this));
+                    break;
+
             }
             return true;
         }      

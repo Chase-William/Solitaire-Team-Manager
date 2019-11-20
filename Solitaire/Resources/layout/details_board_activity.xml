@@ -18,14 +18,6 @@
         android:layout_width="100dp"
         android:layout_height="100dp"/>
 
-    <!--<TextView
-        android:id              ="@+id/cardLeader"
-        android:text            ="Leader:"
-        android:layout_marginTop="5dp"
-        android:layout_gravity  ="center_horizontal"
-        android:layout_width    ="wrap_content"
-        android:layout_height   ="wrap_content"/>
--->
     <TextView        
         android:id              ="@+id/boardNameTextView"
         android:text            ="-- Board Name --"
@@ -50,6 +42,7 @@
 
         <!-- ListView that will contain contributers -->
         <ListView     
+            android:id="@+id/allContributorsForBoard"
             android:layout_width ="350dp"
             android:layout_height="170dp"/>
 
