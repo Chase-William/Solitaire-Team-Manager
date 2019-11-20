@@ -3,6 +3,7 @@ using Android.Views;
 using Android.Widget;
 using Solitaire.Lang;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Solitaire
 {
@@ -33,7 +34,8 @@ namespace Solitaire
                 var name = view.FindViewById<TextView>(Resource.Id.boardName);
                 var totalDecks =  view.FindViewById<TextView>(Resource.Id.totalDecks);
                 var totalCards = view.FindViewById<TextView>(Resource.Id.totalCards);
-                var detailsBoardBtn = view.FindViewById<ImageButton>(Resource.Id.detailsBoardBtn);
+                var totalContributors = view.FindViewById<TextView>(Resource.Id.totalContributors);
+                var detailsBoardBtn = view.FindViewById<ImageButton>(Resource.Id.detailsBoardBtn);                
 
                 // Will launch the details activity of the board when clicked
                 detailsBoardBtn.Click += delegate
@@ -44,13 +46,22 @@ namespace Solitaire
                 };
 
 
-                view.Tag = new BoardViewHolder() { Name = name, TotalDecks = totalDecks, TotalCards = totalCards, DetailsBoardBtn = detailsBoardBtn };
+                view.Tag = new BoardViewHolder() { Name = name, TotalDecks = totalDecks, TotalCards = totalCards, TotalContributors = totalContributors, DetailsBoardBtn = detailsBoardBtn };
             }
 
             BoardViewHolder holder = (BoardViewHolder)view.Tag;
             holder.Name.Text = boards[position].Name;
             holder.TotalDecks.Text = boards[position].Decks.Count.ToString();
             holder.TotalCards.Text = boards[position].Cards.Count.ToString();
+
+            
+
+
+            // https://www.tutorialsteacher.com/linq/linq-set-operators-distinct
+            // Need number of contributors
+            var board = boards.ElementAt(position);
+
+            holder.TotalContributors.Text = QueryUtilities.QueryBoardLevelDistinctContributorsForInstance(boards.ElementAt(position)).Count.ToString();
 
             return view;
         }
@@ -61,6 +72,7 @@ namespace Solitaire
         public TextView Name { get; set; }
         public TextView TotalDecks { get; set; }
         public TextView TotalCards { get; set; }
+        public TextView TotalContributors { get; set; }
         public ImageButton DetailsBoardBtn { get; set; }
     }
 }

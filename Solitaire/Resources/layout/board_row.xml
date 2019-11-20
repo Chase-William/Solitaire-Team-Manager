@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/contributors"
+                android:id="@+id/totalContributors"
                 android:text="0"
                 android:layout_toRightOf="@id/contributorsLabel"
                 android:layout_below="@id/boardName"

@@ -53,16 +53,6 @@ namespace Solitaire
 
                 AssetManager.contributors.Add(new Lang.Contributor(contributorName.Text.Trim(), email));
 
-                //if ((UseBoardActivity)callerActivity is UseBoardActivity)
-                //{
-                //    UseBoardActivity thisContext = (UseBoardActivity)callerActivity;
-                //    AssetManager.contributors.Add(new Lang.Contributor(contributorName.Text, contributorEmail.Text));
-                //}
-                //else
-                //{
-                //    AssetManager.contributors.Add(new Lang.Contributor(contributorName.Text, contributorEmail.Text));
-                //}
-
                 Dismiss();
             };
 
