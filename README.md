@@ -31,9 +31,9 @@ Solitaire is currently extended with the following plugins. Intructions on how t
 | CircleImageView | https://github.com/jamesmontemagno/CircleImageView-Xamarin.Android
 ### Upcoming Updates
 
- [x] Implement being able to view board’s total decks within DetailsBoardActivity.
- [x] Implement being able to view board’s total cards within DetailsBoardActivity.
- [x] Change create contributor dialog UI colors to match other dialog UI colors.
+- [x] Implement being able to view board’s total decks within DetailsBoardActivity.
+- [x] Implement being able to view board’s total cards within DetailsBoardActivity.
+- [x] Change create contributor dialog UI colors to match other dialog UI colors.
  - Implement UI offset when keyboard is toggled.
  - Find a way to keep reference to leader of cards for EditCardActivity.
  - Either remove or add functionality for “Min / Max” card limit for decks.
@@ -45,7 +45,7 @@ Solitaire is currently extended with the following plugins. Intructions on how t
  - Fix image issue with KanbanModel.Url not displaying desired images.
  - Implement the ability for the user to set a custom image for boards and cards.
  - Finish setting up client and server socket connection.
- [x] Improve the UI for contributor rows.
+- [x] Improve the UI for contributor rows.
  - Improve UI for ALL edit based Activities.
  - Fix SHA1 status code 10 error with google login.
  - Allow the user to view and edit the contributors.
