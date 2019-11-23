@@ -24,7 +24,7 @@ Solitaire is an early-stage management app where you can organize your project. 
 ### Plugins
 Solitaire is currently extended with the following plugins. Intructions on how to implement them into your own projects are linked below.
 
-| Plugin | Links |
+| Plugin | Link |
 | ------ | ------ |
 | Syncfusion | https://help.syncfusion.com/xamarin-android/introduction/overview |
 | Newtonsoft | https://www.newtonsoft.com/json |
