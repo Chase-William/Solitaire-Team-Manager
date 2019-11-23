@@ -452,7 +452,6 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\linksrc\Xamarin.Essentials.pdb
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\link.flag
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Java.Interop.dll
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.dll
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Security.dll
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\mscorlib.dll
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Solitaire.dll
@@ -1714,7 +1713,6 @@ C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\stamp\_Genera
 C:\Users\Chase Roth\Desktop\merge\Solitaire\Solitaire\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\add_existing_contributor.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\add_new_contributor.xml
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\existing_contributor_adapter.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\AddExistingContributorDialog.java
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\add_existing_contributor.xml
 C:\Users\Chase Roth\Desktop\Solitaire\Solitaire\obj\Debug\90\res\layout\add_new_contributor.xml
@@ -2619,3 +2617,5 @@ C:\Users\cxr6988\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_CopyPdbFiles.st
 C:\Users\cxr6988\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\cxr6988\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\cxr6988\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\contributor_row.xml
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb

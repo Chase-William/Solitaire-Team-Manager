@@ -39,7 +39,6 @@
             android:text="Cancel"
             android:id="@+id/cancelNewContributor"
             android:layout_alignParentLeft="true"
-            android:textColor="@android:color/holo_red_dark"
             android:background="@android:color/transparent"
             />
 
@@ -50,7 +49,6 @@
             android:background="@android:color/transparent"
             android:layout_height="wrap_content"
             android:id="@+id/addNewContributor"    
-            android:textColor="@android:color/holo_blue_dark"
             android:layout_alignParentRight="true"
         />
     </RelativeLayout>

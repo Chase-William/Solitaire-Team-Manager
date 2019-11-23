@@ -279,7 +279,7 @@
     <AndroidResource Include="Resources\layout\add_new_contributor.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\existing_contributor_adapter.xml" />
+    <AndroidResource Include="Resources\layout\contributor_row.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\images\avatar_blue.png" />

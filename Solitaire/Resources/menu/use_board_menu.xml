@@ -10,7 +10,7 @@
        app:showAsAction="always"
        android:title="Add Card" />
   <item
-       android:id="@+id/addContact"
+       android:id="@+id/addContributor"
        app:showAsAction="never"
        android:title="Add Contributor" />
   <item

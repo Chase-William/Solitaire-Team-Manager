@@ -14,9 +14,12 @@ using Android.Support.V7.App;
 using System.Threading.Tasks;
 using Solitaire.CustomGestures;
 using Android.Widget;
+using Xamarin.Essentials;
+using System.IO;
+using Newtonsoft.Json;
 /*
- 
-    Chase - My Master Piece -- Main activity for the user to interact with the cards
+
+Chase - My Master Piece -- Main activity for the user to interact with the cards
 
 */
 namespace Solitaire
@@ -47,6 +50,13 @@ namespace Solitaire
 
         public static List<KanbanModel> kanbanModels = new List<KanbanModel>();
 
+
+        /*
+
+            KanbanModel tags will continue to show the correct oder of which the contributors were added
+                that tag property probably could be used to keep the leader at the 0 index
+
+        */
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -176,8 +186,9 @@ namespace Solitaire
                 Description = _descriptionCard,
                 // Category Determines which deck this will be put in
                 Category = _parentDeck,
-                ColorKey = UNFINISHED_CARD_COLOR
-                
+                ColorKey = UNFINISHED_CARD_COLOR,
+                ImageURL = this.Assets + "/images/avatar_blue"
+
                 /*
 
                     TODO: MAKE THIS PATH TO A IMAGE WORK
@@ -186,6 +197,7 @@ namespace Solitaire
 
                 // ImageURL = something...
             });
+            string test = this.Assets + "/images/avatar_blue";
             thisKanban.ItemsSource = kanbanModels.Where(kanbanModel => (string)kanbanModel.ColorKey == UNFINISHED_CARD_COLOR).ToList();
         }
 
@@ -243,6 +255,9 @@ namespace Solitaire
                         ContributorEmails = kanbanModel.Tags == null ? null : kanbanModel.Tags.ToList()
                     }).ToList(); 
             }
+
+            // Sending the data to the server
+            SendBoardDataToServer();
             return Task.CompletedTask;
         }
 
@@ -309,6 +324,16 @@ namespace Solitaire
             
             // Resetting the ItemSource to display only the UNFINISHED cards
             thisKanban.ItemsSource = kanbanModels.Where(kanbanModel => (string)kanbanModel.ColorKey == UNFINISHED_CARD_COLOR).ToList();
+        }
+
+        /// 
+        /// 
+        ///     Sends the new board data to the remote server
+        /// 
+        /// 
+        private void SendBoardDataToServer()
+        {
+            ClientManager.SendBoardData(JsonConvert.SerializeObject(thisBoard));
         }
 
         /// 

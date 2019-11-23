@@ -27,6 +27,33 @@
         android:layout_width    ="wrap_content"
         android:layout_height   ="wrap_content"/>
 
+    <!-- Container for number of decks and cards -->
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Deck(s):"
+            style="@style/CustomNumberOfDecksAndCardsTextView"/>
+
+        <TextView
+            android:id="@+id/totalDecks"
+            android:text="0"
+            style="@style/CustomNumberOfDecksAndCardsTextView"/>                
+
+        <TextView
+            android:text="Card(s):"
+            android:layout_marginLeft="10dp"
+            style="@style/CustomNumberOfDecksAndCardsTextView"/>
+
+        <TextView
+            android:id="@+id/totalCards"
+            android:text="0"            
+            style="@style/CustomNumberOfDecksAndCardsTextView" />
+
+    </LinearLayout>
+
     <!-- Container for listview and its label -->
     <LinearLayout  
         android:layout_marginTop="10dp"

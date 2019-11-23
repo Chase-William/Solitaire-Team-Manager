@@ -34,6 +34,8 @@ namespace Solitaire
             thisBoard = AssetManager.boards.Single(board => board.Id == this.Intent.GetLongExtra("BoardId", -1));
 
             FindViewById<ListView>(Resource.Id.allContributorsForBoard).Adapter = new ContributorsAdapter(thisBoard.QueryBoardDistinctContributorsForInstance(), this);
+            FindViewById<TextView>(Resource.Id.totalDecks).Text = thisBoard.Decks.Count.ToString();
+            FindViewById<TextView>(Resource.Id.totalCards).Text = thisBoard.Cards.Count.ToString();
             boardNameTextView = FindViewById<TextView>(Resource.Id.boardNameTextView);
             boardDescriptionTextView = FindViewById<TextView>(Resource.Id.boardDescriptionTextView);
             boardNameTextView.Text = thisBoard.Name;

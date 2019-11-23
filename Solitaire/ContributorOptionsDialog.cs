@@ -18,13 +18,13 @@ namespace Solitaire
     /// 
     ///
     public class ContributorOptionsDialog : Dialog
-    {
-        UseBoardActivity callerInstance;
-        Context context;
+    {        
+        Context callerActivity;
+
         public ContributorOptionsDialog(Context _context) : base(_context) 
         { 
-            callerInstance = (UseBoardActivity)_context; this.Show();
-            context = _context;
+            callerActivity = _context;
+            this.Show();
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -37,12 +37,12 @@ namespace Solitaire
             // Starts the activity to create a new contributor
             FindViewById<Button>(Resource.Id.addNewContributor).Click += delegate
             {
-                new CreateContributorDialog(context);
+                new CreateContributorDialog(callerActivity);
                 Dismiss();
             };
-            FindViewById<Button>(Resource.Id.addExistingContributor).Click += delegate
-            {               
-                new AddExistingContributorDialog(callerInstance);
+            FindViewById<Button>(Resource.Id.cancelBtn).Click += delegate
+            {
+                // new AddExistingContributorDialog(callerInstance);
                 Dismiss();
             };
         }

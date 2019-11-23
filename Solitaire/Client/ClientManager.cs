@@ -14,79 +14,57 @@ namespace Solitaire
             AttemptConnect();
         }
 
-        public static string SendRequest(string _command)
+        public static string SendBoardData(string sendData)
         {
-            string responce = string.Empty;
-            // If the client is connected to the server
-            if (clientSocket.Connected)
-            {
-                byte[] request = Encoding.ASCII.GetBytes(_command);
-                clientSocket.Send(request);
 
-                byte[] recievedBuf = new byte[1024];
-                int rec = clientSocket.Receive(recievedBuf);
-                byte[] data = new byte[rec];
-                Array.Copy(recievedBuf, data, rec);
-                // Passing our data as a string back to the source
-                responce = Encoding.ASCII.GetString(data);
-            }
-            else
+            //TODO: When the server turns off while we are connect and reboots...
+            //  If we try and send data it will dump our app.
+            //  If we use try it wont dump our app but it also fails to recreate the connection
+            //      and send the user data.
+
+            try
             {
-                AttemptConnect();
+                string responce = string.Empty;
+                // If the client is connected to the server
                 if (clientSocket.Connected)
                 {
-                    _ = SendRequest(_command);
+                    byte[] request = Encoding.ASCII.GetBytes(sendData);
+                    clientSocket.Send(request);
+
+                    byte[] recievedBuf = new byte[1024];
+                    int rec = clientSocket.Receive(recievedBuf);
+                    byte[] data = new byte[rec];
+                    Array.Copy(recievedBuf, data, rec);
+                    // Passing our data as a string back to the source
+                    responce = Encoding.ASCII.GetString(data);
                 }
                 else
                 {
-                    responce = "Connection Failure, Request could not be sent.";
-                }                
+                    AttemptConnect();
+                    if (clientSocket.Connected)
+                    {
+                        _ = SendBoardData(sendData);
+                    }
+                    else
+                    {
+                        responce = "Connection Failure, Request could not be sent.";
+                    }
+                }
+                return responce;
             }
-            return responce;
+            catch 
+            {
+                return null;
+            }            
         }
 
         private static void AttemptConnect()
-        {
+        {            
             try
             {
                 clientSocket.Connect("129.21.52.2", 6969);
             }
-            catch (SocketException)
-            {
-                Console.WriteLine();
-            }
+            catch { }
         }
     }
-
-    //public static class ClientManager
-    //{
-    //    // This apps socket connection the server
-    //    private static Socket clientSocket;
-
-    //    // Tring to establish a connection
-    //    public static bool TryServerConnection()
-    //    {
-    //        // We want to send data as well as recieve, will be connecting to host via IP
-    //        clientSocket = new Socket(SocketType.Stream, ProtocolType.IP);
-
-    //        try
-    //        {
-    //            clientSocket.Connect("129.21.52.2", 6969);
-    //            return true;
-    //        }
-    //        catch
-    //        {
-    //            return false;
-    //        }
-    //    }
-
-    //    public static void SendMessage()
-    //    {
-    //        string request = "Hey my phone is saying hi";
-    //        Byte[] bytesSent = Encoding.ASCII.GetBytes(request);
-
-    //        // Send request to the server.
-    //        clientSocket.Send(bytesSent, bytesSent.Length, 0);
-    //    }
-    //}
 }

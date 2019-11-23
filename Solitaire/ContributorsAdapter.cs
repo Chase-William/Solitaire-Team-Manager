@@ -45,7 +45,7 @@ namespace Solitaire
 
             if (view == null)
             {
-                view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.existing_contributor_adapter, parent, false);
+                view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.contributor_row, parent, false);
 
                 var avatar = view.FindViewById<Refractored.Controls.CircleImageView>(Resource.Id.avatar);
                 var name = view.FindViewById<TextView>(Resource.Id.nameOfContributor);

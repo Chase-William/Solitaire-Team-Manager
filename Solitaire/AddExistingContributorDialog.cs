@@ -39,7 +39,7 @@ namespace Solitaire
             ListView ExisitingContributors = FindViewById<ListView>(Resource.Id.existingContacts);
 
             ExisitingContributors.Adapter = new ContributorsAdapter(AssetManager.contributors, callingActivity);
-            ExisitingContributors.ItemClick += ContributorSelected;
+            //ExisitingContributors.ItemClick += ContributorSelected;
             FindViewById<Button>(Resource.Id.add_button).Click += delegate
             {
                 // TODO: take selected and add them to the board
@@ -55,18 +55,18 @@ namespace Solitaire
             };
         }
 
-        private void ContributorSelected(object sender, AdapterView.ItemClickEventArgs e)
-        {
-            Contributor contr = callingActivity.thisBoard.Contributors[e.Position];
-            foreach(Contributor contributor in selectedContribtors)
-            {
-                if(contributor == contr)
-                {
-                    selectedContribtors.Remove(contributor);
-                    break;
-                }
-            }
-            selectedContribtors.Add(contr);
-        }
+        //private void ContributorSelected(object sender, AdapterView.ItemClickEventArgs e)
+        //{
+        //    Contributor contr = callingActivity.thisBoard.Contributors[e.Position];
+        //    foreach(Contributor contributor in selectedContribtors)
+        //    {
+        //        if(contributor == contr)
+        //        {
+        //            selectedContribtors.Remove(contributor);
+        //            break;
+        //        }
+        //    }
+        //    selectedContribtors.Add(contr);
+        //}
     }
 }
