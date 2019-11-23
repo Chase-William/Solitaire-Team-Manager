@@ -34,22 +34,22 @@ Solitaire is currently extended with the following plugins. Intructions on how t
 - [x] Implement being able to view board’s total decks within DetailsBoardActivity.
 - [x] Implement being able to view board’s total cards within DetailsBoardActivity.
 - [x] Change create contributor dialog UI colors to match other dialog UI colors.
- - Implement UI offset when keyboard is toggled.
- - Find a way to keep reference to leader of cards for EditCardActivity.
- - Either remove or add functionality for “Min / Max” card limit for decks.
- - Implement ability to delete boards
- - Implement ability to delete decks
- - Implement ability to delete cards
- - Implement ability to delete contributors
- - Improve the spinner UI for adding card to specific deck.
- - Fix image issue with KanbanModel.Url not displaying desired images.
- - Implement the ability for the user to set a custom image for boards and cards.
- - Finish setting up client and server socket connection.
+- [ ] Implement UI offset when keyboard is toggled.
+- [ ] Find a way to keep reference to leader of cards for EditCardActivity.
+- [ ] Either remove or add functionality for “Min / Max” card limit for decks.
+- [ ] Implement ability to delete boards
+- [ ] Implement ability to delete decks
+- [ ] Implement ability to delete cards
+- [ ] Implement ability to delete contributors
+- [ ] Improve the spinner UI for adding card to specific deck.
+- [ ] Fix image issue with KanbanModel.Url not displaying desired images.
+- [ ] Implement the ability for the user to set a custom image for boards and cards.
+- [ ] Finish setting up client and server socket connection.
 - [x] Improve the UI for contributor rows.
- - Improve UI for ALL edit based Activities.
- - Fix SHA1 status code 10 error with google login.
- - Allow the user to view and edit the contributors.
- - Implement demographics for boards.
+- [ ] Improve UI for ALL edit based Activities.
+- [ ] Fix SHA1 status code 10 error with google login.
+- [ ] Allow the user to view and edit the contributors.
+- [ ] Implement demographics for boards.
 
 ### Powered By
 [![Foo](https://upload.wikimedia.org/wikipedia/commons/f/f2/Xamarin-logo.svg)](https://dotnet.microsoft.com/apps/xamarin/)
