@@ -10,6 +10,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Syncfusion.SfKanban.Android;
+using Solitaire.Lang;
 
 namespace Solitaire
 {
@@ -20,10 +21,10 @@ namespace Solitaire
         event Action UpdateListViewForMode;
 
         EditText cardNameEditText, cardDescriptionEditText;
-        KanbanModel clickedKanbanModel;
+        KanbanModelWrapper clickedKanbanModel;
         ListView contributorsListView;
-        List<Lang.Contributor> contributingContributors = new List<Lang.Contributor>();
-        List<Lang.Contributor> noncontributingContributors = new List<Lang.Contributor>();
+        List<Contributor> contributingContributors = new List<Contributor>();
+        List<Contributor> noncontributingContributors = new List<Contributor>();
         Button toggleModeBtn;
         TextView cardLeaderTextView;
 
@@ -43,7 +44,7 @@ namespace Solitaire
             UpdateListViewForMode = SetAdapterToRemoveMode;
 
             // Finding our kanbanModel inside the item source while using the intent extra we put from the calling activity
-            clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModel>().Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));
+            clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModelWrapper>().Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));
             toggleModeBtn = FindViewById<Button>(Resource.Id.toggleCardContributorBtn);
             toggleModeBtn.Click += (e ,a) =>
             {
@@ -62,6 +63,10 @@ namespace Solitaire
 
                 UpdateListViewForMode.Invoke();
             };
+
+            // Since a leader a doesn't need to be assigned it can be null hence:
+            if (clickedKanbanModel.Leader != null)
+                FindViewById<TextView>(Resource.Id.cardLeaderTextView).Text = $"{clickedKanbanModel.Leader.Name} | {clickedKanbanModel.Leader.Email}";
 
             // Setting up the pointers to the TextViews
             cardNameEditText = FindViewById<EditText>(Resource.Id.cardNameEditText);
@@ -94,11 +99,19 @@ namespace Solitaire
 
 
             cardLeaderTextView = FindViewById<TextView>(Resource.Id.cardLeaderTextView);
-            // If the card only has 1 contributor, automatically set them as the leader
-            if (contributingContributors.Count != 0)
+            FindViewById<Button>(Resource.Id.changeCardLeaderBtn).Click += delegate
             {
-                cardLeaderTextView.Text = contributingContributors[0].Name;
-            }
+                // First we need to make sure the user selecting from the already added contributors and set the button to the correct state
+                SetAdapterToRemoveMode();
+                toggleModeBtn.Text = "Removing";
+
+                // Replaces the eventhandler to now add a leader contributor
+                ManipulateContributor = (_pos) =>
+                {
+                    cardLeaderTextView.Text = $"{contributingContributors[_pos].Name} | {contributingContributors[_pos].Email}";
+                    clickedKanbanModel.Leader = contributingContributors[_pos];
+                };
+            };
 
             contributorsListView = FindViewById<ListView>(Resource.Id.contributorsListView);
             // Gets list of contributors using email as our primary key, also null check

@@ -1973,7 +1973,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Chase Roth\\.nuget\\packages\\": {},
+    "C:\\Users\\cxr69\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
@@ -1982,7 +1982,7 @@
       "projectUniqueName": "C:\\Dev\\Solitaire\\Solitaire\\Solitaire.csproj",
       "projectName": "Solitaire",
       "projectPath": "C:\\Dev\\Solitaire\\Solitaire\\Solitaire.csproj",
-      "packagesPath": "C:\\Users\\Chase Roth\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\cxr69\\.nuget\\packages\\",
       "outputPath": "C:\\Dev\\Solitaire\\Solitaire\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
@@ -1990,7 +1990,7 @@
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Chase Roth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cxr69\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

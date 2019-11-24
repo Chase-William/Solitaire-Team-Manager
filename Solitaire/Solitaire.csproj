@@ -81,6 +81,7 @@
     <Compile Include="AssetManager.cs" />
     <Compile Include="ContributorsAdapter.cs" />
     <Compile Include="Lang\Contributor.cs" />
+    <Compile Include="Lang\KanbanModelWrapper.cs" />
     <Compile Include="ListContributorsFragment.cs" />
     <Compile Include="Login\GoogleLoginActivity.cs" />
     <Compile Include="Lang\Board.cs" />

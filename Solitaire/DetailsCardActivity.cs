@@ -11,6 +11,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Syncfusion.SfKanban.Android;
+using Solitaire.Lang;
 
 namespace Solitaire
 {
@@ -18,7 +19,7 @@ namespace Solitaire
     public class DetailsCardActivity : AppCompatActivity
     {
         long kanbanModelId;
-        KanbanModel clickedKanbanModel;
+        KanbanModelWrapper clickedKanbanModel;
         private const int EDIT_ACTIVITY_CODE = 3;
         ListView contributorsListView;
         
@@ -51,6 +52,9 @@ namespace Solitaire
             // Setting the textviews to display the information about the kanbanModel
             FindViewById<TextView>(Resource.Id.cardNameTextView).Text = clickedKanbanModel.Title;
             FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = clickedKanbanModel.Description;
+            // Since a leader a doesn't need to be assigned it can be null hence:
+            if (clickedKanbanModel.Leader != null)
+                FindViewById<TextView>(Resource.Id.cardNameTextView).Text = $"{clickedKanbanModel.Leader.Name} | {clickedKanbanModel.Leader.Email}";
 
             contributorsListView = FindViewById<ListView>(Resource.Id.contributorsListView);
             // Gets list of contributors using email as our primary key, also null check
@@ -106,6 +110,11 @@ namespace Solitaire
             base.OnResume();
             FindViewById<TextView>(Resource.Id.cardNameTextView).Text = clickedKanbanModel.Title;
             FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = clickedKanbanModel.Description;
+
+            // Since a leader a doesn't need to be assigned it can be null hence:
+            if (clickedKanbanModel.Leader != null)
+                FindViewById<TextView>(Resource.Id.cardLeaderTextView).Text = $"{clickedKanbanModel.Leader.Name} | {clickedKanbanModel.Leader.Email}";
+
             contributorsListView.Adapter = new ContributorsAdapter(
                 AssetManager.contributors.Where(contributor => {
                     if (clickedKanbanModel.Tags != null)
@@ -114,6 +123,8 @@ namespace Solitaire
                     }
                     return false;
                 }).ToList(), this);
+
+            var test = clickedKanbanModel.Leader;
         }
     }
 }

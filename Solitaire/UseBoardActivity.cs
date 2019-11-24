@@ -34,7 +34,7 @@ namespace Solitaire
         // Contains a list off all the categories so we can keep track of all the categories each board needs to support
         private List<object> allSupportedCategories = new List<object>();
         // When we click on a card, we will save which card was clicked
-        public KanbanModel clickedKanbanModel;
+        public KanbanModelWrapper clickedKanbanModel;
         // The for our details activity, readonly because accessing this variable through a pointer to 
         // it within DoubleClickGesture will cause an error
         public readonly int DETAILS_ACTIVITY_CODE = 2;
@@ -48,7 +48,7 @@ namespace Solitaire
         private const string UNFINISHED_CARD_COLOR = "Green";
 
 
-        public static List<KanbanModel> kanbanModels = new List<KanbanModel>();
+        public static List<KanbanModelWrapper> kanbanModels = new List<KanbanModelWrapper>();
 
 
         /*
@@ -178,7 +178,7 @@ namespace Solitaire
         /// 
         public void AddCard(string _nameCard, string _descriptionCard, string _parentDeck)
         {
-            kanbanModels.Add(new KanbanModel()
+            kanbanModels.Add(new KanbanModelWrapper()
             {
                 // Generating Unique Ids
                 ID = IdManager.GenerateId(),
@@ -268,7 +268,7 @@ namespace Solitaire
         ///         
         private void KanbanModelClicked(object sender, KanbanTappedEventArgs e)
         {
-            KanbanModel currentClickedKanbanModel = (KanbanModel)e.Data;
+            var currentClickedKanbanModel = (KanbanModelWrapper)e.Data;
 
             // If the current click is the first click on the item:
             if (clickIdentifier)
@@ -392,7 +392,7 @@ namespace Solitaire
                 setupBoardAndSfKanban += InitSfKanbanColorKey;
                 setupBoardAndSfKanban += InitSfKanbanGestures;
                 // Initializing our kanbanModels to new collection each time we run this activity
-                setupBoardAndSfKanban += delegate { UseBoardActivity.kanbanModels = new List<KanbanModel>(); };
+                setupBoardAndSfKanban += delegate { UseBoardActivity.kanbanModels = new List<KanbanModelWrapper>(); };
                 // If we have board data to load... load it, otherwise skip
                 setupBoardAndSfKanban += delegate { loadPreExistingBoardData?.Invoke(); };
             }
@@ -519,7 +519,7 @@ namespace Solitaire
 
                 // Creating KanbanModels from Card data and assigning all new KanbanModel instance into kanbans list
                 UseBoardActivity.kanbanModels = useBoardActivity.thisBoard.Cards.Select(card =>
-                    new KanbanModel()
+                    new KanbanModelWrapper()
                     {
                         ID = card.Id,
                         Title = card.Name,
