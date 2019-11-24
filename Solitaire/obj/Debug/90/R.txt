@@ -1037,8 +1037,9 @@ int drawable notification_tile_bg 0x7f070097
 int drawable notify_panel_notification_icon_bg 0x7f070098
 int drawable ripple 0x7f070099
 int drawable roundedcorner 0x7f07009a
-int drawable tooltip_frame_dark 0x7f07009b
-int drawable tooltip_frame_light 0x7f07009c
+int drawable solitaire_icon 0x7f07009b
+int drawable tooltip_frame_dark 0x7f07009c
+int drawable tooltip_frame_light 0x7f07009d
 int id ALT 0x7f080000
 int id CTRL 0x7f080001
 int id FUNCTION 0x7f080002

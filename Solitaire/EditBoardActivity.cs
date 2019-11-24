@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Android.Views.InputMethods;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -38,6 +38,18 @@ namespace Solitaire
 
             boardNameEditText.Text = thisBoard.Name;
             boardDescriptionEditText.Text = thisBoard.Description;
+        }
+
+        /// 
+        /// 
+        ///     Closes the keyboard when anything that is not the keyboard is pressed
+        /// 
+        /// 
+        public override bool OnTouchEvent(MotionEvent e)
+        {
+            InputMethodManager inputMM = (InputMethodManager)GetSystemService(Context.InputMethodService);
+            inputMM.HideSoftInputFromWindow(boardNameEditText.WindowToken, 0);
+            return base.OnTouchEvent(e);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

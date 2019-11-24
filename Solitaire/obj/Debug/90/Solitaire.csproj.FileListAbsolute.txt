@@ -2620,3 +2620,4 @@ C:\Users\cxr6988\Desktop\Solitaire\Solitaire\obj\Debug\90\stamp\_ResolveLibraryP
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\contributor_row.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\solitaire_icon.png

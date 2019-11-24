@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.solitaire" android:installLocation="preferExternal">
-  <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="28" />
+  <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="27" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:name="android.app.Application" android:debuggable="true">
+  <application android:allowBackup="true" android:icon="@drawable/solitaire_icon" android:label="@string/app_name" android:roundIcon="@drawable/solitaire_icon" android:supportsRtl="true" android:theme="@style/AppTheme" android:name="android.app.Application" android:debuggable="true">
     <activity android:label="DetailsBoardActivity" android:name="md5991b3296029042025ad7970fd527090b.DetailsBoardActivity" />
     <activity android:label="DetailsCardActivity" android:name="md5991b3296029042025ad7970fd527090b.DetailsCardActivity" />
     <activity android:label="EditBoardActivity" android:name="md5991b3296029042025ad7970fd527090b.EditBoardActivity" />
     <activity android:label="EditCard" android:name="md5991b3296029042025ad7970fd527090b.EditCardActivity" />
     <activity android:noHistory="true" android:theme="@style/ThemeOverlay.MyNoTitleActivity" android:name="com.xamarin.signinquickstart.MainActivity" />
-    <activity android:label="MainActivity" android:name="md5991b3296029042025ad7970fd527090b.MainActivity">
+    <activity android:label="Solitaire" android:name="md5991b3296029042025ad7970fd527090b.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

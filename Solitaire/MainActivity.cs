@@ -15,7 +15,7 @@ using Android.Support.Design.Widget;
 
 namespace Solitaire
 {   
-    [Activity(Label = "MainActivity", MainLauncher = true)] 
+    [Activity(Label = "Solitaire", MainLauncher = true)] 
     public class MainActivity : AppCompatActivity
     {
         DrawerLayout drawerLayout;

@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Syncfusion.SfKanban.Android;
 using Solitaire.Lang;
+using Android.Views.InputMethods;
 
 namespace Solitaire
 {
@@ -120,7 +121,19 @@ namespace Solitaire
             {                
                 ManipulateContributor?.Invoke(a.Position);
             };
-        }        
+        }
+
+        /// 
+        /// 
+        ///     Closes the keyboard when anything that is not the keyboard is pressed
+        /// 
+        /// 
+        public override bool OnTouchEvent(MotionEvent e)
+        {
+            InputMethodManager inputMM = (InputMethodManager)GetSystemService(Context.InputMethodService);
+            inputMM.HideSoftInputFromWindow(cardNameEditText.WindowToken, 0);
+            return base.OnTouchEvent(e);
+        }
 
         ///
         /// 
