@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout 
+<!-- https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/layouts/absolute-layout -->
+<AbsoluteLayout
+    android:id="@+id/boardFragLayout"
     xmlns:android        ="http://schemas.android.com/apk/res/android"
     xmlns:app            ="http://schemas.android.com/apk/res-auto"
     xmlns:tools          ="http://schemas.android.com/tools"
@@ -10,16 +12,31 @@
     <ListView
         android:id="@+id/boardListView"
         android:layout_width="match_parent"
-        android:layout_height="600dp"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/addNewBoardBtn"
-        android:text="Add New Board"
-        android:textColor="@color/lightColorText"       
-        android:background="@color/colorPrimaryDark"
-        android:textSize="20dp"        
-        android:layout_gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    </ListView>
 
-</LinearLayout>
+   
+
+        <ImageButton
+            android:id="@+id/deleteBoardBtn"
+            android:src="@drawable/delete_icon"        
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"            
+            android:layout_x="220dp"
+            android:layout_y="580dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+
+        <ImageButton
+            android:id="@+id/addNewBoardBtn"
+            android:src="@drawable/add_icon"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter" 
+            android:layout_x="300dp"
+            android:layout_y="580dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+   
+
+</AbsoluteLayout>

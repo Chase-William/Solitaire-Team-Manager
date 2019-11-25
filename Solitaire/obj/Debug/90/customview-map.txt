@@ -1,3 +1,4 @@
+AbsoluteLayout;obj\Debug\90\res\layout\list_boards_fragment.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 android.support.design.widget.NavigationView;obj\Debug\90\res\layout\main_activity.xml
@@ -16,7 +17,6 @@ Button;obj\Debug\90\res\layout\create_card_dialog.xml
 Button;obj\Debug\90\res\layout\create_deck_dialog.xml
 Button;obj\Debug\90\res\layout\edit_card_activity.xml
 Button;obj\Debug\90\res\layout\google_login_activity.xml
-Button;obj\Debug\90\res\layout\list_boards_fragment.xml
 cache-path;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\90\res\values\colors.xml
 color;obj\Debug\90\res\values\ic_launcher_background.xml
@@ -42,6 +42,7 @@ group;obj\Debug\90\res\menu\navigation_menu.xml
 HorizontalScrollView;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
 HorizontalScrollView;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
 ImageButton;obj\Debug\90\res\layout\board_row.xml
+ImageButton;obj\Debug\90\res\layout\list_boards_fragment.xml
 ImageView;obj\Debug\90\res\layout\board_row.xml
 ImageView;obj\Debug\90\res\layout\details_board_activity.xml
 ImageView;obj\Debug\90\res\layout\edit_board_activity.xml
@@ -78,7 +79,6 @@ LinearLayout;obj\Debug\90\res\layout\details_card_activity.xml
 LinearLayout;obj\Debug\90\res\layout\edit_board_activity.xml
 LinearLayout;obj\Debug\90\res\layout\edit_card_activity.xml
 LinearLayout;obj\Debug\90\res\layout\google_login_activity.xml
-LinearLayout;obj\Debug\90\res\layout\list_boards_fragment.xml
 LinearLayout;obj\Debug\90\res\layout\main_activity.xml
 LinearLayout;obj\Debug\90\res\layout\nav_header.xml
 LinearLayout;obj\Debug\90\res\layout\use_board_activity.xml
@@ -119,6 +119,8 @@ resources;obj\Debug\90\res\values\ic_launcher_background.xml
 resources;obj\Debug\90\res\values\strings.xml
 resources;obj\Debug\90\res\values\styles.xml
 ripple;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml
+ScrollView;obj\Debug\90\res\layout\edit_board_activity.xml
+ScrollView;obj\Debug\90\res\layout\edit_card_activity.xml
 set;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_hide.xml
 set;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\anim\path_morph_show.xml
 shape;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\drawable\ripple.xml

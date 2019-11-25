@@ -12,6 +12,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Android.Support.Design.Widget;
+using Android.Graphics.Drawables;
 
 namespace Solitaire
 {   
@@ -29,6 +30,7 @@ namespace Solitaire
             toolbar.Title = "Solitaire";
             SetSupportActionBar(toolbar);
             // Setting up a our hamburger menu
+            
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.hamburger);
             // Enabling it
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
@@ -83,7 +85,7 @@ namespace Solitaire
                 case Resource.Id.allContributors:
                     Navigate(new ListContributorsFragment(this));
                     break;
-                case Resource.Id.allboards:                    
+                case Resource.Id.allBoards:                    
                     Navigate(new ListBoardsFragment(this));
                     break;               
             }
@@ -119,7 +121,7 @@ namespace Solitaire
                 case Resource.Id.allContributors:
                     Navigate(new ListContributorsFragment(this));
                     break;
-                case Resource.Id.allboards:
+                case Resource.Id.allBoards:
                     Navigate(new ListBoardsFragment(this));
                     break;
 
