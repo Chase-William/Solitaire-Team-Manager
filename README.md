@@ -34,7 +34,7 @@ Solitaire is currently extended with the following plugins. Intructions on how t
 - [x] Implement being able to view board’s total decks within DetailsBoardActivity.
 - [x] Implement being able to view board’s total cards within DetailsBoardActivity.
 - [x] Change create contributor dialog UI colors to match other dialog UI colors.
-- [ ] Implement UI offset when keyboard is toggled.
+- [x] Implement UI offset when keyboard is toggled.
 - [x] Find a way to keep reference to leader of cards for EditCardActivity.
 - [ ] Either remove or add functionality for “Min / Max” card limit for decks.
 - [ ] Implement ability to delete boards
