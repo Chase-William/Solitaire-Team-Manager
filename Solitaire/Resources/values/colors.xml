@@ -6,4 +6,5 @@
     <color name="lightColorText">#FFF</color>
     <color name="colorPrimaryGray">#333</color>
     <color name="darkColorText">#071c0d</color>
+    <color name="deleteColor">#ff6b72</color>
 </resources>

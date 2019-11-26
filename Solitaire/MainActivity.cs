@@ -115,9 +115,6 @@ namespace Solitaire
                 case Android.Resource.Id.Home:
                     drawerLayout.OpenDrawer(Android.Support.V4.View.GravityCompat.Start);
                     break;
-                //case Resource.Id.serverConnect:
-                //    Toast.MakeText(this, ClientManager.SendRequest("get time"), ToastLength.Long).Show();
-                //    break;
                 case Resource.Id.allContributors:
                     Navigate(new ListContributorsFragment(this));
                     break;
@@ -128,15 +125,5 @@ namespace Solitaire
             }
             return true;
         }      
-
-        ///
-        /// 
-        ///     Provides a simple generic way to run actions on this activity from fragments & dialogs
-        /// 
-        ///
-        public void GenericActionRequest(Action _action)
-        {
-            _action.Invoke();
-        }
     }
 }

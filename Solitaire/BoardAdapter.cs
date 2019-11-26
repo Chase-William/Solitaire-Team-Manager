@@ -10,12 +10,14 @@ namespace Solitaire
     public class BoardAdapter : BaseAdapter<Board>
     {
         List<Board> boards;
-        MainActivity callerInstance;
+        MainActivity callerActivity;
+        public List<View> listViewChildren = new List<View>();
+        public List<string> boardNames = new List<string>();
 
-        public BoardAdapter(List<Board> _boards, MainActivity _callerInstance)
+        public BoardAdapter(List<Board> _boards, MainActivity _callerActivity)
         {
             boards = _boards;
-            callerInstance = _callerInstance;
+            callerActivity = _callerActivity;
         }
 
         public override Board this[int position] { get { return boards[position]; } }
@@ -25,24 +27,24 @@ namespace Solitaire
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            View view = convertView;
+            var view = convertView;         
 
             if (view == null)
-            {
+            {                
                 view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.board_row, parent, false);
 
-                var name = view.FindViewById<TextView>(Resource.Id.boardName);
-                var totalDecks =  view.FindViewById<TextView>(Resource.Id.totalDecks);
-                var totalCards = view.FindViewById<TextView>(Resource.Id.totalCards);
+                var name              = view.FindViewById<TextView>(Resource.Id.boardName);
+                var totalDecks        = view.FindViewById<TextView>(Resource.Id.totalDecks);
+                var totalCards        = view.FindViewById<TextView>(Resource.Id.totalCards);
                 var totalContributors = view.FindViewById<TextView>(Resource.Id.totalContributors);
-                var detailsBoardBtn = view.FindViewById<ImageButton>(Resource.Id.detailsBoardBtn);                
+                var detailsBoardBtn   = view.FindViewById<ImageButton>(Resource.Id.detailsBoardBtn);                
 
                 // Will launch the details activity of the board when clicked
                 detailsBoardBtn.Click += delegate
                 {
-                    Intent detailsOfBoard = new Intent(callerInstance, typeof(DetailsBoardActivity));
+                    Intent detailsOfBoard = new Intent(callerActivity, typeof(DetailsBoardActivity));
                     detailsOfBoard.PutExtra("BoardId", GetItemId(position));
-                    callerInstance.StartActivity(detailsOfBoard);
+                    callerActivity.StartActivity(detailsOfBoard);
                 };
 
 
@@ -50,18 +52,30 @@ namespace Solitaire
             }
 
             BoardViewHolder holder = (BoardViewHolder)view.Tag;
-            holder.Name.Text = boards[position].Name;
+           
+            // My dumb way of managing the views and whether they are highlighted for deletion.
+            // If the name of the board is within the list then it is up for deletion
+            if (boardNames.Contains(boards[position].Name))
+            {
+                view.SetBackgroundResource(Resource.Color.deleteColor);
+            }
+            else
+            {
+                view.SetBackgroundColor(Android.Graphics.Color.Transparent);
+            }
+            
+            holder.Name.Text       = boards[position].Name;
             holder.TotalDecks.Text = boards[position].Decks.Count.ToString();
             holder.TotalCards.Text = boards[position].Cards.Count.ToString();
-
             
-
-
             // https://www.tutorialsteacher.com/linq/linq-set-operators-distinct
             // Need number of contributors
-            var board = boards.ElementAt(position);
+            // var board = boards.ElementAt(position);            
 
             holder.TotalContributors.Text = boards.ElementAt(position).QueryBoardDistinctContributorsForInstance().Count.ToString();
+
+            // Attempting to get references to each view for customization in listboardsfrag
+            listViewChildren.Add(view);
 
             return view;
         }
