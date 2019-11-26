@@ -12,7 +12,7 @@ namespace Solitaire
         List<Board> boards;
         MainActivity callerActivity;
         public List<View> listViewChildren = new List<View>();
-        public List<string> boardNames = new List<string>();
+        public List<Board> boardToDelete = new List<Board>();
 
         public BoardAdapter(List<Board> _boards, MainActivity _callerActivity)
         {
@@ -55,7 +55,7 @@ namespace Solitaire
            
             // My dumb way of managing the views and whether they are highlighted for deletion.
             // If the name of the board is within the list then it is up for deletion
-            if (boardNames.Contains(boards[position].Name))
+            if (boardToDelete.Contains(boards[position]))
             {
                 view.SetBackgroundResource(Resource.Color.deleteColor);
             }

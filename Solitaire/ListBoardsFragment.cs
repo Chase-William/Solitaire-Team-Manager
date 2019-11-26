@@ -44,10 +44,10 @@ namespace Solitaire
         AbsoluteLayout boardFragLayout;
         ImageButton deleteBoardBtn;
         bool DeleteBtnState = false;
-        BoardAdapter boardAdapter;
+        // BoardAdapter boardAdapter;
 
         // Contains references to boards that will be deleted if committed
-        public List<Board> boardsToDelete = new List<Board>();
+        // public List<Board> boardsToDelete = new List<Board>();
 
         public ListBoardsFragment(MainActivity _context) { 
             callerActivity = _context;
@@ -64,7 +64,7 @@ namespace Solitaire
             view.FindViewById<ImageButton>(Resource.Id.addNewBoardBtn).Click += delegate 
             {                
                 // First we need to de-activate the delete btns if active
-                if (DeleteBtnState) DeactivateDeleteBtnInterface();
+                if (DeleteBtnState) DeactivateDeleteBtnInterface(boardListView.GetBoardAdapter());
                 var createboardDialog = new CreateBoardDialog(callerActivity);                
             };
 
@@ -73,8 +73,8 @@ namespace Solitaire
             deleteBoardBtn.Click += OnDeleteBoardButtonClicked; 
 
             boardListView = view.FindViewById<ListView>(Resource.Id.boardListView);
-            boardAdapter = new BoardAdapter(AssetManager.boards, callerActivity);
-            boardListView.Adapter = boardAdapter;
+            
+            boardListView.Adapter = new BoardAdapter(AssetManager.boards, callerActivity);
             boardListView.ItemClick += (e, a) =>
             {
                 ItemClickedForCustomHandler?.Invoke(e, a);
@@ -89,7 +89,7 @@ namespace Solitaire
         /// 
         private void OnDeleteBoardButtonClicked(object sender, EventArgs e)
         {
-            if (DeleteBtnState) DeactivateDeleteBtnInterface();
+            if (DeleteBtnState) DeactivateDeleteBtnInterface(boardListView.GetBoardAdapter());
             else                ActivateDeleteBtnInterface();
             
         }
@@ -129,7 +129,7 @@ namespace Solitaire
             cancelDeleteBtn.Click += delegate
             {
                 // Deactivate the deletion "mode"
-                DeactivateDeleteBtnInterface();
+                DeactivateDeleteBtnInterface(boardListView.GetBoardAdapter());
             };
 
             // commit btn that will delete all the selected boards
@@ -141,16 +141,21 @@ namespace Solitaire
                 LayoutParameters = new ViewGroup.LayoutParams(subBtnWidth, subBtnHeight)
             };
             commitDeleteBtn.SetImageResource(Resource.Drawable.commit_icon);
-            commitDeleteBtn.SetBackgroundColor(Android.Graphics.Color.Transparent);
+            commitDeleteBtn.SetBackgroundColor(Color.Transparent);
             commitDeleteBtn.SetScaleType(ImageView.ScaleType.FitCenter);
             // Last step to delete the boards from the collection
             commitDeleteBtn.Click += delegate {
 
-                // TODO: Remove all boards by name
-                foreach (var board in boardAdapter.boardNames)
+                // Remove all boards that are inside the boardToDelete from the AssetManager collection (main collection)
+
+                var boardAdapter = boardListView.GetBoardAdapter();
+                var test = boardAdapter.boardToDelete.Count;
+
+                foreach (var board in boardAdapter.boardToDelete)
                 {
-                    AssetManager.boards.Remove(AssetManager.boards.Single(boardName => boardName.Name == board));
+                    AssetManager.boards.Remove(board);
                 }
+
 
                 /*
                     So here is the problem I was facing and why I solved it in a makeshift way...
@@ -167,7 +172,7 @@ namespace Solitaire
                 ((BoardAdapter)boardListView.Adapter).NotifyDataSetChanged();                
                                 
                 // After the user has deleted the boards, we can deactivate this "mode"
-                DeactivateDeleteBtnInterface();
+                DeactivateDeleteBtnInterface(boardAdapter);
             };
 
             boardFragLayout.AddView(cancelDeleteBtn);
@@ -179,12 +184,12 @@ namespace Solitaire
         ///     Will remove views for deleting boards from ui and set appropriate ItemClick Handler
         /// 
         ///
-        private void DeactivateDeleteBtnInterface()
+        private void DeactivateDeleteBtnInterface(BoardAdapter boardAdapter)
         {
             DeleteBtnState = false;
             ItemClickedForCustomHandler = SelectBoardForUse;
             // Clearing the list of references of boards to delete
-            boardsToDelete.Clear();
+            boardAdapter.boardToDelete.Clear();
             ResetBoardViewsColorToDefault();
             boardFragLayout.RemoveViewAt(boardFragLayout.ChildCount - 2);
             boardFragLayout.RemoveViewAt(boardFragLayout.ChildCount - 1);
@@ -202,25 +207,27 @@ namespace Solitaire
             // args.View, ((View)sender), args.Parent... all == the listview
 
             var boardAdapter = ((BoardAdapter)boardListView.Adapter);
-            string selectedBoardName = ((BoardViewHolder)boardAdapter.listViewChildren.ElementAt(args.Position).Tag).Name.Text;
+
+            // Getting the board instance that matches the name of the selected board
+            Board selectedBoardName = AssetManager.boards.Single(board => board.Name == ((BoardViewHolder)boardAdapter.listViewChildren.ElementAt(args.Position).Tag).Name.Text);
             
             // If the user hasn't selected this board before add it and to the list for deletion
-            if (!boardAdapter.boardNames.Contains(selectedBoardName))
-            {
+            //if (!boardAdapter.boardToDelete.Contains(selectedBoardName))
+            //{
                 boardAdapter.listViewChildren.ElementAt(args.Position).SetBackgroundResource(Resource.Color.deleteColor);
-                boardAdapter.boardNames.Add(selectedBoardName);
-            }
+                boardAdapter.boardToDelete.Add(selectedBoardName);
+            //}
             // If the user has selected this board and now clicks it again, remove it from the list
-            else
-            {
-                boardAdapter.listViewChildren.ElementAt(args.Position).SetBackgroundColor(Color.Transparent);
-                boardAdapter.boardNames.Remove(selectedBoardName);
-            }
+            //else
+            //{
+            //    boardAdapter.listViewChildren.ElementAt(args.Position).SetBackgroundColor(Color.Transparent);
+            //    boardAdapter.boardToDelete.Remove(selectedBoardName);
+            //}
             
 
 
             // Adding the board to the list containing boards that are selected for deletion
-            boardsToDelete.Add(AssetManager.boards[args.Position]);
+            boardAdapter.boardToDelete.Add(AssetManager.boards[args.Position]);
         }
 
         ///

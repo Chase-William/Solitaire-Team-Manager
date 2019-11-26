@@ -2625,4 +2625,3 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\add_icon.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\cancel_icon.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\commit_icon.png
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\CustomCellView.java

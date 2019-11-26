@@ -1,2 +1,89 @@
 
-  <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><include android:id="@+id/toolbar" layout="@layout/toolbar" /><ImageView android:src="@drawable/default_board" android:layout_gravity="center_horizontal" android:layout_marginTop="30dp" android:layout_marginBottom="2dp" android:layout_width="100dp" android:layout_height="100dp" /><TextView android:id="@+id/boardNameTextView" android:text="-- Board Name --" android:textSize="24dp" android:layout_marginTop="20dp" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" /><!-- Container for number of decks and cards --><LinearLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"><TextView android:text="Deck(s):" style="@style/CustomNumberOfDecksAndCardsTextView" /><TextView android:id="@+id/totalDecks" android:text="0" style="@style/CustomNumberOfDecksAndCardsTextView" /><TextView android:text="Card(s):" android:layout_marginLeft="10dp" style="@style/CustomNumberOfDecksAndCardsTextView" /><TextView android:id="@+id/totalCards" android:text="0" style="@style/CustomNumberOfDecksAndCardsTextView" /></LinearLayout><!-- Container for listview and its label --><LinearLayout android:layout_marginTop="10dp" android:orientation="vertical" android:layout_gravity="center_horizontal" android:layout_width="350dp" android:layout_height="match_parent"><TextView android:text="Contributors" android:layout_width="wrap_content" android:layout_height="wrap_content" /><!-- ListView that will contain contributers --><ListView android:id="@+id/allContributorsForBoard" android:layout_width="350dp" android:layout_height="170dp" /><TextView android:id="@+id/boardDescriptionTextView" android:hint="Desciption..." android:width="400dp" android:height="200dp" android:padding="10dp" android:background="@drawable/large_text_body_bg" android:layout_marginTop="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" /></LinearLayout></LinearLayout>
+<LinearLayout 
+    xmlns:android        ="http://schemas.android.com/apk/res/android"
+    xmlns:app            ="http://schemas.android.com/apk/res-auto"
+    android:orientation  ="vertical"
+    android:layout_width ="match_parent"
+    android:layout_height="match_parent">
+
+    <include 
+        android:id="@+id/toolbar"
+        layout    ="@layout/toolbar"/>
+    
+    <ImageView
+        android:src="@drawable/default_board"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop    ="30dp"
+        android:layout_marginBottom ="2dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <TextView        
+        android:id              ="@+id/boardNameTextView"
+        android:text            ="-- Board Name --"
+        android:textSize        ="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity  ="center_horizontal"
+        android:layout_width    ="wrap_content"
+        android:layout_height   ="wrap_content"/>
+
+    <!-- Container for number of decks and cards -->
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Deck(s):"
+            style="@style/CustomNumberOfDecksAndCardsTextView"/>
+
+        <TextView
+            android:id="@+id/totalDecks"
+            android:text="0"
+            style="@style/CustomNumberOfDecksAndCardsTextView"/>                
+
+        <TextView
+            android:text="Card(s):"
+            android:layout_marginLeft="10dp"
+            style="@style/CustomNumberOfDecksAndCardsTextView"/>
+
+        <TextView
+            android:id="@+id/totalCards"
+            android:text="0"            
+            style="@style/CustomNumberOfDecksAndCardsTextView" />
+
+    </LinearLayout>
+
+    <!-- Container for listview and its label -->
+    <LinearLayout  
+        android:layout_marginTop="10dp"
+        android:orientation     ="vertical"
+        android:layout_gravity  ="center_horizontal"
+        android:layout_width    ="350dp"
+        android:layout_height   ="match_parent">
+
+        <TextView
+            android:text         ="Contributors"
+            android:layout_width ="wrap_content"
+            android:layout_height="wrap_content"/>       
+
+        <!-- ListView that will contain contributers -->
+        <ListView     
+            android:id="@+id/allContributorsForBoard"
+            android:layout_width ="350dp"
+            android:layout_height="170dp"/>
+
+        <TextView
+            android:id              ="@+id/boardDescriptionTextView"
+            android:hint            ="Desciption..."
+            android:width           ="400dp"
+            android:height          ="200dp"
+            android:padding         ="10dp"
+            android:background      ="@drawable/large_text_body_bg"
+            android:layout_marginTop="10dp"
+            android:layout_width    ="wrap_content"
+            android:layout_height   ="wrap_content"/>
+
+    </LinearLayout>
+    
+</LinearLayout>
