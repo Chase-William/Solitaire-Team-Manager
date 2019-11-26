@@ -37,7 +37,7 @@ Solitaire is currently extended with the following plugins. Intructions on how t
 - [x] Implement UI offset when keyboard is toggled.
 - [x] Find a way to keep reference to leader of cards for EditCardActivity.
 - [ ] Either remove or add functionality for “Min / Max” card limit for decks.
-- [ ] Implement ability to delete boards
+- [x] Implement ability to delete boards
 - [ ] Implement ability to delete decks
 - [ ] Implement ability to delete cards
 - [ ] Implement ability to delete contributors
