@@ -1,5 +1,1 @@
-<resources>
-    <string name="app_name">Solitaire</string>
-    <string name="action_settings">Settings</string>
-    <string name="adding_contributor_options">Create a new contributor.</string>
-</resources>
+<resources><string name="app_name">Solitaire</string><string name="action_settings">Settings</string><string name="adding_contributor_options">Create a new contributor.</string></resources>

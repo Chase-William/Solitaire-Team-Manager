@@ -147,34 +147,20 @@ namespace Solitaire
             commitDeleteBtn.Click += delegate {
 
                 // Remove all boards that are inside the boardToDelete from the AssetManager collection (main collection)
+                // Getting a reference to the boardAdapter
+                var boardAdapter = boardListView.GetBoardAdapter();               
 
-                var boardAdapter = boardListView.GetBoardAdapter();
-                var test = boardAdapter.boardToDelete.Count;
+                // Removing all the boards from that list that are inside the boardAdapters list of boards to be deleted
+                AssetManager.boards.RemoveAll(boardAdapter.boardToDelete.Contains);
 
-                foreach (var board in boardAdapter.boardToDelete)
-                {
-                    AssetManager.boards.Remove(board);
-                }
-
-
-                /*
-                    So here is the problem I was facing and why I solved it in a makeshift way...
-
-                    I needed to change background the color of Views inside the listivew that were changed. 
-                    What I had done was created a "CustomCellView : View" class derived from View that had an event for reseting the background color.
-                    This event was bounded a handler when the overrided "SetBackgroundResource()" was called. 
-                    Inside the overrided "Tag" property I had the invocation of the event. So whenever the data set was changed (we deleted the board inside) it would update the color automatically.
-                    Lastly it would unbind the handler from the event until it's background color was changed again..
-                    I stopped trying to implement this because the code below worked and I wanted to proceed with the project without spending all my time working on something you can't event see when presenting.
-                    
-                */
                 // Telling the adapter the underlying dataset has changed (AssetManager.boards)... Really I had something like this for the Sfkanban stuff in UseBoardActivity
-                ((BoardAdapter)boardListView.Adapter).NotifyDataSetChanged();                
+                boardAdapter.NotifyDataSetChanged();                
                                 
                 // After the user has deleted the boards, we can deactivate this "mode"
                 DeactivateDeleteBtnInterface(boardAdapter);
             };
 
+            // Adding the views to the main view
             boardFragLayout.AddView(cancelDeleteBtn);
             boardFragLayout.AddView(commitDeleteBtn);
         }
@@ -206,28 +192,26 @@ namespace Solitaire
         {
             // args.View, ((View)sender), args.Parent... all == the listview
 
-            var boardAdapter = ((BoardAdapter)boardListView.Adapter);
+            // Getting our boards adapter using my own 
+            var boardAdapter = boardListView.GetBoardAdapter();
 
-            // Getting the board instance that matches the name of the selected board
-            Board selectedBoardName = AssetManager.boards.Single(board => board.Name == ((BoardViewHolder)boardAdapter.listViewChildren.ElementAt(args.Position).Tag).Name.Text);
-            
+            // Getting a reference to the view (LinearLayout) then using that ref and accessing its Tag (BoardViewHolder) to get the name of the board
+            // Once we obtain the board's name we can lookup that board instance and add it to the list of boards to be deleted
+            View selectedView = boardAdapter.listViewChildren.Single(view => view.Equals(args.View));
+            Board selectedBoard = AssetManager.boards.Single(board => board.Name == ((BoardViewHolder)selectedView.Tag).Name.Text);
+
             // If the user hasn't selected this board before add it and to the list for deletion
-            //if (!boardAdapter.boardToDelete.Contains(selectedBoardName))
-            //{
-                boardAdapter.listViewChildren.ElementAt(args.Position).SetBackgroundResource(Resource.Color.deleteColor);
-                boardAdapter.boardToDelete.Add(selectedBoardName);
-            //}
+            if (!boardAdapter.boardToDelete.Contains(selectedBoard))
+            {
+                selectedView.SetBackgroundResource(Resource.Color.deleteColor);    
+                boardAdapter.boardToDelete.Add(selectedBoard);
+            }
             // If the user has selected this board and now clicks it again, remove it from the list
-            //else
-            //{
-            //    boardAdapter.listViewChildren.ElementAt(args.Position).SetBackgroundColor(Color.Transparent);
-            //    boardAdapter.boardToDelete.Remove(selectedBoardName);
-            //}
-            
-
-
-            // Adding the board to the list containing boards that are selected for deletion
-            boardAdapter.boardToDelete.Add(AssetManager.boards[args.Position]);
+            else
+            {
+                selectedView.SetBackgroundColor(Color.Transparent);
+                boardAdapter.boardToDelete.Remove(selectedBoard);
+            }
         }
 
         ///
@@ -249,10 +233,12 @@ namespace Solitaire
         /// 
         private void ResetBoardViewsColorToDefault()
         {
-            foreach (var view in ((BoardAdapter)boardListView.Adapter).listViewChildren)
-            {
+            foreach (var view in boardListView.GetBoardAdapter().listViewChildren)
+            {   
                 view.SetBackgroundColor(Color.Transparent);
             }
+            // Ye i'll just stay with the dumb foreach for now
+            //boardListView.GetBoardAdapter().listViewChildren.Where(view => view.SolidColor == Resources.GetColor(Resource.Color.deleteColor)).ToList().ForEach(view => view.SetBackgroundColor(Color.Transparent));
         }
 
         // Refreshing our screen when we resume

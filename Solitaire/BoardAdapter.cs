@@ -47,8 +47,9 @@ namespace Solitaire
                     callerActivity.StartActivity(detailsOfBoard);
                 };
 
+                
 
-                view.Tag = new BoardViewHolder() { Name = name, TotalDecks = totalDecks, TotalCards = totalCards, TotalContributors = totalContributors, DetailsBoardBtn = detailsBoardBtn };
+                view.Tag = new BoardViewHolder() { Name = name, TotalDecks = totalDecks, TotalCards = totalCards, TotalContributors = totalContributors, DetailsBoardBtn = detailsBoardBtn };                
             }
 
             BoardViewHolder holder = (BoardViewHolder)view.Tag;
@@ -75,7 +76,8 @@ namespace Solitaire
             holder.TotalContributors.Text = boards.ElementAt(position).QueryBoardDistinctContributorsForInstance().Count.ToString();
 
             // Attempting to get references to each view for customization in listboardsfrag
-            listViewChildren.Add(view);
+            if (!listViewChildren.Contains(view))
+                listViewChildren.Add(view);
 
             return view;
         }

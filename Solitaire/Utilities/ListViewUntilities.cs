@@ -14,7 +14,7 @@ namespace Solitaire
 {
     /// 
     /// 
-    ///     Contains functions for interacting with the BoardAdapter
+    ///     Contains extension methods for interacting with the BoardAdapter
     /// 
     /// 
     public static class ListViewUntilities

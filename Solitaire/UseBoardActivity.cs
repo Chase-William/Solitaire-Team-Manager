@@ -213,8 +213,6 @@ namespace Solitaire
             var newColumn = new KanbanColumn(this)
             {
                 Title = _nameColumn,
-                MinimumLimit = 0,
-                MaximumLimit = 10,
                 // Categories is a list of all the "categories" this deck supports
                 Categories = new List<object>() {  _nameColumn }
             };
@@ -496,8 +494,6 @@ namespace Solitaire
                     {
                         Title = KanbanColumn.Name,
                         ContentDescription = KanbanColumn.Description,
-                        MinimumLimit = 0,
-                        MaximumLimit = 5,
                         Categories = new List<object>() { KanbanColumn.Name }
                     };
                     newColumn.ErrorBarSettings.Color = Color.Green;
