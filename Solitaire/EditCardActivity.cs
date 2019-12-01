@@ -45,25 +45,24 @@ namespace Solitaire
             UpdateListViewForMode = SetAdapterToRemoveMode;
 
             // Finding our kanbanModel inside the item source while using the intent extra we put from the calling activity
-            clickedKanbanModel = UseBoardActivity.thisKanban.ItemsSource.Cast<KanbanModelWrapper>().Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));
-            toggleModeBtn = FindViewById<Button>(Resource.Id.toggleCardContributorBtn);
-            toggleModeBtn.Click += (e ,a) =>
-            {
-                if (toggleModeBtn.Text[0] == 'R')
-                {
-                    toggleModeBtn.Text = "Adding";
-                    UpdateListViewForMode = SetAdapterToAddMode;
-                    ManipulateContributor = AddContributor;
-                }
-                else
-                {
-                    toggleModeBtn.Text = "Removing";
-                    UpdateListViewForMode = SetAdapterToRemoveMode;
-                    ManipulateContributor = RemoveContributor;
-                }
+            clickedKanbanModel = UseBoardActivity.kanbanModels.Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", - 1));
+            
 
-                UpdateListViewForMode.Invoke();
+
+            // Getting references to the "Add" and the "Remove" btns for controlling contributors
+            FindViewById<Button>(Resource.Id.addContributorBtn).Click += delegate
+            {
+                UpdateListViewForMode = SetAdapterToAddMode;
+                ManipulateContributor = AddContributor;
+                UpdateListViewForMode?.Invoke();
             };
+            FindViewById<Button>(Resource.Id.removeContributorBtn).Click += delegate
+            {
+                UpdateListViewForMode = SetAdapterToRemoveMode;
+                ManipulateContributor = RemoveContributor;
+                UpdateListViewForMode?.Invoke();
+            };
+
 
             // Since a leader a doesn't need to be assigned it can be null hence:
             if (clickedKanbanModel.Leader != null)
@@ -202,7 +201,7 @@ namespace Solitaire
             }
             else
             {
-                Toast.MakeText(this, "This name is already being used.", ToastLength.Long).Show();
+                Toast.MakeText(this, "This name is already being used.", ToastLength.Long).Show();                
                 return;
             }                                           
         }

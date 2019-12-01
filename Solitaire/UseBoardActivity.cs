@@ -221,6 +221,13 @@ namespace Solitaire
             newColumn.ContentDescription = _descriptionColumn;
             newColumn.ErrorBarSettings.Color = Color.Green;
             newColumn.ErrorBarSettings.Height = 4;
+            newColumn.Click += (e, a) =>
+            {
+                // Only runs when the deck is empty (has no kanbanModels inside)
+                // Need to check for finishedcards
+
+                thisKanban.Columns.Remove((KanbanColumn)e);
+            };
 
             // We need to add this kanbanWorkflow because it will be used when moving and deciding where cards shall be placed 
             thisKanban.Workflows.Add(new KanbanWorkflow()
@@ -249,8 +256,9 @@ namespace Solitaire
                 thisBoard.Cards = kanbanModels.Select(kanbanModel =>
                     new Card(kanbanModel.Title, kanbanModel.Description, (string)kanbanModel.Category)             
                     { 
-                        IsFinished = ((string)kanbanModel.ColorKey) == FINISHED_CARD_COLOR ? true : false ,
-                        ContributorEmails = kanbanModel.Tags == null ? null : kanbanModel.Tags.ToList()
+                        IsFinished = ((string)kanbanModel.ColorKey) == FINISHED_CARD_COLOR ? true : false,
+                        // If not null return a list of strings
+                        ContributorEmails = kanbanModel.Tags?.ToList()
                     }).ToList(); 
             }
 
@@ -282,7 +290,6 @@ namespace Solitaire
                 clickIdentifier = true;
                 // Now we need to make the current card as finished
                 MarkCardAsFinished(e.Column ,(long)((KanbanModel)e.Data).ID);
-                //Toast.MakeText(this, "Fire Double Click Event", ToastLength.Short).Show();
             }
             // A new kanbanModel was clicked therefore we are starting a new DoubleClickGesture for that object
             else if (!clickIdentifier && !currentClickedKanbanModel.Equals(clickedKanbanModel))
@@ -497,9 +504,7 @@ namespace Solitaire
                         Categories = new List<object>() { KanbanColumn.Name }
                     };
                     newColumn.ErrorBarSettings.Color = Color.Green;
-                    newColumn.ErrorBarSettings.MinValidationColor = Color.Orange;
-                    newColumn.ErrorBarSettings.MaxValidationColor = Color.Red;
-                    newColumn.ErrorBarSettings.Height = 4;
+                    newColumn.ErrorBarSettings.Height = 4;                   
 
                     UseBoardActivity.thisKanban.Columns.Add(newColumn);
                     useBoardActivity.allSupportedCategories.Add(newColumn.Title);
