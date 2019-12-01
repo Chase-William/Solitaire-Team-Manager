@@ -48,7 +48,7 @@ namespace Solitaire
         ///         then it returns the List<Contributor>
         /// 
         /// 
-        public static List<Lang.Contributor> QueryBoardDistinctContributorsForInstance(this Lang.Board _board)
+        public static List<Lang.Contributor> QueryBoardDistinctContributors(this Lang.Board _board)
         {
             // First aquire list of distinct emails for the board
             List<string> emails = QueryBoardAllDistinctContributorsForEmail(_board);

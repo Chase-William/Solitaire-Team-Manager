@@ -122,12 +122,6 @@
         android:layout_width  ="350dp"
         android:layout_height ="match_parent">        
         
-        <!-- ListView that will contain contributers -->
-        <ListView    
-            android:id           ="@+id/contributorsListView"
-            android:nestedScrollingEnabled="true"
-            android:layout_width ="350dp"
-            android:layout_height="170dp"/>
 
         <EditText
             android:id              ="@+id/cardDescriptionEditText"

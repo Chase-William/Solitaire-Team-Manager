@@ -20,11 +20,6 @@ namespace Solitaire
         public List<Contributor> contributors;
         Context callerActivity;
 
-        //public ContributorsAdapter(List<Contributor> _contributors)
-        //{
-        //    contributors = _contributors;
-        //}
-
         public ContributorsAdapter(List<Contributor> _contributors, Context _context)
         {
             contributors = _contributors;

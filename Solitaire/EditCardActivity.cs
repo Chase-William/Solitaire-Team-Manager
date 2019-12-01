@@ -15,23 +15,22 @@ using Android.Views.InputMethods;
 
 namespace Solitaire
 {
+    public enum ManipulatingContributorMode { Adding, Removing, SettingLeader }
+
     [Activity(Label = "EditCard")]
     public class EditCardActivity : AppCompatActivity
     {        
         event Action<int> ManipulateContributor;
-        Action<int> LastContributorManipulatingMethodCalled;
 
-        enum ManiplutingContributorMode { Adding, Removing }
+        
 
-        EditText cardNameEditText, cardDescriptionEditText;
-        KanbanModelWrapper clickedKanbanModel;
-        ListView contributorsListView;
-        List<Contributor> contributingContributors = new List<Contributor>();
-        List<Contributor> noncontributingContributors = new List<Contributor>();
-        ImageButton changeLeaderBtn;
-        // Detemines if the changeLeaderBtn is pressed
-        bool changeLeaderFlag = false;
-        List<Contributor> contributorsCurrentlyVisible;
+        public EditText cardNameEditText, cardDescriptionEditText;
+        public KanbanModelWrapper clickedKanbanModel;
+        // ListView contributorsListView;
+        public List<Contributor> contributingContributors = new List<Contributor>();
+        public List<Contributor> noncontributingContributors = new List<Contributor>();
+        public ImageButton changeLeaderBtn;
+        // List<Contributor> contributorsCurrentlyVisible;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,16 +45,19 @@ namespace Solitaire
             // Finding our kanbanModel inside the item source while using the intent extra we put from the calling activity
             clickedKanbanModel = UseBoardActivity.kanbanModels.Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));
             
-            // Getting references to the "Add" and the "Remove" btns for controlling contributors
+            // Creates a dialog of the non-contributing contributors for adding
             FindViewById<Button>(Resource.Id.addContributorBtn).Click += delegate
             {
-                ManipulateContributor = AddContributor;
-                SetUIToMode(ManiplutingContributorMode.Adding);
+                //ManipulateContributor = AddContributor;
+                //SetUIToMode(ManipulatingContributorMode.Adding);
+                new ContributorListDialog(this, ManipulatingContributorMode.Adding);
             };
+            // Creates a dialog of the contributing contributors for removing
             FindViewById<Button>(Resource.Id.removeContributorBtn).Click += delegate
             {
-                ManipulateContributor = RemoveContributor;
-                SetUIToMode(ManiplutingContributorMode.Removing);
+                //ManipulateContributor = RemoveContributor;
+                //SetUIToMode(ManipulatingContributorMode.Removing);
+                new ContributorListDialog(this, ManipulatingContributorMode.Removing);
             };
 
 
@@ -96,46 +98,42 @@ namespace Solitaire
             changeLeaderBtn = FindViewById<ImageButton>(Resource.Id.changeCardLeaderBtn);
             changeLeaderBtn.Click += delegate
             {
-                changeLeaderFlag = !changeLeaderFlag;
+                // First we need to check to make sure the contributing contributors list isn't empty
+                if (contributingContributors == null || contributingContributors.Count == 0)
+                {
+                    RunOnUiThread(() => Toast.MakeText(this, "Before adding a leader add contributors to your card.", ToastLength.Long).Show());  
+                    return;
+                }
 
-                if (changeLeaderFlag) changeLeaderBtn.SetImageResource(Resource.Drawable.change_leader_icon_pressed);
-                else changeLeaderBtn.SetImageResource(Resource.Drawable.change_leader_icon);
-
-
-                // TODO when we press the change the contributor btn and then change like add or removing list it wipes the ManipulateContributor event
-
-
-                // Getting a reference to what the meth
-                LastContributorManipulatingMethodCalled = ManipulateContributor;
+                // Create our dialog for setting the card's leader
+                new ContributorListDialog(this, ManipulatingContributorMode.SettingLeader);
 
                 // Replaces the eventhandler to now add a leader contributor
-                ManipulateContributor = (_pos) =>
-                {
-                    if (contributorsCurrentlyVisible != null)
-                    {
-                        FindViewById<TextView>(Resource.Id.cardLeaderTextView).Text = $"{contributorsCurrentlyVisible[_pos].Name} | {contributorsCurrentlyVisible[_pos].Email}";
-                        clickedKanbanModel.Leader = contributorsCurrentlyVisible[_pos];
-                    }                    
-                    changeLeaderBtn.SetImageResource(Resource.Drawable.change_leader_icon);
-                    
-                    
-                };
+                //ManipulateContributor = (_pos) =>
+                //{
+                //    if (contributorsCurrentlyVisible != null)
+                //    {
+                //        FindViewById<TextView>(Resource.Id.cardLeaderTextView).Text = $"{contributorsCurrentlyVisible[_pos].Name} | {contributorsCurrentlyVisible[_pos].Email}";
+                //        clickedKanbanModel.Leader = contributorsCurrentlyVisible[_pos];
+                //    }
+                //    changeLeaderBtn.SetImageResource(Resource.Drawable.change_leader_icon);
+                //};
             };
 
 
 
-            contributorsListView = FindViewById<ListView>(Resource.Id.contributorsListView);
-            // Gets list of contributors using email as our primary key, also null check
-            contributorsListView.Adapter = new ContributorsAdapter(contributingContributors, this);
-            contributorsListView.ItemClick += (e, a) =>
-            {                
-                ManipulateContributor?.Invoke(a.Position);
-            };
+            //contributorsListView = FindViewById<ListView>(Resource.Id.contributorsListView);
+            //// Gets list of contributors using email as our primary key, also null check
+            //contributorsListView.Adapter = new ContributorsAdapter(contributingContributors, this);
+            //contributorsListView.ItemClick += (e, a) =>
+            //{                
+            //    ManipulateContributor?.Invoke(a.Position);
+            //};
 
 
             // Setting a default state
-            ManipulateContributor = AddContributor;
-            SetUIToMode(ManiplutingContributorMode.Adding);
+            //ManipulateContributor = AddContributor;
+            //SetUIToMode(ManipulatingContributorMode.Adding);
         }
 
         /// 
@@ -143,18 +141,18 @@ namespace Solitaire
         ///     Updates the program based off the status of the UI     
         ///
         ///
-        private void SetUIToMode(ManiplutingContributorMode _mode)
-        {
-            switch (_mode)
-            {                
-                case ManiplutingContributorMode.Adding:                    
-                    SetAdapterToAddMode();                    
-                    break;
-                case ManiplutingContributorMode.Removing:
-                    SetAdapterToRemoveMode();
-                    break;             
-            }
-        }
+        //private void SetUIToMode(ManipulatingContributorMode _mode)
+        //{
+        //    switch (_mode)
+        //    {                
+        //        case ManipulatingContributorMode.Adding:                    
+        //            SetAdapterToAddMode();                    
+        //            break;
+        //        case ManipulatingContributorMode.Removing:
+        //            SetAdapterToRemoveMode();
+        //            break;             
+        //    }
+        //}
 
 
 
@@ -175,47 +173,47 @@ namespace Solitaire
         ///     Handles the setup required for removing contributors
         /// 
         ///
-        private void RemoveContributor(int _pos)
-        {
-            noncontributingContributors.Add(contributingContributors.ElementAt(_pos));
-            contributingContributors.RemoveAt(_pos);
-            contributorsListView.GetContributorAdapter().NotifyDataSetChanged();
-        }
+        //private void RemoveContributor(int _pos)
+        //{
+        //    noncontributingContributors.Add(contributingContributors.ElementAt(_pos));
+        //    contributingContributors.RemoveAt(_pos);
+        //    contributorsListView.GetContributorAdapter().NotifyDataSetChanged();
+        //}
 
         /// 
         /// 
         ///     Handles the setup required for add contributors
         /// 
         ///
-        private void AddContributor(int _pos)
-        {
-            contributingContributors.Add(noncontributingContributors.ElementAt(_pos));
-            noncontributingContributors.RemoveAt(_pos);
-            contributorsListView.GetContributorAdapter().NotifyDataSetChanged();
-            // SetUIToMode(ManiplutingContributorMode.Adding);
-        }
+        //private void AddContributor(int _pos)
+        //{
+        //    contributingContributors.Add(noncontributingContributors.ElementAt(_pos));
+        //    noncontributingContributors.RemoveAt(_pos);
+        //    contributorsListView.GetContributorAdapter().NotifyDataSetChanged();
+        //    // SetUIToMode(ManiplutingContributorMode.Adding);
+        //}
 
         /// 
         /// 
         ///     Sets the current adapter to display all the contributers that can be added
         /// 
         /// 
-        private void SetAdapterToAddMode()
-        {
-            contributorsListView.Adapter = new ContributorsAdapter(noncontributingContributors, this);
-            contributorsCurrentlyVisible = noncontributingContributors;
-        }
+        //private void SetAdapterToAddMode()
+        //{
+        //    contributorsListView.Adapter = new ContributorsAdapter(noncontributingContributors, this);
+        //    contributorsCurrentlyVisible = noncontributingContributors;
+        //}
 
         /// 
         /// 
         ///     Sets the current adapter to display the currently contributing contributors
         /// 
         /// 
-        private void SetAdapterToRemoveMode()
-        {
-            contributorsListView.Adapter = new ContributorsAdapter(contributingContributors, this);
-            contributorsCurrentlyVisible = contributingContributors;
-        }
+        //private void SetAdapterToRemoveMode()
+        //{
+        //    contributorsListView.Adapter = new ContributorsAdapter(contributingContributors, this);
+        //    contributorsCurrentlyVisible = contributingContributors;
+        //}
 
 
         /// 

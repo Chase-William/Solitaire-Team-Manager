@@ -12,7 +12,7 @@ namespace Solitaire
         List<Board> boards;
         MainActivity callerActivity;
         public List<View> listViewChildren = new List<View>();
-        public List<Board> boardToDelete = new List<Board>();
+        public List<Board> boardsToDelete = new List<Board>();
 
         public BoardAdapter(List<Board> _boards, MainActivity _callerActivity)
         {
@@ -46,17 +46,15 @@ namespace Solitaire
                     detailsOfBoard.PutExtra("BoardId", GetItemId(position));
                     callerActivity.StartActivity(detailsOfBoard);
                 };
-
                 
-
                 view.Tag = new BoardViewHolder() { Name = name, TotalDecks = totalDecks, TotalCards = totalCards, TotalContributors = totalContributors, DetailsBoardBtn = detailsBoardBtn };                
             }
 
             BoardViewHolder holder = (BoardViewHolder)view.Tag;
            
             // My dumb way of managing the views and whether they are highlighted for deletion.
-            // If the name of the board is within the list then it is up for deletion
-            if (boardToDelete.Contains(boards[position]))
+            // If the board is within the list then it is up for deletion
+            if (boardsToDelete.Contains(boards[position]))
             {
                 view.SetBackgroundResource(Resource.Color.deleteColor);
             }
@@ -67,13 +65,9 @@ namespace Solitaire
             
             holder.Name.Text       = boards[position].Name;
             holder.TotalDecks.Text = boards[position].Decks.Count.ToString();
-            holder.TotalCards.Text = boards[position].Cards.Count.ToString();
-            
-            // https://www.tutorialsteacher.com/linq/linq-set-operators-distinct
-            // Need number of contributors
-            // var board = boards.ElementAt(position);            
+            holder.TotalCards.Text = boards[position].Cards.Count.ToString();                                
 
-            holder.TotalContributors.Text = boards.ElementAt(position).QueryBoardDistinctContributorsForInstance().Count.ToString();
+            holder.TotalContributors.Text = boards.ElementAt(position).QueryBoardDistinctContributors().Count.ToString();
 
             // Attempting to get references to each view for customization in listboardsfrag
             if (!listViewChildren.Contains(view))

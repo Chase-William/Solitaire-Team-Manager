@@ -26,7 +26,7 @@ namespace Solitaire
         /// 
         public static BoardAdapter GetBoardAdapter(this ListView _listView)
         {
-            return (BoardAdapter)_listView.Adapter;
+            return _listView.Adapter as BoardAdapter;
         }
 
         /// 
@@ -35,8 +35,18 @@ namespace Solitaire
         /// 
         /// 
         public static ContributorsAdapter GetContributorAdapter(this ListView _listView)
+        { 
+            return _listView.Adapter as ContributorsAdapter;
+        }
+
+        /// 
+        /// 
+        ///     Gets the GetEditCardContributorAdapter from the generic adapter
+        /// 
+        /// 
+        public static EditCardContributorAdapter GetEditCardContributorAdapter(this ListView _listView)
         {
-            return (ContributorsAdapter)_listView.Adapter;
+            return _listView.Adapter as EditCardContributorAdapter;
         }
     }
 }

@@ -11,6 +11,7 @@ background;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 Button;obj\Debug\90\res\layout\add_existing_contributor.xml
 Button;obj\Debug\90\res\layout\add_new_contributor.xml
 Button;obj\Debug\90\res\layout\all_contributors_fragment.xml
+Button;obj\Debug\90\res\layout\contributor_list_dialog.xml
 Button;obj\Debug\90\res\layout\contributor_options_dialog.xml
 Button;obj\Debug\90\res\layout\create_board_dialog.xml
 Button;obj\Debug\90\res\layout\create_card_dialog.xml
@@ -70,6 +71,7 @@ LinearLayout;obj\Debug\90\res\layout\add_new_contributor.xml
 LinearLayout;obj\Debug\90\res\layout\all_contributors_fragment.xml
 LinearLayout;obj\Debug\90\res\layout\board_row.xml
 LinearLayout;obj\Debug\90\res\layout\category_spinner_row.xml
+LinearLayout;obj\Debug\90\res\layout\contributor_list_dialog.xml
 LinearLayout;obj\Debug\90\res\layout\contributor_options_dialog.xml
 LinearLayout;obj\Debug\90\res\layout\contributor_row.xml
 LinearLayout;obj\Debug\90\res\layout\create_board_dialog.xml
@@ -85,6 +87,7 @@ LinearLayout;obj\Debug\90\res\layout\nav_header.xml
 LinearLayout;obj\Debug\90\res\layout\use_board_activity.xml
 ListView;obj\Debug\90\res\layout\add_existing_contributor.xml
 ListView;obj\Debug\90\res\layout\all_contributors_fragment.xml
+ListView;obj\Debug\90\res\layout\contributor_list_dialog.xml
 ListView;obj\Debug\90\res\layout\details_board_activity.xml
 ListView;obj\Debug\90\res\layout\details_card_activity.xml
 ListView;obj\Debug\90\res\layout\edit_board_activity.xml
@@ -106,6 +109,7 @@ RelativeLayout;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\
 RelativeLayout;obj\Debug\90\res\layout\add_existing_contributor.xml
 RelativeLayout;obj\Debug\90\res\layout\add_new_contributor.xml
 RelativeLayout;obj\Debug\90\res\layout\board_row.xml
+RelativeLayout;obj\Debug\90\res\layout\contributor_list_dialog.xml
 RelativeLayout;obj\Debug\90\res\layout\contributor_options_dialog.xml
 RelativeLayout;obj\Debug\90\res\layout\contributor_row.xml
 RelativeLayout;obj\Debug\90\res\layout\create_board_dialog.xml
@@ -147,6 +151,7 @@ TextView;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaul
 TextView;obj\Debug\90\res\layout\add_new_contributor.xml
 TextView;obj\Debug\90\res\layout\board_row.xml
 TextView;obj\Debug\90\res\layout\category_spinner_row.xml
+TextView;obj\Debug\90\res\layout\contributor_list_dialog.xml
 TextView;obj\Debug\90\res\layout\contributor_options_dialog.xml
 TextView;obj\Debug\90\res\layout\contributor_row.xml
 TextView;obj\Debug\90\res\layout\create_board_dialog.xml

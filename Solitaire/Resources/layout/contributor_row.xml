@@ -5,7 +5,7 @@
     android:descendantFocusability="blocksDescendants"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="110dp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:background="@drawable/custom_border"
@@ -17,8 +17,8 @@
         <refractored.controls.CircleImageView
             android:id="@+id/avatar"
             app:civ_border_color="@color/colorPrimaryGray"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:civ_border_width="2dp"
             android:layout_margin="8dp"
             app:elevation="5dp"/>
@@ -26,7 +26,7 @@
         <RelativeLayout
             android:layout_marginTop="10dp"
             android:layout_width="220dp"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/nameOfContributor"
