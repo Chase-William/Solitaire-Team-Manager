@@ -1,6 +1,6 @@
-# Solitaire
+# Solitaire Team Manager
 
-Solitaire is an early-stage management app where you can organize your project. The app’s objective is to allow the user to create projects and structure them effectively using the app. The personal objective is for this to be a great learning experience.
+Solitaire Team Manager is an early-stage management app where you can organize your project. The app’s objective is to allow the user to create projects and structure them effectively using the app. The personal objective is for this to be a great learning experience.
 
   - A Board is like the project, it contains all the contents that make up the project. It's the main wrapper for everything that has to do with that project. 
   - A Deck is a container inside the board that will hold all the user’s objectives. 
