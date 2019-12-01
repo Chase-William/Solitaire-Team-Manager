@@ -14,10 +14,10 @@ using Solitaire.Lang;
 
 namespace Solitaire
 {
-    class ContributorsAdapter : BaseAdapter<Contributor>
+    public class ContributorsAdapter : BaseAdapter<Contributor>
     {
 
-        List<Contributor> contributors;
+        public List<Contributor> contributors;
         Context callerActivity;
 
         //public ContributorsAdapter(List<Contributor> _contributors)

@@ -27,10 +27,17 @@ namespace Solitaire
         public static List<Board> boards = new List<Board>();
         public static List<Contributor> contributors = new List<Contributor>();
         public static GoogleSignInAccount thisGoogleAccount;
-        
+        public static TimeSpan VibrateTime;
+
         // Interesting const is automatically static, don't need to write static
         private const string BOARDS_FILE = "boards.json";
         //private static string localPath;
+
+        static AssetManager()
+        {
+            VibrateTime = TimeSpan.FromMilliseconds(150);
+        }
+
 
         /// 
         /// 

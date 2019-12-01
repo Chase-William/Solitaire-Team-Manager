@@ -17,17 +17,21 @@ namespace Solitaire
 {
     [Activity(Label = "EditCard")]
     public class EditCardActivity : AppCompatActivity
-    {
+    {        
         event Action<int> ManipulateContributor;
-        event Action UpdateListViewForMode;
+        Action<int> LastContributorManipulatingMethodCalled;
+
+        enum ManiplutingContributorMode { Adding, Removing }
 
         EditText cardNameEditText, cardDescriptionEditText;
         KanbanModelWrapper clickedKanbanModel;
         ListView contributorsListView;
         List<Contributor> contributingContributors = new List<Contributor>();
         List<Contributor> noncontributingContributors = new List<Contributor>();
-        Button toggleModeBtn;
-        TextView cardLeaderTextView;
+        ImageButton changeLeaderBtn;
+        // Detemines if the changeLeaderBtn is pressed
+        bool changeLeaderFlag = false;
+        List<Contributor> contributorsCurrentlyVisible;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -37,30 +41,21 @@ namespace Solitaire
 
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Edit Card";
-            SetSupportActionBar(toolbar);
-
-            // Setting a default state
-            ManipulateContributor = RemoveContributor;
-            // Our default starting activity will be to remove contributors, so we need to set our event for refreshing the UI accordingly
-            UpdateListViewForMode = SetAdapterToRemoveMode;
+            SetSupportActionBar(toolbar);            
 
             // Finding our kanbanModel inside the item source while using the intent extra we put from the calling activity
-            clickedKanbanModel = UseBoardActivity.kanbanModels.Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", - 1));
+            clickedKanbanModel = UseBoardActivity.kanbanModels.Single(kanbanModel => kanbanModel.ID == this.Intent.GetLongExtra("kanbanModelId", -1));
             
-
-
             // Getting references to the "Add" and the "Remove" btns for controlling contributors
             FindViewById<Button>(Resource.Id.addContributorBtn).Click += delegate
             {
-                UpdateListViewForMode = SetAdapterToAddMode;
                 ManipulateContributor = AddContributor;
-                UpdateListViewForMode?.Invoke();
+                SetUIToMode(ManiplutingContributorMode.Adding);
             };
             FindViewById<Button>(Resource.Id.removeContributorBtn).Click += delegate
             {
-                UpdateListViewForMode = SetAdapterToRemoveMode;
                 ManipulateContributor = RemoveContributor;
-                UpdateListViewForMode?.Invoke();
+                SetUIToMode(ManiplutingContributorMode.Removing);
             };
 
 
@@ -95,23 +90,39 @@ namespace Solitaire
                     noncontributingContributors.Add(contributor);
                     return false;
                 }
-            }).ToList();            
+            }).ToList();
 
-
-            cardLeaderTextView = FindViewById<TextView>(Resource.Id.cardLeaderTextView);
-            FindViewById<Button>(Resource.Id.changeCardLeaderBtn).Click += delegate
+            // this button will put the listview mode into selecting a leader for the card
+            changeLeaderBtn = FindViewById<ImageButton>(Resource.Id.changeCardLeaderBtn);
+            changeLeaderBtn.Click += delegate
             {
-                // First we need to make sure the user selecting from the already added contributors and set the button to the correct state
-                SetAdapterToRemoveMode();
-                toggleModeBtn.Text = "Removing";
+                changeLeaderFlag = !changeLeaderFlag;
+
+                if (changeLeaderFlag) changeLeaderBtn.SetImageResource(Resource.Drawable.change_leader_icon_pressed);
+                else changeLeaderBtn.SetImageResource(Resource.Drawable.change_leader_icon);
+
+
+                // TODO when we press the change the contributor btn and then change like add or removing list it wipes the ManipulateContributor event
+
+
+                // Getting a reference to what the meth
+                LastContributorManipulatingMethodCalled = ManipulateContributor;
 
                 // Replaces the eventhandler to now add a leader contributor
                 ManipulateContributor = (_pos) =>
                 {
-                    cardLeaderTextView.Text = $"{contributingContributors[_pos].Name} | {contributingContributors[_pos].Email}";
-                    clickedKanbanModel.Leader = contributingContributors[_pos];
+                    if (contributorsCurrentlyVisible != null)
+                    {
+                        FindViewById<TextView>(Resource.Id.cardLeaderTextView).Text = $"{contributorsCurrentlyVisible[_pos].Name} | {contributorsCurrentlyVisible[_pos].Email}";
+                        clickedKanbanModel.Leader = contributorsCurrentlyVisible[_pos];
+                    }                    
+                    changeLeaderBtn.SetImageResource(Resource.Drawable.change_leader_icon);
+                    
+                    
                 };
             };
+
+
 
             contributorsListView = FindViewById<ListView>(Resource.Id.contributorsListView);
             // Gets list of contributors using email as our primary key, also null check
@@ -120,7 +131,32 @@ namespace Solitaire
             {                
                 ManipulateContributor?.Invoke(a.Position);
             };
+
+
+            // Setting a default state
+            ManipulateContributor = AddContributor;
+            SetUIToMode(ManiplutingContributorMode.Adding);
         }
+
+        /// 
+        /// 
+        ///     Updates the program based off the status of the UI     
+        ///
+        ///
+        private void SetUIToMode(ManiplutingContributorMode _mode)
+        {
+            switch (_mode)
+            {                
+                case ManiplutingContributorMode.Adding:                    
+                    SetAdapterToAddMode();                    
+                    break;
+                case ManiplutingContributorMode.Removing:
+                    SetAdapterToRemoveMode();
+                    break;             
+            }
+        }
+
+
 
         /// 
         /// 
@@ -143,7 +179,7 @@ namespace Solitaire
         {
             noncontributingContributors.Add(contributingContributors.ElementAt(_pos));
             contributingContributors.RemoveAt(_pos);
-            UpdateListViewForMode?.Invoke();
+            contributorsListView.GetContributorAdapter().NotifyDataSetChanged();
         }
 
         /// 
@@ -155,7 +191,8 @@ namespace Solitaire
         {
             contributingContributors.Add(noncontributingContributors.ElementAt(_pos));
             noncontributingContributors.RemoveAt(_pos);
-            UpdateListViewForMode?.Invoke();
+            contributorsListView.GetContributorAdapter().NotifyDataSetChanged();
+            // SetUIToMode(ManiplutingContributorMode.Adding);
         }
 
         /// 
@@ -166,6 +203,7 @@ namespace Solitaire
         private void SetAdapterToAddMode()
         {
             contributorsListView.Adapter = new ContributorsAdapter(noncontributingContributors, this);
+            contributorsCurrentlyVisible = noncontributingContributors;
         }
 
         /// 
@@ -176,6 +214,7 @@ namespace Solitaire
         private void SetAdapterToRemoveMode()
         {
             contributorsListView.Adapter = new ContributorsAdapter(contributingContributors, this);
+            contributorsCurrentlyVisible = contributingContributors;
         }
 
 

@@ -42,6 +42,7 @@ group;obj\Debug\90\res\menu\navigation_menu.xml
 HorizontalScrollView;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout\defaultcardview.xml
 HorizontalScrollView;C:\Dev\Solitaire\Solitaire\obj\Debug\90\lp\1\jl\res\layout-ldrtl\defaultcardview.xml
 ImageButton;obj\Debug\90\res\layout\board_row.xml
+ImageButton;obj\Debug\90\res\layout\edit_card_activity.xml
 ImageButton;obj\Debug\90\res\layout\list_boards_fragment.xml
 ImageView;obj\Debug\90\res\layout\board_row.xml
 ImageView;obj\Debug\90\res\layout\details_board_activity.xml

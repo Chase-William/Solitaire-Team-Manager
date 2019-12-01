@@ -2621,6 +2621,10 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\contributor_row.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\solitaire_icon.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\delete_icon.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\add_icon.png
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\cancel_icon.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\commit_icon.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\delete_icon_pressed.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\change_leader_icon.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\change_leader_icon_pressed.png
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache

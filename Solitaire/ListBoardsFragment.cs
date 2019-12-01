@@ -8,30 +8,7 @@ using System.Collections.Generic;
 using Solitaire.Lang;
 using System.Linq;
 using System;
-
-
-
-
-
-
-
-
-
-
-
-// TODO: When scrolling through the listview of boards and when recycling them the colored ones will reapear on the board that wasn't selected
-//          Need to make it so when the dataset changes the damn color is set to default transparent
-
-
-
-
-
-
-
-
-
-
-
+using Xamarin.Essentials;
 
 namespace Solitaire
 {
@@ -160,6 +137,12 @@ namespace Solitaire
                 DeactivateDeleteBtnInterface(boardAdapter);
             };
 
+            // Providing user feedback
+            Vibration.Vibrate(AssetManager.VibrateTime);
+            deleteBoardBtn.SetImageResource(Resource.Drawable.delete_icon_pressed);
+            //deleteBoardBtn.SetBackgroundResource(Resource.Drawable.delete_icon_pressed);
+            
+
             // Adding the views to the main view
             boardFragLayout.AddView(cancelDeleteBtn);
             boardFragLayout.AddView(commitDeleteBtn);
@@ -179,6 +162,7 @@ namespace Solitaire
             ResetBoardViewsColorToDefault();
             boardFragLayout.RemoveViewAt(boardFragLayout.ChildCount - 2);
             boardFragLayout.RemoveViewAt(boardFragLayout.ChildCount - 1);
+            deleteBoardBtn.SetImageResource(Resource.Drawable.delete_icon);
         }
 
         /// 

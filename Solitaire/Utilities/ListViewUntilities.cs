@@ -21,12 +21,22 @@ namespace Solitaire
     {
         ///
         ///        
-        ///     Gets the BoardAdapter from the Adapter
+        ///     Gets the BoardAdapter from the generic adapter
         /// 
         /// 
         public static BoardAdapter GetBoardAdapter(this ListView _listView)
         {
             return (BoardAdapter)_listView.Adapter;
+        }
+
+        /// 
+        /// 
+        ///     Gets the ContributorAdapter from the generic adapter
+        /// 
+        /// 
+        public static ContributorsAdapter GetContributorAdapter(this ListView _listView)
+        {
+            return (ContributorsAdapter)_listView.Adapter;
         }
     }
 }
