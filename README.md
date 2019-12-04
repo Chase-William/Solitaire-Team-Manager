@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/ChaseRoth/Solitaire-Team-Manager/master/Solitaire/Resources/mipmap-mdpi/solitaire_icon.png" alt="Solitaire Team Manager's Icon Image">
 </p>
 
-# Solitaire Team Manager [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+# Solitaire Team Manager
 
 Solitaire Team Manager is an early-stage management app where you can organize your project. The app’s objective is to allow the user to create projects and structure them effectively using the app. The personal objective is for this to be a great learning experience.
 
