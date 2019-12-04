@@ -4793,6 +4793,9 @@ namespace Solitaire
 			// aapt resource value: 0x7F0D0003
 			public const int ic_launcher_round = 2131558403;
 			
+			// aapt resource value: 0x7F0D0004
+			public const int solitaire_icon = 2131558404;
+			
 			static Mipmap()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
