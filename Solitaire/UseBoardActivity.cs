@@ -111,15 +111,13 @@ namespace Solitaire
                     // and skip the creation proccess
                     if (thisKanban.Columns.Count == 0)
                     {
-                        Toast.MakeText(this, "Please add a deck before you add a card.", ToastLength.Short).Show();
+                        Toast.MakeText(this.Application, "Please add a deck before you add a card.", ToastLength.Short).Show();
+                        RunOnUiThread(() => Toast.MakeText(this, "Tesing Toast from UI thread.", ToastLength.Long).Show());
                         break;
                     }
                     // If a column does exist we will create the dialog
                     new CreateCardDialog(this);
                         break;
-                case "Add Contributor":
-                    new ContributorOptionsDialog(this);
-                    break;
                 case "Show Finished Cards":
                     ShowFinishedCards();
                     break;

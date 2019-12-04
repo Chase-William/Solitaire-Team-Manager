@@ -10,10 +10,6 @@
        app:showAsAction="always"
        android:title="Add Card" />
   <item
-       android:id="@+id/addContributor"
-       app:showAsAction="never"
-       android:title="Add Contributor" />
-  <item
        android:id="@+id/toggleAllCards"
        app:showAsAction="never"
        android:title="Show Finished Cards" />

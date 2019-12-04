@@ -52,12 +52,13 @@ namespace Solitaire
 
             // Getting the avatar, using Refractored package for CircleImageView
 
+
             // headerView.FindViewById<Refractored.Controls.CircleImageView>(Resource.Id.avatarForNavHeader).SetImageDrawable(AssetManager.QueryGoogleAccountAvatar());
 
-           //var test = AssetManager.thisGoogleAccount;
+            //var test = AssetManager.thisGoogleAccount;
 
 
-           ClientManager.InitClientSocket();
+            // ClientManager.InitClientSocket();
         }
         
         /// 
@@ -86,7 +87,7 @@ namespace Solitaire
                 case Resource.Id.allContributors:
                     Navigate(new ListContributorsFragment(this));
                     break;
-                case Resource.Id.allBoards:                    
+                case Resource.Id.allBoards:                   
                     Navigate(new ListBoardsFragment(this));
                     break;               
             }
