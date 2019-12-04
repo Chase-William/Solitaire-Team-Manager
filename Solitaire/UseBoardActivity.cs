@@ -259,7 +259,7 @@ namespace Solitaire
                         IsFinished = ((string)kanbanModel.ColorKey) == FINISHED_CARD_COLOR ? true : false,
                         // If not null return a list of strings
                         ContributorEmails = kanbanModel.Tags?.ToList(),
-                        LeadContributor = kanbanModel.Leader.Email
+                        LeadContributor = kanbanModel.Leader?.Email
                     }).ToList(); 
             }
 
@@ -529,7 +529,7 @@ namespace Solitaire
                         Description = card.Description,
                         ColorKey = card.IsFinished ? FINISHED_CARD_COLOR : UNFINISHED_CARD_COLOR,
                         Tags = card.ContributorEmails == null ? null : card.ContributorEmails.ToArray(),
-                        Leader = AssetManager.contributors.Single(contributor => contributor.Email == card.LeadContributor)
+                        Leader = card.LeadContributor == null ? null : AssetManager.contributors.Single(contributor => contributor.Email == card.LeadContributor)
                     }).ToList();
 
                 // Assigning the kanbans into the ItemsSource so they can be displayed

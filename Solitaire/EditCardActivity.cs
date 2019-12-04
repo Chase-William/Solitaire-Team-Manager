@@ -106,55 +106,9 @@ namespace Solitaire
                 }
 
                 // Create our dialog for setting the card's leader
-                new ContributorListDialog(this, ManipulatingContributorMode.SettingLeader);
-
-                // Replaces the eventhandler to now add a leader contributor
-                //ManipulateContributor = (_pos) =>
-                //{
-                //    if (contributorsCurrentlyVisible != null)
-                //    {
-                //        FindViewById<TextView>(Resource.Id.cardLeaderTextView).Text = $"{contributorsCurrentlyVisible[_pos].Name} | {contributorsCurrentlyVisible[_pos].Email}";
-                //        clickedKanbanModel.Leader = contributorsCurrentlyVisible[_pos];
-                //    }
-                //    changeLeaderBtn.SetImageResource(Resource.Drawable.change_leader_icon);
-                //};
+                new ContributorListDialog(this, ManipulatingContributorMode.SettingLeader);                
             };
-
-
-
-            //contributorsListView = FindViewById<ListView>(Resource.Id.contributorsListView);
-            //// Gets list of contributors using email as our primary key, also null check
-            //contributorsListView.Adapter = new ContributorsAdapter(contributingContributors, this);
-            //contributorsListView.ItemClick += (e, a) =>
-            //{                
-            //    ManipulateContributor?.Invoke(a.Position);
-            //};
-
-
-            // Setting a default state
-            //ManipulateContributor = AddContributor;
-            //SetUIToMode(ManipulatingContributorMode.Adding);
         }
-
-        /// 
-        /// 
-        ///     Updates the program based off the status of the UI     
-        ///
-        ///
-        //private void SetUIToMode(ManipulatingContributorMode _mode)
-        //{
-        //    switch (_mode)
-        //    {                
-        //        case ManipulatingContributorMode.Adding:                    
-        //            SetAdapterToAddMode();                    
-        //            break;
-        //        case ManipulatingContributorMode.Removing:
-        //            SetAdapterToRemoveMode();
-        //            break;             
-        //    }
-        //}
-
-
 
         /// 
         /// 
@@ -167,53 +121,6 @@ namespace Solitaire
             inputMM.HideSoftInputFromWindow(cardNameEditText.WindowToken, 0);
             return base.OnTouchEvent(e);
         }
-
-        ///
-        /// 
-        ///     Handles the setup required for removing contributors
-        /// 
-        ///
-        //private void RemoveContributor(int _pos)
-        //{
-        //    noncontributingContributors.Add(contributingContributors.ElementAt(_pos));
-        //    contributingContributors.RemoveAt(_pos);
-        //    contributorsListView.GetContributorAdapter().NotifyDataSetChanged();
-        //}
-
-        /// 
-        /// 
-        ///     Handles the setup required for add contributors
-        /// 
-        ///
-        //private void AddContributor(int _pos)
-        //{
-        //    contributingContributors.Add(noncontributingContributors.ElementAt(_pos));
-        //    noncontributingContributors.RemoveAt(_pos);
-        //    contributorsListView.GetContributorAdapter().NotifyDataSetChanged();
-        //    // SetUIToMode(ManiplutingContributorMode.Adding);
-        //}
-
-        /// 
-        /// 
-        ///     Sets the current adapter to display all the contributers that can be added
-        /// 
-        /// 
-        //private void SetAdapterToAddMode()
-        //{
-        //    contributorsListView.Adapter = new ContributorsAdapter(noncontributingContributors, this);
-        //    contributorsCurrentlyVisible = noncontributingContributors;
-        //}
-
-        /// 
-        /// 
-        ///     Sets the current adapter to display the currently contributing contributors
-        /// 
-        /// 
-        //private void SetAdapterToRemoveMode()
-        //{
-        //    contributorsListView.Adapter = new ContributorsAdapter(contributingContributors, this);
-        //    contributorsCurrentlyVisible = contributingContributors;
-        //}
 
 
         /// 

@@ -2627,9 +2627,7 @@ C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\delete_icon_pressed.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\assets\Mono.Android.pdb
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\change_leader_icon.png
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\drawable\change_leader_icon_pressed.png
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\res\layout\contributor_list_dialog.xml
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\ContributorListDialog.java
 C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\EditCardContributorAdapter.java
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\AddRemoveContributorAdapter.java
-C:\Dev\Solitaire\Solitaire\obj\Debug\90\android\src\md5991b3296029042025ad7970fd527090b\SetLeaderContributorAdapter.java
+C:\Dev\Solitaire\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache

@@ -77,21 +77,21 @@ namespace Solitaire
                 case ManipulatingContributorMode.SettingLeader:
                     SelectContributorEvent = SelectCardLeader;
                     CommitChanges = CommitCardLeader;
-                    contributorListView.Adapter = new EditCardContributorAdapter(callerActivity.contributingContributors, callerActivity);
+                    contributorListView.Adapter = new EditCardContributorAdapter(callerActivity.contributingContributors, callerActivity, mode);
                     break;
                 // The dialog was created to select & add as many contributing contributors as desired.
                 //      Will be swapped to non-contributing contributors list, set eventhandler and render contributing contributors
                 case ManipulatingContributorMode.Removing:
                     SelectContributorEvent = SelectContributingContributor;
                     CommitChanges = CommitToBeRemovedContributors;
-                    contributorListView.Adapter = new EditCardContributorAdapter(callerActivity.contributingContributors, callerActivity);
+                    contributorListView.Adapter = new EditCardContributorAdapter(callerActivity.contributingContributors, callerActivity, mode);
                     break;
                 // The dialog was created to select & add as many non-contributing contributors as desired.
                 //      Will be swapped to contributing contributors list, set eventhandler and render non-contributing contributors
                 case ManipulatingContributorMode.Adding:
                     SelectContributorEvent = SelectNoncontributingContributor;
                     CommitChanges = CommitToBeAddedContributors;
-                    contributorListView.Adapter = new EditCardContributorAdapter(callerActivity.noncontributingContributors, callerActivity);
+                    contributorListView.Adapter = new EditCardContributorAdapter(callerActivity.noncontributingContributors, callerActivity, mode);
                     break;
             }
         }
@@ -103,32 +103,30 @@ namespace Solitaire
         /// 
         private void SelectCardLeader(int _pos, View _view)
         {
-            Contributor newCardLeader = callerActivity.contributingContributors[_pos];
-            // var contributors = contributorListView.GetEditCardContributorAdapter().contributors;
-            var selectedContributor = contributorListView.GetEditCardContributorAdapter().selectedContributors;
+            var contributorAdapter = contributorListView.GetEditCardContributorAdapter();           
+            var selectedContributors = contributorAdapter.selectedContributors;
+            var contributors = contributorAdapter.contributors;
 
-            
-            if (selectedContributor != null || selectedContributor[0] != newCardLeader)
+            // If the user hasn't selected this board before add it and to the list for deletion
+            if (!selectedContributors.Contains(contributors[_pos]))
             {
-                try
+                // if a contributor is already selected, remove it from the list since the user has selected a new contributor
+                if (selectedContributors.Count == 1)
                 {
-                    if (selectedContributor[0] != null)
-                    {
-                        contributorListView.GetEditCardContributorAdapter().listViewChildren.First(view => ((ContributorViewHolder)view.Tag).Email.Text == selectedContributor[0].Email).SetBackgroundColor(Color.Transparent);
-                    }
+                    // Which ever view contains the contributor which is about to be removed needs have it background set to transparent to show its been deselected
+                    contributorAdapter.listViewChildren.First(view => ((ContributorViewHolder)view.Tag).Email.Text == selectedContributors[0].Email).SetBackgroundColor(Color.Transparent);
+                    selectedContributors.RemoveAt(0);
                 }
-                catch { }
-                finally
-                {
-                    selectedContributor[0] = newCardLeader;
-                    _view.SetBackgroundResource(Resource.Color.deleteColor);
-                }                                
+
+                _view.SetBackgroundResource(Resource.Color.deleteColor);
+                selectedContributors.Add(contributors[_pos]);
             }
+            // If the user has selected this board and now clicks it again, remove it from the list
             else
             {
-                selectedContributor[0] = null;
                 _view.SetBackgroundColor(Color.Transparent);
-            }         
+                selectedContributors.Remove(contributors[_pos]);
+            }   
         }
 
         /// 
@@ -160,7 +158,7 @@ namespace Solitaire
         {
             var selectedContributors = contributorListView.GetEditCardContributorAdapter().selectedContributors;
             if (!selectedContributors.Contains(_callerActivitycontributors[_pos]))
-            {
+            {                
                 selectedContributors.Add(_callerActivitycontributors[_pos]);
                 _view.SetBackgroundResource(Resource.Color.deleteColor);
             }
@@ -180,7 +178,20 @@ namespace Solitaire
         /// 
         private void CommitCardLeader()
         {
-            Contributor cardLeader = contributorListView.GetEditCardContributorAdapter().contributors[0];
+
+            // TODO: Make this safe when a user pressed commit and no contributor is selected            
+            var selectedContributors = contributorListView.GetEditCardContributorAdapter().selectedContributors;
+
+            // If nothing was selected then set the values to default
+            if (selectedContributors == null || selectedContributors.Count == 0)
+            {
+                cardLeaderTextView.Text = "N/A";
+                // Also include the leader into the wrapper for the kanbanModel
+                callerActivity.clickedKanbanModel.Leader = null;
+                return;
+            }
+
+            Contributor cardLeader = selectedContributors[0];
             // Based off the position provided from the ItemClicker handler, we assign the values of the selected contributors to the leader UI view components
             cardLeaderTextView.Text = $"{cardLeader.Name} | {cardLeader.Email}";
             // Also include the leader into the wrapper for the kanbanModel
@@ -203,17 +214,21 @@ namespace Solitaire
         ///
         /// 
         private void CommitToBeRemovedContributors()
-        {
-            ProcessCommit(callerActivity.noncontributingContributors, callerActivity.contributingContributors);
+        {            
             var selectedContributors = contributorListView.GetEditCardContributorAdapter().selectedContributors;
-            Contributor cardLeader = contributorListView.GetEditCardContributorAdapter().contributors[0];
-            if (cardLeader == null) return;
+            
+            // If the user commits the removal of an empty list just return
+            if (selectedContributors == null || selectedContributors.Count == 0) return;
 
-            if (selectedContributors.Any(contributor => contributor.Email == cardLeader.Email))
+            // If any of the contributor's emails match the leaders contributor.
+            // The leader needs to be set to a default value because the contributor that was the leader is going to be removed          
+            if (selectedContributors.Any(contributor => contributor.Email == callerActivity.clickedKanbanModel.Leader?.Email))
             {
-                cardLeader = null;
+                callerActivity.clickedKanbanModel.Leader = null;
                 cardLeaderTextView.Text = "N/A";
             }
+
+            ProcessCommit(callerActivity.noncontributingContributors, callerActivity.contributingContributors);
         }
 
         ///

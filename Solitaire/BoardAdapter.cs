@@ -52,7 +52,6 @@ namespace Solitaire
 
             BoardViewHolder holder = (BoardViewHolder)view.Tag;
            
-            // My dumb way of managing the views and whether they are highlighted for deletion.
             // If the board is within the list then it is up for deletion
             if (boardsToDelete.Contains(boards[position]))
             {

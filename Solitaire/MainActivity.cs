@@ -20,7 +20,8 @@ namespace Solitaire
     public class MainActivity : AppCompatActivity
     {
         DrawerLayout drawerLayout;
-        
+        Android.Support.V4.App.Fragment fragment;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -65,7 +66,7 @@ namespace Solitaire
         /// 
         /// 
         void Navigate(Android.Support.V4.App.Fragment fragment)
-        {
+        {            
             var transaction = base.SupportFragmentManager.BeginTransaction();
             transaction.Replace(Resource.Id.contentFrame, fragment);            
             transaction.Commit();

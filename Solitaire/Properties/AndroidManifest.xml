@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.solitaire" android:installLocation="preferExternal">
-	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="27" />
+	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="28" />
 	<application android:allowBackup="true" android:icon="@drawable/solitaire_icon" android:label="@string/app_name" android:roundIcon="@drawable/solitaire_icon" android:supportsRtl="true" android:theme="@style/AppTheme"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

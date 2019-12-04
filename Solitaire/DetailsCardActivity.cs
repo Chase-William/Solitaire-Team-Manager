@@ -22,7 +22,7 @@ namespace Solitaire
         KanbanModelWrapper clickedKanbanModel;
         private const int EDIT_ACTIVITY_CODE = 3;
         ListView contributorsListView;
-        
+        TextView cardNameTextView, cardDescriptionTextView, cardLeaderTextView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -47,16 +47,16 @@ namespace Solitaire
             {
                 Finish();
             }
-            
 
             // Setting the textviews to display the information about the kanbanModel
-            FindViewById<TextView>(Resource.Id.cardNameTextView).Text = clickedKanbanModel.Title;
-            FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = clickedKanbanModel.Description;
-            // Since a leader a doesn't need to be assigned it can be null hence:
-            if (clickedKanbanModel.Leader != null)
-                FindViewById<TextView>(Resource.Id.cardNameTextView).Text = $"{clickedKanbanModel.Leader.Name} | {clickedKanbanModel.Leader.Email}";
+            contributorsListView         = FindViewById<ListView>(Resource.Id.contributorsListView);
+            cardNameTextView             = FindViewById<TextView>(Resource.Id.cardNameTextView);
+            cardDescriptionTextView      = FindViewById<TextView>(Resource.Id.cardDescriptionTextView);
+            cardLeaderTextView           = FindViewById<TextView>(Resource.Id.cardLeaderTextView);
+            cardDescriptionTextView.Text = clickedKanbanModel.Description;
+            cardNameTextView.Text        = clickedKanbanModel.Title;
+            cardLeaderTextView.Text      = clickedKanbanModel.Leader == null ? "N/A" : $"{clickedKanbanModel.Leader.Name} | {clickedKanbanModel.Leader.Email}";
 
-            contributorsListView = FindViewById<ListView>(Resource.Id.contributorsListView);
             // Gets list of contributors using email as our primary key, also null check
             contributorsListView.Adapter = new ContributorsAdapter(
                 AssetManager.contributors.Where(contributor => {
@@ -102,19 +102,16 @@ namespace Solitaire
                 SetResult(Result.Ok);
             }            
         }
-
+        
 
         // When this resumes we re-assign the views the proper values
         protected override void OnResume()
         {
             base.OnResume();
-            FindViewById<TextView>(Resource.Id.cardNameTextView).Text = clickedKanbanModel.Title;
-            FindViewById<TextView>(Resource.Id.cardDescriptionTextView).Text = clickedKanbanModel.Description;
-
-            // Since a leader a doesn't need to be assigned it can be null hence:
-            if (clickedKanbanModel.Leader != null)
-                FindViewById<TextView>(Resource.Id.cardLeaderTextView).Text = $"{clickedKanbanModel.Leader.Name} | {clickedKanbanModel.Leader.Email}";
-
+            cardNameTextView.Text = clickedKanbanModel.Title;
+            cardDescriptionTextView.Text = clickedKanbanModel.Description;
+            cardLeaderTextView.Text = clickedKanbanModel.Leader == null ? "N/A" : $"{clickedKanbanModel.Leader.Name} | {clickedKanbanModel.Leader.Email}";
+                            
             contributorsListView.Adapter = new ContributorsAdapter(
                 AssetManager.contributors.Where(contributor => {
                     if (clickedKanbanModel.Tags != null)
