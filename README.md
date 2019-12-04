@@ -1,4 +1,8 @@
-# Solitaire Team Manager
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ChaseRoth/Solitaire-Team-Manager/master/Solitaire/Resources/mipmap-mdpi/solitaire_icon.png" alt="Solitaire Team Manager's Icon Image">
+</p>
+
+# Solitaire Team Manager [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 Solitaire Team Manager is an early-stage management app where you can organize your project. The app’s objective is to allow the user to create projects and structure them effectively using the app. The personal objective is for this to be a great learning experience.
 
@@ -52,4 +56,5 @@ Solitaire is currently extended with the following plugins. Intructions on how t
 - [ ] Implement demographics for boards.
 
 ### Powered By
-[![Foo](https://upload.wikimedia.org/wikipedia/commons/f/f2/Xamarin-logo.svg)](https://dotnet.microsoft.com/apps/xamarin/)
+[![Footer](https://upload.wikimedia.org/wikipedia/commons/f/f2/Xamarin-logo.svg)](https://dotnet.microsoft.com/apps/xamarin/)
+
