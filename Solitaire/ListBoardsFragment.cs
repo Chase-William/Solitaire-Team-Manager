@@ -51,7 +51,7 @@ namespace Solitaire
 
             boardListView = view.FindViewById<ListView>(Resource.Id.boardListView);
             
-            boardListView.Adapter = new BoardAdapter(AssetManager.boards, callerActivity);
+            boardListView.Adapter = new BoardAdapter(AssetManager.boards, callerActivity, BoardAdapterMode.DeleteBoards);
             boardListView.ItemClick += (e, a) =>
             {
                 ItemClickedForCustomHandler?.Invoke(e, a);
@@ -66,8 +66,10 @@ namespace Solitaire
         /// 
         private void OnDeleteBoardButtonClicked(object sender, EventArgs e)
         {
-            if (DeleteBtnState) DeactivateDeleteBtnUI(boardListView.GetBoardAdapter());
-            else                ActivateDeleteBtnUI();
+            var boardAdapter = boardListView.GetBoardAdapter();
+
+            if (DeleteBtnState) DeactivateDeleteBtnUI(boardAdapter);
+            else                ActivateDeleteBtnUI(boardAdapter);
             
         }
 
@@ -76,76 +78,73 @@ namespace Solitaire
         ///     Will generate views needed for the user to delete boards and set appropriate ItemClick Handler
         /// 
         /// 
-        private void ActivateDeleteBtnUI()
+        private void ActivateDeleteBtnUI(BoardAdapter _boardAdapter)
         {
             DeleteBtnState = true;
 
             ItemClickedForCustomHandler = SelectBoardsForDeletion;
 
             // Will contain the x, y coords of where the deleteBoardBtn is
-            int[] coords = new int[2];
-            // Gets the location and assigns it to our coords array
-            deleteBoardBtn.GetLocationOnScreen(coords);
-
-            int subBtnWidth = 170;
-            int subBtnHeight = 170;
+            int[] vec2 = new int[2];
+            // Gets the location of our delete btn and assigns it to our coords array
+            deleteBoardBtn.GetLocationOnScreen(vec2);
+            
+            const int SUB_BTN_WIDTH = 170;
+            const int SUB_BTN_HEIGHT = 170;
 
             // will cancel the deletion of all the selected boards
             var cancelDeleteBtn = new ImageButton(callerActivity)
             {
                 TooltipText = "Cancel",
-                TranslationX = coords[0] + deleteBoardBtn.Width / 2f - subBtnWidth / 2f,
-                TranslationY = coords[1] - deleteBoardBtn.Height - 130f,
-                LayoutParameters = new ViewGroup.LayoutParams(subBtnWidth, subBtnHeight),               
+                TranslationX = vec2[0] + deleteBoardBtn.Width / 2f - SUB_BTN_WIDTH / 2f,
+                TranslationY = vec2[1] - deleteBoardBtn.Height - 130f,
+                LayoutParameters = new ViewGroup.LayoutParams(SUB_BTN_WIDTH, SUB_BTN_HEIGHT),               
             };
             cancelDeleteBtn.SetImageResource(Resource.Drawable.cancel_icon);
-            cancelDeleteBtn.SetBackgroundColor(Android.Graphics.Color.Transparent);
+            cancelDeleteBtn.SetBackgroundColor(Color.Transparent);
             // https://thoughtbot.com/blog/android-imageview-scaletype-a-visual-guide
             cancelDeleteBtn.SetScaleType(ImageView.ScaleType.FitCenter);
             // Cancels the deletion of whatever boards we clicked. 
             cancelDeleteBtn.Click += delegate
             {
                 // Deactivate the deletion "mode"
-                DeactivateDeleteBtnUI(boardListView.GetBoardAdapter());
+                DeactivateDeleteBtnUI(_boardAdapter);
             };
 
             // commit btn that will delete all the selected boards
             var commitDeleteBtn = new ImageButton(callerActivity)
             {
                 TooltipText = "Commit",
-                TranslationX = coords[0] + deleteBoardBtn.Width / 2f - subBtnWidth / 2f,
-                TranslationY = coords[1] - deleteBoardBtn.Height - 260f,
-                LayoutParameters = new ViewGroup.LayoutParams(subBtnWidth, subBtnHeight)
+                TranslationX = vec2[0] + deleteBoardBtn.Width / 2f - SUB_BTN_WIDTH / 2f,
+                TranslationY = vec2[1] - deleteBoardBtn.Height - 260f,
+                LayoutParameters = new ViewGroup.LayoutParams(SUB_BTN_WIDTH, SUB_BTN_HEIGHT)
             };
             commitDeleteBtn.SetImageResource(Resource.Drawable.commit_icon);
             commitDeleteBtn.SetBackgroundColor(Color.Transparent);
             commitDeleteBtn.SetScaleType(ImageView.ScaleType.FitCenter);
             // Last step to delete the boards from the collection
-            commitDeleteBtn.Click += delegate {
-
-                // Remove all boards that are inside the boardToDelete from the AssetManager collection (main collection)
-                // Getting a reference to the boardAdapter
-                var boardAdapter = boardListView.GetBoardAdapter();               
+            commitDeleteBtn.Click += delegate {                
 
                 // Removing all the boards from that list that are inside the boardAdapters list of boards to be deleted
-                AssetManager.boards.RemoveAll(boardAdapter.boardsToDelete.Contains);
+                AssetManager.boards.RemoveAll(_boardAdapter.boardsToDelete.Contains);
 
                 // Telling the adapter the underlying dataset has changed (AssetManager.boards)... Really I had something like this for the Sfkanban stuff in UseBoardActivity
-                boardAdapter.NotifyDataSetChanged();                
+                _boardAdapter.NotifyDataSetChanged();                
                                 
                 // After the user has deleted the boards, we can deactivate this "mode"
-                DeactivateDeleteBtnUI(boardAdapter);
+                DeactivateDeleteBtnUI(_boardAdapter);
             };
 
             // Providing user feedback
             Vibration.Vibrate(AssetManager.VibrateTime);
-            deleteBoardBtn.SetImageResource(Resource.Drawable.delete_icon_pressed);
-            //deleteBoardBtn.SetBackgroundResource(Resource.Drawable.delete_icon_pressed);
-            
+            deleteBoardBtn.SetImageResource(Resource.Drawable.delete_icon_pressed);            
 
             // Adding the views to the main view
             boardFragLayout.AddView(cancelDeleteBtn);
             boardFragLayout.AddView(commitDeleteBtn);
+
+            // Setting the mode of the boardadapter to delete mode
+            _boardAdapter.BoardAdapterMode = BoardAdapterMode.DeleteBoards;
         }
 
         /// 
@@ -163,6 +162,9 @@ namespace Solitaire
             boardFragLayout.RemoveViewAt(boardFragLayout.ChildCount - 2);
             boardFragLayout.RemoveViewAt(boardFragLayout.ChildCount - 1);
             deleteBoardBtn.SetImageResource(Resource.Drawable.delete_icon);
+
+            // Setting the mode of the boardadapter to delete mode
+            boardAdapter.BoardAdapterMode = BoardAdapterMode.UseBoard;
         }
 
         /// 
@@ -229,7 +231,7 @@ namespace Solitaire
         public override void OnResume()
         {
             base.OnResume();
-            boardListView.Adapter = new BoardAdapter(AssetManager.boards, callerActivity);
+            boardListView.Adapter = new BoardAdapter(AssetManager.boards, callerActivity, BoardAdapterMode.UseBoard);
         }
     }
 }

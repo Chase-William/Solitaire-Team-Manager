@@ -20,14 +20,14 @@ using System.Drawing;
 
 namespace Solitaire
 {
-    public static class AssetManager
+    public class AssetManager
     {
         private static string[] images = { "images/avatar_red.png", "images/avatar_orange.png", "images/avatar_blue.png", "images/avatar_purple.png", "images/avatar_green.png" };
         private static Dictionary<string, Drawable> imageCache = new Dictionary<string, Drawable>();
         public static List<Board> boards = new List<Board>();
         public static List<Contributor> contributors = new List<Contributor>();
         public static GoogleSignInAccount thisGoogleAccount;
-        public static TimeSpan VibrateTime;
+        public static TimeSpan VibrateTime;        
 
         // Interesting const is automatically static, don't need to write static
         private const string BOARDS_FILE = "boards.json";

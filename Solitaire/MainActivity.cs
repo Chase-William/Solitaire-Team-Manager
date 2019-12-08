@@ -16,11 +16,10 @@ using Android.Graphics.Drawables;
 
 namespace Solitaire
 {   
-    [Activity(Label = "Solitaire", MainLauncher = true)] 
+    [Activity(Label = "STM", MainLauncher = true)] 
     public class MainActivity : AppCompatActivity
     {
         DrawerLayout drawerLayout;
-        Android.Support.V4.App.Fragment fragment;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,7 +27,7 @@ namespace Solitaire
             SetContentView(Resource.Layout.main_activity);
 
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = "Solitaire";
+            toolbar.Title = "STM";
             SetSupportActionBar(toolbar);
             // Setting up a our hamburger menu
             

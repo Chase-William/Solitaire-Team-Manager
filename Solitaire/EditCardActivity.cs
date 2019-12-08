@@ -20,10 +20,6 @@ namespace Solitaire
     [Activity(Label = "EditCard")]
     public class EditCardActivity : AppCompatActivity
     {        
-        event Action<int> ManipulateContributor;
-
-        
-
         public EditText cardNameEditText, cardDescriptionEditText;
         public KanbanModelWrapper clickedKanbanModel;
         // ListView contributorsListView;

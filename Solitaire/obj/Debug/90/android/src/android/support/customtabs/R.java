@@ -81,20 +81,20 @@ public final class R {
 		public static final int notify_panel_notification_icon_bg = 0x7f07009f;
 	}
 	public static final class id {
-		public static final int action_container = 0x7f08000e;
-		public static final int action_divider = 0x7f080010;
-		public static final int action_image = 0x7f080011;
-		public static final int action_text = 0x7f080017;
-		public static final int actions = 0x7f080018;
-		public static final int async = 0x7f080028;
-		public static final int blocking = 0x7f08002d;
-		public static final int bottom = 0x7f080036;
-		public static final int browser_actions_header_text = 0x7f080037;
-		public static final int browser_actions_menu_item_icon = 0x7f080038;
-		public static final int browser_actions_menu_item_text = 0x7f080039;
-		public static final int browser_actions_menu_items = 0x7f08003a;
-		public static final int browser_actions_menu_view = 0x7f08003b;
-		public static final int chronometer = 0x7f080051;
+		public static final int action_container = 0x7f08000f;
+		public static final int action_divider = 0x7f080011;
+		public static final int action_image = 0x7f080012;
+		public static final int action_text = 0x7f080018;
+		public static final int actions = 0x7f080019;
+		public static final int async = 0x7f080029;
+		public static final int blocking = 0x7f08002e;
+		public static final int bottom = 0x7f080037;
+		public static final int browser_actions_header_text = 0x7f080038;
+		public static final int browser_actions_menu_item_icon = 0x7f080039;
+		public static final int browser_actions_menu_item_text = 0x7f08003a;
+		public static final int browser_actions_menu_items = 0x7f08003b;
+		public static final int browser_actions_menu_view = 0x7f08003c;
+		public static final int chronometer = 0x7f080052;
 		public static final int end = 0x7f080078;
 		public static final int forever = 0x7f080085;
 		public static final int icon = 0x7f08008c;

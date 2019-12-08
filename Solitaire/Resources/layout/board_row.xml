@@ -81,8 +81,7 @@
         </RelativeLayout>  
         
         <ImageButton
-            android:id="@+id/detailsBoardBtn"            
-            android:src="@drawable/details_icon"
+            android:id="@+id/accessibilityBtn"   
             android:background="#fff"
             android:layout_gravity="center_vertical"
             android:scaleType="fitCenter"

@@ -12,7 +12,7 @@
     <activity android:label="EditBoardActivity" android:name="md5991b3296029042025ad7970fd527090b.EditBoardActivity" />
     <activity android:label="EditCard" android:name="md5991b3296029042025ad7970fd527090b.EditCardActivity" />
     <activity android:noHistory="true" android:theme="@style/ThemeOverlay.MyNoTitleActivity" android:name="com.xamarin.signinquickstart.MainActivity" />
-    <activity android:label="Solitaire" android:name="md5991b3296029042025ad7970fd527090b.MainActivity">
+    <activity android:label="STM" android:name="md5991b3296029042025ad7970fd527090b.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

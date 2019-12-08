@@ -58,12 +58,12 @@ namespace Solitaire
                 var newBoard = new Board(name, FindViewById<EditText>(Resource.Id.descriptionTextDialog).Text.Trim());
                 AssetManager.boards.Add(newBoard);
 
-                Intent useCreateBoard = new Intent(callerActivity, typeof(UseBoardActivity));
-                useCreateBoard.PutExtra("BoardId", newBoard.Id);
-                useCreateBoard.PutExtra("IsNew", true);
+                //Intent useCreateBoard = new Intent(callerActivity, typeof(UseBoardActivity));
+                //useCreateBoard.PutExtra("BoardId", newBoard.Id);
+                //useCreateBoard.PutExtra("IsNew", true);
 
                 Dismiss();
-                callerActivity.StartActivity(useCreateBoard);
+                //callerActivity.StartActivity(useCreateBoard);                
             };
 
             // Dismisses the dialog without creating a new deck
