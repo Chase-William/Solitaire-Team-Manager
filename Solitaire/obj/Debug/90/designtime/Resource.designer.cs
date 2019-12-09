@@ -3510,22 +3510,25 @@ namespace Solitaire
 			public const int Rectangle_28 = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int ripple = 2131165342;
+			public const int remove_from_select = 2131165342;
 			
 			// aapt resource value: 0x7F07009F
-			public const int roundedcorner = 2131165343;
+			public const int ripple = 2131165343;
 			
 			// aapt resource value: 0x7F0700A0
-			public const int select_for_remove = 2131165344;
+			public const int roundedcorner = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int solitaire_icon = 2131165345;
+			public const int select_for_remove = 2131165345;
 			
 			// aapt resource value: 0x7F0700A2
-			public const int tooltip_frame_dark = 2131165346;
+			public const int solitaire_icon = 2131165346;
 			
 			// aapt resource value: 0x7F0700A3
-			public const int tooltip_frame_light = 2131165347;
+			public const int tooltip_frame_dark = 2131165347;
+			
+			// aapt resource value: 0x7F0700A4
+			public const int tooltip_frame_light = 2131165348;
 			
 			static Drawable()
 			{
@@ -4747,22 +4750,25 @@ namespace Solitaire
 			public const int notification_template_part_time = 2131427409;
 			
 			// aapt resource value: 0x7F0B0052
-			public const int select_dialog_item_material = 2131427410;
+			public const int remove_from_select = 2131427410;
 			
 			// aapt resource value: 0x7F0B0053
-			public const int select_dialog_multichoice_material = 2131427411;
+			public const int select_dialog_item_material = 2131427411;
 			
 			// aapt resource value: 0x7F0B0054
-			public const int select_dialog_singlechoice_material = 2131427412;
+			public const int select_dialog_multichoice_material = 2131427412;
 			
 			// aapt resource value: 0x7F0B0055
-			public const int support_simple_spinner_dropdown_item = 2131427413;
+			public const int select_dialog_singlechoice_material = 2131427413;
 			
 			// aapt resource value: 0x7F0B0056
-			public const int toolbar = 2131427414;
+			public const int support_simple_spinner_dropdown_item = 2131427414;
 			
 			// aapt resource value: 0x7F0B0057
-			public const int use_board_activity = 2131427415;
+			public const int toolbar = 2131427415;
+			
+			// aapt resource value: 0x7F0B0058
+			public const int use_board_activity = 2131427416;
 			
 			static Layout()
 			{

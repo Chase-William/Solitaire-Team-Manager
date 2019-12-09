@@ -20,8 +20,9 @@ namespace Solitaire
         public List<View> listViewChildren = new List<View>();
         public List<Board> boardsToDelete = new List<Board>();
         private BoardAdapterMode boardAdapterMode;
-        private EventHandler useBoardHandlerHandle;
-        
+        private EventHandler onAccessibilityBtnClicked;
+        private event Action<View, ImageButton, string> AccessibilityBtnClicked;
+        //private Action<ImageButton, string> AccessibilityBtnClicked;
 
         public BoardAdapterMode BoardAdapterMode
         {
@@ -31,19 +32,21 @@ namespace Solitaire
 
                 if (value == BoardAdapterMode.UseBoard)
                 {
-                    listViewChildren?.ForEach((view) => {
+                    AccessibilityBtnClicked = LaunchDetailsActivity;
+                    listViewChildren?.ForEach((view) => {                        
                         var accessibilityBtn = view.FindViewById<ImageButton>(Resource.Id.accessibilityBtn);
                         accessibilityBtn.SetImageResource(Resource.Drawable.details_icon);
-                        accessibilityBtn.Click += useBoardHandlerHandle;
+                        //accessibilityBtn.Click += onAccessibilityBtnClicked;
                         accessibilityBtn.Tag = true;
                     });
                 }
                 else if (value == BoardAdapterMode.DeleteBoards)
                 {
-                    listViewChildren?.ForEach((view) => {
+                    AccessibilityBtnClicked = SelectForDelete;
+                    listViewChildren?.ForEach((view) => {                        
                         var accessibilityBtn = view.FindViewById<ImageButton>(Resource.Id.accessibilityBtn);
                         accessibilityBtn.SetImageResource(Resource.Drawable.select_for_remove);
-                        accessibilityBtn.Click -= useBoardHandlerHandle;
+                        //accessibilityBtn.Click += onAccessibilityBtnClicked;
                         accessibilityBtn.Tag = true;
                     });
                 }                    
@@ -79,18 +82,21 @@ namespace Solitaire
                 ///
                 ///     If our handle is null assign a value (A method that will actually be doing the handling)
                 ///
-                useBoardHandlerHandle = useBoardHandlerHandle ?? ((object sender, EventArgs e) => {
-                    Intent detailsOfBoard = new Intent(callerActivity, typeof(DetailsBoardActivity));
-                    detailsOfBoard.PutExtra("BoardId", GetItemId(position));
-                    callerActivity.StartActivity(detailsOfBoard);
+                onAccessibilityBtnClicked = onAccessibilityBtnClicked ?? ((object sender, EventArgs e) => {
+
+                    View senderLinearLayout = ((View)sender).Parent.Parent as View;
+                    string boardName = ((BoardViewHolder)listViewChildren.Single(linearLayout => linearLayout.Equals(senderLinearLayout)).Tag).Name.Text;
+
+                    AccessibilityBtnClicked?.Invoke(senderLinearLayout, (ImageButton)sender, boardName);
                 });
+
+                accessibilityBtn.Click += onAccessibilityBtnClicked;
 
                 view.Tag = new BoardViewHolder() { Name = name, TotalDecks = totalDecks, TotalCards = totalCards, TotalContributors = totalContributors, DetailsBoardBtn = accessibilityBtn };                
             }
 
             BoardViewHolder holder = (BoardViewHolder)view.Tag;
            
-
             switch (BoardAdapterMode)
             {                
                 case BoardAdapterMode.UseBoard:
@@ -114,19 +120,64 @@ namespace Solitaire
             return view;
         }
 
+        ///
+        ///     Launches the details activity for the board 
+        /// 
+        private void LaunchDetailsActivity(View _senderLinearLayout, ImageButton sender, string _boardName)
+        {
+            Intent detailsOfBoard = new Intent(callerActivity, typeof(DetailsBoardActivity));
+            detailsOfBoard.PutExtra("BoardId", AssetManager.boards.Single(board => board.Name == _boardName).Id);
+            callerActivity.StartActivity(detailsOfBoard);
+        }
+
+        /// 
+        ///     Selects this board for deletion and can be toggled
+        /// 
+        public void SelectForDelete(View _senderLinearLayout, ImageButton _imageButton, string _boardName)
+        {
+            // If the board is within the list then it is up for deletion
+            Board thisBoard = AssetManager.boards.Single(board => board.Name == _boardName);
+
+            if (boardsToDelete.Contains(thisBoard))
+            {                
+                boardsToDelete.Remove(thisBoard);
+                _imageButton.SetImageResource(Resource.Drawable.select_for_remove);
+                _senderLinearLayout.SetBackgroundColor(Android.Graphics.Color.Transparent);
+            }
+            else
+            {                
+                boardsToDelete.Add(thisBoard);
+                _imageButton.SetImageResource(Resource.Drawable.remove_from_select);
+                _senderLinearLayout.SetBackgroundResource(Resource.Color.deleteColor);
+            }
+
+
+            // The view's accessibilityBtn hasn't been set to the correct image yet.. do so
+            if (!(bool)_imageButton.Tag)
+            {
+                _imageButton.SetImageResource(Resource.Drawable.select_for_remove);
+                _senderLinearLayout.SetBackgroundColor(Android.Graphics.Color.Transparent);
+                _imageButton.Tag = true;
+            }
+        }
+
         /// 
         ///    Updates the views when deleting them
         /// 
         private void UIUpdatesForDeletingBoards(View _view, Board _board)
         {
+            ImageButton accessibilityBtn = _view.FindViewById<ImageButton>(Resource.Id.accessibilityBtn);
+
             // If the board is within the list then it is up for deletion
             if (boardsToDelete.Contains(_board))
             {
-                _view.SetBackgroundResource(Resource.Color.deleteColor);                
+                accessibilityBtn.SetImageResource(Resource.Drawable.remove_from_select);
+                _view.SetBackgroundResource(Resource.Color.deleteColor);
             }
             else
             {
-                _view.SetBackgroundColor(Android.Graphics.Color.Transparent);                
+                accessibilityBtn.SetImageResource(Resource.Drawable.select_for_remove);
+                _view.SetBackgroundColor(Android.Graphics.Color.Transparent);
             }
 
             var imageBtn = _view.FindViewById<ImageButton>(Resource.Id.accessibilityBtn);

@@ -1,1 +1,54 @@
-<LinearLayout android:orientation="vertical" android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingTop="16dp" android:paddingLeft="16dp" android:paddingRight="16dp" xmlns:android="http://schemas.android.com/apk/res/android"><TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="20dp" android:text="Add New Board" /><LinearLayout android:id="@+id/inputDataLayout" android:layout_height="wrap_content" android:layout_width="wrap_content" android:orientation="vertical" android:layout_marginTop="16dp"><EditText android:id="@+id/nameEditTextDialog" style="@style/CustomDialogEditText" android:hint="Board Name" /><EditText android:id="@+id/descriptionTextDialog" style="@style/CustomDialogEditTextDescription" android:hint="Board Description" /></LinearLayout><RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content"><Button android:id="@+id/createBoardBtn" style="@style/CustomDialogButton" android:layout_alignParentRight="true" android:text="Add" /><Button android:id="@+id/cancelBoardBtn" style="@style/CustomDialogButton" android:layout_alignParentLeft="true" android:text="Cancel" /></RelativeLayout></LinearLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+  
+  <TextView
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:textSize="20dp"
+      android:text="Add New Board" />
+  
+  <LinearLayout
+      android:id="@+id/inputDataLayout"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:orientation="vertical"
+      android:layout_marginTop="16dp">
+    
+    <EditText
+        android:id="@+id/nameEditTextDialog"
+        style="@style/CustomDialogEditText"
+        android:hint="Board Name" />
+
+    <EditText
+        android:id="@+id/descriptionTextDialog"
+        style="@style/CustomDialogEditTextDescription"            
+        android:hint="Board Description" />
+
+  </LinearLayout>
+  
+  <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+    
+    <Button
+        android:id="@+id/createBoardBtn"
+        style="@style/CustomDialogButton"
+        android:layout_alignParentRight="true"
+        android:text="Add" />
+        
+    <Button
+        android:id="@+id/cancelBoardBtn"
+        style="@style/CustomDialogButton"
+        android:layout_alignParentLeft="true"
+        android:text="Cancel" />
+        
+    </RelativeLayout>
+  
+</LinearLayout>

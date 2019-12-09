@@ -3498,22 +3498,25 @@ namespace Solitaire
 			public const int notify_panel_notification_icon_bg = 2131165343;
 			
 			// aapt resource value: 0x7F0700A0
-			public const int ripple = 2131165344;
+			public const int remove_from_select = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int roundedcorner = 2131165345;
+			public const int ripple = 2131165345;
 			
 			// aapt resource value: 0x7F0700A2
-			public const int select_for_remove = 2131165346;
+			public const int roundedcorner = 2131165346;
 			
 			// aapt resource value: 0x7F0700A3
-			public const int solitaire_icon = 2131165347;
+			public const int select_for_remove = 2131165347;
 			
 			// aapt resource value: 0x7F0700A4
-			public const int tooltip_frame_dark = 2131165348;
+			public const int solitaire_icon = 2131165348;
 			
 			// aapt resource value: 0x7F0700A5
-			public const int tooltip_frame_light = 2131165349;
+			public const int tooltip_frame_dark = 2131165349;
+			
+			// aapt resource value: 0x7F0700A6
+			public const int tooltip_frame_light = 2131165350;
 			
 			static Drawable()
 			{

@@ -176,28 +176,13 @@ namespace Solitaire
         /// 
         private void SelectBoardsForDeletion(object sender, AdapterView.ItemClickEventArgs args)
         {
-            // args.View, ((View)sender), args.Parent... all == the listview
+            LinearLayout senderLinearLayout = (LinearLayout)args.View;
 
-            // Getting our boards adapter using my own 
-            var boardAdapter = boardListView.GetBoardAdapter();
+            BoardAdapter boardAdapter = boardListView.GetBoardAdapter();
 
-            // Getting a reference to the view (LinearLayout) then using that ref and accessing its Tag (BoardViewHolder) to get the name of the board
-            // Once we obtain the board's name we can lookup that board instance and add it to the list of boards to be deleted
-            View selectedView = boardAdapter.listViewChildren.Single(view => view.Equals(args.View));
-            Board selectedBoard = AssetManager.boards.Single(board => board.Name == ((BoardViewHolder)selectedView.Tag).Name.Text);
+            string boardName = ((BoardViewHolder)boardAdapter.listViewChildren.Single(linearLayout => linearLayout.Equals(senderLinearLayout)).Tag).Name.Text;
 
-            // If the user hasn't selected this board before add it and to the list for deletion
-            if (!boardAdapter.boardsToDelete.Contains(selectedBoard))
-            {
-                selectedView.SetBackgroundResource(Resource.Color.deleteColor);    
-                boardAdapter.boardsToDelete.Add(selectedBoard);
-            }
-            // If the user has selected this board and now clicks it again, remove it from the list
-            else
-            {
-                selectedView.SetBackgroundColor(Color.Transparent);
-                boardAdapter.boardsToDelete.Remove(selectedBoard);
-            }
+            boardAdapter.SelectForDelete(senderLinearLayout, senderLinearLayout.FindViewById<ImageButton>(Resource.Id.accessibilityBtn), boardName);
         }
 
         ///

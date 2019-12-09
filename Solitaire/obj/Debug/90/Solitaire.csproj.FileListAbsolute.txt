@@ -3995,3 +3995,5 @@ C:\Dev\Solitaire-Team-Manager\Solitaire\obj\Debug\90\stamp\_GenerateJavaStubs.st
 C:\Dev\Solitaire-Team-Manager\Solitaire\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Dev\Solitaire-Team-Manager\Solitaire\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 C:\Dev\Solitaire-Team-Manager\Solitaire\obj\Debug\90\res\drawable\select_for_remove.png
+C:\Dev\Solitaire-Team-Manager\Solitaire\obj\Debug\90\Solitaire.csprojAssemblyReference.cache
+C:\Dev\Solitaire-Team-Manager\Solitaire\obj\Debug\90\res\drawable\remove_from_select.png
