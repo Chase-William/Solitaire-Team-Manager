@@ -22,6 +22,7 @@ using Newtonsoft.Json;
 Chase - My Master Piece -- Main activity for the user to interact with the cards
 
 */
+
 namespace Solitaire
 {
     [Activity(Label = "UseBoardActivity")]
@@ -352,7 +353,8 @@ namespace Solitaire
             {
                 // Triggering the ItemSource to update the UI by assigning the kanbanModels
                 // I tried to find like a NotfifySubSetChanged method to trigger a UI update but this what I found works
-                thisKanban.ItemsSource = kanbanModels; 
+                // We only want the kanbanModels that are finished to appear
+                thisKanban.ItemsSource = kanbanModels.Where(kanbanModel => (string)kanbanModel.ColorKey != FINISHED_CARD_COLOR); 
             }
         }
 
