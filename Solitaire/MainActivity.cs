@@ -13,9 +13,23 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.Design.Widget;
 using Android.Graphics.Drawables;
-
+/*
+* Project           : Solitaire-Team-Manager
+*
+* Author            : Chase Roth
+* 
+* Professor         : Brian Trager
+* 
+* Class             : NMAD.260.01 - Mobile App Development 1
+*
+* Purpose           : A Xamarin.Android mobile application that is based off trello. See readme @ 
+*                       https://github.com/ChaseRoth/Solitaire-Team-Manager for me details.     
+*/
 namespace Solitaire
 {   
+    /// 
+    ///     Title of the application was changed to have for relaitivity to what it actually does
+    /// 
     [Activity(Label = "STM", MainLauncher = true)] 
     public class MainActivity : AppCompatActivity
     {
@@ -55,7 +69,6 @@ namespace Solitaire
             // headerView.FindViewById<Refractored.Controls.CircleImageView>(Resource.Id.avatarForNavHeader).SetImageDrawable(AssetManager.QueryGoogleAccountAvatar());
 
             //var test = AssetManager.thisGoogleAccount;
-
 
             // ClientManager.InitClientSocket();
         }

@@ -91,6 +91,11 @@ ListView;obj\Debug\90\res\layout\details_board_activity.xml
 ListView;obj\Debug\90\res\layout\details_card_activity.xml
 ListView;obj\Debug\90\res\layout\edit_board_activity.xml
 ListView;obj\Debug\90\res\layout\list_boards_fragment.xml
+md54908d67eb9afef4acc92753cc61471e9.CircleImageView;obj\Debug\90\res\layout\contributor_row.xml
+md54908d67eb9afef4acc92753cc61471e9.CircleImageView;obj\Debug\90\res\layout\details_card_activity.xml
+md54908d67eb9afef4acc92753cc61471e9.CircleImageView;obj\Debug\90\res\layout\edit_card_activity.xml
+md54908d67eb9afef4acc92753cc61471e9.CircleImageView;obj\Debug\90\res\layout\nav_header.xml
+md5ce013bcf3062ee1948fb83ecb8b7d3fa.SfKanban;obj\Debug\90\res\layout\use_board_activity.xml
 menu;obj\Debug\90\res\menu\details_menu.xml
 menu;obj\Debug\90\res\menu\edit_menu.xml
 menu;obj\Debug\90\res\menu\navigation_menu.xml

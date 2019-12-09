@@ -13,6 +13,12 @@ namespace Solitaire
     /// 
     public enum BoardAdapterMode { DeleteBoards, UseBoard }
 
+    /// 
+    ///
+    ///     Behavior changed based off user feedback. Now the selection process to delete boards provides
+    ///         way more visual feedback for the user.
+    /// 
+    /// 
     public class BoardAdapter : BaseAdapter<Board>
     {
         List<Board> boards;

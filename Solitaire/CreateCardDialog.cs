@@ -30,19 +30,12 @@ namespace Solitaire
             var cancelDeckBtn   = FindViewById<Button>(Resource.Id.cancelDeckBtn);
             var categorySpinner = FindViewById<Spinner>(Resource.Id.categorySpinnerDialog);
 
-
-            //
-            //      IMPORTANT: this list is used for the Spinner's Adapter!     
-            //
+            /// Filling our spinner with deck names
             foreach (var deck in UseBoardActivity.thisKanban.Columns)
             {
                 // A Deck only is allowed 1 category right now hence we index 0
                 categories.Add((string)deck.Categories[0]);
             }
-
-
-            // TODO: Customize the spinner adapter
-
 
             // Creating our adapter for our spinner which allows the user to choose which category this shall be assigned to
             var adapter = new ArrayAdapter<string>(callerActivity, Android.Resource.Layout.SimpleSpinnerItem, categories);

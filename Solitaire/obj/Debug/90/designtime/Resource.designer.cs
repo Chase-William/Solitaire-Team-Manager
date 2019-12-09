@@ -4750,25 +4750,22 @@ namespace Solitaire
 			public const int notification_template_part_time = 2131427409;
 			
 			// aapt resource value: 0x7F0B0052
-			public const int remove_from_select = 2131427410;
+			public const int select_dialog_item_material = 2131427410;
 			
 			// aapt resource value: 0x7F0B0053
-			public const int select_dialog_item_material = 2131427411;
+			public const int select_dialog_multichoice_material = 2131427411;
 			
 			// aapt resource value: 0x7F0B0054
-			public const int select_dialog_multichoice_material = 2131427412;
+			public const int select_dialog_singlechoice_material = 2131427412;
 			
 			// aapt resource value: 0x7F0B0055
-			public const int select_dialog_singlechoice_material = 2131427413;
+			public const int support_simple_spinner_dropdown_item = 2131427413;
 			
 			// aapt resource value: 0x7F0B0056
-			public const int support_simple_spinner_dropdown_item = 2131427414;
+			public const int toolbar = 2131427414;
 			
 			// aapt resource value: 0x7F0B0057
-			public const int toolbar = 2131427415;
-			
-			// aapt resource value: 0x7F0B0058
-			public const int use_board_activity = 2131427416;
+			public const int use_board_activity = 2131427415;
 			
 			static Layout()
 			{

@@ -44,15 +44,11 @@ namespace Solitaire
             // Creates a dialog of the non-contributing contributors for adding
             FindViewById<Button>(Resource.Id.addContributorBtn).Click += delegate
             {
-                //ManipulateContributor = AddContributor;
-                //SetUIToMode(ManipulatingContributorMode.Adding);
                 new ContributorListDialog(this, ManipulatingContributorMode.Adding);
             };
             // Creates a dialog of the contributing contributors for removing
             FindViewById<Button>(Resource.Id.removeContributorBtn).Click += delegate
             {
-                //ManipulateContributor = RemoveContributor;
-                //SetUIToMode(ManipulatingContributorMode.Removing);
                 new ContributorListDialog(this, ManipulatingContributorMode.Removing);
             };
 
@@ -141,7 +137,10 @@ namespace Solitaire
             }
             else
             {
-                Toast.MakeText(this, "This name is already being used.", ToastLength.Long).Show();                
+                ///
+                ///     Added from user feedback
+                ///
+                Toast.MakeText(this, "This name is already being used or is not allowed.", ToastLength.Long).Show();                
                 return;
             }                                           
         }

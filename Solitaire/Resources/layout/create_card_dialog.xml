@@ -29,6 +29,8 @@
         style="@style/CustomDialogEditText"
         android:hint="Card Description" />
 
+    <!-- Added based off user feedback, needed a title for the spinner containing
+            deck names that the card can be assigned to -->
     <TextView
         android:text="Select a deck for this card."
         android:layout_marginTop="10dp"
